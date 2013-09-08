@@ -1,0 +1,802 @@
+﻿* {
+    margin: 0;
+    padding: 0;  
+}
+
+body {    
+    font-size: 12px;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    color: #696969;
+    margin: 0;
+    padding: 0;
+    background-color: #E4F1F7;
+    line-height: normal;
+}
+
+#body
+{
+    width: 100%;
+    background-color: white;
+    padding-bottom: 20px;
+    padding-top: 15px;
+    min-height: 350px;
+}
+
+#content
+{
+    width: 70%;
+    margin: 0 auto;
+    display: block;
+    background-color: white;    
+}
+
+#userInfo
+{
+    padding-right: 10px;      
+    background-color: #3c3d44;    
+    height: 20px;
+}
+
+#userInfo p
+{
+    color: white;
+    float: right;
+    margin-top: 2px;
+}
+
+#userInfo p a
+{
+    color: white;
+    font-weight: bold;
+}
+
+header
+{    
+    height: 70px;
+    border-bottom: 5px solid #E4F1F7;
+    background-color: #58A5CA;
+}
+
+header #logo
+{    
+    margin-left: 15px;    
+    position: absolute;
+}
+
+header #logo h1
+{    
+    font: small-caps bold 1.8em Trebuchet MS, Arial, sans-serif;
+    font-size: 35px;
+    color: #05005F;
+    float: left;
+}
+
+header #logo h2
+{    
+    font: small-caps bold 1.8em Trebuchet MS, Arial, sans-serif;
+    font-size: 15px;
+    color: White;
+    float: right;
+    font-style: italic;
+    margin-left: 10px;
+    padding-top: 18px;
+}
+
+nav
+{
+    height: 40px;
+    background-color: #58A5CA;
+    color: white;
+    float: right;  
+    margin-top: 0;
+}
+
+nav.main 
+{
+    clear: both;
+    display: block;
+}
+
+nav.main ul a {
+color: white;
+display: block;
+font-size: 1.5em;
+height: 40px;
+line-height: 40px;
+margin: 0 5px;
+padding: 0 10px;
+text-decoration: none;
+}
+
+nav.main ul li {
+display: block;
+float: left;
+height: 40px;
+}
+
+nav.main ul li.current a {
+background-color: #E4F1F7;
+border: 1px solid #EBF2F5;
+border-top: 1px solid white;
+border-bottom: none;
+color: #195670;
+height: 44px;
+line-height: 42px;
+position: relative;
+text-decoration: none;
+top: -4px;
+}
+
+nav.main ul a:hover 
+{
+background-color: #3c3d44;
+text-decoration: none;
+}
+
+footer
+{
+    border-top: 2px solid #CCC;
+    padding-top: 5px;
+}
+
+footer p
+{
+    text-align: center;
+}
+
+#content h2
+{
+    margin-bottom:10px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+#taskcalendar 
+{
+    font-size: 0.8em;
+    width: 100%;
+}
+
+#taskcalendar td
+{
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.milestone 
+{
+    float: left;
+    margin: 2px;
+    padding: 3px;
+}
+
+.processStep
+{
+    text-align: center;
+    padding: 3px;
+    margin: 1px;
+    font-weight: bold;
+    color: white;
+    float: left;
+}
+
+.calendarcolumn {
+    text-align: center;
+    margin: 0 auto;    
+}
+
+.ownercalendarcolumn {
+    font-weight: bold;
+    color: white;
+    font-size: 1.2em;
+}
+
+.isMeeting
+{
+    padding: 3px;
+    font-weight: bold;
+    background-color: black;
+    color: black;
+}
+
+.role
+{
+    margin: 2px;
+    padding: 3px;
+}
+
+.display-label
+{
+    float: left;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.display-field
+{
+    
+}
+
+#content fieldset
+{
+    padding: 10px;
+    margin: 10px;
+}
+
+#content fieldset legend
+{
+    color: #333;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+#contactsContainer h3
+{
+    margin-bottom:1.3em;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#siteContacts
+{
+    float: left;
+    margin: 10px;
+    width: 48%;
+    border-right: 1px solid #CCC;
+    min-height: 250px;
+}
+
+#companyContacts
+{
+    float: right;
+    margin: 10px;
+    width: 48%;
+}
+
+.DataTables_sort_icon
+    {
+        float: left;
+    }
+    
+    .taskcalendar th
+    {
+        min-width: 60px;
+    }
+    
+    #tabs
+    {
+        border: 0;
+    }
+    
+    div.DTTT_container
+    {
+        float: left;
+        margin-bottom: 5px;
+    }
+    
+    .rectangle
+    {
+        float: left;
+        margin-bottom: 5px;
+        margin-right: 10px;
+        border: 1px solid #EEE;
+        padding: 5px;
+    }
+    
+    /*a.rectangleButton 
+    {
+        float: left;
+        margin-left: 7px;
+        margin-right: 7px;
+        padding-left: 7px;
+        padding-right: 7px;
+        background-color: #4585AA;
+        background-image: -ms-linear-gradient(top, #4585aa 0%, #376783 100%);
+        background-image: -o-linear-gradient(top, #4585aa 0%, #376783 100%);
+        background-image: -webkit-linear-gradient(top, #4585aa 0%, #376783 100%);
+        background-image: linear-gradient(top, #4585aa 0%, #376783 100%);
+        border: solid 1px #376783;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        box-shadow: inset 0px 0px 1px rgba(255,255,255,1), 1px 1px 1px rgba(0,0,0,0.3);
+        color: white;
+        display: block;
+        font-size: 1.5em;
+        line-height: 1.5em;
+        text-align: center;
+        outline: none;
+        text-decoration: none;
+    }*/
+    
+    /*a.rectangleButton:hover 
+    {
+        background-color: #376783;
+        background-image: -webkit-linear-gradient(top, #64a3c8 0%, #1d4760 100%);
+        background-image: linear-gradient(top, #64a3c8 0%, #1d4760 100%);
+        border-color: #4585AA;
+        text-decoration: none;
+    }*/    
+    
+    .chkprodline:hover
+    {
+        background-color: #EEE;
+        color: black;
+        border: 1px solid #CCC;
+    }
+    
+    .chkprodline input
+    {
+        margin-right: 3px;
+    }
+    
+    .floatLeft {
+        float: left;
+    }
+    
+    .floatRight {
+        float: right;
+    }
+    
+    select {
+        padding: 5px;
+    }
+    
+    /*input[type="submit"] 
+    {
+        float: left;
+        margin-left: 7px;
+        margin-right: 7px;
+        padding-left: 7px;
+        padding-right: 7px;
+        background-color: #4585AA;
+        background-image: -ms-linear-gradient(top, #4585aa 0%, #376783 100%);
+        background-image: -o-linear-gradient(top, #4585aa 0%, #376783 100%);
+        background-image: -webkit-linear-gradient(top, #4585aa 0%, #376783 100%);
+        background-image: linear-gradient(top, #4585aa 0%, #376783 100%);
+        border: solid 1px #376783;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        box-shadow: inset 0px 0px 1px rgba(255,255,255,1), 1px 1px 1px rgba(0,0,0,0.3);
+        color: white;
+        display: block;
+        font-size: 1.5em;
+        line-height: 1.5em;
+        text-align: center;
+        outline: none;
+        text-decoration: none;
+    }*/
+    
+    /*input[type="submit"]:hover { 
+            background-color: #376783;
+            background-image: -webkit-linear-gradient(top, #64a3c8 0%, #1d4760 100%);
+            background-image: linear-gradient(top, #64a3c8 0%, #1d4760 100%);
+            border-color: #4585AA;
+            text-decoration: none;
+            cursor: pointer; 
+            cursor: hand
+        }*/
+        
+#errorsContainer 
+{
+    clear: both;  
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid red;
+    background-color: #EEE;
+}
+        
+#errorTasklist {
+    color: red;
+}
+
+#deletedContainer 
+{
+    clear: both;  
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    background-color: #EEE;
+}
+        
+#deletedTasklist {
+    color: black;
+}
+        
+#skippedContainer 
+{
+    clear: both;  
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid yellow;
+    background-color: #EEE;
+}
+
+#skippedTasklist {
+    color: yellowgreen;
+}
+        
+#addedContainer 
+{
+    clear: both;  
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid blue;
+    background-color: #EEE;
+}
+
+#addedTasklist {
+    color: blue;
+}
+
+#updateContainer
+{
+    clear: both;  
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid green;
+    background-color: #EEE;
+}
+
+#updatedTasklist {
+    color: green;
+}
+
+.form-field label {
+color: #52A4CA;
+display: block;
+font-size: 1.30em;
+margin-bottom: 5px;
+}
+
+.form-field input[type="checkbox"] {
+    margin: 5px;    
+}
+
+.form-field input[data-val-required], .form-field textarea[data-val-required] {
+border-left: solid 5px #52A4CA;
+}
+
+.form-field textarea, .form-field input[type="text"], .form-field input[type="file"], .form-field input[type="password"] {
+/*background: white url("../content/images/inputBackground.png") repeat-x;*/
+border: solid 1px #CCC;
+color: #7F8C7D;
+font-size: 1.25em;
+padding: 5px 0 5px 10px;
+width: 300px;
+vertical-align: middle;
+border-image: initial;
+}
+
+.form-field .editor-field {
+    margin-bottom: 10px;
+}
+
+a.tablelink:link, a.tablelink:visited
+{
+    color: #333;
+    text-decoration: none;
+}
+
+#taskcalendar a:hover {
+    text-decoration: underline;
+}
+
+tr {
+    border-bottom: 1px solid #EEE;
+}
+
+.add {
+    /*background: white url("../content/images/plus_add_green_small.png") repeat-x;
+    text-indent: -9999px; 
+    display: block;
+    width: 16px;
+    height: 16px;*/
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.spacedelement {
+    margin: 10px;
+}
+
+a.smallButton 
+    {
+        float: left;
+        margin-left: 4px;
+        margin-right: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
+    padding-bottom: 2px;
+        background-color: #6DCC44;
+        background-image: -ms-linear-gradient(top, #6DCC44 0%, #59B232 100%);
+        background-image: -o-linear-gradient(top, #6DCC44 0%, #59B232 100%);
+        background-image: -webkit-linear-gradient(top, #6DCC44 0%, #59B232 100%);
+        background-image: linear-gradient(top, #6DCC44 0%, #59B232 100%);
+        border: solid 1px #59B232;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        box-shadow: inset 0px 0px 1px rgba(255,255,255,1), 1px 1px 1px rgba(0,0,0,0.3);
+        color: white;
+        display: block;
+        font-size: 1.0em;
+        line-height: 1.0em;
+        /*margin-top: 25px;*/
+        text-align: center;
+        outline: none;
+        text-decoration: none;
+    }
+    
+    a.smallButton:hover 
+    {
+        background-color: #3B8D18;
+        background-image: -webkit-linear-gradient(top, #3B8D18 0%, #4DA727 100%);
+        background-image: linear-gradient(top, #3B8D18 0%, #4DA727 100%);
+        border-color: #3B8D18;
+        text-decoration: none;
+    }    
+    
+    .breadcrumb {
+	list-style: none;
+	overflow: hidden;
+}
+.breadcrumb li {
+	float: left;
+	padding-left: 5px;
+    line-height: 25px;
+}
+.breadcrumb li a {
+	
+}
+
+.breadcrumb li a:hover {
+    color: #919497;
+}
+
+.breadcrumb li a:after {
+	content: url("../content/images/breadcrumbseparator2.png");
+	padding-left: 10px;
+	padding-right: 5px;
+}
+
+.breadcrumb li a:before {
+	
+}
+
+.deliverable {
+    font-size: 0.9em;    
+}
+
+.centered {
+    text-align: center;
+}
+
+table.weekcalendar tr td {
+    border: 1px solid black;
+    width: 50px;
+    height: 15px;
+}
+
+.ui-tabs .ui-tabs-panel {
+    padding: 0;
+    padding-top: 5px;
+}
+
+/* calendar */
+table.calendar {
+    border-left: 1px solid #999;
+    width: 100%;
+    table-layout: fixed;
+    page-break-inside: auto;
+    /*margin-bottom: 5px;*/
+}
+
+.tableidentifier {
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+}
+
+tr.calendar-row {
+    page-break-inside:avoid;
+    page-break-after: auto; 
+}
+
+td.calendar-day {
+     min-height:80px; 
+     font-size:11px; 
+     position:relative;
+     vertical-align: top;
+} 
+
+    thead.calendar {
+        display: table-header-group;
+    }
+
+* html div.calendar-day {
+     height:80px;
+}
+
+td.calendar-day:hover {
+     background:#eceff5;
+}
+
+td.calendar-day-np {
+     background:#eee; 
+     min-height:80px;
+} 
+
+* html div.calendar-day-np {
+     height:80px;
+}
+
+td.calendar-day-head, th.calendar-day-head, td.calendar-side-label {
+     background:#ccc; 
+     font-weight:bold; 
+     text-align:center; 
+     /*width:160px; */
+     padding:5px; 
+     border-bottom:1px solid #999; 
+     border-top:1px solid #999; 
+     border-right:1px solid #999;
+}
+
+.day-number {
+     background:#999; 
+     padding:5px; 
+     color:#fff; 
+     font-weight:bold; 
+     float:right; 
+     margin:0; 
+     width:20px; 
+     text-align:center;
+}
+
+/* shared */
+td.calendar-day, td.calendar-day-np {
+    text-align: center; 
+    border-bottom:1px solid #999; 
+    border-right:1px solid #999;
+}
+
+.calendarWeekTaskBox {
+    padding: 3px;
+    word-break: break-all; 
+    word-wrap: break-word;
+}
+
+table.calendar a {
+    /*padding-left: 2px;
+    padding-right: 2px;*/
+    text-decoration: none;
+}
+
+table.calendar a:hover {    
+    text-decoration: underline;
+}
+
+a:link.linkwithbackground, a:visited.linkwithbackground {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover.linkwithbackground {
+    text-decoration: underline;
+}
+
+/*.nicepanel {
+    border: 1px solid #A4B5B8;
+    background-color: #E8EFF3;
+    padding: 5px;
+    width: 45%;
+    margin-bottom: 5px;
+}*/
+
+#txtFrom, #txtTo {
+    width: 35%;
+}
+
+#btnDisplay {
+    width: 20%;
+}
+
+.dataTables_filter label input {
+    float: right;
+    height: 14px;
+    margin: 5px;    
+}
+
+.dataTables_filter label {
+    margin-bottom: 0;
+    line-height: 30px;
+}
+
+.rectangle label {
+    display: inline;
+}
+
+#calendarHeaderContainer {
+    margin-bottom: 5px;
+}
+
+.ui-tabs-nav {
+    background: white;
+    border: 0;
+}
+
+#calendarActionsView a {
+    color: white;
+}
+
+#calendarActionsView {
+    float: left;    
+    margin-right: 15px;
+    margin-top: 3px;
+    margin-bottom: 1px;
+}
+
+.dataTables_filter {
+    width: 30%;
+}
+
+a.inactive:link, a.inactive:visited {
+    color: rgb(192, 185, 185);
+}
+
+#filterWeeklyView {
+    width: 65%;
+    margin-bottom: 5px;
+}
+
+.milestonecell  {
+    width: 70px;
+}
+
+.dependency a {
+    color: blue;
+}
+
+.dependency:before {
+	content: url("../content/images/breadcrumbseparator2.png");
+    float: left;
+    width: 18px;
+}
+
+#loader {
+    float: right;
+    margin: 5px;
+}
+
+/*Validation*/
+.field-validation-error{color: #ff0000;}
+.input-validation-error{border: 1px solid #ff0000; background-color: #ffeeee;}
+.validation-summary-errors{color: #ff0000;}
+
+#newLoginDetails {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 5px;
+}
+
+#roleFilter 
+{
+    display:block;
+}
+
+#roleSelector
+{
+    margin-right:10px;
+}
+
+.ui-multiselect-header a 
+{
+    font-size:0.8em;
+    border:1px solid transparent;
+}

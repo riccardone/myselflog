@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A773B716-46C9-4107-B0D6-19A92C80F06F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MySelf.Diab.Data</RootNamespace>
+    <AssemblyName>MySelf.Diab.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthConstants.cs" />
+    <Compile Include="ContextConfig.cs" />
+    <Compile Include="Migrations\201308221248520_SecurityLinkChanges.cs" />
+    <Compile Include="Migrations\201308221248520_SecurityLinkChanges.Designer.cs">
+      <DependentUpon>201308221248520_SecurityLinkChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308230917356_something.cs" />
+    <Compile Include="Migrations\201308230917356_something.Designer.cs">
+      <DependentUpon>201308230917356_something.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308230918146_SecurityLinkUniqueIndex.cs" />
+    <Compile Include="Migrations\201308230918146_SecurityLinkUniqueIndex.Designer.cs">
+      <DependentUpon>201308230918146_SecurityLinkUniqueIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308230922534_SecurityLinkMaxLenght.cs" />
+    <Compile Include="Migrations\201308230922534_SecurityLinkMaxLenght.Designer.cs">
+      <DependentUpon>201308230922534_SecurityLinkMaxLenght.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308230924045_SecurityLink_Link_Index_Unique.cs" />
+    <Compile Include="Migrations\201308230924045_SecurityLink_Link_Index_Unique.Designer.cs">
+      <DependentUpon>201308230924045_SecurityLink_Link_Index_Unique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308230924315_SecurityLinkIndexUnique.cs" />
+    <Compile Include="Migrations\201308230924315_SecurityLinkIndexUnique.Designer.cs">
+      <DependentUpon>201308230924315_SecurityLinkIndexUnique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModelConfigurations\SecurityLinkConfiguration.cs" />
+    <Compile Include="SecurityLinkCommands.cs" />
+    <Compile Include="FriendCommands.cs" />
+    <Compile Include="DiabDbInitializer.cs" />
+    <Compile Include="DatabaseFactory.cs" />
+    <Compile Include="DiabDbContext.cs" />
+    <Compile Include="LogCommands.cs" />
+    <Compile Include="LogManager.cs" />
+    <Compile Include="Migrations\201308200828548_Start.cs" />
+    <Compile Include="Migrations\201308200828548_Start.Designer.cs">
+      <DependentUpon>201308200828548_Start.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308211312390_AddActiveToFriend.cs" />
+    <Compile Include="Migrations\201308211312390_AddActiveToFriend.Designer.cs">
+      <DependentUpon>201308211312390_AddActiveToFriend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelConfigurations\FriendConfiguration.cs" />
+    <Compile Include="ModelConfigurations\FriendActivityConfiguration.cs" />
+    <Compile Include="ModelConfigurations\LogProfileConfiguration.cs" />
+    <Compile Include="ModelConfigurations\PersonConfiguration.cs" />
+    <Compile Include="ModelConfigurations\GlucoseLevelConfiguration.cs" />
+    <Compile Include="ModelReader.cs" />
+    <Compile Include="PersonCommands.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="uniqueIndexConfiguration.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MySelf.Diab.Core.Contracts\MySelf.Diab.Core.Contracts.csproj">
+      <Project>{0F81E1BC-1CD4-4B27-BC47-C053BEEBE42C}</Project>
+      <Name>MySelf.Diab.Core.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySelf.Diab.Data.Contracts\MySelf.Diab.Data.Contracts.csproj">
+      <Project>{58E912A2-A0EB-45BA-85A1-5A715CD090B4}</Project>
+      <Name>MySelf.Diab.Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySelf.Diab.Model\MySelf.Diab.Model.csproj">
+      <Project>{412DF505-B374-4814-B014-A6437760F242}</Project>
+      <Name>MySelf.Diab.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201308200828548_Start.resx">
+      <DependentUpon>201308200828548_Start.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308211312390_AddActiveToFriend.resx">
+      <DependentUpon>201308211312390_AddActiveToFriend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308221248520_SecurityLinkChanges.resx">
+      <DependentUpon>201308221248520_SecurityLinkChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308230917356_something.resx">
+      <DependentUpon>201308230917356_something.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308230918146_SecurityLinkUniqueIndex.resx">
+      <DependentUpon>201308230918146_SecurityLinkUniqueIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308230922534_SecurityLinkMaxLenght.resx">
+      <DependentUpon>201308230922534_SecurityLinkMaxLenght.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308230924045_SecurityLink_Link_Index_Unique.resx">
+      <DependentUpon>201308230924045_SecurityLink_Link_Index_Unique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308230924315_SecurityLinkIndexUnique.resx">
+      <DependentUpon>201308230924315_SecurityLinkIndexUnique.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

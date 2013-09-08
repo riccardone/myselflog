@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Diab.Data", "MySelf.Diab.Data\MySelf.Diab.Data.csproj", "{A773B716-46C9-4107-B0D6-19A92C80F06F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Diab.Model", "MySelf.Diab.Model\MySelf.Diab.Model.csproj", "{412DF505-B374-4814-B014-A6437760F242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.WebClient", "MySelf.WebClient\MySelf.WebClient.csproj", "{9A2F2961-5CE2-49C8-BD51-2F901E720FA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Diab.Data.Contracts", "MySelf.Diab.Data.Contracts\MySelf.Diab.Data.Contracts.csproj", "{58E912A2-A0EB-45BA-85A1-5A715CD090B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Diab.Security", "MySelf.Diab.Security\MySelf.Diab.Security.csproj", "{5939D74E-21DA-4203-94AB-2EF1296C9090}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Diab.Core.Contracts", "MySelf.Diab.Core.Contracts\MySelf.Diab.Core.Contracts.csproj", "{0F81E1BC-1CD4-4B27-BC47-C053BEEBE42C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A773B716-46C9-4107-B0D6-19A92C80F06F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A773B716-46C9-4107-B0D6-19A92C80F06F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A773B716-46C9-4107-B0D6-19A92C80F06F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A773B716-46C9-4107-B0D6-19A92C80F06F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{412DF505-B374-4814-B014-A6437760F242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{412DF505-B374-4814-B014-A6437760F242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{412DF505-B374-4814-B014-A6437760F242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{412DF505-B374-4814-B014-A6437760F242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A2F2961-5CE2-49C8-BD51-2F901E720FA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A2F2961-5CE2-49C8-BD51-2F901E720FA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A2F2961-5CE2-49C8-BD51-2F901E720FA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A2F2961-5CE2-49C8-BD51-2F901E720FA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58E912A2-A0EB-45BA-85A1-5A715CD090B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58E912A2-A0EB-45BA-85A1-5A715CD090B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58E912A2-A0EB-45BA-85A1-5A715CD090B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58E912A2-A0EB-45BA-85A1-5A715CD090B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5939D74E-21DA-4203-94AB-2EF1296C9090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5939D74E-21DA-4203-94AB-2EF1296C9090}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5939D74E-21DA-4203-94AB-2EF1296C9090}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5939D74E-21DA-4203-94AB-2EF1296C9090}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F81E1BC-1CD4-4B27-BC47-C053BEEBE42C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F81E1BC-1CD4-4B27-BC47-C053BEEBE42C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F81E1BC-1CD4-4B27-BC47-C053BEEBE42C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F81E1BC-1CD4-4B27-BC47-C053BEEBE42C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

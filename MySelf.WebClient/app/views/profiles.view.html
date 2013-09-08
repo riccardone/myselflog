@@ -1,0 +1,26 @@
+﻿<hgroup class="search">
+    <h1>There are {{logprofilesasowner.length}} profiles</h1>
+    <h2>Displaying results</h2>
+</hgroup>
+
+<!--<select id="profiles" ng-model="selectedprofile" name="profiles" ng-options="l.name for l in logprofilesasowner | orderBy:name">
+        <option value="">Select profile</option>
+    </select>-->
+
+<ol id="profiles" ng-repeat="profile in logprofilesasowner">
+    <li>
+        <section class="profileresult">
+            <div class="side">
+                <a ng-href="#" title="Open {{profile.name}}">...</a>
+            </div>
+            <div class="main">
+                <header>
+                    <h1>
+                        <a ng-href="/profile/{{profile.globalid}}">{{profile.name}}</a>
+                    </h1>
+                    <h2>Created ...</h2>
+                </header>
+            </div>
+        </section>
+    </li>
+</ol>

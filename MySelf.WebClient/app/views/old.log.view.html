@@ -1,0 +1,68 @@
+﻿<select id="profiles" ng-model="selectedprofile" name="profiles" ng-options="l.name for l in logprofilesasowner | orderBy:name">
+</select>
+<div>
+    <fieldset class="valueouterlist">
+        <legend>Profile: {{selectedprofile.name}}</legend>
+        <div class="left">
+            <input type="text" data-ng-model="item.value" placeholder="Type a numeric value" />
+            <textarea data-ng-model="item.message" placeholder="Type a message (optional)"></textarea>
+            <input type="hidden" data-ng-model="item.selectedProfileId" value="selectedprofile.globalid" />
+            <button id="Button1" name="btnSubmit" ng-click="addValue()" class="btn btn-primary">Submit</button>
+        </div>
+        <article id="Article" ng-controller="GraphController">
+            <div id="diaryGraph" style="width: 98%; height: 400px; float: left; margin-right: 5px"></div>
+        </article>
+        <aside id="Aside">
+            <div class="valueinnerlist" ng-repeat="log in selectedprofile.logs | orderBy:LogDate:reverse">
+                <button ng-click="remove(log)" class="btn btn-warning">X</button>
+                {{log.value}} - {{log.logdate}}
+            </div>
+            <p ng-show="selectedprofile.logs == 0">There are not any logged values</p>
+            <div>
+                <p><a ng-href="{{selectedprofile.securityLink}}" target="blank">{{selectedprofile.securityLink}}</a></p>
+                <button class="btn btn-default" ng-click="addSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securityLink.length == 0">Share with a link</button>
+                <button class="btn btn-default" ng-click="addSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securityLink.length > 0">Create new share link</button>
+                <button class="btn btn-default" ng-click="deleteSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securityLink.length > 0">Delete share link</button>
+            </div>
+            <div>
+                <label for="txtFriendEmail">Allow a friend to see your diary</label>
+                <input type="text" ng-model="friendEmail" name="txtFriendEmail" id="Text1" />
+                <button class="btn btn-default" ng-click="addFriend(friendEmail, selectedprofile.globalid)">Add friend</button>
+            </div>
+        </aside>
+    </fieldset>
+</div>
+<!--<div ng-repeat="logasowner in logprofilesasowner | orderBy:name">
+    <fieldset class="valueouterlist">
+        <legend>Profile: {{logasowner.name}}</legend>
+        <div class="left" ng-show="logprofilesasowner.length > 0">
+            <input type="text" data-ng-model="item.value" placeholder="Type a numeric value" />
+            <textarea data-ng-model="item.message" placeholder="Type a message (optional)"></textarea>
+            <input type="hidden" data-ng-model="item.selectedProfileId" value="logasowner.globalid" />
+            <button id="btnSubmit" name="btnSubmit" ng-click="addValue()" class="btn btn-primary">Submit</button>
+        </div>
+        <article id="diary" ng-controller="GraphController">
+            <div id="diaryGraph" style="width: 98%; height: 400px; float: left; margin-right: 5px"></div>
+        </article>
+        <aside id="diaryList">
+            <div class="valueinnerlist" ng-repeat="log in logasowner.logs | orderBy:LogDate:reverse">
+                <button ng-click="remove(log)" class="btn btn-warning">X</button>
+                {{log.value}} - {{log.logdate}}
+            </div>
+            <p ng-show="logasowner.logs == 0">There are not any logged values</p>
+            <div id="addSecurityLink">
+                <p><a ng-href="{{securityLink}}" target="blank">{{securityLink}}</a></p>
+                <button class="btn btn-default" ng-click="addSecurityLink(logasowner.globalid)" ng-show="securityLink.length == 0">Share with a link</button>
+                <button class="btn btn-default" ng-click="addSecurityLink(logasowner.globalid)" ng-show="securityLink.length > 0">Create new share link</button>
+                <button class="btn btn-default" ng-click="deleteSecurityLink(logasowner.globalid)" ng-show="securityLink.length > 0">Delete share link</button>
+            </div>
+            <div id="addFriends">
+                <label for="txtFriendEmail">Allow a friend to see your diary</label>
+                <input type="text" ng-model="friendEmail" name="txtFriendEmail" id="txtFriendEmail" />
+                <button class="btn btn-default" ng-click="addFriend(friendEmail, logasowner.globalid)">Add friend</button>
+            </div>           
+        </aside>
+    </fieldset>
+</div> -->
+
+

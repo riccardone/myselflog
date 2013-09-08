@@ -1,0 +1,13 @@
+﻿@section scripts {
+    @if (@User.Identity.IsAuthenticated)
+    {
+        @Scripts.Render("~/bundles/angular")
+        @Scripts.Render("~/bundles/myselflog")
+    }
+}
+@if (@User.Identity.IsAuthenticated)
+{
+    <div data-ng-app="myselflogApp">
+        <div data-ng-view></div>
+    </div>
+} 
