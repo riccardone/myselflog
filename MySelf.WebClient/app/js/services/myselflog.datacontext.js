@@ -30,10 +30,10 @@ myselflogApp.factory('datacontext', function (logResource, logProfileResource, s
             });
         },
         addFriend: function (email, logProfileId, callback) {
-            friendResource.save({ email: email, logProfileId: logProfileId }, function (data) {
-                if (callback)
-                    callback(data);
-            });
+            //friendResource.save({ email: email, logProfileId: logProfileId }, function (data) {
+            //    if (callback)
+            //        callback(data);
+            //});
         },
         getSecureLink: function (logProfileId, callback) {
             securityLinkResource.get({ logProfileId: logProfileId }, function (data) {
