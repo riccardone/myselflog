@@ -10,6 +10,11 @@
     @Styles.Render("~/Content/bootstrap/theme")
     @Styles.Render("~/Content/morriscss")
     @Scripts.Render("~/bundles/modernizr")
+    <script type="text/javascript">
+        if (window.location.hash == '#_=_') {
+            window.location.hash = '';
+        }
+    </script>
 </head>
 <body>
     <header>
