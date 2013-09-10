@@ -1,9 +1,16 @@
-﻿<div>
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+        $('#logdatetime').datetimepicker();
+    });
+</script>
+
+<div>
     <fieldset class="valueouterlist">
         <legend>Profile: {{selectedprofile.name}}</legend>
         <div class="left">
             <input type="text" data-ng-model="item.value" placeholder="Type a numeric value" />
             <textarea data-ng-model="item.message" placeholder="Type a message (optional)"></textarea>
+            <input type="text" data-ng-model="item.logdatetime" id="logdatetime" placeholder="Select a date and time" />
             <input type="hidden" data-ng-model="item.selectedProfileId" value="selectedprofile.globalid" />
             <button id="Button1" name="btnSubmit" ng-click="addValue()" class="btn btn-primary">Submit</button>
         </div>

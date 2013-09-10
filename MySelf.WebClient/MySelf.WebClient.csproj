@@ -235,8 +235,6 @@
     <Content Include="app\js\controllers\profile.controller.js" />
     <Content Include="app\js\controllers\profiles.controller.js" />
     <Content Include="app\js\controllers\friend.controller.js" />
-    <Content Include="app\js\controllers\oldgraph.controller.js" />
-    <Content Include="app\js\controllers\old.log.controller.js" />
     <Content Include="app\js\controllers\login.controller.js" />
     <Content Include="app\js\friend.main.js" />
     <Content Include="app\js\myselflog.main.js" />
@@ -251,7 +249,6 @@
     <Content Include="app\js\services\user.resource.js" />
     <Content Include="app\views\profile.view.html" />
     <Content Include="app\views\profiles.view.html" />
-    <Content Include="app\views\old.log.view.html" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
@@ -394,6 +391,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\toastr.min.js.map" />
+    <Content Include="Scripts\dateTimePicker.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
     <Content Include="Scripts\i18n\angular-locale_af.js" />
