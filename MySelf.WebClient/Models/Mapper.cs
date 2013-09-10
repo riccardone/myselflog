@@ -32,8 +32,14 @@ namespace MySelf.WebClient.Models
             {
                 GlobalId = logProfile.GlobalId,
                 Name = logProfile.Name,
-                Logs = ToLogDto(logProfile.GlucoseLevels)
+                Logs = ToLogDto(logProfile.GlucoseLevels),
+                SecurityLink = logProfile.SecurityLink != null ? BuildSecurityLink(logProfile.SecurityLink.Link) : string.Empty
             }).ToList();
+        }
+
+        private string BuildSecurityLink(string value)
+        {
+            return string.Format("diary/{0}", value);
         }
     }
 }

@@ -16,7 +16,9 @@
 
         function setData() {
             //var logid = $routeParams.id;
-            datacontext.getLog($scope.id, setDataSucceeded);
+            if (!$scope.selectedprofile) {
+                datacontext.getLog($scope.id, setDataSucceeded);
+            }
         }
         
         function setDataSucceeded(data) {

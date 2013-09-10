@@ -43,11 +43,12 @@ namespace MySelf.WebClient.Controllers.api
         {
             try
             {
-                var logProfile =
+                var logProfiles =
                     _mapper.ToLogProfileDto(_logManager.ModelReader.GetLogProfilesAsOwner(User.Identity.Name));
-                if (logProfile == null)
+                if (logProfiles == null || logProfiles.Count == 0)
                     throw new ArgumentException("Profile not found");
-                return Request.CreateResponse(HttpStatusCode.Accepted, logProfile.First(), "application/json");
+
+                return Request.CreateResponse(HttpStatusCode.Accepted, logProfiles.First(), "application/json");
             }
             catch (Exception ex)
             {

@@ -15,5 +15,8 @@ namespace MySelf.WebClient.Models
 
         [DataMember(Name = "logs")]
         public List<LogDto> Logs { get; set; }
+
+        [DataMember(Name = "securitylink")]
+        public string SecurityLink { get; set; }
     }
 }
