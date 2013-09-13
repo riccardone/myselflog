@@ -9,4 +9,15 @@ myselflogApp.config(['$routeProvider', '$locationProvider', function ($routeProv
     $locationProvider.html5Mode(true);
 }]);
 
+myselflogApp.directive('dateTimepicker', function () {
+    var linker = function(scope, element, attrs) {
+        element.datetimepicker();
+    };
+
+    return {
+        restrict: 'A',
+        link: linker
+    };
+});
+
 myselflogApp.value('toastr', window.toastr);

@@ -24,7 +24,6 @@ namespace MySelf.WebClient
             bundles.Add(new ScriptBundle("~/bundles/jslibs")
                             .Include("~/Scripts/jquery-{version}.js")
                             .Include("~/Scripts/toastr.min.js")
-                            .Include("~/Scripts/dateTimePicker.js")
                             );
                 //.Include("~/Scripts/underscore-1.4.4.min.js")
                 //.Include("~/Scripts/moment.js"));
@@ -59,7 +58,9 @@ namespace MySelf.WebClient
                 .Include("~/Scripts/jquery.mobile*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui")
-                .Include("~/Scripts/jquery-ui-{version}.js"));
+                .Include("~/Scripts/jquery-ui-{version}.js")
+                .Include("~/Scripts/dateTimePicker.js")
+                );
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
