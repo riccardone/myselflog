@@ -22,9 +22,15 @@ namespace MySelf.WebClient
             //    consumerKey: "",
             //    consumerSecret: "");
 
+            // prod
             OAuthWebSecurity.RegisterFacebookClient(
                 appId: "262309163906980",
                 appSecret: "3439950f4bf262d8041e28cdb1b7416c");
+
+            // dev
+            //OAuthWebSecurity.RegisterFacebookClient(
+            //    appId: "170633953128198",
+            //    appSecret: "2a94e68adc55ff563a8c4ff178a85662");
 
             OAuthWebSecurity.RegisterGoogleClient();
         }

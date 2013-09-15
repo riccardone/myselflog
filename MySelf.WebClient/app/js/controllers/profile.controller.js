@@ -11,6 +11,8 @@
             ykeys: ['value'],
             labels: ['Diary']
         });
+        $scope.item = {};
+        $scope.item.logDate = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
 
         setData();
 
@@ -25,6 +27,8 @@
             $scope.selectedprofile = data;
             if ($scope.selectedprofile) {
                 $scope.graph.setData($scope.selectedprofile.logs);
+                //var now = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
+                //$scope.item.logDate = now;
             }
         }
         
@@ -85,20 +89,6 @@
         function getSecureLinkSucceeded(data) {
             $scope.selectedprofile.securityLink = data.link;
         }
-
-        //function addValue() {
-        //    var today = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
-        //    var log = { 'Value': $scope.item.value, 'LogDate': today, 'Message': $scope.item.message, 'ProfileId': $scope.selectedprofile.globalid };
-        //    datacontext.save(log, addSucceeded);
-
-        //    function addSucceeded(value) {
-        //        $scope.selectedprofile.logs.push(value);
-        //    }
-
-        //    function addFailed(error) {
-        //        // todo
-        //    }
-        //}
         
         function addValue() {
             var today = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');

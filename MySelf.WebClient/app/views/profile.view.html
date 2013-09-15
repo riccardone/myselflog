@@ -10,7 +10,7 @@
         <div class="left">
             <input type="text" data-ng-model="item.value" placeholder="Type a numeric value" />
             <textarea data-ng-model="item.message" placeholder="Type a message (optional)"></textarea>
-            <input type="text" data-ng-model="item.logdatetime" id="dateTimepicker" placeholder="Select a date and time" dateTimepicker />
+            <input type="text" ng-model="item.logDate" placeholder="Select a date and time" />
             <input type="hidden" data-ng-model="item.selectedProfileId" value="selectedprofile.globalid" />
             <button id="Button1" name="btnSubmit" ng-click="addValue()" class="btn btn-primary">Submit</button>
         </div>
