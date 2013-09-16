@@ -15,7 +15,7 @@
         $scope.item.logDate = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
 
         setData();
-        
+
         // http://docs.angularjs.org/api/ng.directive:input.text
 
         function setData() {
@@ -24,18 +24,18 @@
                 datacontext.getLog($scope.id, setDataSucceeded);
             }
         }
-        
+
         function setDataSucceeded(data) {
             $scope.selectedprofile = data;
             refreshGraph();
         }
-        
+
         function refreshGraph() {
             if ($scope.selectedprofile) {
                 $scope.graph.setData($scope.selectedprofile.logs);
             }
         }
-        
+
         function getDaysInMonth(month, year) {
             var date = new Date(year, month, 1);
             var days = [];
@@ -94,21 +94,21 @@
         function getSecureLinkSucceeded(data) {
             $scope.selectedprofile.securityLink = data.link;
         }
-        
+
         function addValue() {
-            if (logForm.$valid) {
-                var today = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
-                var log = { 'Value': $scope.item.value, 'LogDate': today, 'Message': $scope.item.message, 'ProfileId': $scope.selectedprofile.globalid };
-                datacontext.save(log, addSucceeded);
+            //if (logForm.$valid) {
+            //var today = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
+            var log = { 'Value': $scope.item.value, 'LogDate': $scope.item.logDate, 'Message': $scope.item.message, 'ProfileId': $scope.selectedprofile.globalid };
+            datacontext.save(log, addSucceeded);
 
-                function addSucceeded(value) {
-                    $scope.selectedprofile.logs.push(value);
-                    $scope.graph.setData($scope.selectedprofile.logs);
-                }
-
-                function addFailed(error) {
-                    // todo
-                }
+            function addSucceeded(value) {
+                $scope.selectedprofile.logs.push(value);
+                $scope.graph.setData($scope.selectedprofile.logs);
             }
+
+            function addFailed(error) {
+                // todo
+            }
+            //}
         }
     }]);
