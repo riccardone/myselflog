@@ -32,7 +32,7 @@
         <aside id="Aside">
             <div class="valueinnerlist" ng-repeat="log in selectedprofile.logs | orderBy:LogDate:reverse">
                 <button ng-click="remove(log)" class="btn btn-warning">X</button>
-                {{log.value}} - {{log.logdate}}
+                <a href ng-click="setReport(log.logdate, 'day')">{{log.value}} - {{log.logdate}}</a>
             </div>
             <p ng-show="selectedprofile.logs == 0">There are not any logged values</p>
             <div>

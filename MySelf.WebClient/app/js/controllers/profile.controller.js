@@ -12,7 +12,15 @@
             labels: ['Diary']
         });
         $scope.item = {};
-        $scope.item.logDate = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
+        $scope.report = "year";
+        $scope.date = getNow();
+        $scope.setReport = setReport;
+        
+        function getNow() {
+            return $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
+        }
+        
+        $scope.item.logDate = getNow();
 
         setData();
 
@@ -29,10 +37,42 @@
             $scope.selectedprofile = data;
             refreshGraph();
         }
+        
+        function setReport(date, report) {
+            $scope.report = report;
+            $scope.date = date;
+            refreshGraph();
+        }
 
         function refreshGraph() {
             if ($scope.selectedprofile) {
-                $scope.graph.setData($scope.selectedprofile.logs);
+                var logs = [];
+                var d2 = new Date($scope.date);
+                if ($scope.report == "year") {
+                    angular.forEach($scope.selectedprofile.logs, function (log) {
+                        var d = new Date(log.logdate);
+                        if (d.getYear() == d2.getYear()) {
+                            logs.push(log);
+                        }
+                    });
+                }
+                if ($scope.report == "month") {
+                    angular.forEach($scope.selectedprofile.logs, function (log) {
+                        var d = new Date(log.logdate);
+                        if ((d.getYear() == d2.getYear()) && (d.getMonth() == d2.getMonth())) {
+                            logs.push(log);
+                        }
+                    });
+                }
+                if ($scope.report == "day") {
+                    angular.forEach($scope.selectedprofile.logs, function (log) {
+                        var d = new Date(log.logdate);
+                        if ((d.getYear() == d2.getYear()) && (d.getMonth() == d2.getMonth()) && (d.getDay() == d2.getDay())) {
+                            logs.push(log);
+                        }
+                    });
+                }
+                $scope.graph.setData(logs);
             }
         }
 
@@ -103,7 +143,8 @@
 
             function addSucceeded(value) {
                 $scope.selectedprofile.logs.push(value);
-                $scope.graph.setData($scope.selectedprofile.logs);
+                refreshGraph();
+                //$scope.graph.setData($scope.selectedprofile.logs);
             }
 
             function addFailed(error) {
