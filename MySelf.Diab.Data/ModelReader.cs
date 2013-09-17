@@ -61,12 +61,16 @@ namespace MySelf.Diab.Data
 
         public LogProfile GetLogProfile(string securityLink)
         {
-            return _db.LogProfiles
+            var profile = _db.LogProfiles
                 .Include(e => e.Person)
                 .Include(f => f.Friends)
                 .Include(s => s.SecurityLink)
                 .Include(g => g.GlucoseLevels)
                 .FirstOrDefault(l => l.SecurityLink.Link == securityLink);
+
+            if (profile != null)
+                profile.GlucoseLevels = profile.GlucoseLevels.OrderBy(g => g.LogDate).ToList();
+            return profile;
         }
     }
 }
