@@ -24,8 +24,6 @@
 
         setData();
 
-        // http://docs.angularjs.org/api/ng.directive:input.text
-
         function setData() {
             //var logid = $routeParams.id;
             if (!$scope.selectedprofile) {
