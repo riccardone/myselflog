@@ -3,3 +3,7 @@
 });
 
 friendlogApp.value('toastr', window.toastr);
+
+friendlogApp.directive('graph', function () {
+    
+});

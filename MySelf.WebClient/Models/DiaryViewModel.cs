@@ -8,5 +8,7 @@ namespace MySelf.WebClient.Models
     public class DiaryViewModel
     {
         public string Link { get; set; }
+        public int Year { get; set; }
+        public int Month { get; set; }
     }
 }

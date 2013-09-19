@@ -14,5 +14,11 @@ namespace MySelf.WebClient.Controllers
             var model = new DiaryViewModel {Link = link};
             return View(model);
         }
+
+        public ActionResult Month(string link, int year, int month)
+        {
+            var model = new DiaryViewModel { Link = link, Year = year, Month = month };
+            return View(model);
+        }
     }
 }
