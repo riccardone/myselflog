@@ -101,3 +101,17 @@ aside#toc {
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
 }
+
+.previousdate {
+    float: left;
+}
+
+.middle {
+    float: left;
+}
+
+.middle h2 {
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+} 

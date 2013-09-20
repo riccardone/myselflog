@@ -13,18 +13,66 @@
             labels: ['Diary']
         });
         $scope.setReport = setReport;
-        $scope.report = "year";
+        $scope.report = "day";
         $scope.date = getNow();
         $scope.getCurrentDate = getCurrentDate;
         $scope.previous = previous;
         $scope.next = next;
+        //$scope.logs = [];
+        //$scope.days = [];
+
+        //Array.prototype.getUnique = function() {
+        //    var u = {}, a = [];
+        //    for (var i = 0, l = this.length; i < l; ++i) {
+        //        if (u.hasOwnProperty(this[i])) {
+        //            continue;
+        //        }
+        //        a.push(this[i]);
+        //        u[this[i]] = 1;
+        //    }
+        //    return a;
+        //};
+        
+        $scope.$watch('date', function () {
+            refreshGraph();
+        });
+        
+        //$scope.$watch('logprofilesasfriend', function () {
+        //    $scope.days = getDistinctDays();
+        //});
+        
+        //function getDistinctDays() {
+        //    var days = [];
+        //    angular.foreach($scope.logprofilesasfriend[0].logs, function (log) {
+        //        var dateObj = new Date(log.logDate);
+        //        days.push(new Date(dateObj.getYear(), dateObj.getMonth(), dateObj.getDay()));
+        //    });
+        //    return days.getUnique();
+        //}
         
         function previous() {
-            // setDate(dateObj.getDate()-1)
+            $scope.date = toDateString(previousDay(new Date($scope.date)));
+            //var originalDate = $scope.date;
+            //var count = 0;
+            //do {
+            //    if (count < 1000) {
+            //        $scope.date = toDateString(previousDay(new Date($scope.date)));
+            //        refreshGraph();
+            //    }
+            //    count++;
+            //} while ($scope.logs.length == 0)
+            //if ($scope.logs.length == 0) {
+            //    $scope.date = originalDate;
+            //}
         }
         
         function next() {
             $scope.date = toDateString(nextDay(new Date($scope.date)));
+        }
+        
+        function previousDay(date) {
+            date.setDate(date.getDate() - 1);
+            return date;
         }
         
         function nextDay(date) {
@@ -72,12 +120,12 @@
         function setReport(date, report) {
             $scope.report = report;
             $scope.date = date;
-            refreshGraph();
+            //refreshGraph();
         }
 
         function getDataSucceeded(data) {
             $scope.logprofilesasfriend.push(data.logprofileasfriend);
-            refreshGraph();
+            //refreshGraph();
             //if ($scope.logprofilesasfriend.length > 0) {
             //    var logs = $scope.logprofilesasfriend[0].logs;
             //    $scope.graph.setData(logs);
@@ -116,7 +164,8 @@
                     });
                 }
                 $scope.graph.setData(logs);
-                logger.info("logs loaded");
+                //$scope.logs = logs;
+                //logger.info("logs loaded");
             }
             $scope.loading = false;
         }

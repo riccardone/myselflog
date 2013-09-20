@@ -4,13 +4,13 @@
     <input type="hidden" id="link" ng-model="link" value="@Model.Link" />
     <div ng-controller="FriendController">
         <div class="diarycommands">
-            <div class="previous">
+            <div class="previousdate">
                 <a href ng-click="previous()">previous</a>
             </div>
             <div class="middle">
                 <h2>Diary view {{getCurrentDate()}}</h2>
             </div>
-            <div class="next">
+            <div class="nextdate">
                 <a href ng-click="next()">next</a>
             </div>
         </div>
