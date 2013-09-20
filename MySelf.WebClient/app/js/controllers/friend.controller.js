@@ -15,13 +15,35 @@
         $scope.setReport = setReport;
         $scope.report = "year";
         $scope.date = getNow();
-        $scope.getPrintDate = getPrintDate;
+        $scope.getCurrentDate = getCurrentDate;
+        $scope.previous = previous;
+        $scope.next = next;
         
-        function getNow() {
-            return $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
+        function previous() {
+            // setDate(dateObj.getDate()-1)
         }
         
-        function getPrintDate() {
+        function next() {
+            $scope.date = toDateString(nextDay(new Date($scope.date)));
+        }
+        
+        function nextDay(date) {
+            var e = new Date(date.getTime() + 24 * 60 * 60 * 1000);
+            if (e.getHours() != date.getHours()){
+                e = new Date(e.getTime() + (e.getHours() - date.getHours()) * 60 * 60 * 1000);
+            }
+            return e;
+        }
+        
+        function toDateString(date) {
+            return $filter('date')(date, 'yyyy-MM-dd HH:mm:ss');
+        }
+        
+        function getNow() {
+            return toDateString(new Date()); //$filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
+        }
+        
+        function getCurrentDate() {
             return $filter('date')(new Date($scope.date), 'yyyy-MM-dd');
         }
         
