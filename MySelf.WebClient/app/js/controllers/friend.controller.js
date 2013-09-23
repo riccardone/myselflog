@@ -18,8 +18,6 @@
         $scope.getCurrentDate = getCurrentDate;
         $scope.previous = previous;
         $scope.next = next;
-        //$scope.logs = [];
-        //$scope.days = [];
 
         //Array.prototype.getUnique = function() {
         //    var u = {}, a = [];
@@ -52,18 +50,6 @@
         
         function previous() {
             $scope.date = toDateString(previousDay(new Date($scope.date)));
-            //var originalDate = $scope.date;
-            //var count = 0;
-            //do {
-            //    if (count < 1000) {
-            //        $scope.date = toDateString(previousDay(new Date($scope.date)));
-            //        refreshGraph();
-            //    }
-            //    count++;
-            //} while ($scope.logs.length == 0)
-            //if ($scope.logs.length == 0) {
-            //    $scope.date = originalDate;
-            //}
         }
         
         function next() {
@@ -120,24 +106,16 @@
         function setReport(date, report) {
             $scope.report = report;
             $scope.date = date;
-            //refreshGraph();
         }
 
         function getDataSucceeded(data) {
             $scope.logprofilesasfriend.push(data.logprofileasfriend);
-            //refreshGraph();
-            //if ($scope.logprofilesasfriend.length > 0) {
-            //    var logs = $scope.logprofilesasfriend[0].logs;
-            //    $scope.graph.setData(logs);
-            //    logger.info("logs loaded");
-            //}
-            //$scope.loading = false;
+            $scope.loading = false;
         }
         
-        function refreshGraph() {
+        function getDataForCurrentReport() {
+            var logs = [];
             if ($scope.logprofilesasfriend.length > 0) {
-            //if ($scope.selectedprofile) {
-                var logs = [];
                 var d2 = new Date($scope.date);
                 if ($scope.report == "year") {
                     angular.forEach($scope.logprofilesasfriend[0].logs, function (log) {
@@ -163,10 +141,11 @@
                         }
                     });
                 }
-                $scope.graph.setData(logs);
-                //$scope.logs = logs;
-                //logger.info("logs loaded");
             }
-            $scope.loading = false;
+            return logs;
+        }
+        
+        function refreshGraph() {
+            $scope.graph.setData(getDataForCurrentReport());
         }
     }]);
