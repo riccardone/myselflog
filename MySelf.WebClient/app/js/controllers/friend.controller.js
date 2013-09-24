@@ -117,6 +117,7 @@
             var logs = [];
             if ($scope.logprofilesasfriend.length > 0) {
                 var d2 = new Date($scope.date);
+                d2.setHours(0, 0, 0, 0);
                 if ($scope.report == "year") {
                     angular.forEach($scope.logprofilesasfriend[0].logs, function (log) {
                         var d = new Date(log.logdate);
@@ -136,12 +137,14 @@
                 if ($scope.report == "day") {
                     angular.forEach($scope.logprofilesasfriend[0].logs, function (log) {
                         var d = new Date(log.logdate);
-                        if ((d.getYear() == d2.getYear()) && (d.getMonth() == d2.getMonth()) && (d.getDay() == d2.getDay())) {
+                        d.setHours(0, 0, 0, 0);
+                        if (d == d2) {
                             logs.push(log);
                         }
                     });
                 }
             }
+
             return logs;
         }
         
