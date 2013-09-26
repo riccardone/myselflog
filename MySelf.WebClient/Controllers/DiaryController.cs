@@ -12,7 +12,7 @@ namespace MySelf.WebClient.Controllers
         public ActionResult Index(string link)
         {
             var model = new DiaryViewModel {Link = link};
-            return View("Day", model);
+            return View(model);
         }
 
         //public ActionResult Month(string link, int year, int month)
