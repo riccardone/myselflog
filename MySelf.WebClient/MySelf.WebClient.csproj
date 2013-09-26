@@ -341,6 +341,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\toastr.less" />
+    <Content Include="app\js\controllers\newfriend.controller.js" />
     <None Include="Properties\PublishProfiles\Copy and paste.pubxml" />
     <None Include="Properties\PublishProfiles\webdeploy.pubxml" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
