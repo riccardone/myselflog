@@ -53,7 +53,9 @@ namespace MySelf.WebClient
                 .Include("~/app/js/friend.main.js")
                 .Include("~/app/js/services/logger.js")
                 .Include("~/app/js/services/friend.datacontext.js")
-                .Include("~/app/js/controllers/friend.controller.js"));
+                .Include("~/app/js/controllers/friend.controller.js")
+                .Include("~/app/js/controllers/newfriend.controller.js")
+                );
 
             bundles.Add(new ScriptBundle("~/bundles/jquerymobile")
                 .Include("~/Scripts/jquery.mobile*"));
