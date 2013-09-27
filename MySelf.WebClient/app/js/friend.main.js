@@ -3,6 +3,7 @@
 });
 
 friendlogApp.value('toastr', window.toastr);
+friendlogApp.value('moment', window.moment);
 
 friendlogApp.directive('graph', function () {
     

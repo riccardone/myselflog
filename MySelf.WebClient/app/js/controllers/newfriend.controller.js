@@ -1,6 +1,6 @@
 ﻿friendlogApp.controller('NewFriendController',
-    ['$scope', 'friendDatacontext', 'logger', '$filter',
-    function ($scope, friendDatacontext, logger, $filter) {
+    ['$scope', 'friendDatacontext', 'logger', '$filter', 'moment',
+    function ($scope, friendDatacontext, logger, $filter, moment) {
 		$scope.loading = false;
 		$scope.profile = { 'isLoaded': false };
 		$scope.graph = Morris.Line({
@@ -10,17 +10,23 @@
 				labels: ['Diary']
 			});
 		$scope.setReport = setReport;
-        $scope.report = "day";
-        $scope.date = getNow();
+        $scope.date = moment();
         $scope.link = "";
+        $scope.reports = [
+         { val: moment($scope.date).day(), name: "Day" },
+         { val: moment($scope.date).month(), name: "Month" },
+         { val: moment($scope.date).year(), name: "Year" }
+        ];
+        $scope.selectedreport = $scope.reports[0];
 
-		function getNow() {
-            return toDateString(new Date()); 
-        }
+        //function getNow() {
+        //    var aaa = moment().startOf('hour').fromNow();
+        //    return toDateString(new Date()); 
+        //}
 
-		function toDateString(date) {
-            return $filter('date')(date, 'yyyy-MM-dd HH:mm:ss');
-        }
+		//function toDateString(date) {
+        //    return $filter('date')(date, 'yyyy-MM-dd HH:mm:ss');
+        //}
 
 		function setReport(date, report) {
             $scope.report = report;

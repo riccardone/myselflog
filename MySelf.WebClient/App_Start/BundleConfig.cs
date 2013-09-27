@@ -24,6 +24,7 @@ namespace MySelf.WebClient
             bundles.Add(new ScriptBundle("~/bundles/jslibs")
                             .Include("~/Scripts/jquery-{version}.js")
                             .Include("~/Scripts/toastr.min.js")
+                            .Include("~/Scripts/moment.min.js")
                             );
                 //.Include("~/Scripts/underscore-1.4.4.min.js")
                 //.Include("~/Scripts/moment.js"));
