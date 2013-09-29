@@ -74,15 +74,15 @@
             }
         }
 
-        function getDaysInMonth(month, year) {
-            var date = new Date(year, month, 1);
-            var days = [];
-            while (date.getMonth() === month) {
-                days.push(new Date(date));
-                date.setDate(date.getDate() + 1);
-            }
-            return days;
-        }
+        //function getDaysInMonth(month, year) {
+        //    var date = new Date(year, month, 1);
+        //    var days = [];
+        //    while (date.getMonth() === month) {
+        //        days.push(new Date(date));
+        //        date.setDate(date.getDate() + 1);
+        //    }
+        //    return days;
+        //}
 
         $scope.$watch('selectedprofile', function () {
             setData();
@@ -125,9 +125,9 @@
             }
         }
 
-        function refreshSecurityLink(logprofileid) {
-            datacontext.getSecureLink(logprofileid, getSecureLinkSucceeded);
-        }
+        //function refreshSecurityLink(logprofileid) {
+        //    datacontext.getSecureLink(logprofileid, getSecureLinkSucceeded);
+        //}
 
         function getSecureLinkSucceeded(data) {
             $scope.selectedprofile.securityLink = data.link;

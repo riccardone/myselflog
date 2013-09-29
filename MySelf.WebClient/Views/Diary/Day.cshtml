@@ -3,15 +3,22 @@
     <span ng-show="loading">loading</span>
     <input type="hidden" id="link" ng-model="link" value="@Model.Link" />
     <div ng-controller="NewFriendController">
-        <input type="text" ng-model="date" placeholder="Select a date and time" />
-        <ul class="nav nav-pills">
-            <li data-ng-repeat="report in reports" data-ng-class="(report.name == selectedreport.name && 'active')">
-                <a href data-ng-click="setReport(report)">{{ report.name }}</a>
-            </li>
-        </ul>
-        <article>
+        @*<input type="text" ng-model="date" placeholder="Select a date and time" />*@
+        <div class="graphpanel">
+            <div style="float: left">
+                <ul class="nav nav-pills">
+                    <li data-ng-repeat="report in reports" data-ng-class="(report.name == selectedreport.name && 'active')">
+                        <a href data-ng-click="setReport(report)">{{ report.name }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="titlereport">
+                <h1>{{selectedreport.description}}</h1>
+            </div>
+        </div>
+        <div>
             <div id="diaryGraph" style="width: 98%; height: 400px; float: left; margin-right: 5px"></div>
-        </article>
+        </div>
     </div>
 </div>
 @section scripts {
