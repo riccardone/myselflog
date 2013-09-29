@@ -4,16 +4,28 @@
     <input type="hidden" id="link" ng-model="link" value="@Model.Link" />
     <div ng-controller="NewFriendController">
         @*<input type="text" ng-model="date" placeholder="Select a date and time" />*@
-        <div class="graphpanel">
-            <div style="float: left">
+        <div class="row graphpanel">
+            <div class="col-xs-6 col-sm-4 col-lg-4">
                 <ul class="nav nav-pills">
                     <li data-ng-repeat="report in reports" data-ng-class="(report.name == selectedreport.name && 'active')">
                         <a href data-ng-click="setReport(report)">{{ report.name }}</a>
                     </li>
                 </ul>
             </div>
-            <div class="titlereport">
-                <h1>{{selectedreport.description}}</h1>
+            <div class="col-xs-12 col-sm-8 col-lg-8 titlereport">
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-default btn-lg" data-ng-click="previous()">
+                        <span class="glyphicon glyphicon-arrow-left"></span>
+                    </button>
+                </div>
+                <div class="col-md-8">
+                    <h1>{{selectedreport.description}}</h1>
+                </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-default btn-lg" data-ng-click="next()">
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                    </button>
+                </div>
             </div>
         </div>
         <div>

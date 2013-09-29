@@ -19,12 +19,44 @@
             { name: "Year", description: "" }
         ];
         $scope.selectedreport = $scope.reports[0];
-        //loadData();
+        $scope.previous = previous;
+        $scope.next = next;
+
+        function previous() {
+            if ($scope.selectedreport.name == "Day") {
+                $scope.date = moment($scope.date).subtract("day", 1);
+            }
+            if ($scope.selectedreport.name == "Week") {
+                $scope.date = moment($scope.date).startOf('week').subtract("day", 1).startOf('week');
+            }
+            if ($scope.selectedreport.name == "Month") {
+                $scope.date = moment($scope.date).subtract("month", 1);
+            }
+            if ($scope.selectedreport.name == "Year") {
+                $scope.date = moment($scope.date).subtract("year", 1);
+            }
+        }
+
+        function next() {
+            if ($scope.selectedreport.name == "Day") {
+                $scope.date = moment($scope.date).add("day", 1);
+            }
+            if ($scope.selectedreport.name == "Week") {
+                $scope.date = moment($scope.date).endOf('week').add("day", 1).startOf('week');
+            }
+            if ($scope.selectedreport.name == "Month") {
+                $scope.date = moment($scope.date).add("month", 1);
+            }
+            if ($scope.selectedreport.name == "Year") {
+                $scope.date = moment($scope.date).add("year", 1);
+            }
+        }
+
+        $scope.$watch('date', function () {
+            refreshGraph();
+        });
 
         $scope.$watch('selectedreport', function () {
-            if (!$scope.selectedreport) {
-                $scope.selectedreport = $scope.reports[0];
-            }
             if (!$scope.profile.isLoaded) {
                 loadData();
             } else {
@@ -49,7 +81,6 @@
 
         function getDataSucceeded(data) {
             $scope.profile = data.logprofileasfriend;
-            //$scope.selectedreport = $scope.reports[0];
             refreshGraph();
             $scope.loading = false;
         }
@@ -62,7 +93,7 @@
         function readLinkElement() {
             $scope.link = $("#link").val();
         }
-        
+
         function getWeekDays(date) {
             var sunday = moment(date).day("Sunday");
             var monday = moment(date).day("Monday");

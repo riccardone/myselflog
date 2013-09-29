@@ -42,9 +42,9 @@ section {
             width: 70px;
         }
 
-div {
+/*div {
     display: block;
-}
+}*/
 
 section.profileresult h1 {
     font-size: 1.75em;
@@ -121,17 +121,12 @@ aside#toc {
 }
 
 .titlereport h1 {
-    font-size: 2.3em;
-    font-size: 1.75em;
+    font-size: 1.65em;
     margin: 0;
     padding: 10px;
-    float: right;
     color: #333;
     font-family: "Segoe UI","Trebuchet MS",Verdana,Helvetica,Sans-Serif;
-    border: 1px solid grey;
-    background-color: #EEE;
-}
-
-.graphpanel {
-    width: 90%;
+    /*border: 1px solid grey;
+    background-color: #EEE;*/
+    text-align: center;
 }
