@@ -21,6 +21,17 @@
         $scope.selectedreport = $scope.reports[0];
         $scope.previous = previous;
         $scope.next = next;
+        $scope.getAverage = getAverage;
+
+        function getAverage() {
+            var sum = 0;
+            for (var i = 0; i < $scope.profile.logs.length; i++) {
+                sum += parseInt($scope.profile.logs[i].value);
+            }
+
+            var avg = sum / $scope.profile.logs.length;
+            return Math.round(avg * 100) / 100;
+        }
 
         function previous() {
             if ($scope.selectedreport.name == "Day") {
