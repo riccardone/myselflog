@@ -21,15 +21,16 @@
         $scope.selectedreport = $scope.reports[0];
         $scope.previous = previous;
         $scope.next = next;
-        $scope.getAverage = getAverage;
+        $scope.logs = [];
+        //$scope.getAverage = getAverage;
 
         function getAverage() {
             var sum = 0;
-            for (var i = 0; i < $scope.profile.logs.length; i++) {
-                sum += parseInt($scope.profile.logs[i].value);
+            for (var i = 0; i < $scope.logs.length; i++) {
+                sum += parseInt($scope.logs[i].value);
             }
 
-            var avg = sum / $scope.profile.logs.length;
+            var avg = sum / $scope.logs.length;
             return Math.round(avg * 100) / 100;
         }
 
@@ -163,6 +164,8 @@
                     $scope.selectedreport.description = moment($scope.date).format('DD MM YYYY');
                 }
                 $scope.graph.setData(logs);
+                $scope.logs = logs;
+                $scope.selectedreport.average = getAverage();
             }
         }
     }]);
