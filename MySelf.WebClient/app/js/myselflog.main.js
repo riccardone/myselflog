@@ -2,7 +2,7 @@
 
 myselflogApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
-        //when('/diary/:link', { templateUrl: '/app/views/friend.view.html', controller: 'FriendController' }).
+        when('/diary/:link', { templateUrl: '/app/views/diary.view.html', controller: 'NewFriendController' }).
         when('/profile/:id', { templateUrl: '/app/views/profile.view.html', controller: 'ProfileController' }).
         when('/', { templateUrl: 'app/views/profiles.view.html', controller: 'ProfilesController' }).
         otherwise({ redirectTo: '/' });

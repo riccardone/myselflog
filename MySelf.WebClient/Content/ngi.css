@@ -42,33 +42,29 @@ section {
             width: 70px;
         }
 
-/*div {
-    display: block;
-}*/
+        section.profileresult h1 {
+            font-size: 1.75em;
+        }
 
-section.profileresult h1 {
-    font-size: 1.75em;
-}
+        section.profileresult h2 {
+            display: inline;
+            font-size: 1.25em;
+        }
 
-section.profileresult h2 {
-    display: inline;
-    font-size: 1.25em;
-}
+        section.profileresult .main {
+            margin-left: 70px;
+        }
 
-section.profileresult .main {
-    margin-left: 70px;
-}
+        section.profileresult header {
+            margin-bottom: 5px;
+            background-color: transparent;
+            border-bottom: 0;
+        }
 
-section.profileresult header {
-    margin-bottom: 5px;
-    background-color: transparent;
-    border-bottom: 0;
-}
-
-section.profileresult p {
-    line-height: 1.25em;
-    margin-bottom: 5px;
-}
+        section.profileresult p {
+            line-height: 1.25em;
+            margin-bottom: 5px;
+        }
 
 p {
     margin: 0 0 1em;
@@ -116,10 +112,6 @@ aside#toc {
         margin-right: 10px;
     }
 
-.titlereport {
-    
-}
-
 .titlereport h1 {
     font-size: 1.65em;
     margin: 0;
@@ -129,4 +121,12 @@ aside#toc {
     /*border: 1px solid grey;
     background-color: #EEE;*/
     text-align: center;
+}
+
+.css-form input.ng-invalid.ng-dirty {
+    background-color: #FA787E;
+}
+
+.css-form input.ng-valid.ng-dirty {
+    background-color: #78FA89;
 }

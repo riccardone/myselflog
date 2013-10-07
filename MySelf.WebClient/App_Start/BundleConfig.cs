@@ -36,6 +36,7 @@ namespace MySelf.WebClient
             bundles.Add(new ScriptBundle("~/bundles/myselflog")
                 .Include("~/app/js/myselflog.main.js")
                 .Include("~/app/js/services/authentication.js")
+                .Include("~/app/js/services/logger.js")
                 .Include("~/app/js/services/myselflog.resource.js")
                 .Include("~/app/js/services/logprofile.resource.js")
                 .Include("~/app/js/services/securitylink.resource.js")
@@ -47,6 +48,7 @@ namespace MySelf.WebClient
                 //.Include("~/app/js/controllers/log.controller.js")
                 .Include("~/app/js/controllers/profile.controller.js")
                 .Include("~/app/js/controllers/profiles.controller.js")
+                .Include("~/app/js/controllers/newfriend.controller.js")
                 );
 
             bundles.Add(new ScriptBundle("~/bundles/friendlog")
