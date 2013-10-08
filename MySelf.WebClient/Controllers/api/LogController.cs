@@ -83,6 +83,7 @@ namespace MySelf.WebClient.Controllers.api
         }
 
         // DELETE api/log/5
+        [HttpDelete]
         public HttpResponseMessage Delete(Guid globalId)
         {
             try

@@ -752,7 +752,8 @@
     <Content Include="Views\Diary\Index.cshtml" />
     <Content Include="Views\Diary\Month.cshtml" />
     <Content Include="Views\Diary\Day.cshtml" />
-    <Content Include="Views\Home\Index.mobile.cshtml" />
+    <Content Include="Views\Home\Index.Mobile.cshtml" />
+    <Content Include="Views\Diary\Day.Mobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
