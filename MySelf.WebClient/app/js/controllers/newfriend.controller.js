@@ -1,6 +1,6 @@
-﻿friendlogApp.controller('NewFriendController',
-    ['$scope', 'friendDatacontext', 'logger', '$filter', 'moment',
-    function ($scope, friendDatacontext, logger, $filter, moment) {
+﻿myselflogApp.controller('NewFriendController',
+    ['$scope', 'friendDatacontext', 'logger', '$filter', 'moment', '$routeParams',
+function ($scope, friendDatacontext, logger, $filter, moment, $routeParams) {
         $scope.loading = false;
         $scope.profile = { 'isLoaded': false, 'logs': [] };
         $scope.graph = Morris.Line({
@@ -97,12 +97,8 @@
         }
 
         function loadData() {
-            readLinkElement();
+            $scope.link = $routeParams.link;
             getData();
-        }
-
-        function readLinkElement() {
-            $scope.link = $("#link").val();
         }
 
         function getWeekDays(date) {

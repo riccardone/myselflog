@@ -21,3 +21,4 @@ myselflogApp.directive('dateTimepicker', function () {
 });
 
 myselflogApp.value('toastr', window.toastr);
+myselflogApp.value('moment', window.moment);

@@ -43,6 +43,7 @@ namespace MySelf.WebClient
                 .Include("~/app/js/services/myselflog.datacontext.js")
                 .Include("~/app/js/services/user.resource.js")
                 .Include("~/app/js/services/user.datacontext.js")
+                .Include("~/app/js/services/friend.datacontext.js")
                 .Include("~/app/js/controllers/login.controller.js")
                 .Include("~/app/js/controllers/graph.controller.js")
                 //.Include("~/app/js/controllers/log.controller.js")
