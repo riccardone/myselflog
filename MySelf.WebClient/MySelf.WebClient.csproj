@@ -747,13 +747,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_ViewSwitcher.cshtml" />
-    <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
+    <Content Include="Views\Shared\_Layout.aaaMaobile.cshtml" />
     <Content Include="Views\SecureLink\Index.cshtml" />
     <Content Include="Views\Diary\Index.cshtml" />
     <Content Include="Views\Diary\Month.cshtml" />
     <Content Include="Views\Diary\Day.cshtml" />
-    <Content Include="Views\Home\Index.Mobile.cshtml" />
-    <Content Include="Views\Diary\Day.Mobile.cshtml" />
+    <Content Include="Views\Home\Index.Maobile.cshtml" />
+    <Content Include="Views\Diary\Day.Maobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
