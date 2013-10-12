@@ -247,6 +247,7 @@
     <Content Include="app\js\services\myselflog.resource.js" />
     <Content Include="app\js\services\user.datacontext.js" />
     <Content Include="app\js\services\user.resource.js" />
+    <Content Include="app\views\diary.view.html" />
     <Content Include="app\views\profile.view.html" />
     <Content Include="app\views\profiles.view.html" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
@@ -751,7 +752,8 @@
     <Content Include="Views\Diary\Index.cshtml" />
     <Content Include="Views\Diary\Month.cshtml" />
     <Content Include="Views\Diary\Day.cshtml" />
-    <Content Include="Views\Home\Index.mobile.cshtml" />
+    <Content Include="Views\Home\Index.Mobile.cshtml" />
+    <Content Include="Views\Diary\Day.Mobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
