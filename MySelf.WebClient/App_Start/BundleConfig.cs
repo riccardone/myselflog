@@ -26,8 +26,6 @@ namespace MySelf.WebClient
                             .Include("~/Scripts/toastr.min.js")
                             .Include("~/Scripts/moment.min.js")
                             );
-                //.Include("~/Scripts/underscore-1.4.4.min.js")
-                //.Include("~/Scripts/moment.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/striped")
                             .Include("~/Scripts/jquery-{version}.js")
@@ -35,6 +33,14 @@ namespace MySelf.WebClient
                             .Include("~/Scripts/skel.min.js")
                             .Include("~/Scripts/skel-panels.min.js")
                             );
+
+            bundles.Add(new StyleBundle("~/Content/stripedcss")
+                .Include("~/Content/skel-noscript.css")
+                .Include("~/Content/toastr.min.css")
+                .Include("~/Content/style.css")
+                .Include("~/Content/style-desktop.css")
+                .Include("~/Content/style-wide.css")
+                );
 
             bundles.Add(new ScriptBundle("~/bundles/angular")
                             .Include("~/Scripts/angular.min.js")
