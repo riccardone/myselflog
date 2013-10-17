@@ -754,6 +754,7 @@
     <Content Include="Views\Diary\Day.cshtml" />
     <Content Include="Views\Home\Index.Maobile.cshtml" />
     <Content Include="Views\Diary\Day.Maobile.cshtml" />
+    <Content Include="Views\Shared\_NewLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

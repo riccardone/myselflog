@@ -29,6 +29,13 @@ namespace MySelf.WebClient
                 //.Include("~/Scripts/underscore-1.4.4.min.js")
                 //.Include("~/Scripts/moment.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/striped")
+                            .Include("~/Scripts/jquery-{version}.js")
+                            .Include("~/Scripts/config.js")
+                            .Include("~/Scripts/skel.min.js")
+                            .Include("~/Scripts/skel-panels.min.js")
+                            );
+
             bundles.Add(new ScriptBundle("~/bundles/angular")
                             .Include("~/Scripts/angular.min.js")
                             .Include("~/Scripts/angular-resource.min.js"));
