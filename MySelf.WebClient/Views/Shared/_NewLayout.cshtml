@@ -18,49 +18,23 @@
         }
     </script>
 </head>
-<body class="left-sidebar">
+<body class="left-sidebar" data-ng-app="myselflogApp">
     <div id="wrapper">
         <div id="content">
             <div id="content-inner">
-                <article class="is-post is-post-excerpt">
-                    <header>
-                        <h2><a href="#">Welcome to Striped</a></h2>
-                        <span class="byline">A free, fully responsive HTML5 site template by AJ for HTML5 UP</span>
-                    </header>
-                    <div class="info">
-                        <span class="date"><span class="month">Jan<span>uary</span></span> <span class="day">14</span><span class="year">, 2013</span></span>
-                        <ul class="stats">
-                            <li><a href="#" class="link-icon24 link-icon24-1">16</a></li>
-                            <li><a href="#" class="link-icon24 link-icon24-2">32</a></li>
-                            <li><a href="#" class="link-icon24 link-icon24-3">64</a></li>
-                            <li><a href="#" class="link-icon24 link-icon24-4">128</a></li>
-                        </ul>
-                    </div>
-                    <a href="#" class="image image-full">
-                        <img src="images/n33-robot-invader.jpg" alt="" /></a>
-                    <p>
-                        <strong>Hello!</strong> You're looking at <a href="http://html5up.net/striped/">Striped</a>, a fully responsive HTML5 site template designed by <a href="http://n33.co/">AJ</a>
-                        for <a href="http://html5up.net/">HTML5 UP</a> It features a clean, minimalistic design, styling for all basic page elements (including blockquotes, tables and lists), a
-                        repositionable sidebar (left or right), and HTML5/CSS3 code designed for quick and easy customization (see code comments for details).
-                    </p>
-                    <p>
-                        Striped is released for free under the <a href="http://html5up.net/license/">Creative Commons Attribution license</a> so feel free to use it for personal projects
-                        or even commercial ones &ndash; just be sure to credit <a href="http://html5up.net/">HTML5 UP</a> for the design. If you like what you see here, be sure to check out
-                        <a href="http://html5up.net/">HTML5 UP</a> for more cool designs or follow me on <a href="http://twitter.com/n33co">Twitter</a> for new releases and updates.
-                    </p>
-                </article>
+                @RenderBody()
             </div>
         </div>
         <div id="sidebar">
             <div id="logo">
-                <h1>STRIPED</h1>
+                <h1>mySelfLog</h1>
             </div>
             <nav id="nav">
                 <ul>
-                    <li class="current_page_item"><a href="#">Latest Post</a></li>
-                    <li><a href="#">Archives</a></li>
-                    <li><a href="#">About Me</a></li>
-                    <li><a href="#">Contact Me</a></li>
+                    <li class="current_page_item"><a href="#">Log value</a></li>
+                    <li><a href="#">Diary</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contacts</a></li>
                 </ul>
             </nav>
             <section class="is-search">
@@ -70,40 +44,9 @@
             </section>
         </div>
     </div>
-    <header>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p class="site-title">@Html.ActionLink("My diary log", "Index", "Home")</p>
-            </div>
-            <div class="float-right">
-                <section id="login">
-                    @Html.Partial("_LoginPartial")
-                </section>
-                <nav>
-                    <ul id="menu">
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <div id="body">
-        <div id="content">
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
-        </div>
-    </div>
-    <footer>
-        <div class="content-wrapper">
-            <div class="float-left">
-            </div>
-        </div>
-    </footer>
-    @Scripts.Render("~/bundles/jslibs")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/raphael")
     @Scripts.Render("~/bundles/morris")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", false)
 </body>
 </html>

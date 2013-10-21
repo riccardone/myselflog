@@ -40,6 +40,7 @@ namespace MySelf.WebClient
                 .Include("~/Content/style.css")
                 .Include("~/Content/style-desktop.css")
                 .Include("~/Content/style-wide.css")
+                .Include("~/Content/style-narrow.css")
                 );
 
             bundles.Add(new ScriptBundle("~/bundles/angular")

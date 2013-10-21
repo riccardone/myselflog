@@ -10,13 +10,13 @@ namespace MySelf.WebClient.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("Index2");
         }
 
-        public ActionResult Diary(string link)
-        {
-            return View("Diary", link);
-        }
+        //public ActionResult Diary(string link)
+        //{
+        //    return View("Diary", link);
+        //}
 
         public ActionResult About()
         {
