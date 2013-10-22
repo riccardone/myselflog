@@ -5,7 +5,7 @@
 */
 
 window._skel_config = {
-	prefix: 'Content/style',
+	prefix: '../Content/style',
 	resetCSS: true,
 	useOrientation: true,
 	breakpoints: {

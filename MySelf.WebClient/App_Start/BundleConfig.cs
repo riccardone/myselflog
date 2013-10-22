@@ -105,6 +105,11 @@ namespace MySelf.WebClient
                 .Include("~/Content/ngi.css")
                 );
 
+            bundles.Add(new StyleBundle("~/Content/css2")
+                .Include("~/Content/toastr.min.css")
+                .Include("~/Content/morris-0.4.3.min.css")
+                );
+
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
                         "~/Content/themes/base/jquery.ui.resizable.css",

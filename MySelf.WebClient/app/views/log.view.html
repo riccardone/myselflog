@@ -1,16 +1,14 @@
 ﻿<article class="is-post is-post-excerpt">
     <header>
-        <h2><a href="#">Welcome to mylog</a></h2>
-        <span class="byline">A free, fully responsive HTML5 site template by AJ for HTML5 UP</span>
-    </header>    
-    <p>
-        <strong>Hello!</strong> You're looking at <a href="http://html5up.net/striped/">Striped</a>, a fully responsive HTML5 site template designed by <a href="http://n33.co/">AJ</a>
-        for <a href="http://html5up.net/">HTML5 UP</a> It features a clean, minimalistic design, styling for all basic page elements (including blockquotes, tables and lists), a
-                        repositionable sidebar (left or right), and HTML5/CSS3 code designed for quick and easy customization (see code comments for details).
-    </p>
-    <p>
-        Striped is released for free under the <a href="http://html5up.net/license/">Creative Commons Attribution license</a> so feel free to use it for personal projects
-                        or even commercial ones &ndash; just be sure to credit <a href="http://html5up.net/">HTML5 UP</a> for the design. If you like what you see here, be sure to check out
-                        <a href="http://html5up.net/">HTML5 UP</a> for more cool designs or follow me on <a href="http://twitter.com/n33co">Twitter</a> for new releases and updates.
-    </p>
+        <h2>{{selectedprofile.name}}</h2>
+        <!--<span class="byline">...</span>-->
+    </header>
+    <form name="logForm" class="css-form">
+        <input type="number" min="1" max="800" name="value" required data-ng-model="item.value" placeholder="Type a numeric value" />
+        <textarea data-ng-model="item.message" placeholder="Type a message (optional)"></textarea>
+        <input type="text" ng-model="item.logDate" placeholder="Select a date and time" />
+        <input type="hidden" data-ng-model="item.selectedProfileId" value="selectedprofile.globalid" />
+        <button id="Button1" name="btnSubmit" ng-click="addValue()" class="btn btn-primary">Submit</button>
+    </form>
+    <div id="diaryGraph"></div>
 </article>
