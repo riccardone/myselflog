@@ -25,6 +25,64 @@ namespace MySelf.WebClient.Controllers
         }
 
         //
+        // POST: /Account/JsonLogin
+
+        [AllowAnonymous]
+        [HttpPost]
+        public JsonResult JsonLogin(LoginModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                if (WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+                {
+                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                    return Json(new { success = true, redirect = returnUrl });
+                }
+                else
+                {
+                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                }
+            }
+
+            // If we got this far, something failed
+            return Json(new { errors = GetErrorsFromModelState() });
+        }
+
+        //
+        // POST: /Account/JsonRegister
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult JsonRegister(RegisterModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                // Attempt to register the user
+                try
+                {
+                    CreateOrUpdatePerson(model.UserName);
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    WebSecurity.Login(model.UserName, model.Password);
+
+                    FormsAuthentication.SetAuthCookie(model.UserName, createPersistentCookie: false);
+                    return Json(new { success = true, redirect = returnUrl });
+                }
+                catch (MembershipCreateUserException e)
+                {
+                    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
+                }
+            }
+
+            // If we got this far, something failed
+            return Json(new { errors = GetErrorsFromModelState() });
+        }
+
+        private IEnumerable<string> GetErrorsFromModelState()
+        {
+            return ModelState.SelectMany(x => x.Value.Errors.Select(error => error.ErrorMessage));
+        }
+
+        //
         // GET: /Account/Login
 
         [AllowAnonymous]
