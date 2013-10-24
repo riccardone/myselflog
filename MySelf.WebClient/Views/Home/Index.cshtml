@@ -1,13 +1,31 @@
-﻿@section scripts {
+﻿@functions{
+    public string GetAntiForgeryToken()
+    {
+        string cookieToken, formToken;
+        AntiForgery.GetTokens(null, out cookieToken, out formToken);
+        return cookieToken + ":" + formToken;
+    }
+}
+
+
+@if (@User.Identity.IsAuthenticated)
+{
+    <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />
+}
+
+@section scripts {
     @if (@User.Identity.IsAuthenticated)
     {
         @Scripts.Render("~/bundles/angular")
         @Scripts.Render("~/bundles/myselflog")
     }
 }
+
 @if (@User.Identity.IsAuthenticated)
 {
-    <div data-ng-app="myselflogApp">
-        <div data-ng-view></div>
-    </div>
-} 
+    <div data-ng-view></div> <!-- The SPA Views go here -->   
+}
+else
+{
+    @Html.Partial("_Authentication")
+}

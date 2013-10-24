@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
-using MySelf.Diab.Data;
 using MySelf.Diab.Data.Contracts;
 using MySelf.Diab.Model;
-using WebMatrix.WebData;
 using MySelf.WebClient.Models;
+using WebMatrix.WebData;
 
 namespace MySelf.WebClient.Controllers
 {
@@ -49,6 +49,18 @@ namespace MySelf.WebClient.Controllers
         }
 
         //
+        // POST: /Account/LogOff
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogOff()
+        {
+            WebSecurity.Logout();
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        //
         // POST: /Account/JsonRegister
         [HttpPost]
         [AllowAnonymous]
@@ -77,86 +89,24 @@ namespace MySelf.WebClient.Controllers
             return Json(new { errors = GetErrorsFromModelState() });
         }
 
-        private IEnumerable<string> GetErrorsFromModelState()
+        private void CreateOrUpdatePerson(string username)
         {
-            return ModelState.SelectMany(x => x.Value.Errors.Select(error => error.ErrorMessage));
-        }
-
-        //
-        // GET: /Account/Login
-
-        [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
-        {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
-        }
-
-        //
-        // POST: /Account/Login
-
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel model, string returnUrl)
-        {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            if (_logManager.ModelReader.UserExist(username))
             {
-                return RedirectToLocal(returnUrl);
+                // what I can do with only the username?
             }
-
-            // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
-            return View(model);
-        }
-
-        //
-        // POST: /Account/LogOff
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult LogOff()
-        {
-            WebSecurity.Logout();
-
-            return RedirectToAction("Index", "Home");
-        }
-
-        //
-        // GET: /Account/Register
-
-        [AllowAnonymous]
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Account/Register
-
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterModel model)
-        {
-            if (ModelState.IsValid)
+            else
             {
-                // Attempt to register the user
-                try
+                var p = new Person { Email = username };
+                _logManager.PersonCommands.Create(p);
+                _logManager.LogCommands.AddLogProfile(new LogProfile
                 {
-                    CreateOrUpdatePerson(model.UserName);
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
-                }
-                catch (MembershipCreateUserException e)
-                {
-                    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
-                }
+                    Name = LogProfile.DefaultName,
+                    Person = p,
+                    GlobalId = Guid.NewGuid()
+                });
+                _logManager.Save();
             }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
         }
 
         //
@@ -210,7 +160,7 @@ namespace MySelf.WebClient.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Manage(LocalPasswordModel model)
         {
-            bool hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
+            var hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
             ViewBag.HasLocalPassword = hasLocalAccount;
             ViewBag.ReturnUrl = Url.Action("Manage");
             if (hasLocalAccount)
@@ -255,9 +205,9 @@ namespace MySelf.WebClient.Controllers
                         WebSecurity.CreateAccount(User.Identity.Name, model.NewPassword);
                         return RedirectToAction("Manage", new { Message = ManageMessageId.SetPasswordSuccess });
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
-                        ModelState.AddModelError("", String.Format("Unable to create local account. An account with the name \"{0}\" may already exist.", User.Identity.Name));
+                        ModelState.AddModelError("", e);
                     }
                 }
             }
@@ -297,34 +247,17 @@ namespace MySelf.WebClient.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 // If the current user is logged in add the new account
-                CreateOrUpdatePerson(User.Identity.Name);
                 OAuthWebSecurity.CreateOrUpdateAccount(result.Provider, result.ProviderUserId, User.Identity.Name);
+                return RedirectToLocal(returnUrl);
             }
             else
             {
-                // Insert a new user into the database
-                using (var db = new DiabDbContext())
-                {
-                    var user = db.People.FirstOrDefault(u => u.Email.ToLower() == result.UserName.ToLower());
-                    // Check if user already exists
-                    if (user == null)
-                    {
-                        // Insert name into the profile table
-                        CreateOrUpdatePerson(result.UserName);
-
-                        OAuthWebSecurity.CreateOrUpdateAccount(result.Provider, result.ProviderUserId, result.UserName);
-                        Roles.AddUserToRole(result.UserName, AuthConstants.UserRole);
-                        OAuthWebSecurity.Login(result.Provider, result.ProviderUserId, createPersistentCookie: false);
-
-                        return RedirectToLocal(returnUrl);
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", "error creating the user using n external provider");
-                    }
-                }
+                // User is new, ask for their desired membership name
+                string loginData = OAuthWebSecurity.SerializeProviderUserId(result.Provider, result.ProviderUserId);
+                ViewBag.ProviderDisplayName = OAuthWebSecurity.GetOAuthClientData(result.Provider).DisplayName;
+                ViewBag.ReturnUrl = returnUrl;
+                return View("ExternalLoginConfirmation", new RegisterExternalLoginModel { UserName = result.UserName, ExternalLoginData = loginData });
             }
-            return RedirectToLocal(returnUrl);
         }
 
         //
@@ -360,29 +293,36 @@ namespace MySelf.WebClient.Controllers
                 ModelState.AddModelError("UserName", "User name already exists. Please enter a different user name.");
             }
 
+            //if (ModelState.IsValid)
+            //{
+            //    // Insert a new user into the database
+            //    using (UsersContext db = new UsersContext())
+            //    {
+            //        UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
+            //        // Check if user already exists
+            //        if (user == null)
+            //        {
+            //            // Insert name into the profile table
+            //            db.UserProfiles.Add(new UserProfile { UserName = model.UserName });
+            //            db.SaveChanges();
+
+            //            InitiateDatabaseForNewUser(model.UserName);
+
+            //            OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
+            //            OAuthWebSecurity.Login(provider, providerUserId, createPersistentCookie: false);
+
+            //            return RedirectToLocal(returnUrl);
+            //        }
+            //        else
+            //        {
+            //            ModelState.AddModelError("UserName", "User name already exists. Please enter a different user name.");
+            //        }
+            //    }
+            //}
+
             ViewBag.ProviderDisplayName = OAuthWebSecurity.GetOAuthClientData(provider).DisplayName;
             ViewBag.ReturnUrl = returnUrl;
             return View(model);
-        }
-
-        private void CreateOrUpdatePerson(string username)
-        {
-            if (_logManager.ModelReader.UserExist(username))
-            {
-                // what I can do with only the username?
-            }
-            else
-            {
-                var p = new Person { Email = username };
-                _logManager.PersonCommands.Create(p);
-                _logManager.LogCommands.AddLogProfile(new LogProfile
-                {
-                    Name = LogProfile.DefaultName,
-                    Person = p,
-                    GlobalId = Guid.NewGuid()
-                });
-                _logManager.Save();
-            }
         }
 
         //
@@ -458,6 +398,11 @@ namespace MySelf.WebClient.Controllers
             {
                 OAuthWebSecurity.RequestAuthentication(Provider, ReturnUrl);
             }
+        }
+
+        private IEnumerable<string> GetErrorsFromModelState()
+        {
+            return ModelState.SelectMany(x => x.Value.Errors.Select(error => error.ErrorMessage));
         }
 
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)

@@ -27,6 +27,9 @@ namespace MySelf.WebClient
                             .Include("~/Scripts/moment.min.js")
                             );
 
+            bundles.Add(new ScriptBundle("~/bundles/ajaxlogin").Include(
+                "~/app/js/ajaxlogin.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/striped")
                             .Include("~/Scripts/jquery-{version}.js")
                             .Include("~/Scripts/config.js")

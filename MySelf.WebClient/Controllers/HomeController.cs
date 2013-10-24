@@ -10,26 +10,7 @@ namespace MySelf.WebClient.Controllers
     {
         public ActionResult Index()
         {
-            return View("Index2");
-        }
-
-        //public ActionResult Diary(string link)
-        //{
-        //    return View("Diary", link);
-        //}
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View("Index");
         }
     }
 }
