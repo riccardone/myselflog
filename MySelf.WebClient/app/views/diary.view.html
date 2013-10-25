@@ -1,32 +1,36 @@
-﻿<div>
-    <span ng-show="loading">loading</span>
-    <input type="hidden" id="link" ng-model="link" value="{{Link}}" />
-    <div class="row graphpanel">
-        <div class="col-xs-6 col-sm-4 col-lg-4">
-            <ul class="nav nav-pills">
-                <li data-ng-repeat="report in reports" data-ng-class="(report.name == selectedreport.name && 'active')">
-                    <a href data-ng-click="setReport(report)">{{ report.name }}</a>
-                </li>
-            </ul>
+﻿<!--<div>
+        <span ng-show="loading">loading</span>
+        <input type="hidden" id="link" ng-model="link" value="{{Link}}" />
+        <div class="row graphpanel">
+            <div class="col-xs-6 col-sm-4 col-lg-4">
+                <ul class="nav nav-pills">
+                    <li data-ng-repeat="report in reports" data-ng-class="(report.name == selectedreport.name && 'active')">
+                        <a href data-ng-click="setReport(report)">{{ report.name }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-lg-8 titlereport">
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-default btn-lg" data-ng-click="previous()">
+                        <span class="glyphicon glyphicon-arrow-left"></span>
+                    </button>
+                </div>
+                <div class="col-md-8">
+                    <h1>{{selectedreport.description}}</h1>
+                </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-default btn-lg" data-ng-click="next()">
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="col-xs-12 col-sm-8 col-lg-8 titlereport">
-            <div class="col-md-1">
-                <button type="button" class="btn btn-default btn-lg" data-ng-click="previous()">
-                    <span class="glyphicon glyphicon-arrow-left"></span>
-                </button>
-            </div>
-            <div class="col-md-8">
-                <h1>{{selectedreport.description}}</h1>
-            </div>
-            <div class="col-md-1">
-                <button type="button" class="btn btn-default btn-lg" data-ng-click="next()">
-                    <span class="glyphicon glyphicon-arrow-right"></span>
-                </button>
-            </div>
+        <div>
+            <div id="diaryGraph" style="width: 98%; height: 400px; float: left; margin-right: 5px"></div>
         </div>
-    </div>
-    <div>
-        <div id="diaryGraph" style="width: 98%; height: 400px; float: left; margin-right: 5px"></div>
-    </div>
-    <span>average {{getAverage()}}</span>
-</div>
+        <span>average {{getAverage()}}</span>
+    </div>-->
+
+
+    <div id="diaryGraph"></div>
+
