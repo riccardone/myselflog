@@ -22,7 +22,7 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams) {
         $scope.previous = previous;
         $scope.next = next;
         $scope.logs = [];
-        //$scope.getAverage = getAverage;
+        $scope.getAverage = getAverage;
 
         function getAverage() {
             var sum = 0;
@@ -31,7 +31,7 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams) {
             }
 
             var avg = sum / $scope.logs.length;
-            return Math.round(avg * 100) / 100;
+            return parseInt(Math.round(avg * 100) / 100);
         }
 
         function previous() {

@@ -760,15 +760,9 @@
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\canc_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\canc_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Shared\canc_ViewSwitcher.cshtml" />
     <Content Include="Views\SecureLink\Index.cshtml" />
     <Content Include="Views\Diary\Index.cshtml" />
-    <Content Include="Views\Diary\Month.cshtml" />
-    <Content Include="Views\Diary\Day.cshtml" />
-    <Content Include="Views\Diary\Day.Maobile.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_Login.cshtml" />

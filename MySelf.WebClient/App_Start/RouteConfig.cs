@@ -13,7 +13,7 @@ namespace MySelf.WebClient
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute("Diary", "diary/{link}", new { controller = "Home", action = "Index" });
+            routes.MapRoute("Diary", "diary/{link}", new { controller = "Diary", action = "Index" });
             routes.MapRoute("Profile", "profile/{id}", new { controller = "Home", action = "Index" });
 
             routes.MapRoute(

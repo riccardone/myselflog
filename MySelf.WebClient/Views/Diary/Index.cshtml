@@ -1,23 +1,7 @@
-﻿@model MySelf.WebClient.Models.DiaryViewModel
-<div data-ng-app="friendlogApp">
-    <span ng-show="loading">loading</span>
-    <input type="hidden" id="link" ng-model="link" value="@Model.Link" />
-    <div ng-controller="FriendController">
-        <h2>Diary view {{getCurrentDate()}}</h2>
-        <article id="content">
-            <div id="diaryGraph" style="width: 98%; height: 400px; float: left; margin-right: 5px"></div>
-        </article>
-        <aside id="diaryList">
-            <fieldset ng-show="logprofilesasfriend.length > 0" ng-repeat="logprofile in logprofilesasfriend | orderBy:name" class="valueouterlist">
-                <legend>Profile: {{logprofile.name}}</legend>
-                <div class="valueinnerlist" ng-repeat="log in logprofile.logs | orderBy:LogDate:reverse">
-                    <a href ng-click="setReport(log.logdate, 'day')">{{log.value}} - {{log.logdate}}</a>
-                </div>
-            </fieldset>
-        </aside>
-    </div>
-</div>
-@section scripts {
+﻿@section scripts {
+
     @Scripts.Render("~/bundles/angular")
-    @Scripts.Render("~/bundles/friendlog")
+    @Scripts.Render("~/bundles/myselflog")
+
 }
+<div data-ng-view></div>

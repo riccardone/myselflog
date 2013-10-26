@@ -1,24 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using MySelf.WebClient.Models;
+﻿using System.Web.Mvc;
 
 namespace MySelf.WebClient.Controllers
 {
     public class DiaryController : Controller
     {
-        public ActionResult Index(string link)
+        public ActionResult Index()
         {
-            var model = new DiaryViewModel {Link = link};
-            return View("Day", model);
+            return View("Index");
         }
-
-        //public ActionResult Month(string link, int year, int month)
-        //{
-        //    var model = new DiaryViewModel { Link = link, Year = year, Month = month };
-        //    return View(model);
-        //}
     }
 }
