@@ -23,6 +23,7 @@
             window.location.hash = '';
         }
     </script>
+    @Styles.Render("~/Content/bootstrap/base")
 </head>
 <body class="left-sidebar" data-ng-app="myselflogApp">
     <div id="wrapper">
@@ -39,12 +40,12 @@
                 @Html.Partial("_UserSettings")
             </div>
             <nav id="nav">
-                <ul>
+                @*<ul>
                     <li class="current_page_item"><a href="#">Log value</a></li>
                     <li><a href="#">Diary</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contacts</a></li>
-                </ul>
+                </ul>*@
             </nav>
         </div>
     </div>
@@ -54,5 +55,6 @@
     @Scripts.Render("~/bundles/morris")
     @Scripts.Render("~/bundles/ajaxlogin")
     @RenderSection("scripts", false)
+    @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>
