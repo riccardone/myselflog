@@ -1,35 +1,23 @@
-﻿<article class="is-post is-post-excerpt">
+﻿<div class="container">
     <header>
-        <h2>{{profile.name}}</h2>
+        <h2 class="alt">{{profile.name}}</h2>
     </header>
-    <!--<span ng-show="loading">loading</span>-->
-    <input type="hidden" id="link" ng-model="link" value="{{Link}}" />
-    <div class="row graphpanel">
-        <div class="col-xs-6 col-sm-4 col-lg-4">
-            <ul class="nav nav-pills">
-                <li data-ng-repeat="report in reports" data-ng-class="(report.name == selectedreport.name && 'active')">
-                    <a href data-ng-click="setReport(report)">{{ report.name }}</a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-xs-12 col-sm-8 col-lg-8 titlereport">
-            <div class="col-md-1">
-                <button type="button" class="btn btn-default btn-lg" data-ng-click="previous()">
-                    <span class="glyphicon glyphicon-arrow-left"></span>
-                </button>
-            </div>
-            <div class="col-md-8">
-                <h3><center>{{selectedreport.description}}</center></h3>
-            </div>
-            <div class="col-md-1">
-                <button type="button" class="btn btn-default btn-lg" data-ng-click="next()">
-                    <span class="glyphicon glyphicon-arrow-right"></span>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div id="diaryGraph"></div>
-    </div>
-    <span>average {{getAverage()}}</span>
-</article>
+    <ul class="nav nav-pills" style="float: left">
+        <li data-ng-repeat="report in reports" data-ng-class="(report.name == selectedreport.name && 'active')">
+            <a href data-ng-click="setReport(report)">{{ report.name }}</a>
+        </li>
+    </ul>
+    <div></div>
+    <h3>{{selectedreport.description}}
+    </h3>
+    <button type="button" class="btn btn-default" data-ng-click="previous()">
+        <span class="glyphicon glyphicon-arrow-left"></span>
+    </button>
+    <button type="button" class="btn btn-default" data-ng-click="next()">
+        <span class="glyphicon glyphicon-arrow-right"></span>
+    </button>
+    <div id="diaryGraph"></div>
+    <footer>
+        <span>average {{getAverage()}}</span>
+    </footer>
+</div>

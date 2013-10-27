@@ -7,46 +7,75 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700|Open+Sans+Condensed:300,700" rel="stylesheet" />
-    @Scripts.Render("~/bundles/striped")
-    @Styles.Render("~/Content/css2")
+    @Styles.Render("~/Content/bootstrap/base")
+    @Styles.Render("~/Content/morriscss")
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 8]><script src="../../Scripts/html5shiv.js"></script><![endif]-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/prologue")
+    <noscript>
+        @Styles.Render("~/Content/noscriptprologuecss")
+    </noscript>
+    <!--[if lte IE 9]><link rel="stylesheet" href="../../Content/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="../../Content/ie8.css" /><![endif]-->
     <style>
         #registerPanel {
             display: none;
         }
     </style>
-    <noscript>
-        @Styles.Render("~/Content/stripedcss")
-    </noscript>
     <script type="text/javascript">
         if (window.location.hash == '#_=_') {
             window.location.hash = '';
         }
     </script>
-    @Styles.Render("~/Content/bootstrap/base")
 </head>
-<body class="left-sidebar" data-ng-app="myselflogApp">
-    <div id="wrapper">
-        <div id="content">
-            <div id="content-inner">
-                @RenderBody()
-            </div>
-        </div>
-        <div id="sidebar">
+<body data-ng-app="myselflogApp">
+    <div id="header" class="skel-panels-fixed">
+        <div class="top">
             <div id="logo">
-                <h1>mySelfLog</h1>
-            </div>
-            <div id="userSettings">
-                @Html.Partial("_UserSettings")
+                <span class="image avatar48">
+                    @*<img src="images/avatar.jpg" alt="" />*@
+                </span>
+                <h1 id="title">MySelfLog</h1>
+                <span class="byline">Log your life</span>
             </div>
             <nav id="nav">
+                @Html.Partial("_UserSettings")
                 @*<ul>
-                    <li class="current_page_item"><a href="#">Log value</a></li>
-                    <li><a href="#">Diary</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#top" id="top-link" class="skel-panels-ignoreHref"><span class="icon icon-home">Intro</span></a></li>
+                    <li><a href="#portfolio" id="portfolio-link" class="skel-panels-ignoreHref"><span class="icon icon-th">Portfolio</span></a></li>
+                    <li><a href="#about" id="about-link" class="skel-panels-ignoreHref"><span class="icon icon-user">About Me</span></a></li>
+                    <li><a href="#contact" id="contact-link" class="skel-panels-ignoreHref"><span class="icon icon-envelope">Contact</span></a></li>
                 </ul>*@
             </nav>
+        </div>
+        <div class="bottom">
+            <!-- Social Icons -->
+            @*<ul class="icons">
+                <li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
+                <li><a href="#" class="icon icon-facebook"><span>Facebook</span></a></li>
+                <li><a href="#" class="icon icon-github"><span>Github</span></a></li>
+                <li><a href="#" class="icon icon-dribbble"><span>Dribbble</span></a></li>
+                <li><a href="#" class="icon icon-envelope"><span>Email</span></a></li>
+            </ul>*@
+        </div>
+    </div>
+    <div id="main">
+        <!-- Intro -->
+        <section id="top" class="one">
+            @RenderBody()
+        </section>
+    </div>
+    <!-- Footer -->
+    <div id="footer">
+
+        <!-- Copyright -->
+        <div class="copyright">
+            @*<p>&copy; 2013 Jane Doe. All rights reserved.</p>
+            <ul class="menu">
+                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                <li>Images: <a href="http://ineedchemicalx.deviantart.com">Felicia Simion</a></li>
+            </ul>*@
         </div>
     </div>
     @Scripts.Render("~/bundles/jslibs")

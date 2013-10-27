@@ -1,36 +1,5 @@
-﻿<!--<div id="content">
-    <div id="content-inner">-->
-<article class="is-post is-post-excerpt" ng-repeat="profile in logprofilesasowner">
+﻿<div class="container" ng-repeat="profile in logprofilesasowner">
     <header>
-        <h2><a href="#">{{profile.name}}</a></h2>
-        <span class="byline"></span>
+        <h2 class="alt"><a ng-href="profile/{{selectedprofile.globalid}}">{{profile.name}}</a></h2>
     </header>
-    <div class="info">
-    </div>
-    <div ng-controller="ProfileController" ng-init="profile = profile" id="diaryGraph{{profile.id}}" style="width: 98%; height: 400px; float: left; margin-right: 5px"></div>
-</article>
-<!--</div>
-</div>-->
-
-<!--<hgroup class="search">
-    <h1>There are {{logprofilesasowner.length}} profiles</h1>
-    <h2>Displaying results</h2>
-</hgroup>-->
-
-<!--<ol id="profiles" ng-repeat="profile in logprofilesasowner">
-        <li>
-            <section class="profileresult">
-                <div class="side">
-                    <a ng-href="#" title="Open {{profile.name}}">...</a>
-                </div>
-                <div class="main">
-                    <header>
-                        <h1>
-                            <a ng-href="/profile/{{profile.globalid}}">{{profile.name}}</a>
-                        </h1>
-                        <h2>Created ...</h2>
-                    </header>
-                </div>
-            </section>
-        </li>
-    </ol>-->
+</div>

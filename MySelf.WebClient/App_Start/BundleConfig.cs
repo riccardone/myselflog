@@ -10,9 +10,6 @@ namespace MySelf.WebClient
         {
             bundles.UseCdn = true;   //enable CDN support
 
-            // //cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js
-            // http://cdn.oesmith.co.uk/morris-0.4.3.min.js
-
             bundles.Add(new ScriptBundle("~/bundles/raphael",
                 "//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js").Include(
                 "~/Scripts/raphael-min.js"));
@@ -21,30 +18,23 @@ namespace MySelf.WebClient
                 "http://cdn.oesmith.co.uk/morris-0.4.3.min.js").Include(
                 "~/Scripts/morris-0.4.3.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jquery",
+                "http://codeorigin.jquery.com/jquery-2.0.3.min.js").Include(
+                "~/Scripts/jquery-2.0.3.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jslibs")
-                            .Include("~/Scripts/jquery-{version}.js")
                             .Include("~/Scripts/toastr.min.js")
                             .Include("~/Scripts/moment.min.js")
-                            );
+                );
+
+            bundles.Add(new ScriptBundle("~/bundles/prologue")
+                            .Include("~/Scripts/skel.min.js")
+                            .Include("~/Scripts/skel-panels.min.js")
+                            .Include("~/Scripts/init.js")
+                );
 
             bundles.Add(new ScriptBundle("~/bundles/ajaxlogin").Include(
                 "~/app/js/ajaxlogin.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/striped")
-                            .Include("~/Scripts/jquery-{version}.js")
-                            .Include("~/Scripts/config.js")
-                            .Include("~/Scripts/skel.min.js")
-                            .Include("~/Scripts/skel-panels.min.js")
-                            );
-
-            bundles.Add(new StyleBundle("~/Content/stripedcss")
-                .Include("~/Content/skel-noscript.css")
-                .Include("~/Content/toastr.min.css")
-                .Include("~/Content/style.css")
-                .Include("~/Content/style-desktop.css")
-                .Include("~/Content/style-wide.css")
-                .Include("~/Content/style-narrow.css")
-                );
 
             bundles.Add(new ScriptBundle("~/bundles/angular")
                             .Include("~/Scripts/angular.min.js")
@@ -63,17 +53,8 @@ namespace MySelf.WebClient
                 .Include("~/app/js/services/friend.datacontext.js")
                 .Include("~/app/js/controllers/login.controller.js")
                 .Include("~/app/js/controllers/graph.controller.js")
-                //.Include("~/app/js/controllers/log.controller.js")
                 .Include("~/app/js/controllers/profile.controller.js")
                 .Include("~/app/js/controllers/profiles.controller.js")
-                .Include("~/app/js/controllers/newfriend.controller.js")
-                );
-
-            bundles.Add(new ScriptBundle("~/bundles/friendlog")
-                .Include("~/app/js/friend.main.js")
-                .Include("~/app/js/services/logger.js")
-                .Include("~/app/js/services/friend.datacontext.js")
-                .Include("~/app/js/controllers/friend.controller.js")
                 .Include("~/app/js/controllers/newfriend.controller.js")
                 );
 
@@ -97,18 +78,25 @@ namespace MySelf.WebClient
             bundles.Add(new StyleBundle("~/Content/morriscss", "http://cdn.oesmith.co.uk/morris-0.4.3.min.css")
                 .Include("~/Content/morris-0.4.3.min.css"));
 
-            bundles.Add(new StyleBundle("~/Content/mobilecss").Include("~/Content/jquery.mobile*"));
+            bundles.Add(new StyleBundle("~/Content/mobilecss")
+                .Include("~/Content/jquery.mobile*"));
 
             //bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap/bootstrap.min"));
 
-            bundles.Add(new StyleBundle("~/Content/css")
-                .Include("~/Content/site.css")
-                .Include("~/Content/toastr.min.css")
-                .Include("~/Content/myStyle.css")
-                .Include("~/Content/ngi.css")
+            //bundles.Add(new StyleBundle("~/Content/css")
+            //    .Include("~/Content/site.css")
+            //    .Include("~/Content/toastr.min.css")
+            //    .Include("~/Content/myStyle.css")
+            //    .Include("~/Content/ngi.css")
+            //    );
+
+            bundles.Add(new StyleBundle("~/Content/noscriptprologuecss")
+                .Include("~/Content/skel-noscript.css")
+                .Include("~/Content/style.css")
+                .Include("~/Content/style-wide.css")
                 );
 
-            bundles.Add(new StyleBundle("~/Content/css2")
+            bundles.Add(new StyleBundle("~/Content/css4libs")
                 .Include("~/Content/toastr.min.css")
                 .Include("~/Content/morris-0.4.3.min.css")
                 );

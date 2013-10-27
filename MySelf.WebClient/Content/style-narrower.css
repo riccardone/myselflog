@@ -1,5 +1,5 @@
 /*
-	Striped 2.0 by HTML5 Up!
+	Prologue 1.0 by HTML5 UP
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
@@ -8,149 +8,113 @@
 /* Basic                                                                         */
 /*********************************************************************************/
 
-	body
+	body,input,textarea,select
 	{
-		min-width: 641px;
-		font-size: 14pt;
+		font-size: 16pt;
+	}
+
+	h2
+	{
+	}
+
+		h2 br
+		{
+			display: none;
+		}
+
+	.container
+	{
+		padding: 0 2em 0 2em;
 	}
 
 /*********************************************************************************/
-/* Title Bar                                                                     */
+/* Header                                                                        */
 /*********************************************************************************/
 
-	#titleBarNarrower
+	#header
 	{
-		background: #364050 url('images/bg1.png');
+		position: relative;
+		width: 100%;
+		background: none !important;
+		box-shadow: none !important;
 	}
-
-	#titleBarNarrower .title
-	{
-		color: #fff;
-		line-height: 60px;
-		font-size: 1.25em;
-		font-family: 'Open Sans Condensed', sans-serif;
-		font-weight: 700;
-		letter-spacing: 0.1em;
-		text-shadow: -1px -1px 0px rgba(0,0,0,0.5);
-		box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.25);
-		text-align: center;
-	}
-
-	#titleBarNarrower .toggle
-	{
-		text-indent: -9999px;
-		width: 80px;
-		height: 80px;
-		position: absolute;
-		left: 0;
-		top: 0;
-	}
-
-		#titleBarNarrower .toggle:before
+	
+		#header .top
 		{
-			content: '';
-			display: block;
-			position: absolute;
-			left: 7px;
-			top: 7px;
-			width: 80px;
-			height: 45px;
-			background: #c94663 url('images/bg1.png');
-			border-radius: 5px;
-			box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,0.15), 0 0.025em 0.15em 0em rgba(0,0,0,0.25);
+			position: relative;
+		}
+	
+		#header .bottom
+		{
+			border-top: solid 1px rgba(255,255,255,0.05);
+			box-shadow: 0 -1px 0 0 rgba(0,0,0,0.15);
+			padding-top: 2em;
+			margin-top: 1em;
+			position: relative;
 		}
 
-		#titleBarNarrower .toggle:after
-		{
-			content: '';
-			display: block;
-			position: absolute;
-			left: 37px;
-			top: 22px;
-			width: 60px;
-			height: 30px;
-			background: url('images/mobileUI-site-nav-opener-bg.svg') 0 0 no-repeat;
-			opacity: 0.75;
-		}
+	#logo
+	{
+		margin: 1.5em 1.25em 1.25em 1.25em;
+	}
 
-		#titleBarNarrower .toggle:active
+	#nav
+	{
+	}
+	
+		#nav ul
 		{
 		}
-
-			#titleBarNarrower .toggle:active:before
+		
+			#nav ul li
 			{
-				background-color: #d95673;
 			}
+			
+				#nav ul li a
+				{
+					padding: 0.5em 1.25em 0.5em 1.25em;
+				}
 
-			#titleBarNarrower .toggle:active:after
-			{
-				opacity: 1.0;
-			}
+/*********************************************************************************/
+/* Footer                                                                        */
+/*********************************************************************************/
+	
+	#footer
+	{
+		margin-left: 0;
+	}
+
+/*********************************************************************************/
+/* Main                                                                          */
+/*********************************************************************************/
+
+	#main
+	{
+		margin-left: 0;
+	}
 
 /*********************************************************************************/
 /* Side Panel                                                                    */
 /*********************************************************************************/
 
-	#sidePanelNarrower
+	#sidePanel
 	{
-		background: #364050 url('images/bg1.png');
-		box-shadow: inset -1px 0 0 0 rgba(255,255,255,0.15), inset -0.1em 0 0.5em 0 rgba(0,0,0,0.25);
+		background: #222729 url('images/overlay.png');
+		box-shadow: inset -0.25em 0 0.25em 0 rgba(0,0,0,0.125);
 	}
 
-/*********************************************************************************/
-/* Logo                                                                          */
-/*********************************************************************************/
-
-	#logo
+	#sidePanelToggle
 	{
-		display: none;
 	}
-
-/*********************************************************************************/
-/* Nav                                                                           */
-/*********************************************************************************/
-
-	#nav
-	{
-		margin-top: 0 !important;
-	}
-
-		#nav:before
+	
+		#sidePanelToggle .toggle
 		{
-			display: none !important;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(128,136,144,0.5) url('images/toggle.svg') center center no-repeat;
+			border-radius: 0.35em;
+			margin: 0.25em;
 		}
-		
-		#nav li:hover a
-		{
-			background: none;
-		}
-
-/*********************************************************************************/
-/* Content                                                                       */
-/*********************************************************************************/
-		
-	#content
-	{
-		margin-top: 60px;
-	}
-
-		body.left-sidebar #content
-		{
-			margin-left: 0;
-		}
-		
-		body.right-sidebar #content
-		{
-			margin-right: 0;
-		}
-		
-/*********************************************************************************/
-/* Sidebar                                                                       */
-/*********************************************************************************/
-		
-	#sidebar
-	{
-		width: auto;
-		background: none;
-		padding: 30px 20px 30px 20px;
-	}

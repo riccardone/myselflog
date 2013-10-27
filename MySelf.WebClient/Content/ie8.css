@@ -8,49 +8,29 @@
 /* Basic                                                                         */
 /*********************************************************************************/
 
-	body,input,textarea,select
-	{
-		font-size: 16pt;
-	}
+	/* Forms */
 
-	.container
-	{
-		padding: 0 2em 0 2em;
-	}
-
-	/* Lists */
-
-		ul.icons
+		form
 		{
-		}	
+		}
 		
-			ul.icons li
+			form input.text,
+			form select,
+			form textarea
 			{
+				-ms-behavior: url('css/PIE.htc');
 			}
-
-			ul.icons li a
-			{
-				width: 1.75em;
-			}
-
+			
+	/* Buttons */
+		
+		.button
+		{
+			-ms-behavior: url('css/PIE.htc');
+		}
+		
 /*********************************************************************************/
 /* Header                                                                        */
 /*********************************************************************************/
-
-	#header
-	{
-		width: 20%;
-	}
-
-	#logo
-	{
-	}
-	
-		#logo .image
-		{
-			position: relative;
-			margin: 0 0 0.5em 0;
-		}
 
 	#nav
 	{
@@ -66,36 +46,23 @@
 			
 				#nav ul li a
 				{
-					font-size: 0.8em;
-					padding-top: 0.5em;
-					padding-bottom: 0.5em;
+					color: #888;
 				}
-				
-					#nav ul li a span
+
+					#nav ul li a.active
 					{
-						padding-right: 2.25em;
+						background: #1C2022;
 					}
-					
-						#nav ul li a span:before
-						{
-							left: 100%;
-							margin-left: -1.25em;
-						}
 
 /*********************************************************************************/
-/* Footer                                                                        */
+/* Side Panel                                                                    */
 /*********************************************************************************/
 
-	#footer
+	#sidePanelToggle
 	{
-		margin-left: 20%;
 	}
-
-/*********************************************************************************/
-/* Main                                                                          */
-/*********************************************************************************/
-
-	#main
-	{
-		margin-left: 20%;
-	}
+	
+		#sidePanelToggle .toggle
+		{
+			background-color: #888;
+		}
