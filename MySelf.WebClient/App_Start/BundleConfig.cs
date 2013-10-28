@@ -25,6 +25,7 @@ namespace MySelf.WebClient
             bundles.Add(new ScriptBundle("~/bundles/jslibs")
                             .Include("~/Scripts/toastr.min.js")
                             .Include("~/Scripts/moment.min.js")
+                            .Include("~/Scripts/ng-grid-2.0.7.min.js")
                 );
 
             bundles.Add(new ScriptBundle("~/bundles/prologue")

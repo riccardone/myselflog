@@ -4,16 +4,17 @@
         $scope.id = $routeParams.id;
         $scope.addValue = addValue;
         $scope.remove = remove;
-        $scope.graph = Morris.Line({
-            element: 'diaryGraph',
-            xkey: 'logdate',
-            ykeys: ['value'],
-            labels: ['Diary']
-        });
+        //$scope.graph = Morris.Line({
+        //    element: 'diaryGraph',
+        //    xkey: 'logdate',
+        //    ykeys: ['value'],
+        //    labels: ['Diary']
+        //});
         $scope.item = {};
         $scope.report = "year";
         $scope.date = getNow();
         $scope.setReport = setReport;
+        $scope.myOptions = { data: $scope.selectedprofile.logs };
         
         function getNow() {
             return $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
@@ -68,7 +69,7 @@
                         }
                     });
                 }
-                $scope.graph.setData(logs);
+                //$scope.graph.setData(logs);
             }
         }
 

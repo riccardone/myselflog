@@ -291,6 +291,8 @@
     <Content Include="Content\morris-0.4.3.min.css" />
     <Content Include="Content\myStyle.css" />
     <Content Include="Content\myStyleold.css" />
+    <Content Include="Content\ng-grid.css" />
+    <Content Include="Content\ng-grid.min.css" />
     <Content Include="Content\ngi.css" />
     <Content Include="Content\Site.Mobile.css" />
     <Content Include="Content\skel-noscript.css" />
@@ -740,6 +742,8 @@
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\morris-0.4.3.min.js" />
+    <Content Include="Scripts\ng-grid-2.0.7.js" />
+    <Content Include="Scripts\ng-grid-2.0.7.min.js" />
     <Content Include="Scripts\raphael-min.js" />
     <Content Include="Scripts\skel-panels.min.js" />
     <Content Include="Scripts\skel.min.js" />
