@@ -14,7 +14,7 @@
         $scope.report = "year";
         $scope.date = getNow();
         $scope.setReport = setReport;
-        $scope.myOptions = { data: $scope.selectedprofile.logs };
+        $scope.myOptions = { data: [] };
         
         function getNow() {
             return $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
@@ -69,6 +69,7 @@
                         }
                     });
                 }
+                $scope.myOptions = { data: logs };
                 //$scope.graph.setData(logs);
             }
         }
