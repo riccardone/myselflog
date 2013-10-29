@@ -4,6 +4,7 @@
         $scope.id = $routeParams.id;
         $scope.addValue = addValue;
         $scope.remove = remove;
+        $scope.logs = [];
         //$scope.graph = Morris.Line({
         //    element: 'diaryGraph',
         //    xkey: 'logdate',
@@ -14,7 +15,7 @@
         $scope.report = "year";
         $scope.date = getNow();
         $scope.setReport = setReport;
-        $scope.myOptions = { data: [] };
+        $scope.myOptions = { data: 'logs' };
         
         function getNow() {
             return $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
@@ -43,13 +44,13 @@
 
         function refreshGraph() {
             if ($scope.selectedprofile) {
-                var logs = [];
+                //var logs = [];
                 var d2 = new Date($scope.date);
                 if ($scope.report == "year") {
                     angular.forEach($scope.selectedprofile.logs, function (log) {
                         var d = new Date(log.logdate);
                         if (d.getYear() == d2.getYear()) {
-                            logs.push(log);
+                            $scope.logs.push(log);
                         }
                     });
                 }
@@ -57,7 +58,7 @@
                     angular.forEach($scope.selectedprofile.logs, function (log) {
                         var d = new Date(log.logdate);
                         if ((d.getYear() == d2.getYear()) && (d.getMonth() == d2.getMonth())) {
-                            logs.push(log);
+                            $scope.logs.push(log);
                         }
                     });
                 }
@@ -65,12 +66,10 @@
                     angular.forEach($scope.selectedprofile.logs, function (log) {
                         var d = new Date(log.logdate);
                         if ((d.getYear() == d2.getYear()) && (d.getMonth() == d2.getMonth()) && (d.getDay() == d2.getDay())) {
-                            logs.push(log);
+                            $scope.logs.push(log);
                         }
                     });
                 }
-                $scope.myOptions = { data: logs };
-                //$scope.graph.setData(logs);
             }
         }
 

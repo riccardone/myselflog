@@ -78,12 +78,12 @@
             </ul>*@
         </div>
     </div>
+    @RenderSection("scripts", false)
     @Scripts.Render("~/bundles/jslibs")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/raphael")
     @Scripts.Render("~/bundles/morris")
     @Scripts.Render("~/bundles/ajaxlogin")
-    @RenderSection("scripts", false)
     @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>
