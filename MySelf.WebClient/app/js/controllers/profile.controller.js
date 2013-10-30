@@ -1,6 +1,7 @@
 ﻿myselflogApp.controller('ProfileController',
     ['$scope', 'datacontext', '$filter', '$routeParams',
     function ($scope, datacontext, $filter, $routeParams) {
+        $scope.loading = false;
         $scope.id = $routeParams.id;
         $scope.addValue = addValue;
         $scope.remove = remove;
@@ -16,11 +17,11 @@
         $scope.date = getNow();
         $scope.setReport = setReport;
         $scope.myOptions = { data: 'logs' };
-        
+
         function getNow() {
             return $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
         }
-        
+
         $scope.item.logDate = getNow();
 
         setData();
@@ -35,7 +36,7 @@
             $scope.selectedprofile = data;
             refreshGraph();
         }
-        
+
         function setReport(date, report) {
             $scope.report = report;
             $scope.date = date;
@@ -72,6 +73,26 @@
                 }
             }
         }
+
+        $scope.alerts = [];
+        
+        $scope.addAlert = function (message) {
+            $scope.alerts.push({ msg: message });
+        };
+        
+        $scope.closeAlert = function (index) {
+            $scope.alerts.splice(index, 1);
+        };
+
+        $scope.$watch('loading', function () {
+            if ($scope.loading == false) {
+                if ($scope.alerts.length > 0) {
+                    $scope.closeAlert(0);
+                }
+            } else {
+                $scope.addAlert("Processing data, please wait...");
+            }
+        });
 
         $scope.$watch('selectedprofile', function () {
             setData();
@@ -119,16 +140,20 @@
         }
 
         function addValue() {
+            $scope.loading = true;
+            
             var log = { 'Value': $scope.item.value, 'LogDate': $scope.item.logDate, 'Message': $scope.item.message, 'ProfileId': $scope.selectedprofile.globalid };
             datacontext.save(log, addSucceeded);
 
             function addSucceeded(value) {
                 $scope.selectedprofile.logs.push(value);
                 refreshGraph();
+                $scope.loading = false;
             }
 
             function addFailed(error) {
                 // todo
+                $scope.loading = false;
             }
         }
     }]);

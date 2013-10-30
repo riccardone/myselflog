@@ -39,7 +39,9 @@ namespace MySelf.WebClient
 
             bundles.Add(new ScriptBundle("~/bundles/angular")
                             .Include("~/Scripts/angular.min.js")
-                            .Include("~/Scripts/angular-resource.min.js"));
+                            .Include("~/Scripts/angular-resource.min.js")
+                            .Include("~/Scripts/ui-bootstrap-0.6.0.min.js")
+                            );
 
             bundles.Add(new ScriptBundle("~/bundles/myselflog")
                 .Include("~/app/js/myselflog.main.js")
@@ -52,6 +54,7 @@ namespace MySelf.WebClient
                 .Include("~/app/js/services/user.resource.js")
                 .Include("~/app/js/services/user.datacontext.js")
                 .Include("~/app/js/services/friend.datacontext.js")
+                .Include("~/app/js/controllers/modalInstance.controller.js")
                 .Include("~/app/js/controllers/login.controller.js")
                 .Include("~/app/js/controllers/graph.controller.js")
                 .Include("~/app/js/controllers/profile.controller.js")

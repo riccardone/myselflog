@@ -1,15 +1,30 @@
-﻿<div class="container">
+﻿<script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3></h3>
+        </div>
+        <div class="modal-body">
+            <p>Work in progress...</p>
+        </div>
+        <!--<div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>-->
+</script>
+
+<div class="container">
     <header>
         <h2 class="alt">{{selectedprofile.name}}</h2>
     </header>
-
+    <script type="text/ng-template" id="alert">
+        <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+    </script>
     <form name="logForm" class="css-form">
         <input type="number" min="1" max="800" name="value" required data-ng-model="item.value" placeholder="Type a numeric value" />
         <textarea style="display: none" data-ng-model="item.message" placeholder="Type a message (optional)"></textarea>
         <input type="text" ng-model="item.logDate" placeholder="Select a date and time" />
         <input type="hidden" data-ng-model="item.selectedProfileId" value="selectedprofile.globalid" />
-        <button id="Button1" name="btnSubmit" ng-click="addValue()" class="btn btn-primary">Submit</button>
-    </form>    
+        <button id="btnSubmit" name="btnSubmit" ng-click="addValue()" class="btn btn-primary">Submit</button>
+    </form>
     <!--<div id="diaryGraph"></div>-->
     <div>
         <p><a ng-href="../{{selectedprofile.securitylink}}" target="blank">{{selectedprofile.securitylink}}</a></p>
