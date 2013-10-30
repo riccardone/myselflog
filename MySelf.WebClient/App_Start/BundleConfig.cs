@@ -41,6 +41,7 @@ namespace MySelf.WebClient
                             .Include("~/Scripts/angular.min.js")
                             .Include("~/Scripts/angular-resource.min.js")
                             .Include("~/Scripts/ui-bootstrap-0.6.0.min.js")
+                            .Include("~/Scripts/ui-bootstrap-tpls-0.6.0.min.js")
                             );
 
             bundles.Add(new ScriptBundle("~/bundles/myselflog")

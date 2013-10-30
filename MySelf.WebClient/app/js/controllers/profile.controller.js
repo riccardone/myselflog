@@ -18,6 +18,10 @@
         $scope.setReport = setReport;
         $scope.myOptions = { data: 'logs' };
 
+        function resetItem() {
+            $scope.item = { "value": "", "logDate": getNow(), "message": "" };
+        }
+
         function getNow() {
             return $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
         }
@@ -149,6 +153,7 @@
                 $scope.selectedprofile.logs.push(value);
                 refreshGraph();
                 $scope.loading = false;
+                resetItem();
             }
 
             function addFailed(error) {

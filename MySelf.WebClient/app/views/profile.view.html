@@ -23,7 +23,7 @@
         <textarea style="display: none" data-ng-model="item.message" placeholder="Type a message (optional)"></textarea>
         <input type="text" ng-model="item.logDate" placeholder="Select a date and time" />
         <input type="hidden" data-ng-model="item.selectedProfileId" value="selectedprofile.globalid" />
-        <button id="btnSubmit" name="btnSubmit" ng-click="addValue()" class="btn btn-primary">Submit</button>
+        <button id="btnSubmit" name="btnSubmit" ng-click="addValue()" ng-disabled="loading" class="btn btn-primary">Submit</button>
     </form>
     <!--<div id="diaryGraph"></div>-->
     <div>
