@@ -11,6 +11,10 @@ namespace MySelf.WebClientTest.App_Start
                 "http://codeorigin.jquery.com/jquery-2.0.3.min.js").Include(
                 "~/Scripts/jquery-2.0.3.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/d3",
+                "http://d3js.org/d3.v3.min.js").Include(
+                "~/Scripts/d3.v3.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/angular")
                             .Include("~/Scripts/angular.min.js")
                             .Include("~/Scripts/angular-resource.min.js")
@@ -18,12 +22,14 @@ namespace MySelf.WebClientTest.App_Start
                             .Include("~/Scripts/ui-bootstrap-tpls-0.6.0.min.js")
                             .Include("~/Scripts/angular-strap.min.js")
                             .Include("~/Scripts/ng-grid-2.0.7.min.js")
+                            .Include("~/Scripts/line-chart.min.js")
                             );
 
             bundles.Add(new ScriptBundle("~/bundles/myselflog")
                 .Include("~/app/js/myselflog.main.js")
                 .Include("~/app/js/services/myselflog.resource.js")
                 .Include("~/app/js/controllers/test.controller.js")
+                .Include("~/app/js/controllers/chart.controller.js")
                 );
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

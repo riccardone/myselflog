@@ -1,8 +1,9 @@
 ﻿myselflogApp.controller('TestController',
-    ['$scope', '$log',
-function ($scope, $log) {
+    ['$scope', '$log', '$timeout',
+function ($scope, $log, $timeout) {
     $scope.alerts = [];
     $scope.loading = false;
+    $scope.showDialog = false;
 
     $scope.$watch('loading', function () {
         if ($scope.loading == false) {
@@ -22,13 +23,21 @@ function ($scope, $log) {
     }
 
     $scope.processData = function () {
-        $log.log("start processing");
-        $scope.loading = true;
-        $scope.addAlert("Processing data...");
+        //$log.log("start processing");
+        //$scope.loading = true;
+        $("#ciccio").modal("show");
         load();
-        $log.log("end processing");
-        $scope.loading = false;
-        $scope.closeAlert(0);
+        $("#ciccio").modal("hide");
+        //$scope.addAlert("Processing data...");
+        //$timeout(function () {
+        //    //$scope.showDialog = true;
+        //     load();
+        //}, 0).then(function () {  });
+        
+        //$log.log("end processing");
+        //$scope.loading = false;
+        //$scope.closeAlert(0);
+        
     };
 
     function load() {
