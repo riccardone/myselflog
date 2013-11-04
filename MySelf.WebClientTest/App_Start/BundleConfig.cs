@@ -15,6 +15,10 @@ namespace MySelf.WebClientTest.App_Start
                 "http://d3js.org/d3.v3.min.js").Include(
                 "~/Scripts/d3.v3.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jslibs")
+                            .Include("~/Scripts/moment.min.js")
+                );
+
             bundles.Add(new ScriptBundle("~/bundles/angular")
                             .Include("~/Scripts/angular.min.js")
                             .Include("~/Scripts/angular-resource.min.js")
