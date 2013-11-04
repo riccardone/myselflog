@@ -30,6 +30,7 @@ namespace MySelf.WebClientTest.App_Start
                 .Include("~/app/js/services/myselflog.resource.js")
                 .Include("~/app/js/controllers/test.controller.js")
                 .Include("~/app/js/controllers/chart.controller.js")
+                .Include("~/app/js/controllers/time.controller.js")
                 );
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

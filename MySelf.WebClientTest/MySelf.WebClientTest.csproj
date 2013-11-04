@@ -199,11 +199,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\js\controllers\time.controller.js" />
     <Content Include="app\js\controllers\test.controller.js" />
     <Content Include="app\js\myselflog.main.js" />
     <Content Include="app\js\services\alertService.js" />
     <Content Include="app\js\services\myselflog.resource.js" />
     <Content Include="app\views\chart.view.html" />
+    <Content Include="app\views\time.view.html" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />

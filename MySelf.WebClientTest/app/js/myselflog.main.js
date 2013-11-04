@@ -3,7 +3,8 @@
 myselflogApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
         //when('/', { templateUrl: 'app/views/test.view.html', controller: 'TestController' }).
-        when('/', { templateUrl: 'app/views/chart.view.html', controller: 'ChartController' }).
+        //when('/', { templateUrl: 'app/views/chart.view.html', controller: 'ChartController' }).
+        when('/', { templateUrl: 'app/views/time.view.html', controller: 'TimeController' }).
         otherwise({ redirectTo: '/' });
     $locationProvider.html5Mode(true);
 }]);
