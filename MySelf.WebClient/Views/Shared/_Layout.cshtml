@@ -7,12 +7,14 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    @Styles.Render("~/Content/bootstrap/base")
+    @*@Styles.Render("~/Content/bootstrap/base")*@
+    
     @Styles.Render("~/Content/morriscss")
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600" rel="stylesheet" type="text/css" />
     <!--[if lte IE 8]><script src="../../Scripts/html5shiv.js"></script><![endif]-->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/prologue")
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
     <noscript>
         @Styles.Render("~/Content/noscriptprologuecss")
     </noscript>
@@ -28,6 +30,7 @@
             window.location.hash = '';
         }
     </script>
+    
 </head>
 <body data-ng-app="myselflogApp">
     <div id="header" class="skel-panels-fixed">
@@ -85,5 +88,6 @@
     @Scripts.Render("~/bundles/morris")
     @Scripts.Render("~/bundles/ajaxlogin")
     @Scripts.Render("~/bundles/bootstrap")
+    @*<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>*@
 </body>
 </html>

@@ -12,6 +12,52 @@
         //    ykeys: ['value'],
         //    labels: ['Diary']
         //});
+
+        $scope.hstep = 1;
+        $scope.mstep = 1;
+        $scope.ismeridian = true;
+        $scope.changed = function () {
+            console.log('Time changed to: ' + $scope.item.logTime);
+        };
+
+        /* date picker */
+        $scope.today = function () {
+            $scope.logdate = getNow();
+        };
+        $scope.today();
+
+        $scope.showWeeks = true;
+        $scope.toggleWeeks = function () {
+            $scope.showWeeks = !$scope.showWeeks;
+        };
+
+        $scope.clear = function () {
+            $scope.logdate = null;
+        };
+
+        // Disable weekend selection
+        $scope.disabled = function (date, mode) {
+            return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
+        };
+
+        $scope.toggleMin = function () {
+            $scope.minDate = ($scope.minDate) ? null : new Date();
+        };
+        $scope.toggleMin();
+
+        $scope.open = function () {
+            $timeout(function () {
+                $scope.opened = true;
+            });
+        };
+
+        $scope.dateOptions = {
+            'year-format': "'yy'",
+            'starting-day': 1,
+            'showWeeks': false
+        };
+        /* end date picker */
+
         $scope.item = {};
         $scope.report = "year";
         $scope.date = getNow();
@@ -19,7 +65,7 @@
         $scope.myOptions = { data: 'logs' };
 
         function resetItem() {
-            $scope.item = { "value": "", "logDate": getNow(), "message": "" };
+            $scope.item = { "value": "", "logDate": getNow(), "logTime": getNow(), "message": "" };
         }
 
         function getNow() {
@@ -145,8 +191,16 @@
 
         function addValue() {
             $scope.loading = true;
+
+            var d1 = moment($scope.item.logDate).toDate();
+            var d2 = moment($scope.item.logTime).toDate();
             
-            var log = { 'Value': $scope.item.value, 'LogDate': $scope.item.logDate, 'Message': $scope.item.message, 'ProfileId': $scope.selectedprofile.globalid };
+            d1.setHours(d2.getHours());
+            d1.setMinutes(d2.getMinutes());
+            d1.setSeconds(d2.getSeconds());
+            d1.setSeconds(d2.getMilliseconds());
+
+            var log = { 'Value': $scope.item.value, 'LogDate': d1, 'Message': $scope.item.message, 'ProfileId': $scope.selectedprofile.globalid };
             datacontext.save(log, addSucceeded);
 
             function addSucceeded(value) {

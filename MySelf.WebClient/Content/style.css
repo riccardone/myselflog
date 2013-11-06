@@ -599,8 +599,8 @@
 		.icon-fast-forward:before{content:"\f050";}
 		.icon-step-forward:before{content:"\f051";}
 		.icon-eject:before{content:"\f052";}
-		.icon-chevron-left:before{content:"\f053";}
-		.icon-chevron-right:before{content:"\f054";}
+		/*.icon-chevron-left:before{content:"\f053";}
+		.icon-chevron-right:before{content:"\f054";}*/
 		.icon-plus-sign:before{content:"\f055";}
 		.icon-minus-sign:before{content:"\f056";}
 		.icon-remove-sign:before{content:"\f057";}
@@ -611,8 +611,8 @@
 		.icon-remove-circle:before{content:"\f05c";}
 		.icon-ok-circle:before{content:"\f05d";}
 		.icon-ban-circle:before{content:"\f05e";}
-		.icon-arrow-left:before{content:"\f060";}
-		.icon-arrow-right:before{content:"\f061";}
+		/*.icon-arrow-left:before{content:"\f060";}
+		.icon-arrow-right:before{content:"\f061";}*/
 		.icon-arrow-up:before{content:"\f062";}
 		.icon-arrow-down:before{content:"\f063";}
 		.icon-mail-forward:before,.icon-share-alt:before{content:"\f064";}
@@ -633,8 +633,8 @@
 		.icon-random:before{content:"\f074";}
 		.icon-comment:before{content:"\f075";}
 		.icon-magnet:before{content:"\f076";}
-		.icon-chevron-up:before{content:"\f077";}
-		.icon-chevron-down:before{content:"\f078";}
+		/*.icon-chevron-up:before{content:"\f077";}
+		.icon-chevron-down:before{content:"\f078";}*/
 		.icon-retweet:before{content:"\f079";}
 		.icon-shopping-cart:before{content:"\f07a";}
 		.icon-folder-close:before{content:"\f07b";}
