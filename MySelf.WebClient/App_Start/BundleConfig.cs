@@ -88,12 +88,9 @@ namespace MySelf.WebClient
 
             //bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap/bootstrap.min"));
 
-            //bundles.Add(new StyleBundle("~/Content/css")
-            //    .Include("~/Content/site.css")
-            //    .Include("~/Content/toastr.min.css")
-            //    .Include("~/Content/myStyle.css")
-            //    .Include("~/Content/ngi.css")
-            //    );
+            bundles.Add(new StyleBundle("~/Content/myCss")
+                .Include("~/Content/myStyle.css")
+                );
 
             bundles.Add(new StyleBundle("~/Content/noscriptprologuecss")
                 .Include("~/Content/skel-noscript.css")
