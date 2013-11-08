@@ -12,7 +12,7 @@
         //    ykeys: ['value'],
         //    labels: ['Diary']
         //});
-
+        $scope.oneAtATime = true;
         $scope.hstep = 1;
         $scope.mstep = 1;
         $scope.ismeridian = true;
