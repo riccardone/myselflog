@@ -19,6 +19,7 @@
         $scope.changed = function () {
             console.log('Time changed to: ' + $scope.item.logTime);
         };
+        $scope.resetItem = resetItem;
 
         /* date picker */
         $scope.today = function () {
@@ -60,19 +61,23 @@
 
         $scope.item = {};
         $scope.report = "year";
-        $scope.date = getNow();
+        $scope.date = getJustToday();
         $scope.setReport = setReport;
         $scope.myOptions = { data: 'logs' };
 
         function resetItem() {
-            $scope.item = { "value": "", "logDate": getNow(), "logTime": getNow(), "message": "" };
+            $scope.item = { "value": "", "logDate": getJustToday(), "logTime": getNow(), "message": "" };
         }
 
         function getNow() {
             return $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
         }
+        
+        function getJustToday() {
+            return $filter('date')(new Date(), 'yyyy-MM-dd');
+        }
 
-        $scope.item.logDate = getNow();
+        $scope.item.logDate = getJustToday();
 
         setData();
 
