@@ -13,7 +13,7 @@
     <!--[if lte IE 8]><script src="../../Scripts/html5shiv.js"></script><![endif]-->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/prologue")
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
+    
     <noscript>
         @Styles.Render("~/Content/noscriptprologuecss")
     </noscript>
@@ -29,6 +29,7 @@
             window.location.hash = '';
         }
     </script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
     @Styles.Render("~/Content/myCss")
 </head>
 <body data-ng-app="myselflogApp">
@@ -39,7 +40,7 @@
                     @*<img src="images/avatar.jpg" alt="" />*@
                 </span>
                 <h1 id="title">MySelfLog</h1>
-                <span class="byline">Log your life</span>
+                <span class="byline">Log your health</span>
             </div>
             <nav id="nav">
                 @Html.Partial("_UserSettings")

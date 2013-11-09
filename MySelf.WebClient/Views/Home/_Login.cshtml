@@ -1,11 +1,11 @@
 ﻿@model MySelf.WebClient.Models.LoginModel
 
-@using (Html.BeginForm("JsonLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginForm" }))
+@using (Html.BeginForm("JsonLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginForm", @class = "css-form" }))
 {
     @Html.AntiForgeryToken()
-
+    
     <fieldset>
-        <legend>Log in Form</legend>
+        @*<legend>Log in Form</legend>*@
         <ol>
             <li>
                 @Html.LabelFor(m => m.UserName)
@@ -27,4 +27,6 @@
         </ol>
         @Html.ValidationSummary() 
     </fieldset>
+
+    @Html.ValidationSummary() 
 }
