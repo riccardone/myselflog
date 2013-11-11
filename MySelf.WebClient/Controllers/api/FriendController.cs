@@ -8,7 +8,6 @@ using System.Runtime.Serialization;
 using System.Web.Http;
 using MySelf.Diab.Data.Contracts;
 using MySelf.Diab.Model;
-using MySelf.WebClient.Filters;
 using MySelf.WebClient.Models;
 
 namespace MySelf.WebClient.Controllers.api
@@ -23,17 +22,6 @@ namespace MySelf.WebClient.Controllers.api
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
     }
-
-    //[DataContract]
-    //public class RemoveFriendRequest
-    //{
-    //    [DataMember(Name = "logprofileid", IsRequired = true)]
-    //    public Guid LogProfileId { get; set; }
-
-    //    //[DataType(DataType.EmailAddress)]
-    //    [DataMember(Name = "email", IsRequired = true)]
-    //    public string Email { get; set; }
-    //}
 
     [DataContract]
     public class GetLogsAsFriendRequest

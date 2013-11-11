@@ -1,6 +1,6 @@
 ﻿myselflogApp.controller('ProfileController',
     ['$scope', 'datacontext', '$filter', '$routeParams',
-    function ($scope, datacontext, $filter, $routeParams) {
+    function ($scope, datacontext, $filter, $routeParams, $modal) {
         $scope.loading = false;
         $scope.id = $routeParams.id;
         $scope.addValue = addValue;
@@ -21,6 +21,27 @@
             console.log('Time changed to: ' + $scope.item.logTime);
         };
         $scope.resetItem = resetItem;
+
+        /* modal */
+        $scope.open = function () {
+
+            var modalInstance = $modal.open({
+                templateUrl: 'myModalContent.html',
+                controller: 'ModalInstanceController',
+                resolve: {
+                    items: function () {
+                        return $scope.items;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+                $scope.selected = selectedItem;
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        };
+        /* end modal */
 
         /* date picker */
         $scope.today = function () {
