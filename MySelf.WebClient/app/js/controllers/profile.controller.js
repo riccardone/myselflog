@@ -6,6 +6,7 @@
         $scope.addValue = addValue;
         $scope.remove = remove;
         $scope.logs = [];
+        $scope.friends = [];
         //$scope.graph = Morris.Line({
         //    element: 'diaryGraph',
         //    xkey: 'logdate',
@@ -89,6 +90,7 @@
 
         function setDataSucceeded(data) {
             $scope.selectedprofile = data;
+            $scope.friends = data.friends;
             refreshGraph();
         }
 
@@ -164,9 +166,22 @@
         $scope.deleteSecurityLink = function (logProfileId) {
             datacontext.deleteSecurityLink(logProfileId, deleteSecurityLinkSucceeded);
         };
-
+        
         function deleteSecurityLinkSucceeded() {
             $scope.selectedprofile.securitylink = "";
+        }
+
+        $scope.removeFriend = function(email) {
+            datacontext.deleteFriend(email, $scope.selectedprofile.globalid, deleteFriendSucceeded);
+        };
+
+        function deleteFriendSucceeded(email) {
+            $scope.friends.splice();
+            for (var i = 0; i < $scope.friends.length; i++) {
+                if ($scope.friends[i].email == email) {
+                    $scope.friends.splice(i, 1);
+                }
+            }
         }
 
         $scope.addFriend = function (email, logProfileGlobalId) {

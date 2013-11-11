@@ -41,7 +41,7 @@ namespace MySelf.WebClient
                             .Include("~/Scripts/angular-resource.min.js")
                             .Include("~/Scripts/ui-bootstrap-0.6.0.min.js")
                             .Include("~/Scripts/ui-bootstrap-tpls-0.6.0.min.js")
-                            .Include("~/Scripts/ng-grid-2.0.7.min.js")
+                            .Include("~/Scripts/ng-table.js")
                             );
 
             bundles.Add(new ScriptBundle("~/bundles/myselflog")
@@ -51,9 +51,12 @@ namespace MySelf.WebClient
                 .Include("~/app/js/services/myselflog.resource.js")
                 .Include("~/app/js/services/logprofile.resource.js")
                 .Include("~/app/js/services/securitylink.resource.js")
+                .Include("~/app/js/services/friendwithlink.resource.js")
+                .Include("~/app/js/services/friend.resource.js")
                 .Include("~/app/js/services/myselflog.datacontext.js")
                 .Include("~/app/js/services/user.resource.js")
                 .Include("~/app/js/services/user.datacontext.js")
+                .Include("~/app/js/services/friendwithlink.datacontext.js")
                 .Include("~/app/js/services/friend.datacontext.js")
                 .Include("~/app/js/controllers/modalInstance.controller.js")
                 .Include("~/app/js/controllers/login.controller.js")
@@ -101,6 +104,7 @@ namespace MySelf.WebClient
             bundles.Add(new StyleBundle("~/Content/css4libs")
                 .Include("~/Content/toastr.min.css")
                 .Include("~/Content/morris-0.4.3.min.css")
+                .Include("~/Content/ng-table.css")
                 );
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(

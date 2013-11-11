@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using MySelf.WebClient.Filters;
 
 namespace MySelf.WebClient
 {
@@ -9,6 +10,8 @@ namespace MySelf.WebClient
     {
         public static void Register(HttpConfiguration config)
         {
+            config.Filters.Add(new ValidateModelAttribute());
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

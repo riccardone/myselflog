@@ -1,5 +1,5 @@
 ﻿myselflogApp.controller('NewFriendController',
-    ['$scope', 'friendDatacontext', 'logger', '$filter', 'moment', '$routeParams', '$route',
+    ['$scope', 'friendWithLinkDatacontext', 'logger', '$filter', 'moment', '$routeParams', '$route',
 function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $route) {
     $scope.loading = false;
     $scope.profile = { 'isLoaded': false, 'logs': [] };

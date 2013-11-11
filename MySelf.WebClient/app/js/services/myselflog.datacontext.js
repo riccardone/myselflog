@@ -1,6 +1,6 @@
 'use strict';
 
-myselflogApp.factory('datacontext', function (logResource, logProfileResource, securityLinkResource) {
+myselflogApp.factory('datacontext', function (logResource, logProfileResource, securityLinkResource, friendResource, friendWithLinkResource) {
     return {
         getLog: function (logId, callback) {
             return logResource.get({ id: logId }, function (log) {
@@ -30,10 +30,23 @@ myselflogApp.factory('datacontext', function (logResource, logProfileResource, s
             });
         },
         addFriend: function (email, logProfileId, callback) {
-            //friendResource.save({ email: email, logProfileId: logProfileId }, function (data) {
-            //    if (callback)
-            //        callback(data);
-            //});
+            friendResource.save({ email: email, logProfileId: logProfileId }, function (data) {
+                if (callback)
+                    callback(data);
+            });
+        },
+        deleteFriend: function(email, logProfileId, callback) {
+            friendResource.delete({ logprofileid: logProfileId, email: email }, function () {
+                if (callback)
+                    callback(email);
+            });
+        },
+        getFriends: function (logProfileId, callback) {
+            return friendResource.query({ id: logProfileId }, function(data) {
+                if (callback) {
+                    callback(data);
+                }
+            });
         },
         getSecureLink: function (logProfileId, callback) {
             securityLinkResource.get({ logProfileId: logProfileId }, function (data) {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -7,6 +8,7 @@ using System.Runtime.Serialization;
 using System.Web.Http;
 using MySelf.Diab.Data.Contracts;
 using MySelf.Diab.Model;
+using MySelf.WebClient.Filters;
 using MySelf.WebClient.Models;
 
 namespace MySelf.WebClient.Controllers.api
@@ -16,25 +18,38 @@ namespace MySelf.WebClient.Controllers.api
     {
         [DataMember(Name = "logprofileid", IsRequired = true)]
         public Guid LogProfileId { get; set; }
+        
+        [DataMember(Name = "email", IsRequired = true)]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+    }
 
+    //[DataContract]
+    //public class RemoveFriendRequest
+    //{
+    //    [DataMember(Name = "logprofileid", IsRequired = true)]
+    //    public Guid LogProfileId { get; set; }
+
+    //    //[DataType(DataType.EmailAddress)]
+    //    [DataMember(Name = "email", IsRequired = true)]
+    //    public string Email { get; set; }
+    //}
+
+    [DataContract]
+    public class GetLogsAsFriendRequest
+    {
         [DataMember(Name = "email", IsRequired = true)]
         public string Email { get; set; }
     }
 
     [DataContract]
-    public class GetLogAsFriendRequest
+    public class GetLogsAsFriendResponse 
     {
-        [DataMember(Name = "link", IsRequired = true)]
-        public string Link { get; set; }
+        [DataMember(Name = "logsprofileasfriend", IsRequired = true)]
+        public List<LogProfileDto> LogsProfileDto { get; set; }
     }
 
-    [DataContract]
-    public class GetLogAsFriendResponse
-    {
-        [DataMember(Name = "logprofileasfriend", IsRequired = true)]
-        public LogProfileDto LogProfileDto { get; set; }
-    }
-    
+    [Authorize]
     public class FriendController : ApiController
     {
         private readonly ILogManager _logManager;
@@ -46,42 +61,37 @@ namespace MySelf.WebClient.Controllers.api
             _mapper = mapper;
         }
 
-        public HttpResponseMessage Get([FromUri]GetLogAsFriendRequest data)
+        public HttpResponseMessage Get([FromUri]GetLogsAsFriendRequest data)
         {
             try
             {
-                var logProfile = _logManager.ModelReader.GetLogProfile(data.Link);
-                if (logProfile == null)
-                    throw new ArgumentException("Profile not found");
+                var logProfiles = _logManager.ModelReader.GetLogProfilesAsFriend(data.Email);
+                var results = _mapper.ToLogProfileDto(logProfiles);
 
-                if (logProfile.SecurityLink == null)
-                    return Request.CreateResponse(HttpStatusCode.Accepted, string.Empty);
-
-                var logProfileDto = _mapper.ToLogProfileDto(new[] {logProfile});
-
-                return Request.CreateResponse(HttpStatusCode.Accepted, new GetLogAsFriendResponse { LogProfileDto = logProfileDto.FirstOrDefault() });
+                return Request.CreateResponse(HttpStatusCode.Accepted, new GetLogsAsFriendResponse { LogsProfileDto = results });
             }
             catch (Exception ex)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.GetBaseException());
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.GetBaseException().Message);
             }
         }
-
-        [Authorize]
+        
         public HttpResponseMessage Post([FromBody]AddFriendRequest data)
         {
             try
-            {
+            { 
                 var logProfile = _logManager.ModelReader.GetLogProfile(data.LogProfileId);
+
+                if (logProfile == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.Ambiguous, "profile not found");
                 if (logProfile.Friends.Any(f => f.Email == data.Email))
-                {
-                    return Request.CreateErrorResponse(HttpStatusCode.Ambiguous, "the required friendship is already there for this profile");
-                }
+                    return Request.CreateErrorResponse(HttpStatusCode.Ambiguous, "it's already a friend for this profile");
 
                 var friend = new Friend
                     {
                         Email = data.Email,
                         LogProfiles = new List<LogProfile> {logProfile},
+                        Active = true,
                         FriendActivities = new List<FriendActivity>
                             {
                                 new FriendActivity
@@ -98,16 +108,16 @@ namespace MySelf.WebClient.Controllers.api
             }
             catch (Exception ex)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.GetBaseException());
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.GetBaseException().Message);
             }
         }
 
-        [Authorize]
-        public HttpResponseMessage Delete(Guid globalId)
+        [HttpDelete]
+        public HttpResponseMessage Delete(string email, Guid logprofileid)
         {
             try
             {
-                _logManager.LogCommands.Delete(globalId);
+                _logManager.FriendCommands.Delete(email, logprofileid);
                 _logManager.Save();
 
                 return Request.CreateResponse(HttpStatusCode.NoContent);

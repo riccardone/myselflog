@@ -216,6 +216,7 @@
     <Compile Include="Code\IConfigSettings.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountController2.cs" />
+    <Compile Include="Controllers\api\FriendWithLinkController.cs" />
     <Compile Include="Controllers\api\SecurityLinkController.cs" />
     <Compile Include="Controllers\api\FriendController.cs" />
     <Compile Include="Controllers\DiaryController.cs" />
@@ -223,12 +224,14 @@
     <Compile Include="Controllers\api\LogController.cs" />
     <Compile Include="Controllers\api\UserController.cs" />
     <Compile Include="Controllers\ViewSwitcherController.cs" />
+    <Compile Include="Filters\ValidateModelAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\DiaryViewModel.cs" />
+    <Compile Include="Models\FriendDto.cs" />
     <Compile Include="Models\LogDto.cs" />
     <Compile Include="Models\LogProfileDto.cs" />
     <Compile Include="Models\Mapper.cs" />
@@ -246,6 +249,9 @@
     <Content Include="app\js\myselflog.main.js" />
     <Content Include="app\js\services\alertService.js" />
     <Content Include="app\js\services\authentication.js" />
+    <Content Include="app\js\services\friendwithlink.resource.js" />
+    <Content Include="app\js\services\friendwithlink.datacontext.js" />
+    <Content Include="app\js\services\friend.resource.js" />
     <Content Include="app\js\services\friend.datacontext.js" />
     <Content Include="app\js\services\logger.js" />
     <Content Include="app\js\services\securitylink.resource.js" />
@@ -298,6 +304,7 @@
     <Content Include="Content\myStyleold.css" />
     <Content Include="Content\ng-grid.css" />
     <Content Include="Content\ng-grid.min.css" />
+    <Content Include="Content\ng-table.css" />
     <Content Include="Content\ngi.css" />
     <Content Include="Content\Site.Mobile.css" />
     <Content Include="Content\skel-noscript.css" />
@@ -750,6 +757,7 @@
     <Content Include="Scripts\morris-0.4.3.min.js" />
     <Content Include="Scripts\ng-grid-2.0.7.js" />
     <Content Include="Scripts\ng-grid-2.0.7.min.js" />
+    <Content Include="Scripts\ng-table.js" />
     <Content Include="Scripts\raphael-min.js" />
     <Content Include="Scripts\skel-panels.min.js" />
     <Content Include="Scripts\skel.min.js" />
@@ -807,7 +815,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_LocalResources\" />
-    <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Web.Http;
 using MySelf.Diab.Data.Contracts;
 using MySelf.Diab.Model;
+using MySelf.WebClient.Filters;
 using MySelf.WebClient.Models;
 
 namespace MySelf.WebClient.Controllers.api

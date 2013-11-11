@@ -34,6 +34,8 @@ namespace MySelf.Diab.Data
                 _db.LogProfiles
                    .Include(g => g.GlucoseLevels)
                    .Include(o => o.Person).Include(s => s.SecurityLink)
+                   .Include(f => f.Friends)
+                   .Include("Friends.FriendActivities")
                    .Where(g => g.Person.Email == email).ToList();
         }
 

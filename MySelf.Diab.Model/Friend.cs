@@ -4,6 +4,11 @@ namespace MySelf.Diab.Model
 {
     public class Friend
     {
+        public Friend()
+        {
+            Active = true;
+        }
+
         public int Id { get; set; }
 
         public string FirstName { get; set; }

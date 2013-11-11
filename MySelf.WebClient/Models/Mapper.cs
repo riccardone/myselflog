@@ -26,6 +26,15 @@ namespace MySelf.WebClient.Models
             }).ToList();
         }
 
+        public List<FriendDto> ToFriendDto(IEnumerable<Friend> items)
+        {
+            return items.Select(f => new FriendDto
+            {
+                Active = f.Active,
+                Email = f.Email
+            }).ToList();
+        }
+
         public List<LogProfileDto> ToLogProfileDto(IEnumerable<LogProfile> logProfiles)
         {
             return logProfiles.Select(logProfile => new LogProfileDto
@@ -33,6 +42,7 @@ namespace MySelf.WebClient.Models
                 GlobalId = logProfile.GlobalId,
                 Name = logProfile.Name,
                 Logs = ToLogDto(logProfile.GlucoseLevels),
+                Friends = ToFriendDto(logProfile.Friends),
                 SecurityLink = logProfile.SecurityLink != null ? BuildSecurityLink(logProfile.SecurityLink.Link) : string.Empty
             }).ToList();
         }

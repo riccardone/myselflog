@@ -1,4 +1,4 @@
-﻿window.myselflogApp = angular.module('myselflogApp', ['ui.bootstrap', 'ngResource']);
+﻿window.myselflogApp = angular.module('myselflogApp', ['ui.bootstrap', 'ngResource', 'ngTable']);
 
 myselflogApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
