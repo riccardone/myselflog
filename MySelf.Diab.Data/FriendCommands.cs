@@ -2,6 +2,7 @@
 using System.Linq;
 using MySelf.Diab.Data.Contracts;
 using MySelf.Diab.Model;
+using System.Data.Entity;
 
 namespace MySelf.Diab.Data
 {
@@ -21,7 +22,10 @@ namespace MySelf.Diab.Data
 
         public void Delete(string email, Guid globalId)
         {
-            var profile = _db.LogProfiles.Include("Friends").FirstOrDefault(p => p.GlobalId == globalId);
+            var profile =
+                _db.LogProfiles.Include(l => l.Friends)
+                   .Include(f => f.Friends.Select(a => a.FriendActivities))
+                   .FirstOrDefault(p => p.GlobalId == globalId);
             if (profile == null)
             {
                 return;

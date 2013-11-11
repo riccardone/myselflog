@@ -171,7 +171,8 @@
             $scope.selectedprofile.securitylink = "";
         }
 
-        $scope.removeFriend = function(email) {
+        $scope.removeFriend = function (email) {
+            $scope.loading = true;
             datacontext.deleteFriend(email, $scope.selectedprofile.globalid, deleteFriendSucceeded);
         };
 
@@ -182,11 +183,18 @@
                     $scope.friends.splice(i, 1);
                 }
             }
+            $scope.loading = false;
         }
 
         $scope.addFriend = function (email, logProfileGlobalId) {
-            datacontext.addFriend(email, logProfileGlobalId);
+            $scope.loading = true;
+            datacontext.addFriend(email, logProfileGlobalId, addFriendSucceeded);
         };
+        
+        function addFriendSucceeded(data) {
+            $scope.friends.push(data);
+            $scope.loading = false;
+        }
 
         function createProfileSucceeded() {
             $scope.getData();
