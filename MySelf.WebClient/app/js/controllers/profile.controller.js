@@ -1,5 +1,5 @@
 ﻿myselflogApp.controller('ProfileController',
-    ['$scope', 'datacontext', '$filter', '$routeParams',
+    ['$scope', 'datacontext', '$filter', '$routeParams', '$modal',
     function ($scope, datacontext, $filter, $routeParams, $modal) {
         $scope.loading = false;
         $scope.id = $routeParams.id;
@@ -23,7 +23,7 @@
         $scope.resetItem = resetItem;
 
         /* modal */
-        $scope.open = function () {
+        $scope.openInvite = function (email) {
 
             var modalInstance = $modal.open({
                 templateUrl: 'myModalContent.html',
