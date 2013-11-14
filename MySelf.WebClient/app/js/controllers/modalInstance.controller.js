@@ -2,7 +2,7 @@
     function($scope, $modalInstance) {
         $scope.input = {};
         $scope.ok = function () {
-            alert($scope.input.abc);
+            alert($scope.message);
         };
 
         $scope.cancel = function () {

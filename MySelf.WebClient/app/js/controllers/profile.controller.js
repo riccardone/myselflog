@@ -1,6 +1,6 @@
 ﻿myselflogApp.controller('ProfileController',
-    ['$scope', 'datacontext', '$filter', '$routeParams', '$modal',
-    function ($scope, datacontext, $filter, $routeParams, $modal) {
+    ['$scope', 'datacontext', '$filter', '$routeParams', '$modal', '$log',
+    function ($scope, datacontext, $filter, $routeParams, $modal, $log) {
         $scope.loading = false;
         $scope.id = $routeParams.id;
         $scope.addValue = addValue;
@@ -36,7 +36,7 @@
             });
 
             modalInstance.result.then(function (selectedItem) {
-                $scope.selected = selectedItem;
+                $scope.message = selectedItem;
             }, function () {
                 $log.info('Modal dismissed at: ' + new Date());
             });
