@@ -1,8 +1,8 @@
-﻿myselflogApp.controller('ModalInstanceController',
+﻿myselflogApp.controller('ModalSendInviteController',
     function($scope, $modalInstance) {
-        $scope.input = {};
+        
         $scope.ok = function () {
-            alert($scope.message);
+            $modalInstance.close($scope.message);
         };
 
         $scope.cancel = function () {

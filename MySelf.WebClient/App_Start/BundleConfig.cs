@@ -58,7 +58,7 @@ namespace MySelf.WebClient
                 .Include("~/app/js/services/user.datacontext.js")
                 .Include("~/app/js/services/friendwithlink.datacontext.js")
                 .Include("~/app/js/services/friend.datacontext.js")
-                .Include("~/app/js/controllers/modalInstance.controller.js")
+                .Include("~/app/js/controllers/modalSendInvite.controller.js")
                 .Include("~/app/js/controllers/login.controller.js")
                 .Include("~/app/js/controllers/graph.controller.js")
                 .Include("~/app/js/controllers/profile.controller.js")

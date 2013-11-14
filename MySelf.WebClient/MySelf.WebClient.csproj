@@ -240,7 +240,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\js\ajaxlogin.js" />
-    <Content Include="app\js\controllers\modalInstance.controller.js" />
+    <Content Include="app\js\controllers\modalSendInvite.controller.js" />
     <Content Include="app\js\controllers\profile.controller.js" />
     <Content Include="app\js\controllers\profiles.controller.js" />
     <Content Include="app\js\controllers\friend.controller.js" />
