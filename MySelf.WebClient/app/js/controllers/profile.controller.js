@@ -27,10 +27,10 @@
 
             var modalInstance = $modal.open({
                 templateUrl: 'myModalContent.html',
-                controller: 'ModalInstanceController',
+                controller: 'ModalFriendInviteController',
                 resolve: {
                     items: function () {
-                        return $scope.items;
+                        return { 'profile': $scope.selectedprofile, 'email': email }; 
                     }
                 }
             });

@@ -1,9 +1,9 @@
 ﻿<script type="text/ng-template" id="myModalContent.html">
         <div class="modal-header">
-            <h3>Send an invite to your friend to see {{selectedprofile.name}}</h3>
+            <h3>Send an invite to a friend</h3>
         </div>
         <div class="modal-body">
-            <textarea id="message" name="message" ng-model="message"></textarea>            
+            <textarea id="message" name="message" ng-model="input.friendInviteMessage"></textarea>            
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" ng-click="ok()">OK</button>
