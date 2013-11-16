@@ -3,7 +3,11 @@
             <h3>Send an invite to a friend</h3>
         </div>
         <div class="modal-body">
+<<<<<<< HEAD
+            <textarea id="message" name="message"></textarea>            
+=======
             <textarea id="message" name="message" ng-model="input.friendInviteMessage"></textarea>            
+>>>>>>> 8bd15f80bee6abf1cabd4cc3dde95bda13efced7
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" ng-click="ok()">OK</button>

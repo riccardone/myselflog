@@ -58,7 +58,11 @@ namespace MySelf.WebClient
                 .Include("~/app/js/services/user.datacontext.js")
                 .Include("~/app/js/services/friendwithlink.datacontext.js")
                 .Include("~/app/js/services/friend.datacontext.js")
+<<<<<<< HEAD
+                .Include("~/app/js/controllers/modalSendInvite.controller.js")
+=======
                 .Include("~/app/js/controllers/modalFriendInviteInstance.controller.js")
+>>>>>>> 8bd15f80bee6abf1cabd4cc3dde95bda13efced7
                 .Include("~/app/js/controllers/login.controller.js")
                 .Include("~/app/js/controllers/graph.controller.js")
                 .Include("~/app/js/controllers/profile.controller.js")

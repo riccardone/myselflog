@@ -26,11 +26,19 @@
         $scope.openInvite = function (email) {
 
             var modalInstance = $modal.open({
+<<<<<<< HEAD
                 templateUrl: 'mySendInviteModalContent.html',
+                controller: 'ModalSendInviteController',
+                resolve: {
+                    items: function () {
+                        return $scope.message;
+=======
+                templateUrl: 'myModalContent.html',
                 controller: 'ModalFriendInviteController',
                 resolve: {
                     items: function () {
                         return { 'profile': $scope.selectedprofile, 'email': email }; 
+>>>>>>> 8bd15f80bee6abf1cabd4cc3dde95bda13efced7
                     }
                 }
             });
