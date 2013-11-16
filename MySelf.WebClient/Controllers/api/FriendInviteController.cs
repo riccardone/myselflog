@@ -67,9 +67,11 @@ namespace MySelf.WebClient.Controllers.api
         {
             var message = new MailMessage
             {
-                From = new MailAddress("phoneApps@yourdomain.com"),
-                Subject = "Subject",
-                Body = "template"
+                From = new MailAddress("invite@myselflog.com"),
+                Subject = "Invite to see some health values",
+                Body = string.Format(
+                    "Hi, you are invited to see this an health profile. Click on this link to see the profile http://www.myselflog.com/profile/{0}",
+                    data.LogProfileId)
             };
             message.To.Add(data.Email);
 
@@ -78,23 +80,23 @@ namespace MySelf.WebClient.Controllers.api
             //client.Credentials = new NetworkCredential("user", "password");
             client.Send(message);
 
-            var mail = new MailMessage("EmailFrom", data.Email);
+            //var mail = new MailMessage("EmailFrom", data.Email);
 
-            const string sendtoBcc = "test@arvixe.com";
-            mail.Bcc.Add(sendtoBcc);
+            //const string sendtoBcc = "test@arvixe.com";
+            //mail.Bcc.Add(sendtoBcc);
 
-            mail.Subject = "Subject";
-            mail.IsBodyHtml = true;
+            //mail.Subject = "Subject";
+            //mail.IsBodyHtml = true;
 
-            mail.Body =
-                string.Format(
-                    "Hi, you are invited to see this an health profile. Click on this link to see the profile http://www.myselflog.com/profile/{0}",
-                    data.LogProfileId);
+            //mail.Body =
+            //    string.Format(
+            //        "Hi, you are invited to see this an health profile. Click on this link to see the profile http://www.myselflog.com/profile/{0}",
+            //        data.LogProfileId);
  
-            // send the message
-            var smtp = new SmtpClient();
-            smtp.Send(mail);
-            // - See more at: http://blog.arvixe.com/send-email-using-jquery-and-web-api-part-2/#sthash.8AVABG12.dpuf
+            //// send the message
+            //var smtp = new SmtpClient();
+            //smtp.Send(mail);
+            //// - See more at: http://blog.arvixe.com/send-email-using-jquery-and-web-api-part-2/#sthash.8AVABG12.dpuf
         }
     }
 }
