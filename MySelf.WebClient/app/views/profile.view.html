@@ -1,17 +1,15 @@
 ﻿<script type="text/ng-template" id="mySendInviteModalContent.html">
-        <div class="modal-header">
-            <h3>Send an invite to a friend</h3>
-        </div>
-        <div class="modal-body">
-            <textarea id="message" name="message" ng-model="input.friendInviteMessage"></textarea>            
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-        </div>
+    <div class="modal-header">
+    <h3>Send an invite to a friend</h3>
+    </div>
+    <div class="modal-body">
+        <p>Press "send" button to send an invite to share with your friend your logged values. No other informations then values will be shared.</p>         
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Send</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
 </script>
-
-
 
 <div class="container">
     <header>

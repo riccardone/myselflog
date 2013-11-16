@@ -30,13 +30,13 @@
                 controller: 'ModalFriendInviteController',
                 resolve: {
                     items: function () {
-                        return { 'profile': $scope.selectedprofile, 'email': email }; 
+                        return {}; 
                     }
                 }
             });
 
-            modalInstance.result.then(function (selectedItem) {
-                $scope.message = selectedItem;
+            modalInstance.result.then(function (message) {
+                datacontext.sendInvite($scope.selectedprofile.globalid, email, "");
             }, function () {
                 $log.info('Modal dismissed at: ' + new Date());
             });

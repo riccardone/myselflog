@@ -52,6 +52,7 @@ namespace MySelf.WebClient
                 .Include("~/app/js/services/logprofile.resource.js")
                 .Include("~/app/js/services/securitylink.resource.js")
                 .Include("~/app/js/services/friendwithlink.resource.js")
+                .Include("~/app/js/services/friendInvite.resource.js")
                 .Include("~/app/js/services/friend.resource.js")
                 .Include("~/app/js/services/myselflog.datacontext.js")
                 .Include("~/app/js/services/user.resource.js")

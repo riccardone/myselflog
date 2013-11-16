@@ -1,6 +1,6 @@
 'use strict';
 
-myselflogApp.factory('datacontext', function (logResource, logProfileResource, securityLinkResource, friendResource, friendWithLinkResource) {
+myselflogApp.factory('datacontext', function (logResource, logProfileResource, securityLinkResource, friendResource, friendWithLinkResource, friendInviteResource) {
     return {
         getLog: function (logId, callback) {
             return logResource.get({ id: logId }, function (log) {
@@ -65,6 +65,12 @@ myselflogApp.factory('datacontext', function (logResource, logProfileResource, s
                 if (callback)
                     callback();
             });
+        },
+        sendInvite: function (logprofileid, email, message, callback) {
+            friendInviteResource.save({ logprofileid: logprofileid, email: email, message: message }), function (data) {
+                if (callback)
+                    callback(data);
+            };
         }
     };
 });

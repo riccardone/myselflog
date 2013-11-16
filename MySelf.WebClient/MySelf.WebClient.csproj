@@ -216,6 +216,7 @@
     <Compile Include="Code\IConfigSettings.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountController2.cs" />
+    <Compile Include="Controllers\api\FriendInviteController.cs" />
     <Compile Include="Controllers\api\FriendWithLinkController.cs" />
     <Compile Include="Controllers\api\SecurityLinkController.cs" />
     <Compile Include="Controllers\api\FriendController.cs" />
@@ -249,6 +250,7 @@
     <Content Include="app\js\myselflog.main.js" />
     <Content Include="app\js\services\alertService.js" />
     <Content Include="app\js\services\authentication.js" />
+    <Content Include="app\js\services\friendInvite.resource.js" />
     <Content Include="app\js\services\friendwithlink.resource.js" />
     <Content Include="app\js\services\friendwithlink.datacontext.js" />
     <Content Include="app\js\services\friend.resource.js" />
