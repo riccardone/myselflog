@@ -1,15 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Web;
 
 namespace MySelf.WebClient.Models
 {
     [DataContract(Name = "log")]
-    public class LogDto
+    public class TerapyDto
     {
-        [DataMember(Name = "value")]
-        public int Value { get; set; }
-        
         [DataMember(Name = "message")]
         public string Message { get; set; }
 
@@ -25,9 +25,6 @@ namespace MySelf.WebClient.Models
 
         [DataMember(Name = "terapyvalue")]
         public int TerapyValue { get; set; }
-
-        [DataMember(Name = "globalid")]
-        public Guid? GlobalId { get; set; }
 
         [DataMember(Name = "terapyglobalid")]
         public Guid? TerapyGlobalId { get; set; }

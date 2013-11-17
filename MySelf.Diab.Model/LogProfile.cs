@@ -16,6 +16,7 @@ namespace MySelf.Diab.Model
         public SecurityLink SecurityLink { get; set; }
         public List<Friend> Friends { get; set; }
         public List<GlucoseLevel> GlucoseLevels { get; set; }
+        public List<Terapy> Terapies { get; set; }
 
         public const string DefaultName = "Default";
     }

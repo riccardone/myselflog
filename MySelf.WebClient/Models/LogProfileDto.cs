@@ -19,6 +19,9 @@ namespace MySelf.WebClient.Models
         [DataMember(Name = "friends")]
         public List<FriendDto> Friends { get; set; }
 
+        [DataMember(Name = "terapies")]
+        public List<TerapyDto> Terapies { get; set; }
+
         [DataMember(Name = "securitylink")]
         public string SecurityLink { get; set; }
     }

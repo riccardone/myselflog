@@ -12,6 +12,7 @@ namespace MySelf.Diab.Data
         public DbSet<LogProfile> LogProfiles { get; set; }
         public DbSet<FriendActivity> FriendActivities { get; set; }
         public DbSet<SecurityLink> SecurityLinks { get; set; }
+        public DbSet<Terapy> Terapies { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -20,6 +21,7 @@ namespace MySelf.Diab.Data
             modelBuilder.Configurations.Add(new LogProfileConfiguration());
             modelBuilder.Configurations.Add(new FriendActivityConfiguration());
             modelBuilder.Configurations.Add(new SecurityLinkConfiguration());
+            modelBuilder.Configurations.Add(new TerapyConfiguration());
         }
     }
 }

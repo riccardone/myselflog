@@ -15,10 +15,12 @@
     <header>
         <h2 class="alt">{{selectedprofile.name}}</h2>
     </header>
-    <script type="text/ng-template" id="alert">
-        <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
-    </script>
     <form name="logForm" class="css-form">
+        <!--<tabset>
+            <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+                <div ng-include="tab.template"></div>
+            </tab>
+        </tabset>-->
         <input type="number" min="1" max="800" name="value" data-ng-model="item.value" placeholder="Type a numeric value" style="height: 30px" />
         <textarea style="display: none" data-ng-model="item.message" placeholder="Type a message (optional)"></textarea>
         <!--<input type="text" ng-model="item.logDate" placeholder="Select a date and time" />-->
@@ -28,12 +30,19 @@
         <div id="logTime" ng-model="item.logTime" ng-change="changed()" class="well well-small" style="display: inline-block;">
             <timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
         </div>
+        <button class="btn btn-link" ng-click="isTerapyCollapsed = !isTerapyCollapsed">Log terapy</button>
+        <div id="terapyPanel" collapse="isTerapyCollapsed">
+            Is Slow
+            <input type="checkbox" ng-model="item.isslow" />
+            <input type="number" min="1" max="200" id="terapyvalue" name="terapyvalue" data-ng-model="item.terapyvalue" placeholder="Type a numeric value" style="height: 30px" />
+        </div>
         <input type="hidden" data-ng-model="item.selectedProfileId" value="selectedprofile.globalid" />
         <div id="logFormBotton">
             <button id="btnSubmit" name="btnSubmit" ng-click="addValue()" ng-disabled="loading" class="btn btn-primary">Submit</button>
             <button id="btnReset" name="btnReset" ng-click="resetItem()" ng-disabled="loading" class="btn btn-warning">Reset</button>
         </div>
     </form>
+    {{active()}}
     <p><a ng-href="../{{selectedprofile.securitylink}}" target="blank">{{selectedprofile.securitylink}}</a></p>
     <accordion close-others="oneAtATime">
         <accordion-group heading="Static Header">

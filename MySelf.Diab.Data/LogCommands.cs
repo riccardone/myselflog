@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using MySelf.Diab.Data.Contracts;
 using MySelf.Diab.Model;
 using System.Linq;
@@ -20,23 +19,47 @@ namespace MySelf.Diab.Data
         {
             var person = _dbContext.People.Include(l => l.LogProfiles).FirstOrDefault(p => p.Email == logMessage.Email);
             if (person == null)
-            {
                 throw new ArgumentException("person not found");
-            }
+            
             var logProfile = person.LogProfiles.FirstOrDefault(p => p.GlobalId == logMessage.ProfileId); 
             if (logProfile == null)
-            {
                 throw new ArgumentException("logProfile not found");
-            }
+
+            AddGlocoseLevel(logMessage, logProfile);
+            AddTerapy(logMessage, logProfile);
+        }
+
+        private void AddTerapy(LogMessage logMessage, LogProfile logProfile)
+        {
+            if (logMessage.TerapyValue <= 0) return;
+            var newTerapyId = Guid.NewGuid();
+            var terapy = new Terapy
+                {
+                    GlobalId = newTerapyId,
+                    IsSlow = logMessage.IsSlow,
+                    LogDate = logMessage.LogDate,
+                    LogProfile = logProfile,
+                    Message = logMessage.Message,
+                    Value = logMessage.TerapyValue
+                };
+            _dbContext.Terapies.Add(terapy);
+            logMessage.TerapyGlobalId = newTerapyId;
+        }
+
+        private void AddGlocoseLevel(LogMessage logMessage, LogProfile logProfile)
+        {
+            if (logMessage.Value <= 0) return;
+            var newLogId = Guid.NewGuid();
             var glucoseLevel = new GlucoseLevel
-            {
-                LogDate = logMessage.LogDate,
-                Message = logMessage.Message,
-                Value = logMessage.Value,
-                GlobalId = logMessage.GlobalId,
-                LogProfile = logProfile
-            };
+                {
+                    LogDate = logMessage.LogDate,
+                    Message = logMessage.Message,
+                    Value = logMessage.Value,
+                    GlobalId = newLogId,
+                    LogProfile = logProfile
+                };
             _dbContext.GlucoseLevels.Add(glucoseLevel);
+            logMessage.GlobalId = newLogId;
         }
 
         public void Delete(Guid globalId)

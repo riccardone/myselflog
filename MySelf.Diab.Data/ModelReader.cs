@@ -33,6 +33,7 @@ namespace MySelf.Diab.Data
             return
                 _db.LogProfiles
                    .Include(g => g.GlucoseLevels)
+                   .Include(t => t.Terapies)
                    .Include(o => o.Person).Include(s => s.SecurityLink)
                    .Include(f => f.Friends)
                    .Include("Friends.FriendActivities")
@@ -42,7 +43,7 @@ namespace MySelf.Diab.Data
         public List<LogProfile> GetLogProfilesAsFriend(string email)
         {
             return
-                _db.LogProfiles.Include(g => g.GlucoseLevels)
+                _db.LogProfiles.Include(g => g.GlucoseLevels).Include(t => t.Terapies)
                    .Include(f => f.Friends).Include(s => s.SecurityLink)
                    .Where(l => l.Friends.Any(f => f.Email == email))
                    .ToList();
@@ -57,6 +58,7 @@ namespace MySelf.Diab.Data
                 .Include(f => f.Friends)
                 .Include(s => s.SecurityLink)
                 .Include(g => g.GlucoseLevels)
+                .Include(t => t.Terapies)
                 .FirstOrDefault(l => l.GlobalId == globalId);
         }
 
@@ -68,6 +70,7 @@ namespace MySelf.Diab.Data
                 .Include(f => f.Friends)
                 .Include(s => s.SecurityLink)
                 .Include(g => g.GlucoseLevels)
+                .Include(t => t.Terapies)
                 .FirstOrDefault(l => l.SecurityLink.Link == securityLink);
 
             if (profile != null)

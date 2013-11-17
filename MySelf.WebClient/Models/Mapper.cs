@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using MySelf.Diab.Model;
 
 namespace MySelf.WebClient.Models
@@ -10,6 +8,7 @@ namespace MySelf.WebClient.Models
     {
         List<LogDto> ToLogDto(IEnumerable<GlucoseLevel> glucoseLevels);
         List<LogProfileDto> ToLogProfileDto(IEnumerable<LogProfile> logProfiles);
+        List<TerapyDto> ToTerapyDto(IEnumerable<Terapy> terapies);
     }
 
     public class Mapper : IMapper
@@ -50,6 +49,19 @@ namespace MySelf.WebClient.Models
         private string BuildSecurityLink(string value)
         {
             return string.Format("diary/{0}", value);
+        }
+
+        public List<TerapyDto> ToTerapyDto(IEnumerable<Terapy> terapies)
+        {
+            return terapies.Select(i => new TerapyDto
+            {
+                TerapyGlobalId = i.GlobalId,
+                LogDate = i.LogDate,
+                Message = i.Message,
+                TerapyValue = i.Value,
+                ProfileId = i.LogProfile.GlobalId,
+                IsSlow = i.IsSlow
+            }).ToList();
         }
     }
 }

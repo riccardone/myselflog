@@ -77,6 +77,11 @@
     <Compile Include="Migrations\201308230924315_SecurityLinkIndexUnique.Designer.cs">
       <DependentUpon>201308230924315_SecurityLinkIndexUnique.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201311171417082_AddTerapy.cs" />
+    <Compile Include="Migrations\201311171417082_AddTerapy.Designer.cs">
+      <DependentUpon>201311171417082_AddTerapy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModelConfigurations\TerapyConfiguration.cs" />
     <Compile Include="ModelConfigurations\SecurityLinkConfiguration.cs" />
     <Compile Include="SecurityLinkCommands.cs" />
     <Compile Include="FriendCommands.cs" />
@@ -148,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201308230924315_SecurityLinkIndexUnique.resx">
       <DependentUpon>201308230924315_SecurityLinkIndexUnique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311171417082_AddTerapy.resx">
+      <DependentUpon>201311171417082_AddTerapy.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

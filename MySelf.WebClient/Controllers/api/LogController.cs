@@ -62,19 +62,21 @@ namespace MySelf.WebClient.Controllers.api
         {
             try
             {
-                var newId = Guid.NewGuid();
                 var logMessage = new LogMessage
                     {
                         Email = User.Identity.Name,
                         Value = data.Value,
                         Message = data.Message,
                         LogDate = data.LogDate,
-                        GlobalId = newId,
-                        ProfileId = data.ProfileId 
+                        ProfileId = data.ProfileId,
+                        IsSlow = data.IsSlow,
+                        TerapyValue = data.TerapyValue
                     };
+                
                 _logManager.LogCommands.AddLogMessage(logMessage);
                 _logManager.Save();
-                data.GlobalId = newId;
+                data.GlobalId = logMessage.GlobalId;
+                data.TerapyGlobalId = logMessage.TerapyGlobalId;
                 return Request.CreateResponse(HttpStatusCode.Created, data);
             }
             catch (Exception ex)

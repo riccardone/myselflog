@@ -7,12 +7,7 @@
         $scope.remove = remove;
         $scope.logs = [];
         $scope.friends = [];
-        //$scope.graph = Morris.Line({
-        //    element: 'diaryGraph',
-        //    xkey: 'logdate',
-        //    ykeys: ['value'],
-        //    labels: ['Diary']
-        //});
+        $scope.isTerapyCollapsed = true;
         $scope.oneAtATime = true;
         $scope.hstep = 1;
         $scope.mstep = 1;
@@ -112,64 +107,64 @@
         function setDataSucceeded(data) {
             $scope.selectedprofile = data;
             $scope.friends = data.friends;
-            refreshGraph();
+            //refreshGraph();
         }
 
         function setReport(date, report) {
             $scope.report = report;
             $scope.date = date;
-            refreshGraph();
+            //refreshGraph();
         }
 
-        function refreshGraph() {
-            if ($scope.selectedprofile) {
-                //var logs = [];
-                var d2 = new Date($scope.date);
-                if ($scope.report == "year") {
-                    angular.forEach($scope.selectedprofile.logs, function (log) {
-                        var d = new Date(log.logdate);
-                        if (d.getYear() == d2.getYear()) {
-                            $scope.logs.push(log);
-                        }
-                    });
-                }
-                if ($scope.report == "month") {
-                    angular.forEach($scope.selectedprofile.logs, function (log) {
-                        var d = new Date(log.logdate);
-                        if ((d.getYear() == d2.getYear()) && (d.getMonth() == d2.getMonth())) {
-                            $scope.logs.push(log);
-                        }
-                    });
-                }
-                if ($scope.report == "day") {
-                    angular.forEach($scope.selectedprofile.logs, function (log) {
-                        var d = new Date(log.logdate);
-                        if ((d.getYear() == d2.getYear()) && (d.getMonth() == d2.getMonth()) && (d.getDay() == d2.getDay())) {
-                            $scope.logs.push(log);
-                        }
-                    });
-                }
-            }
-        }
+        //function refreshGraph() {
+        //    if ($scope.selectedprofile) {
+        //        //var logs = [];
+        //        var d2 = new Date($scope.date);
+        //        if ($scope.report == "year") {
+        //            angular.forEach($scope.selectedprofile.logs, function (log) {
+        //                var d = new Date(log.logdate);
+        //                if (d.getYear() == d2.getYear()) {
+        //                    $scope.logs.push(log);
+        //                }
+        //            });
+        //        }
+        //        if ($scope.report == "month") {
+        //            angular.forEach($scope.selectedprofile.logs, function (log) {
+        //                var d = new Date(log.logdate);
+        //                if ((d.getYear() == d2.getYear()) && (d.getMonth() == d2.getMonth())) {
+        //                    $scope.logs.push(log);
+        //                }
+        //            });
+        //        }
+        //        if ($scope.report == "day") {
+        //            angular.forEach($scope.selectedprofile.logs, function (log) {
+        //                var d = new Date(log.logdate);
+        //                if ((d.getYear() == d2.getYear()) && (d.getMonth() == d2.getMonth()) && (d.getDay() == d2.getDay())) {
+        //                    $scope.logs.push(log);
+        //                }
+        //            });
+        //        }
+        //    }
+        //}
 
-        $scope.alerts = [];
+        //$scope.alerts = [];
         
-        $scope.addAlert = function (message) {
-            $scope.alerts.push({ msg: message });
-        };
+        //$scope.addAlert = function (message) {
+        //    $scope.alerts.push({ msg: message });
+        //};
         
-        $scope.closeAlert = function (index) {
-            $scope.alerts.splice(index, 1);
-        };
+        //$scope.closeAlert = function (index) {
+        //    $scope.alerts.splice(index, 1);
+        //};
 
         $scope.$watch('loading', function () {
-            if ($scope.loading == false) {
-                if ($scope.alerts.length > 0) {
-                    $scope.closeAlert(0);
-                }
-            } else {
-                $scope.addAlert("Processing data, please wait...");
-            }
+            //if ($scope.loading == false) {
+            //    if ($scope.alerts.length > 0) {
+            //        $scope.closeAlert(0);
+            //    }
+            //} else {
+            //    $scope.addAlert("Processing data, please wait...");
+            //}
         });
 
         $scope.$watch('selectedprofile', function () {
@@ -229,7 +224,7 @@
             for (var i = 0; i < $scope.selectedprofile.logs.length; i++) {
                 if ($scope.selectedprofile.logs[i].globalid == log.globalid) {
                     $scope.selectedprofile.logs.splice(i, 1);
-                    refreshGraph();
+                    //refreshGraph();
                 }
             }
         }
@@ -249,12 +244,16 @@
             d1.setSeconds(d2.getSeconds());
             d1.setSeconds(d2.getMilliseconds());
 
-            var log = { 'Value': $scope.item.value, 'LogDate': d1, 'Message': $scope.item.message, 'ProfileId': $scope.selectedprofile.globalid };
+            var log = { 'Value': $scope.item.value, 'LogDate': d1, 'Message': $scope.item.message, 'ProfileId': $scope.selectedprofile.globalid, 'isslow': $scope.item.isslow, 'terapyvalue': $scope.item.terapyvalue };
             datacontext.save(log, addSucceeded);
 
             function addSucceeded(value) {
-                $scope.selectedprofile.logs.push(value);
-                refreshGraph();
+                if (value.globalid) {
+                    $scope.selectedprofile.logs.push(value);
+                    //refreshGraph();
+                } else if (value.terapyglobalid) {
+                    $scope.selectedprofile.terapies.push(value);
+                }
                 $scope.loading = false;
                 resetItem();
             }
