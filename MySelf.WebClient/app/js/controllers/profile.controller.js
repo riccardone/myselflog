@@ -251,7 +251,8 @@
                 if (value.globalid) {
                     $scope.selectedprofile.logs.push(value);
                     //refreshGraph();
-                } else if (value.terapyglobalid) {
+                }
+                if (value.terapyglobalid) {
                     $scope.selectedprofile.terapies.push(value);
                 }
                 $scope.loading = false;

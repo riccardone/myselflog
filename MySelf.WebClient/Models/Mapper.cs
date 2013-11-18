@@ -42,6 +42,7 @@ namespace MySelf.WebClient.Models
                 Name = logProfile.Name,
                 Logs = ToLogDto(logProfile.GlucoseLevels),
                 Friends = ToFriendDto(logProfile.Friends),
+                Terapies = ToTerapyDto(logProfile.Terapies),
                 SecurityLink = logProfile.SecurityLink != null ? BuildSecurityLink(logProfile.SecurityLink.Link) : string.Empty
             }).ToList();
         }

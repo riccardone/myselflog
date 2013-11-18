@@ -30,7 +30,7 @@ namespace MySelf.Diab.Data
 
         public List<LogProfile> GetLogProfilesAsOwner(string email)
         {
-            return
+            var res = 
                 _db.LogProfiles
                    .Include(g => g.GlucoseLevels)
                    .Include(t => t.Terapies)
@@ -38,6 +38,7 @@ namespace MySelf.Diab.Data
                    .Include(f => f.Friends)
                    .Include("Friends.FriendActivities")
                    .Where(g => g.Person.Email == email).ToList();
+            return res;
         }
 
         public List<LogProfile> GetLogProfilesAsFriend(string email)
