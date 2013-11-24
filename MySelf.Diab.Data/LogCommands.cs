@@ -101,5 +101,12 @@ namespace MySelf.Diab.Data
         {
             _dbContext.LogProfiles.Add(logProfile);
         }
+
+        public void DeleteTerapy(Guid globalid)
+        {
+            var itemToDelete = _dbContext.Terapies.FirstOrDefault(a => a.GlobalId == globalid);
+            if (itemToDelete != null)
+                _dbContext.Terapies.Remove(itemToDelete);
+        }
     }
 }

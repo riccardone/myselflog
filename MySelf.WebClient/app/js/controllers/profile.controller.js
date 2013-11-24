@@ -5,6 +5,7 @@
         $scope.id = $routeParams.id;
         $scope.addValue = addValue;
         $scope.remove = remove;
+        $scope.removeTerapy = removeTerapy;
         $scope.logs = [];
         $scope.friends = [];
         $scope.isTerapyCollapsed = true;
@@ -83,7 +84,9 @@
         $scope.myOptions = { data: 'logs' };
 
         function resetItem() {
-            $scope.item = { "value": "", "logDate": getJustToday(), "logTime": getNow(), "message": "" };
+            $scope.item = {}; //{ "value": null, "logDate": getJustToday(), "logTime": getNow(), "message": null };
+            $scope.item.logDate = getJustToday();
+            $scope.item.logTime = getNow();
         }
 
         function getNow() {
@@ -215,6 +218,18 @@
         function createProfileSucceeded() {
             $scope.getData();
         }
+        
+        function removeTerapy(terapy) {
+            datacontext.removeTerapy(terapy, removeTerapySucceeded);
+        }
+        
+        function removeTerapySucceeded(terapy) {
+            for (var i = 0; i < $scope.selectedprofile.terapies.length; i++) {
+                if ($scope.selectedprofile.terapies[i].terapyglobalid == terapy.terapyglobalid) {
+                    $scope.selectedprofile.terapies.splice(i, 1);
+                }
+            }
+        }
 
         function remove(log) {
             datacontext.remove(log, removeLogSucceeded);
@@ -224,7 +239,6 @@
             for (var i = 0; i < $scope.selectedprofile.logs.length; i++) {
                 if ($scope.selectedprofile.logs[i].globalid == log.globalid) {
                     $scope.selectedprofile.logs.splice(i, 1);
-                    //refreshGraph();
                 }
             }
         }
@@ -244,14 +258,21 @@
             d1.setSeconds(d2.getSeconds());
             d1.setSeconds(d2.getMilliseconds());
 
-            var log = { 'Value': $scope.item.value, 'LogDate': d1, 'Message': $scope.item.message, 'ProfileId': $scope.selectedprofile.globalid, 'isslow': $scope.item.isslow, 'terapyvalue': $scope.item.terapyvalue };
+            var log = {
+                'Value': $scope.item.value,
+                'LogDate': d1,
+                'Message': $scope.item.message,
+                'ProfileId': $scope.selectedprofile.globalid,
+                'isslow': $scope.item.isslow,
+                'terapyvalue': $scope.item.terapyvalue
+            };
             datacontext.save(log, addSucceeded);
 
             function addSucceeded(value) {
                 if (value.globalid) {
                     $scope.selectedprofile.logs.push(value);
-                    //refreshGraph();
-                } else if (value.terapyglobalid) {
+                }
+                if (value.terapyglobalid) {
                     $scope.selectedprofile.terapies.push(value);
                 }
                 $scope.loading = false;

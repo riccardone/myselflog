@@ -54,7 +54,7 @@ namespace MySelf.WebClient.Controllers.api
             try
             {
                 var logProfiles = _logManager.ModelReader.GetLogProfilesAsFriend(data.Email);
-                var results = _mapper.ToLogProfileDto(logProfiles);
+                var results = _mapper.ToLogProfilesDto(logProfiles);
 
                 return Request.CreateResponse(HttpStatusCode.Accepted, new GetLogsAsFriendResponse { LogsProfileDto = results });
             }

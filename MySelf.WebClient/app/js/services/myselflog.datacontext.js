@@ -1,6 +1,6 @@
 'use strict';
 
-myselflogApp.factory('datacontext', function (logResource, logProfileResource, securityLinkResource, friendResource, friendWithLinkResource, friendInviteResource) {
+myselflogApp.factory('datacontext', function (logResource, logProfileResource, securityLinkResource, friendResource, friendWithLinkResource, friendInviteResource, terapyResource) {
     return {
         getLog: function (logId, callback) {
             return logResource.get({ id: logId }, function (log) {
@@ -21,6 +21,12 @@ myselflogApp.factory('datacontext', function (logResource, logProfileResource, s
             logResource.delete({ globalid: log.globalid }, function (data) {
                 if (callback)
                     callback(log);
+            });
+        },
+        removeTerapy: function(terapy, callback) {
+            terapyResource.delete({ globalid: terapy.terapyglobalid }, function () {
+                if (callback)
+                    callback(terapy);
             });
         },
         createProfile: function(name, callback) {

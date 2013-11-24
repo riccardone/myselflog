@@ -28,8 +28,8 @@ namespace MySelf.WebClient.Controllers.api
             {
                 var results = new RootDto
                     {
-                        LogProfilesAsOwner = _mapper.ToLogProfileDto(_logManager.ModelReader.GetLogProfilesAsOwner(User.Identity.Name)),
-                        LogProfilesAsFriend = _mapper.ToLogProfileDto(_logManager.ModelReader.GetLogProfilesAsFriend(User.Identity.Name))
+                        LogProfilesAsOwner = _mapper.ToLogProfilesDto(_logManager.ModelReader.GetLogProfilesAsOwner(User.Identity.Name)),
+                        LogProfilesAsFriend = _mapper.ToLogProfilesDto(_logManager.ModelReader.GetLogProfilesAsFriend(User.Identity.Name))
                     };
 
                 return Request.CreateResponse(HttpStatusCode.Accepted, results, "application/json");
@@ -45,7 +45,7 @@ namespace MySelf.WebClient.Controllers.api
             try
             {
                 var logProfiles =
-                    _mapper.ToLogProfileDto(_logManager.ModelReader.GetLogProfilesAsOwner(User.Identity.Name));
+                    _mapper.ToLogProfilesDto(_logManager.ModelReader.GetLogProfilesAsOwner(User.Identity.Name));
                 if (logProfiles == null || logProfiles.Count == 0)
                     throw new ArgumentException("Profile not found");
 
