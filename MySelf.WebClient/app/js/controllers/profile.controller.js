@@ -107,64 +107,15 @@
         function setDataSucceeded(data) {
             $scope.selectedprofile = data;
             $scope.friends = data.friends;
-            //refreshGraph();
         }
 
         function setReport(date, report) {
             $scope.report = report;
             $scope.date = date;
-            //refreshGraph();
         }
 
-        //function refreshGraph() {
-        //    if ($scope.selectedprofile) {
-        //        //var logs = [];
-        //        var d2 = new Date($scope.date);
-        //        if ($scope.report == "year") {
-        //            angular.forEach($scope.selectedprofile.logs, function (log) {
-        //                var d = new Date(log.logdate);
-        //                if (d.getYear() == d2.getYear()) {
-        //                    $scope.logs.push(log);
-        //                }
-        //            });
-        //        }
-        //        if ($scope.report == "month") {
-        //            angular.forEach($scope.selectedprofile.logs, function (log) {
-        //                var d = new Date(log.logdate);
-        //                if ((d.getYear() == d2.getYear()) && (d.getMonth() == d2.getMonth())) {
-        //                    $scope.logs.push(log);
-        //                }
-        //            });
-        //        }
-        //        if ($scope.report == "day") {
-        //            angular.forEach($scope.selectedprofile.logs, function (log) {
-        //                var d = new Date(log.logdate);
-        //                if ((d.getYear() == d2.getYear()) && (d.getMonth() == d2.getMonth()) && (d.getDay() == d2.getDay())) {
-        //                    $scope.logs.push(log);
-        //                }
-        //            });
-        //        }
-        //    }
-        //}
-
-        //$scope.alerts = [];
-        
-        //$scope.addAlert = function (message) {
-        //    $scope.alerts.push({ msg: message });
-        //};
-        
-        //$scope.closeAlert = function (index) {
-        //    $scope.alerts.splice(index, 1);
-        //};
-
         $scope.$watch('loading', function () {
-            //if ($scope.loading == false) {
-            //    if ($scope.alerts.length > 0) {
-            //        $scope.closeAlert(0);
-            //    }
-            //} else {
-            //    $scope.addAlert("Processing data, please wait...");
-            //}
+           
         });
 
         $scope.$watch('selectedprofile', function () {

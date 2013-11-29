@@ -9,6 +9,12 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
         ykeys: ['value'],
         labels: ['Diary']
     });
+    $scope.terapiesGraph = Morris.Bar({
+        element: 'terapiesGraph',
+        xkey: 'logdate',
+        ykeys: ['value'],
+        labels: ['Terapies']
+    });
     $scope.setReport = setReport;
     $scope.date = moment();
     $scope.link = "";
