@@ -47,7 +47,7 @@ namespace MySelf.WebClient.Controllers.api
                 if (logProfile.SecurityLink == null)
                     return Request.CreateResponse(HttpStatusCode.Accepted, string.Empty);
 
-                var logProfileDto = _mapper.ToLogProfileDto(new[] {logProfile});
+                var logProfileDto = _mapper.ToLogProfilesDto(new[] {logProfile});
 
                 return Request.CreateResponse(HttpStatusCode.Accepted, new GetLogAsFriendResponse { LogProfileDto = logProfileDto.FirstOrDefault() });
             }

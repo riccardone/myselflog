@@ -18,6 +18,12 @@ namespace MySelf.WebClient
                 "http://cdn.oesmith.co.uk/morris-0.4.3.min.js").Include(
                 "~/Scripts/morris-0.4.3.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqplot")
+                .Include("~/Scripts/jquery.jqplot.min.js")
+                .Include("~/Scripts/jplotplugins/jqplot.highlighter.min.js")
+                .Include("~/Scripts/jplotplugins/jqplot.cursor.min.js")
+                .Include("~/Scripts/jplotplugins/jqplot.dateAxisRenderer.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery",
                 "http://codeorigin.jquery.com/jquery-2.0.3.min.js").Include(
                 "~/Scripts/jquery-2.0.3.min.js"));
@@ -53,6 +59,7 @@ namespace MySelf.WebClient
                 .Include("~/app/js/services/securitylink.resource.js")
                 .Include("~/app/js/services/friendwithlink.resource.js")
                 .Include("~/app/js/services/friendInvite.resource.js")
+                .Include("~/app/js/services/terapy.resource.js")
                 .Include("~/app/js/services/friend.resource.js")
                 .Include("~/app/js/services/myselflog.datacontext.js")
                 .Include("~/app/js/services/user.resource.js")
@@ -65,6 +72,7 @@ namespace MySelf.WebClient
                 .Include("~/app/js/controllers/profile.controller.js")
                 .Include("~/app/js/controllers/profiles.controller.js")
                 .Include("~/app/js/controllers/newfriend.controller.js")
+                .Include("~/app/js/controllers/newgraph.controller.js")
                 );
 
             bundles.Add(new ScriptBundle("~/bundles/jquerymobile")
@@ -86,6 +94,9 @@ namespace MySelf.WebClient
 
             bundles.Add(new StyleBundle("~/Content/morriscss", "http://cdn.oesmith.co.uk/morris-0.4.3.min.css")
                 .Include("~/Content/morris-0.4.3.min.css"));
+
+            bundles.Add(new StyleBundle("~/Content/jqplotcss")
+                .Include("~/Content/jquery.jqplot.css"));
 
             bundles.Add(new StyleBundle("~/Content/mobilecss")
                 .Include("~/Content/jquery.mobile*"));

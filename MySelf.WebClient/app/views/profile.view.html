@@ -76,6 +76,16 @@
             </div>
             <p ng-show="selectedprofile.logs == 0">There are not any logged values</p>
         </accordion-group>
+        <accordion-group>
+            <accordion-heading>
+                Show terapies <!--<i class="icon-th-list"></i>-->
+            </accordion-heading>
+            <div class="valueinnerlist" ng-repeat="terapy in selectedprofile.terapies | orderBy:LogDate:reverse">
+                <button ng-click="removeTerapy(terapy)" class="btn btn-warning">X</button>
+                <span>IsSlow: {{terapy.isslow}} - {{terapy.terapyvalue}} - {{terapy.logdate}}</span>
+            </div>
+            <p ng-show="selectedprofile.terapies == 0">There are not any logged values</p>
+        </accordion-group>
     </accordion>
 
     <footer>
