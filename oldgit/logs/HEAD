@@ -1,0 +1,94 @@
+0000000000000000000000000000000000000000 3e6fb5dde1613de310b67a90fb3b0df46f51b693 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1378662341 +0100	initial pull
+3e6fb5dde1613de310b67a90fb3b0df46f51b693 b2ad72f7149bb5374c5da17f54e7369f966a6afe Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1378662496 +0100	commit: start
+b2ad72f7149bb5374c5da17f54e7369f966a6afe b2ad72f7149bb5374c5da17f54e7369f966a6afe Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1378665046 +0100	checkout: moving from master to develop
+b2ad72f7149bb5374c5da17f54e7369f966a6afe a714e4b1f35ac66e0d01dfcd5f18cb1b32f8edd1 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1378666768 +0100	commit: minor changes to js file
+a714e4b1f35ac66e0d01dfcd5f18cb1b32f8edd1 73ea9380c8bc38837e5a84926384767a3e86abd9 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1378837804 +0100	pull origin develop: Fast-forward
+73ea9380c8bc38837e5a84926384767a3e86abd9 722698d6b8d1553f763e6524da995c968666ac80 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1378839196 +0100	commit: fix web deploy in order to use debug instead of release
+722698d6b8d1553f763e6524da995c968666ac80 78d0b79c240951c2e68981c4153cb9ea16d57f7b Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1378840978 +0100	commit: added a datetime picker and updated the view in order to insert the time for a log (wip)
+78d0b79c240951c2e68981c4153cb9ea16d57f7b 83763ef4640225210d6f8c48206b18908671cb7b Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1379093479 +0100	commit: fixed datetime picker (wip)
+83763ef4640225210d6f8c48206b18908671cb7b 58630393cf2b51af08f75f6cf6ee8822e8a76f66 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1379261662 +0100	commit: fixed logdate
+58630393cf2b51af08f75f6cf6ee8822e8a76f66 416d860d66a72129593cc0ac41c3977db42512b5 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1379353725 +0100	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Fast-forward
+416d860d66a72129593cc0ac41c3977db42512b5 e08d1aa6d99355aa643160524e18296e8ffdefbd Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1379355531 +0100	commit: fixed the addvalue function waiting for a proper validation
+e08d1aa6d99355aa643160524e18296e8ffdefbd 5c37c332853f3229fe11cd113a3609ea6a9b0165 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1379438641 +0100	commit: ...
+5c37c332853f3229fe11cd113a3609ea6a9b0165 0e0a1379a9fbcafce2cda35af2a9eb5110b49ed4 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1379438719 +0100	commit (merge): Merge branch 'develop' of https://github.com/riccardone/myselflog into develop
+0e0a1379a9fbcafce2cda35af2a9eb5110b49ed4 47bd040d06f069a0b36ce7ff39046c2e8c37c708 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1379443416 +0100	commit: implemented filters by year month and day
+47bd040d06f069a0b36ce7ff39046c2e8c37c708 ca6a33e574b69e1e1a3a7d2b82c520e7ac98c02a Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1379539673 +0100	pull origin develop: Fast-forward
+ca6a33e574b69e1e1a3a7d2b82c520e7ac98c02a 37d949bc31ac64ebc7fbf63cb2318d2e69a2915d Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1379703268 +0100	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Fast-forward
+37d949bc31ac64ebc7fbf63cb2318d2e69a2915d dd22407b2605fc169a3dc84ae089df83c1647581 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1379707116 +0100	commit: implemented new day view
+dd22407b2605fc169a3dc84ae089df83c1647581 51c2bcedf4d192a557e6bc21216e9aba3e404a4e Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1380219321 +0100	commit: ..
+51c2bcedf4d192a557e6bc21216e9aba3e404a4e fc2f605f637649db7829b33473d9976956c1c913 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1380219446 +0100	commit (merge): Merge branch 'develop' of https://github.com/riccardone/myselflog into develop
+fc2f605f637649db7829b33473d9976956c1c913 4224f84fac91236d3afd49d06ea65f8386250b12 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1380224593 +0100	commit: creating new friend controller
+4224f84fac91236d3afd49d06ea65f8386250b12 15e383be46372963dd9bb096ad264f403e319747 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1380305238 +0100	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Fast-forward
+15e383be46372963dd9bb096ad264f403e319747 3d0d41db54fca14599aac1bc5a54a11f424052c1 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1380309545 +0100	commit: implemented new friend controller in order to display different report type
+3d0d41db54fca14599aac1bc5a54a11f424052c1 af716156b2e8e484df9cb89aad33113f6c9d9ee4 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1380455372 +0100	commit: fixed the filter by day and week in the new friendcontroller; addes some css rules to format friend view; added a config value to simplify webdeploy and facebook login;
+af716156b2e8e484df9cb89aad33113f6c9d9ee4 33abea49bef0c503fcb602184f729e6e365a4281 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1380476504 +0100	commit: implemented next and previous feature
+33abea49bef0c503fcb602184f729e6e365a4281 6418fd9c3ca479e5cbaeec498a65aaffd1a316cc Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1380563959 +0100	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Fast-forward
+6418fd9c3ca479e5cbaeec498a65aaffd1a316cc 9f20b20be633165860963ca425220f34cc2eb0a2 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1380566224 +0100	commit: fixed the average
+9f20b20be633165860963ca425220f34cc2eb0a2 a3d212665ee95d834889d15c595cc0ed51528f69 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1381589995 +0100	checkout: moving from develop to removefriendapp
+a3d212665ee95d834889d15c595cc0ed51528f69 5bd55daf0e8129395a9111e92b9474f895f3644d Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1381591254 +0100	commit: fixed sharedlink case problem
+5bd55daf0e8129395a9111e92b9474f895f3644d 6ab28507ebc167ee8b5d8c39c5847c1109c3141a Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1381594315 +0100	commit: removing crap from repo
+6ab28507ebc167ee8b5d8c39c5847c1109c3141a 9f20b20be633165860963ca425220f34cc2eb0a2 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1381594390 +0100	checkout: moving from removefriendapp to develop
+9f20b20be633165860963ca425220f34cc2eb0a2 2e5e5b7fde0947be55f9d0e1762abc006d27c0dd Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1381594413 +0100	merge removefriendapp: Merge made by the 'recursive' strategy.
+2e5e5b7fde0947be55f9d0e1762abc006d27c0dd 6d42c3fa1fcdf99c08cb3cafc8368990a5670bc4 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1381594485 +0100	pull: Merge made by the 'recursive' strategy.
+6d42c3fa1fcdf99c08cb3cafc8368990a5670bc4 6d42c3fa1fcdf99c08cb3cafc8368990a5670bc4 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1381594733 +0100	checkout: moving from develop to release-1.0
+6d42c3fa1fcdf99c08cb3cafc8368990a5670bc4 e78742be433aec0892e9dada5f257fb0cc51df9e Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1381594881 +0100	commit: Bumped version number to 1.0
+e78742be433aec0892e9dada5f257fb0cc51df9e b2ad72f7149bb5374c5da17f54e7369f966a6afe Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1381594972 +0100	checkout: moving from release-1.0 to master
+b2ad72f7149bb5374c5da17f54e7369f966a6afe dcf2e489a1b5fd6847085600c1121a0b0f2b74e3 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1381595004 +0100	merge release-1.0: Merge made by the 'recursive' strategy.
+dcf2e489a1b5fd6847085600c1121a0b0f2b74e3 6d42c3fa1fcdf99c08cb3cafc8368990a5670bc4 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1381595052 +0100	checkout: moving from master to develop
+6d42c3fa1fcdf99c08cb3cafc8368990a5670bc4 e7ca499ae1c6e466fcf5999b8446cbee5bd01315 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1381595069 +0100	merge release-1.0: Merge made by the 'recursive' strategy.
+e7ca499ae1c6e466fcf5999b8446cbee5bd01315 51a6c64fda480cdf2f942aa487cf54edc92ffac1 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1381609778 +0100	commit: wip creating mobile version
+51a6c64fda480cdf2f942aa487cf54edc92ffac1 28987ddef4acd96e16820cf3224757222c209890 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382035662 +0100	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Fast-forward
+28987ddef4acd96e16820cf3224757222c209890 59f2d1be284dec7d9f6480cceda2eee36ab20163 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382379435 +0100	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Fast-forward
+59f2d1be284dec7d9f6480cceda2eee36ab20163 5d823329024d23018583c207b766b629b8858b89 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382380882 +0100	commit: wip defining new views
+5d823329024d23018583c207b766b629b8858b89 8c9063be73e352b08a9111157e6cd7454afc5be3 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382465272 +0100	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Fast-forward
+8c9063be73e352b08a9111157e6cd7454afc5be3 72c5a35a9e76ff45a21b26ff3f3aa7b8ee86d676 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382470353 +0100	commit: wip refactoring views, fixed the profile view
+72c5a35a9e76ff45a21b26ff3f3aa7b8ee86d676 fdc62e930c0c619973a748b07e0d5704002acdf3 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382552431 +0100	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Fast-forward
+fdc62e930c0c619973a748b07e0d5704002acdf3 db34cd3f0c1abaa51a0c8c3a912524822a2ee0f0 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382800848 +0100	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Fast-forward
+db34cd3f0c1abaa51a0c8c3a912524822a2ee0f0 228649da9bb87399c12d31765d657a017652f477 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382804741 +0100	commit: implemented the diary view
+228649da9bb87399c12d31765d657a017652f477 228649da9bb87399c12d31765d657a017652f477 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382805131 +0100	checkout: moving from develop to release-1.0
+228649da9bb87399c12d31765d657a017652f477 c44b60fd6cf3901f60db64c584edacf505283ba7 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382805253 +0100	commit: Bumped version number to 1.0
+c44b60fd6cf3901f60db64c584edacf505283ba7 dcf2e489a1b5fd6847085600c1121a0b0f2b74e3 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382805337 +0100	checkout: moving from release-1.0 to master
+dcf2e489a1b5fd6847085600c1121a0b0f2b74e3 30af8ae3f50b3110c31125a5523971bf48536055 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382805388 +0100	merge release-1.0: Merge made by the 'recursive' strategy.
+30af8ae3f50b3110c31125a5523971bf48536055 228649da9bb87399c12d31765d657a017652f477 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382805469 +0100	checkout: moving from master to develop
+228649da9bb87399c12d31765d657a017652f477 1b8d13bec167ee90911df8ce0c5b0a19be2b7b7f Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382805483 +0100	merge release-1.0: Merge made by the 'recursive' strategy.
+1b8d13bec167ee90911df8ce0c5b0a19be2b7b7f 8a877ded128cc4b205d516899f1ba43f6776d5af Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382808178 +0100	commit: refactoring... fixed the diary auth bug, connstring transf and others
+8a877ded128cc4b205d516899f1ba43f6776d5af 1068f008d5a4aafe1b64de0ca6019dfa75c4d31d Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382906134 +0000	commit: changed the template using html5 prologue and fix the views (WIP)
+1068f008d5a4aafe1b64de0ca6019dfa75c4d31d 7c2273952f567b493cb02a77d3523f1b55012b87 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1382996509 +0000	commit: implementing ng-grid and hide the graph from the profile view
+7c2273952f567b493cb02a77d3523f1b55012b87 e8e13306337708efb06dc4e6d6d351d1c9cf5bb5 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1383072634 +0000	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Fast-forward
+e8e13306337708efb06dc4e6d6d351d1c9cf5bb5 e967700f9b2517c014c931eecffe41d65404bf1d Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1383074542 +0000	commit: fixed the problem with delete log
+e967700f9b2517c014c931eecffe41d65404bf1d 81a91bbfe4b31747e6a8d0fa0f5210461bba9441 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1383076184 +0000	commit: refactoring the profile view WIP
+81a91bbfe4b31747e6a8d0fa0f5210461bba9441 3010618ea1a927bcf6bec9e50de6ceec65764371 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1383159685 +0000	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Fast-forward
+3010618ea1a927bcf6bec9e50de6ceec65764371 94924b3a61a79a871081fc0ed8187ea81265f347 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1383161663 +0000	commit: implemented logic to disable button during adding new value and reset imputs when the operation is completed
+94924b3a61a79a871081fc0ed8187ea81265f347 da3c01d6a3a12c3123e683bef2ea195c5d0a5679 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1383162413 +0000	commit: fixed problem loading toastr dependency before angular
+da3c01d6a3a12c3123e683bef2ea195c5d0a5679 5bb6d4b114ff9158a4b47f2ef2a9d757481791a9 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1383393356 +0000	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Fast-forward
+5bb6d4b114ff9158a4b47f2ef2a9d757481791a9 1859188a71dfec6bc7f9705ee8bb825e0fa8180c Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1383508003 +0000	commit: start working with a different chart library in the test project
+1859188a71dfec6bc7f9705ee8bb825e0fa8180c 634846258a1bb1d5154845a16d8a4e78b001769a Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1383595154 +0000	commit: implementing a rime selector using ui bootstrap
+634846258a1bb1d5154845a16d8a4e78b001769a 94727a464799b06cae1dca6d07f7de13d5b70fee Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1383595188 +0000	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Merge made by the 'recursive' strategy.
+94727a464799b06cae1dca6d07f7de13d5b70fee c779bbf624ee6e86859388fd5047dacadb988ac4 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1383985905 +0000	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Fast-forward
+c779bbf624ee6e86859388fd5047dacadb988ac4 f5ab491f25a7db0764c07f35e7b885d226e29f1e Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1383987637 +0000	commit: implemented reset button and create a new function to get just the date without time for logdate imput
+f5ab491f25a7db0764c07f35e7b885d226e29f1e cabb91370fbb9dae4ec504a55ec37558374f9c74 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1384015360 +0000	commit: fixed login and registration form css, added a new reload feature in diary view
+cabb91370fbb9dae4ec504a55ec37558374f9c74 685c9586c1688a03e8335f28f5c518db5417f697 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1384156415 +0000	commit: share with friends implementation wip
+685c9586c1688a03e8335f28f5c518db5417f697 85b0f987ece29d13be7fa3ff7a877b084d6deee8 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1384197883 +0000	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Fast-forward
+85b0f987ece29d13be7fa3ff7a877b084d6deee8 d772ef8e8290bcb3f97f307a08f67435116aa010 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1384200632 +0000	commit: implementing modal dialog to send an invite to a friend
+d772ef8e8290bcb3f97f307a08f67435116aa010 b9bc814c200dff07d59a348de3fc53606a3a9bd8 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1384453885 +0000	pull --progress origin +refs/heads/develop:refs/remotes/origin/develop: Fast-forward
+b9bc814c200dff07d59a348de3fc53606a3a9bd8 1de872dff47db04316adcec32b943625324dcd50 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1384456304 +0000	commit: implementing send invite model view and ctrl
+1de872dff47db04316adcec32b943625324dcd50 c09999f9b60e775497e5f10701ad53c3b95343d8 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1384592034 +0000	commit (merge): Merge branch 'develop' of https://github.com/riccardone/myselflog into develop
+c09999f9b60e775497e5f10701ad53c3b95343d8 97272c80ca3655e5a36aced7447f25092b2680bf Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1384614046 +0000	commit: implemented sending friend invite email feature (without message template)
+97272c80ca3655e5a36aced7447f25092b2680bf 88a2a2fe31c2d92497d70f5a21d61c6574d6af75 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1384630157 +0000	commit: implemented send invite feature (the mail template is left in this first iteration)
+88a2a2fe31c2d92497d70f5a21d61c6574d6af75 e3a358d9a978a5e84f470cfcbf2e941abf849aa4 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1384715616 +0000	commit: implementing addTerapy feature
+e3a358d9a978a5e84f470cfcbf2e941abf849aa4 8959ce8bdc8305e00cc7138492803281aa8bb725 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385286249 +0000	commit: Implemented add terapies feature (backend)... now is time to draw a terapy line on the graph
+8959ce8bdc8305e00cc7138492803281aa8bb725 fd3dcaa598066f2dd0e1f3d1ebb8f4dd53fc75f7 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385307086 +0000	commit: clean some old commented code
+fd3dcaa598066f2dd0e1f3d1ebb8f4dd53fc75f7 fd3dcaa598066f2dd0e1f3d1ebb8f4dd53fc75f7 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385307242 +0000	checkout: moving from develop to newgraphlib
+fd3dcaa598066f2dd0e1f3d1ebb8f4dd53fc75f7 154c55165a6b1327326f4e47030724f74799ea15 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385319369 +0000	commit: implementing new graph jqplot
+154c55165a6b1327326f4e47030724f74799ea15 c8dddfe2f633184ed95584200e4b0948cfc87a53 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385890783 +0000	pull --progress origin +refs/heads/newgraphlib:refs/remotes/origin/newgraphlib: Fast-forward
+c8dddfe2f633184ed95584200e4b0948cfc87a53 d37a6a0fe82391fd68a84dfec0ca3a3e6c1e9ab8 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385907857 +0000	commit: implemented terapies feature
+d37a6a0fe82391fd68a84dfec0ca3a3e6c1e9ab8 fd3dcaa598066f2dd0e1f3d1ebb8f4dd53fc75f7 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385908715 +0000	checkout: moving from newgraphlib to develop
+fd3dcaa598066f2dd0e1f3d1ebb8f4dd53fc75f7 8eb08590f63ca3de73a4d32a077b1ba3c1f78afc Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385908737 +0000	merge newgraphlib: Merge made by the 'recursive' strategy.
+8eb08590f63ca3de73a4d32a077b1ba3c1f78afc e442e20f718be8552465f002bf7c23ad8b04a7cb Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385909309 +0000	commit: update version 1.1
+e442e20f718be8552465f002bf7c23ad8b04a7cb e442e20f718be8552465f002bf7c23ad8b04a7cb Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385909379 +0000	checkout: moving from develop to release-1.1
+e442e20f718be8552465f002bf7c23ad8b04a7cb 3e7f26f7a3b03e45b569536a6b41af734a8abe0e Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385909454 +0000	commit: Bumped version number 1.1
+3e7f26f7a3b03e45b569536a6b41af734a8abe0e 30af8ae3f50b3110c31125a5523971bf48536055 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385909485 +0000	checkout: moving from release-1.1 to master
+30af8ae3f50b3110c31125a5523971bf48536055 94132986affbe1ef4c534d9894409bbacd9f49d1 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385909501 +0000	merge release-1.1: Merge made by the 'recursive' strategy.
+94132986affbe1ef4c534d9894409bbacd9f49d1 e442e20f718be8552465f002bf7c23ad8b04a7cb Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385909554 +0000	checkout: moving from master to develop
+e442e20f718be8552465f002bf7c23ad8b04a7cb d6f23935f5e5b742f9de788f946f286ae39c210e Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385909567 +0000	merge release-1.1: Merge made by the 'recursive' strategy.
+d6f23935f5e5b742f9de788f946f286ae39c210e 94132986affbe1ef4c534d9894409bbacd9f49d1 Riccardo Di Nuzzo <riccardo@dinuzzo.it> 1385909611 +0000	checkout: moving from develop to master

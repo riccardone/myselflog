@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>My Diary Log</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    @Styles.Render("~/Content/morriscss")
+    @*@Styles.Render("~/Content/jqplotcss")*@
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 8]><script src="../../Scripts/html5shiv.js"></script><![endif]-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/prologue")
+    
+    <noscript>
+        @Styles.Render("~/Content/noscriptprologuecss")
+    </noscript>
+    <!--[if lte IE 9]><link rel="stylesheet" href="../../Content/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="../../Content/ie8.css" /><![endif]-->
+    <style>
+        #registerPanel {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        if (window.location.hash == '#_=_') {
+            window.location.hash = '';
+        }
+    </script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
+    @Styles.Render("~/Content/myCss")
+</head>
+<body data-ng-app="myselflogApp">
+    <div id="header" class="skel-panels-fixed">
+        <div class="top">
+            <div id="logo">
+                <span class="image avatar48">
+                    @*<img src="images/avatar.jpg" alt="" />*@
+                </span>
+                <h1 id="title">MySelfLog</h1>
+                <span class="byline">Log your health</span>
+            </div>
+            <nav id="nav">
+                @Html.Partial("_UserSettings")
+                @*<ul>
+                    <li><a href="#top" id="top-link" class="skel-panels-ignoreHref"><span class="icon icon-home">Intro</span></a></li>
+                    <li><a href="#portfolio" id="portfolio-link" class="skel-panels-ignoreHref"><span class="icon icon-th">Portfolio</span></a></li>
+                    <li><a href="#about" id="about-link" class="skel-panels-ignoreHref"><span class="icon icon-user">About Me</span></a></li>
+                    <li><a href="#contact" id="contact-link" class="skel-panels-ignoreHref"><span class="icon icon-envelope">Contact</span></a></li>
+                </ul>*@
+            </nav>
+        </div>
+        <div class="bottom">
+            <!-- Social Icons -->
+            @*<ul class="icons">
+                <li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
+                <li><a href="#" class="icon icon-facebook"><span>Facebook</span></a></li>
+                <li><a href="#" class="icon icon-github"><span>Github</span></a></li>
+                <li><a href="#" class="icon icon-dribbble"><span>Dribbble</span></a></li>
+                <li><a href="#" class="icon icon-envelope"><span>Email</span></a></li>
+            </ul>*@
+        </div>
+    </div>
+    <div id="main">
+        <!-- Intro -->
+        <section id="top" class="one">
+            @RenderBody()
+        </section>
+    </div>
+    <!-- Footer -->
+    <div id="footer">
+
+        <!-- Copyright -->
+        <div class="copyright">
+            @*<p>&copy; 2013 Jane Doe. All rights reserved.</p>
+            <ul class="menu">
+                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                <li>Images: <a href="http://ineedchemicalx.deviantart.com">Felicia Simion</a></li>
+            </ul>*@
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jslibs")
+    @RenderSection("scripts", false)
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/raphael")
+    @Scripts.Render("~/bundles/morris")
+ @*   @Scripts.Render("~/bundles/jqplot")*@
+    @Scripts.Render("~/bundles/ajaxlogin")
+    @Scripts.Render("~/bundles/bootstrap")
+    @*<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>*@
+</body>
+</html>

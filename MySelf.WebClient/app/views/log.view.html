@@ -1,0 +1,21 @@
+﻿<article class="is-post is-post-excerpt">
+    <header>
+        <h2>{{selectedprofile.name}}</h2>
+        <!--<span class="byline">...</span>-->
+    </header>
+    <form name="logForm" class="css-form">
+        <input type="number" min="1" max="800" name="value" required data-ng-model="item.value" placeholder="Type a numeric value" />
+        <textarea data-ng-model="item.message" placeholder="Type a message (optional)"></textarea>
+        <input type="text" ng-model="item.logDate" placeholder="Select a date and time" />
+        <input type="hidden" data-ng-model="item.selectedProfileId" value="selectedprofile.globalid" />
+        <button id="Button1" name="btnSubmit" ng-click="addValue()" class="btn btn-primary">Submit</button>
+    </form>
+    <p ng-show="selectedprofile.logs == 0">There are not any logged values</p>
+    <div>
+        <p><a ng-href="../{{selectedprofile.securitylink}}" target="blank">{{selectedprofile.securitylink}}</a></p>
+        <button class="btn btn-default" ng-click="addSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securitylink.length == 0">Share with a link</button>
+        <button class="btn btn-default" ng-click="addSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securitylink.length > 0">Create new share link</button>
+        <button class="btn btn-default" ng-click="deleteSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securitylink.length > 0">Delete share link</button>
+    </div>
+    <div id="diaryGraph"></div>
+</article>

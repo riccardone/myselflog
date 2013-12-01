@@ -1,0 +1,132 @@
+﻿body {
+    color: #333;
+    font-family: "Segoe UI","Trebuchet MS",Verdana,Helvetica,Sans-Serif;
+    font-size: .85em;
+}
+
+hgroup.search h1 {
+    font-size: 2.3em;
+}
+
+hgroup.search h2 {
+    font-size: 1.5em;
+    margin-left: 5px;
+}
+
+hgroup h1, hgroup h2 {
+    margin: 0;
+    padding: 0;
+}
+
+#profiles {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-family: "Segoe UI","Trebuchet MS",Verdana,Helvetica,Sans-Serif;
+    font-size: .85em;
+}
+
+section {
+    display: block;
+    margin-bottom: 20px;
+}
+
+    section.profileresult {
+        border-top: 1px solid #ccc;
+        padding-top: 10px;
+    }
+
+        section.profileresult .side {
+            float: left;
+            width: 70px;
+        }
+
+        section.profileresult h1 {
+            font-size: 1.75em;
+        }
+
+        section.profileresult h2 {
+            display: inline;
+            font-size: 1.25em;
+        }
+
+        section.profileresult .main {
+            margin-left: 70px;
+        }
+
+        section.profileresult header {
+            margin-bottom: 5px;
+            background-color: transparent;
+            border-bottom: 0;
+        }
+
+        section.profileresult p {
+            line-height: 1.25em;
+            margin-bottom: 5px;
+        }
+
+p {
+    margin: 0 0 1em;
+}
+
+#content h2 {
+    border: 0;
+}
+
+a {
+    color: #0071bc;
+    outline: none;
+    text-decoration: none;
+}
+
+    a:link {
+        color: #0071bc;
+    }
+
+aside#toc {
+    background-color: #ebebeb;
+    border: solid 1px #cfcfcf;
+    float: right;
+    font-size: .95em;
+    height: auto;
+    margin: 0 -20px 10px 15px;
+    padding: 9px 5px 9px 10px;
+    width: 225px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.previousdate {
+    float: left;
+}
+
+.middle {
+    float: left;
+}
+
+    .middle h2 {
+        margin: 0;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+.titlereport h1 {
+    font-size: 1.65em;
+    margin: 0;
+    padding: 10px;
+    color: #333;
+    font-family: "Segoe UI","Trebuchet MS",Verdana,Helvetica,Sans-Serif;
+    /*border: 1px solid grey;
+    background-color: #EEE;*/
+    text-align: center;
+}
+
+.css-form input.ng-invalid.ng-dirty {
+    background-color: #FA787E;
+}
+
+.css-form input.ng-valid.ng-dirty {
+    background-color: #78FA89;
+}

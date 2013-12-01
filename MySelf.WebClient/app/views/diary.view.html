@@ -1,0 +1,34 @@
+﻿<div class="container">
+    <header>
+        <h2 class="alt">{{profile.name}}</h2>
+    </header>
+    <div style="float: left">
+        <ul class="nav nav-pills">
+            <li data-ng-repeat="report in reports" data-ng-class="(report.name == selectedreport.name && 'active')">
+                <a href data-ng-click="setReport(report)">{{ report.name }}</a>
+            </li>
+        </ul>
+        <button type="button" class="btn btn-default" ng-click="isTerapiesGraphCollapsed = !isTerapiesGraphCollapsed">Show terapies</button>
+    </div>
+    <div>
+        <h3>{{selectedreport.description}}
+        </h3>
+        <button type="button" class="btn btn-default" data-ng-click="previous()">
+            <i class="icon-arrow-left"></i>
+            <!--<span class="glyphicon glyphicon-arrow-left"></span>-->
+        </button>
+        <button type="button" class="btn btn-default" data-ng-click="next()">
+            <i class="icon-arrow-right"></i>
+            <!--<span class="glyphicon glyphicon-arrow-right"></span>-->
+        </button>
+    </div>
+    <div id="diaryGraph"></div>
+    <div collapse="isTerapiesGraphCollapsed">
+        <p ng-show="terapies == 0">There is not any logged terapy</p>
+        <div id="terapiesGraph"></div>
+    </div>
+    <footer>
+        <p>average {{getAverage()}}</p>
+        <input type="button" ng-click="reload()" value="Reload" class="btn btn-warning" id="btnReload" name="btnReload" />
+    </footer>
+</div>
