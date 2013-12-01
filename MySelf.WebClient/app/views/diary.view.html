@@ -8,6 +8,7 @@
                 <a href data-ng-click="setReport(report)">{{ report.name }}</a>
             </li>
         </ul>
+        <button type="button" class="btn btn-default" ng-click="isTerapiesGraphCollapsed = !isTerapiesGraphCollapsed">Show terapies</button>
     </div>
     <div>
         <h3>{{selectedreport.description}}
@@ -22,7 +23,10 @@
         </button>
     </div>
     <div id="diaryGraph"></div>
-    <div id="terapiesGraph"></div>
+    <div collapse="isTerapiesGraphCollapsed">
+        <p ng-show="terapies == 0">There is not any logged terapy</p>
+        <div id="terapiesGraph"></div>
+    </div>
     <footer>
         <p>average {{getAverage()}}</p>
         <input type="button" ng-click="reload()" value="Reload" class="btn btn-warning" id="btnReload" name="btnReload" />

@@ -5,7 +5,7 @@
         $scope.id = $routeParams.id;
         $scope.addValue = addValue;
         $scope.remove = remove;
-	$scope.removeTerapy = removeTerapy;
+	    $scope.removeTerapy = removeTerapy;
         $scope.logs = [];
         $scope.friends = [];
         $scope.isTerapyCollapsed = true;
@@ -84,10 +84,9 @@
         $scope.myOptions = { data: 'logs' };
 
         function resetItem() {
-             $scope.item = {}; //{ "value": null, "logDate": getJustToday(), "logTime": getNow(), "message": null };
+            $scope.item = {}; //{ "value": null, "logDate": getJustToday(), "logTime": getNow(), "message": null };
             $scope.item.logDate = getJustToday();
             $scope.item.logTime = getNow();
-
         }
 
         function getNow() {
@@ -183,7 +182,6 @@
             }
         }
 
-
         function remove(log) {
             datacontext.remove(log, removeLogSucceeded);
         }
@@ -192,7 +190,6 @@
             for (var i = 0; i < $scope.selectedprofile.logs.length; i++) {
                 if ($scope.selectedprofile.logs[i].globalid == log.globalid) {
                     $scope.selectedprofile.logs.splice(i, 1);
-                    //refreshGraph();
                 }
             }
         }
@@ -203,26 +200,45 @@
 
         function addValue() {
             $scope.loading = true;
-
-            var d1 = moment($scope.item.logDate).toDate();
-            var d2 = moment($scope.item.logTime).toDate();
             
-            d1.setHours(d2.getHours());
-            d1.setMinutes(d2.getMinutes());
-            d1.setSeconds(d2.getSeconds());
-            d1.setSeconds(d2.getMilliseconds());
-
+            var logDate = moment($scope.item.logDate).toDate();
+            var logTime = moment($scope.item.logTime).toDate();
+            
+            // Aggregate date with time
+            logDate.setHours(logTime.getHours());
+            logDate.setMinutes(logTime.getMinutes());
+            logDate.setSeconds(logTime.getSeconds());
+            logDate.setSeconds(logTime.getMilliseconds());
+            
+            // Define a base log
             var log = {
-                'Value': $scope.item.value,
-                'LogDate': d1,
+                'Value': 0,
+                'LogDate': logDate,
                 'Message': $scope.item.message,
                 'ProfileId': $scope.selectedprofile.globalid,
-                'isslow': $scope.item.isslow,
-                'terapyvalue': $scope.item.terapyvalue
+                'isslow': false,
+                'terapyvalue': 0
             };
-
-           datacontext.save(log, addSucceeded);
-
+            
+            // Log blood sugar level
+            if ($scope.item.value > 0) {
+                log.value = $scope.item.value;
+                datacontext.save(log, addSucceeded);
+                log.value = 0;
+            }
+            // Log slow terapy
+            if ($scope.item.slowvalue > 0) {
+                log.isslow = true;
+                log.terapyvalue = $scope.item.slowvalue;
+                datacontext.save(log, addSucceeded);
+            }
+            // Log fast terapy
+            if ($scope.item.fastvalue > 0) {
+                log.isslow = false;
+                log.terapyvalue = $scope.item.fastvalue;
+                datacontext.save(log, addSucceeded);
+            }
+            
             function addSucceeded(value) {
                 if (value.globalid) {
                     $scope.selectedprofile.logs.push(value);

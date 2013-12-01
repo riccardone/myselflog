@@ -6,14 +6,15 @@ namespace MySelf.WebClient.Models
 {
     public interface IMapper
     {
-        List<LogDto> ToLogDto(IEnumerable<GlucoseLevel> glucoseLevels);
-        List<LogProfileDto> ToLogProfileDto(IEnumerable<LogProfile> logProfiles);
-        List<TerapyDto> ToTerapyDto(IEnumerable<Terapy> terapies);
+        List<LogDto> ToLogsDto(IEnumerable<GlucoseLevel> glucoseLevels);
+        List<LogProfileDto> ToLogProfilesDto(IEnumerable<LogProfile> logProfiles);
+        List<TerapyDto> ToTerapiesDto(IEnumerable<Terapy> terapies);
+        List<FriendDto> ToFriendsDto(IEnumerable<Friend> items);
     }
 
     public class Mapper : IMapper
     {
-        public List<LogDto> ToLogDto(IEnumerable<GlucoseLevel> glucoseLevels)
+        public List<LogDto> ToLogsDto(IEnumerable<GlucoseLevel> glucoseLevels)
         {
             return glucoseLevels.Select(glucoseLevel => new LogDto
             {
@@ -25,7 +26,7 @@ namespace MySelf.WebClient.Models
             }).ToList();
         }
 
-        public List<FriendDto> ToFriendDto(IEnumerable<Friend> items)
+        public List<FriendDto> ToFriendsDto(IEnumerable<Friend> items)
         {
             return items.Select(f => new FriendDto
             {
@@ -34,25 +35,25 @@ namespace MySelf.WebClient.Models
             }).ToList();
         }
 
-        public List<LogProfileDto> ToLogProfileDto(IEnumerable<LogProfile> logProfiles)
+        public List<LogProfileDto> ToLogProfilesDto(IEnumerable<LogProfile> logProfiles)
         {
             return logProfiles.Select(logProfile => new LogProfileDto
             {
                 GlobalId = logProfile.GlobalId,
                 Name = logProfile.Name,
-                Logs = ToLogDto(logProfile.GlucoseLevels),
-                Friends = ToFriendDto(logProfile.Friends),
-                Terapies = ToTerapyDto(logProfile.Terapies),
+                Logs = ToLogsDto(logProfile.GlucoseLevels),
+                Friends = ToFriendsDto(logProfile.Friends),
+                Terapies = ToTerapiesDto(logProfile.Terapies),
                 SecurityLink = logProfile.SecurityLink != null ? BuildSecurityLink(logProfile.SecurityLink.Link) : string.Empty
             }).ToList();
         }
 
-        private string BuildSecurityLink(string value)
+        private static string BuildSecurityLink(string value)
         {
             return string.Format("diary/{0}", value);
         }
 
-        public List<TerapyDto> ToTerapyDto(IEnumerable<Terapy> terapies)
+        public List<TerapyDto> ToTerapiesDto(IEnumerable<Terapy> terapies)
         {
             return terapies.Select(i => new TerapyDto
             {

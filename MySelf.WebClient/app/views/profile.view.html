@@ -32,9 +32,9 @@
         </div>
         <button class="btn btn-link" ng-click="isTerapyCollapsed = !isTerapyCollapsed">Log terapy</button>
         <div id="terapyPanel" collapse="isTerapyCollapsed">
-            Is Slow
-            <input type="checkbox" ng-model="item.isslow" />
-            <input type="number" min="1" max="200" id="terapyvalue" name="terapyvalue" data-ng-model="item.terapyvalue" placeholder="Type a numeric value" style="height: 30px" />
+            <!--<input type="checkbox" ng-model="item.isslow" />-->
+            <input type="number" min="0" max="200" name="slowvalue" data-ng-model="item.slowvalue" placeholder="SLOW terapy number" style="height: 30px" />
+            <input type="number" min="0" max="200" name="fastvalue" data-ng-model="item.fastvalue" placeholder="FAST terapy number" style="height: 30px" />
         </div>
         <input type="hidden" data-ng-model="item.selectedProfileId" value="selectedprofile.globalid" />
         <div id="logFormBotton">
