@@ -280,7 +280,7 @@ namespace MySelf.WebClient.Controllers
             {
                 // Insert a new user into the database
                 // Check if user already exists
-                if (_logManager.ModelReader.UserExist(model.UserName.ToLower()))
+                if (_logManager.ModelReader.UserExist(model.UserName.ToLower()) == false)
                 {
                     // Insert name into the profile table
                     CreateOrUpdatePerson(model.UserName);
