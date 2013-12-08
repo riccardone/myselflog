@@ -242,6 +242,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\js\ajaxlogin.js" />
+    <Content Include="app\js\controllers\loader.controller.js" />
     <Content Include="app\js\controllers\newgraph.controller.js" />
     <Content Include="app\js\controllers\modalFriendInviteInstance.controller.js" />
     <Content Include="app\js\controllers\profile.controller.js" />
@@ -270,6 +271,7 @@
     <Content Include="app\views\profile.view.html" />
     <Content Include="app\views\profiles.view.html" />
     <Content Include="App_Data\howtorecreatesqllocaldb.txt" />
+    <Content Include="Content\images\spinner.gif" />
     <Content Include="Content\jquery.jqplot.min.css" />
     <Content Include="Scripts\jplotplugins\jqplot.barRenderer.js" />
     <Content Include="Scripts\jplotplugins\jqplot.barRenderer.min.js" />

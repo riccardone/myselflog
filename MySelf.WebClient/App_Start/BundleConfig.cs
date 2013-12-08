@@ -70,6 +70,7 @@ namespace MySelf.WebClient
                 .Include("~/app/js/controllers/login.controller.js")
                 .Include("~/app/js/controllers/graph.controller.js")
                 .Include("~/app/js/controllers/profile.controller.js")
+                .Include("~/app/js/controllers/loader.controller.js")
                 .Include("~/app/js/controllers/profiles.controller.js")
                 .Include("~/app/js/controllers/newfriend.controller.js")
                 .Include("~/app/js/controllers/newgraph.controller.js")
