@@ -23,3 +23,16 @@ myselflogApp.directive('dateTimepicker', function () {
 
 myselflogApp.value('toastr', window.toastr);
 myselflogApp.value('moment', window.moment);
+
+// http://stackoverflow.com/a/15610996
+myselflogApp.filter('getByLogDate', function () {
+    return function (input, logdate) {
+        var i = 0, len = input.length;
+        for (; i < len; i++) {
+            if (+input[i].logdate == logdate) {
+                return input[i];
+            }
+        }
+        return null;
+    };
+});

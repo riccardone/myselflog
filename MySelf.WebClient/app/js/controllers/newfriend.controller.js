@@ -6,18 +6,19 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     $scope.setReport = setReport;
     $scope.date = moment();
     $scope.link = "";
-    $scope.graph = Morris.Line({
-        element: 'diaryGraph',
-        xkey: 'logdate',
-        ykeys: ['value'],
-        labels: ['Diary']
-    });
-    $scope.terapiesGraph = Morris.Bar({
-        element: 'terapiesGraph',
-        xkey: 'logdate',
-        ykeys: ['fastvalues', 'slowvalues'],
-        labels: ['Fast terapy', 'Slow terapy']
-    });
+    $scope.graph = {};
+    //$scope.graph = Morris.Line({
+    //    element: 'diaryGraph',
+    //    xkey: 'logdate',
+    //    ykeys: ['value'],
+    //    labels: ['Diary']
+    //});
+    //$scope.terapiesGraph = Morris.Bar({
+    //    element: 'terapiesGraph',
+    //    xkey: 'logdate',
+    //    ykeys: ['fastvalues', 'slowvalues'],
+    //    labels: ['Fast terapy', 'Slow terapy']
+    //});
     $scope.reports = [
         { name: "Day", description: "" },
         { name: "Week", description: "" },
@@ -116,6 +117,7 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
         if ($scope.profile) {
             var logs = getLogs($scope.selectedreport.name);
             var terapies = getTerapies($scope.selectedreport.name);
+            var graphData = [];
             
             if ($scope.showTerapies) {
                 $scope.graph = Morris.Line({
@@ -124,16 +126,95 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
                     ykeys: ['value', 'slow', 'fast'],
                     labels: ['Diary', 'Slow terapy', 'Fast terapy']
                 });
-                // TODO
+                // TODO set data with terapies
+                angular.forEach(logs, function (item) {
+                    var sameDateTerapy = $filter('getByLogDate')(terapies, item.logdate);
+                    if (sameDateTerapy) {
+                        sameDateTerapy.value = item.value;
+                        graphData.push(sameDateTerapy);
+                        sameDateTerapy.Added = true;
+                    } else {
+                        graphData.push({ 'logdate': item.logdate, 'value': item.value });
+                    }
+                });
+                angular.forEach(terapies, function (item) {
+                    if (!item.Added) {
+                        graphData.push(item);
+                    }
+                });
+                $scope.graph.setData(graphData);
+            } else {
+                $scope.graph = Morris.Line({
+                    element: 'diaryGraph',
+                    xkey: 'logdate',
+                    ykeys: ['value'],
+                    labels: ['Diary']
+                });
+                // TODO set data without terapies
+                $scope.graph.setData(logs);
             }
             
             $scope.selectedreport.description = getReportDescription($scope.selectedreport.name);
-            $scope.graph.setData(logs);
-            $scope.terapiesGraph.setData(terapies);
+            
             $scope.logs = logs;
             $scope.terapies = terapies;
             $scope.selectedreport.average = getAverage();
         }
+    }
+    
+    function getLogs(reportname) {
+        if (reportname == "Year") {
+            return getLogsByYear();
+        }
+        if (reportname == "Month") {
+            return getLogsByMonth();
+        }
+        if (reportname == "Week") {
+            return getLogsByWeeks();
+        }
+        if (reportname == "Day") {
+            return getLogsByDay();
+        }
+        return null;
+    }
+
+    function getTerapies(reportname) {
+        var terapies = [];
+        var terapyObject = {};
+        if (reportname == "Year") {
+            terapyObject = getTerapiesByYear();
+        }
+        if (reportname == "Month") {
+            terapyObject = getTerapiesByMonth();
+        }
+        if (reportname == "Week") {
+            terapyObject = getTerapiesByWeeks();
+        }
+        if (reportname == "Day") {
+            terapyObject = getTerapiesByDay();
+        }
+        // Fill terapies graph data starting with fast values
+        angular.forEach(terapyObject.fastvalues, function (item) {
+            terapies.push({ 'logdate': item.logdate, 'fast': item.terapyvalue, 'slow': 0 });
+        });
+        // Fill slow values
+        angular.forEach(terapyObject.slowvalues, function (item) {
+            insertOrUpdateSlowValue(terapies, item);
+        });
+        function insertOrUpdateSlowValue(terapyList, item) {
+            var found = false;
+            angular.forEach(terapyList, function (terapy) {
+                if (terapy.logdate == item.logdate) {
+                    terapy.slowvalues = item.terapyvalue;
+                    found = true;
+                }
+            });
+            if (found == false) {
+                terapies.push({ 'logdate': item.logdate, 'fast': 0, 'slow': item.terapyvalue });
+            }
+        }
+
+        return terapies;
     }
 
     function getWeekDays(date) {
@@ -268,61 +349,6 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
             }
         });
         return { 'fastvalues': fastvalues, 'slowvalues': slowvalues };
-    }
-    
-    function getLogs(reportname) {
-        if (reportname == "Year") {
-            return getLogsByYear();
-        }
-        if (reportname == "Month") {
-            return getLogsByMonth();
-        }
-        if (reportname == "Week") {
-            return getLogsByWeeks();
-        }
-        if (reportname == "Day") {
-            return getLogsByDay();
-        }
-        return null;
-    }
-    
-    function getTerapies(reportname) {
-        var terapies = [];
-        var terapyObject = {};
-        if (reportname == "Year") {
-            terapyObject = getTerapiesByYear();
-        }
-        if (reportname == "Month") {
-            terapyObject = getTerapiesByMonth();
-        }
-        if (reportname == "Week") {
-            terapyObject = getTerapiesByWeeks();
-        }
-        if (reportname == "Day") {
-            terapyObject = getTerapiesByDay();
-        }
-        // Fill terapies graph data starting with fast values
-        angular.forEach(terapyObject.fastvalues, function (item) {
-            terapies.push({ 'logdate': item.logdate, 'fastvalues': item.terapyvalue, 'slowvalues': 0 });
-        });
-        // Fill slow values
-        angular.forEach(terapyObject.slowvalues, function (item) {
-            insertOrUpdateSlowValue(terapies, item);
-        });
-        function insertOrUpdateSlowValue(terapyList, item) {
-            var found = false;
-            angular.forEach(terapyList, function (terapy) {
-                if (terapy.logdate == item.logdate) {
-                    terapy.slowvalues = item.terapyvalue;
-                    found = true;
-                }
-            });
-            if (found == false) {
-                terapies.push({ 'logdate': item.logdate, 'fastvalues': 0, 'slowvalues': item.terapyvalue });
-            }
-        }
-
-        return terapies;
     }
     
     function getReportDescription(reportname) {
