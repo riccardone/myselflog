@@ -1,6 +1,6 @@
 ﻿myselflogApp.controller('ProfileController',
-    ['$scope', 'datacontext', '$filter', '$routeParams', '$modal', '$log',
-    function ($scope, datacontext, $filter, $routeParams, $modal, $log) {
+    ['$scope', 'datacontext', '$filter', '$routeParams', '$modal', '$log', 'config', 'logger', 
+    function ($scope, datacontext, $filter, $routeParams, $modal, $log, config, logger) {
         $scope.loading = false;
         $scope.id = $routeParams.id;
         $scope.addValue = addValue;
@@ -13,6 +13,8 @@
         $scope.hstep = 1;
         $scope.mstep = 1;
         $scope.ismeridian = true;
+        var events = config.events;
+        $scope.isBusy = true;
         $scope.changed = function () {
             console.log('Time changed to: ' + $scope.item.logTime);
         };
@@ -38,6 +40,16 @@
             });
         };
         /* end modal */
+        
+        function toggleSpinner(on) { $scope.isBusy = on; }
+        
+        $rootScope.$on(events.controllerActivateSuccess,
+            function (data) { toggleSpinner(false); }
+        );
+
+        $rootScope.$on(events.spinnerToggle,
+            function (data) { toggleSpinner(data.show); }
+        );
 
         /* date picker */
         $scope.today = function () {
@@ -110,6 +122,7 @@
         function setDataSucceeded(data) {
             $scope.selectedprofile = data;
             $scope.friends = data.friends;
+            logger.success("Data loaded from remote source");
         }
 
         function setReport(date, report) {

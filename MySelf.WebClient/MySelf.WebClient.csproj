@@ -241,6 +241,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\js\common\bootstrap\bootstrap.dialog.js" />
+    <Content Include="app\js\common\common.js" />
+    <Content Include="app\js\common\logger.js" />
+    <Content Include="app\js\common\spinner.js" />
     <Content Include="app\js\ajaxlogin.js" />
     <Content Include="app\js\controllers\loader.controller.js" />
     <Content Include="app\js\controllers\newgraph.controller.js" />
@@ -273,6 +277,8 @@
     <Content Include="App_Data\howtorecreatesqllocaldb.txt" />
     <Content Include="Content\images\spinner.gif" />
     <Content Include="Content\jquery.jqplot.min.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="Scripts\jplotplugins\jqplot.barRenderer.js" />
     <Content Include="Scripts\jplotplugins\jqplot.barRenderer.min.js" />
     <Content Include="Scripts\jplotplugins\jqplot.BezierCurveRenderer.js" />
@@ -334,6 +340,10 @@
     <Content Include="Scripts\jplotplugins\jqplot.trendline.js" />
     <Content Include="Scripts\jplotplugins\jqplot.trendline.min.js" />
     <Content Include="Scripts\jquery.jqplot.js" />
+    <Content Include="Scripts\spin.js" />
+    <Content Include="Scripts\spin.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="templates\valuePanel.html" />
     <Content Include="templates\terapyPanel.html" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -449,12 +459,9 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
-    <Content Include="Content\toastr.css" />
-    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\toastr.less" />
     <Content Include="app\js\controllers\newfriend.controller.js" />
     <Content Include="app\views\log.view.html" />
     <Content Include="Content\font\fontawesome-webfont.eot" />
@@ -464,6 +471,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\toastr.less" />
     <None Include="Properties\PublishProfiles\Copy and paste.pubxml" />
     <None Include="Properties\PublishProfiles\webdeploy.pubxml" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
@@ -834,8 +842,6 @@
     <Content Include="Scripts\raphael-min.js" />
     <Content Include="Scripts\skel-panels.min.js" />
     <Content Include="Scripts\skel.min.js" />
-    <Content Include="Scripts\toastr.js" />
-    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\ui-bootstrap-0.6.0.js" />
     <Content Include="Scripts\ui-bootstrap-0.6.0.min.js" />
     <Content Include="Scripts\ui-bootstrap-tpls-0.6.0.js" />
