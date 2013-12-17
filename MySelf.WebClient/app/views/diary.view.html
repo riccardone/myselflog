@@ -23,7 +23,8 @@
             <!--<span class="glyphicon glyphicon-arrow-right"></span>-->
         </button>
     </div>
-    <div id="diaryGraph"></div>
+    <div id="diaryGraph" ng-show="showTerapies == false"></div>
+    <div id="diaryGraph2" ng-show="showTerapies == true"></div>
     <div collapse="isTerapiesGraphCollapsed">
         <p ng-show="terapies == 0">There is not any logged terapy</p>
         <div id="terapiesGraph"></div>

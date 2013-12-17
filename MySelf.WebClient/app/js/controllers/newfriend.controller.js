@@ -7,18 +7,19 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     $scope.date = moment();
     $scope.link = "";
     $scope.graph = {};
-    //$scope.graph = Morris.Line({
-    //    element: 'diaryGraph',
-    //    xkey: 'logdate',
-    //    ykeys: ['value'],
-    //    labels: ['Diary']
-    //});
-    //$scope.terapiesGraph = Morris.Bar({
-    //    element: 'terapiesGraph',
-    //    xkey: 'logdate',
-    //    ykeys: ['fastvalues', 'slowvalues'],
-    //    labels: ['Fast terapy', 'Slow terapy']
-    //});
+    $scope.showTerapies = false;
+    $scope.graph = Morris.Line({
+        element: 'diaryGraph',
+        xkey: 'logdate',
+        ykeys: ['value'],
+        labels: ['Diary']
+    });
+    $scope.graph2 = Morris.Line({
+        element: 'diaryGraph2',
+        xkey: 'logdate',
+        ykeys: ['value', 'slow', 'fast'],
+        labels: ['Diary', 'Slow terapy', 'Fast terapy']
+    });
     $scope.reports = [
         { name: "Day", description: "" },
         { name: "Week", description: "" },
@@ -74,6 +75,10 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
             $scope.date = moment($scope.date).add("year", 1);
         }
     }
+    
+    $scope.$watch('showTerapies', function () {
+        refreshGraph();
+    });
 
     $scope.$watch('date', function () {
         refreshGraph();
@@ -120,36 +125,24 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
             var graphData = [];
             
             if ($scope.showTerapies) {
-                $scope.graph = Morris.Line({
-                    element: 'diaryGraph',
-                    xkey: 'logdate',
-                    ykeys: ['value', 'slow', 'fast'],
-                    labels: ['Diary', 'Slow terapy', 'Fast terapy']
-                });
                 // TODO set data with terapies
                 angular.forEach(logs, function (item) {
                     var sameDateTerapy = $filter('getByLogDate')(terapies, item.logdate);
                     if (sameDateTerapy) {
                         sameDateTerapy.value = item.value;
                         graphData.push(sameDateTerapy);
-                        sameDateTerapy.Added = true;
+                        sameDateTerapy.Processed = true;
                     } else {
                         graphData.push({ 'logdate': item.logdate, 'value': item.value });
                     }
                 });
                 angular.forEach(terapies, function (item) {
-                    if (!item.Added) {
+                    if (!item.Processed) {
                         graphData.push(item);
                     }
                 });
-                $scope.graph.setData(graphData);
+                $scope.graph2.setData(graphData);
             } else {
-                $scope.graph = Morris.Line({
-                    element: 'diaryGraph',
-                    xkey: 'logdate',
-                    ykeys: ['value'],
-                    labels: ['Diary']
-                });
                 // TODO set data without terapies
                 $scope.graph.setData(logs);
             }
