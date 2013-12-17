@@ -16,6 +16,8 @@ namespace MySelf.Diab.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Configuration.LazyLoadingEnabled = false;
+
             modelBuilder.Configurations.Add(new GlucoseLevelConfiguration());
             modelBuilder.Configurations.Add(new PersonConfiguration());
             modelBuilder.Configurations.Add(new LogProfileConfiguration());
