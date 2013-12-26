@@ -53,6 +53,7 @@ namespace MySelf.WebClient
             bundles.Add(new ScriptBundle("~/bundles/myselflog")
                 .Include("~/app/js/myselflog.main.js")
                 .Include("~/app/js/services/authentication.js")
+                .Include("~/app/js/services/values.service.js")
                 .Include("~/app/js/services/logger.js")
                 .Include("~/app/js/services/myselflog.resource.js")
                 .Include("~/app/js/services/logprofile.resource.js")
