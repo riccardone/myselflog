@@ -8,6 +8,7 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     $scope.link = "";
     $scope.graph = {};
     $scope.showTerapies = false;
+    $scope.graph = {};
     $scope.graph = Morris.Line({
         element: 'diaryGraph',
         xkey: 'logdate',
@@ -111,7 +112,7 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
         $scope.link = $routeParams.link;
         getData();
     }
-    
+
     function getReportDescription(reportname) {
         if (reportname == "Year") {
             return moment($scope.date).format('YYYY');
@@ -131,27 +132,25 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     function refreshGraph() {
         if ($scope.profile) {
             var logs = valuesService.getLogs($scope.selectedreport.name, $scope.profile.logs, $scope.date);
-            var terapies = valuesService.getTerapies($scope.selectedreport.name, $scope.profile.terapies, $scope.date);
             var graphData = [];
-
-            // TODO set data with terapies
             angular.forEach(logs, function (item) {
                 if (item.value && item.value > 0) {
                     graphData.push({ 'logdate': item.logdate, 'value': item.value });
                 }
-                
             });
-            angular.forEach(terapies.slow, function (item) {
-                graphData.push(item);
-            });
-            angular.forEach(terapies.fast, function (item) {
-                graphData.push(item);
-            });
-            
+            if ($scope.showTerapies) {
+                var terapies = valuesService.getTerapies($scope.selectedreport.name, $scope.profile.terapies, $scope.date);
+                angular.forEach(terapies.slow, function (item) {
+                    graphData.push(item);
+                });
+                angular.forEach(terapies.fast, function (item) {
+                    graphData.push(item);
+                });
+                $scope.terapies = terapies;
+            } 
             $scope.graph.setData(graphData);
             $scope.selectedreport.description = getReportDescription($scope.selectedreport.name);
             $scope.logs = logs;
-            $scope.terapies = terapies;
             $scope.selectedreport.average = getAverage();
         }
     }

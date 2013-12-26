@@ -9,26 +9,18 @@
             </li>
         </ul>
         Show terapies <input type="checkbox" ng-model="showTerapies">
-        <button type="button" class="btn btn-default" ng-click="isTerapiesGraphCollapsed = !isTerapiesGraphCollapsed">Show terapies</button>
     </div>
     <div>
         <h3>{{selectedreport.description}}
         </h3>
         <button type="button" class="btn btn-default" data-ng-click="previous()">
             <i class="icon-arrow-left"></i>
-            <!--<span class="glyphicon glyphicon-arrow-left"></span>-->
         </button>
         <button type="button" class="btn btn-default" data-ng-click="next()">
             <i class="icon-arrow-right"></i>
-            <!--<span class="glyphicon glyphicon-arrow-right"></span>-->
         </button>
     </div>
-    <div id="diaryGraph" ng-show="showTerapies == false"></div>
-    <div id="diaryGraph2" ng-show="showTerapies == true"></div>
-    <div collapse="isTerapiesGraphCollapsed">
-        <p ng-show="terapies == 0">There is not any logged terapy</p>
-        <div id="terapiesGraph"></div>
-    </div>
+    <div id="diaryGraph"></div>
     <footer>
         <p>average {{getAverage()}}</p>
         <input type="button" ng-click="reload()" value="Reload" class="btn btn-warning" id="btnReload" name="btnReload" />
