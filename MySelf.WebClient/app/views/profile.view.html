@@ -53,6 +53,7 @@
                 <button class="btn btn-default" ng-click="addSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securitylink.length == 0">Share with a link</button>
                 <button class="btn btn-default" ng-click="addSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securitylink.length > 0">Create new share link</button>
                 <button class="btn btn-default" ng-click="deleteSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securitylink.length > 0">Delete share link</button>
+                <button class="btn btn-default" ng-csv="getLogsForExport()" csv-header="getHeader()" filename="{{filename}}.csv">Export</button>
                 <form name="friendForm">
                     <label for="txtFriendEmail">Allow a friend to see your diary</label>
                     <input type="email" ng-model="friendEmail" name="txtFriendEmail" id="txtFriendEmail" placeholder="Type your friend email here" />

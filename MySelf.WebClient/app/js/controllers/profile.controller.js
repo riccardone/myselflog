@@ -18,6 +18,9 @@
             console.log('Time changed to: ' + $scope.item.logTime);
         };
         $scope.resetItem = resetItem;
+        $scope.getLogsForExport = getLogsForExport;
+        $scope.getHeader = getHeader;
+        $scope.filename = "diary";
 
         /* modal */
         $scope.openInvite = function (email) {
@@ -93,6 +96,20 @@
         $scope.date = getJustToday();
         $scope.setReport = setReport;
         $scope.myOptions = { data: 'logs' };
+        
+        function getLogsForExport() {
+            var results = [];
+            angular.forEach($scope.selectedprofile.logs, function (item) {
+                if (item.value && item.value > 0) {
+                    results.push({ 'logdate': item.logdate, 'value': item.value });
+                }
+            });
+            return results;
+        }
+        
+        function getHeader() {
+            return ['logdate', 'value'];
+        }
 
         function resetItem() {
             $scope.item = {}; //{ "value": null, "logDate": getJustToday(), "logTime": getNow(), "message": null };
@@ -121,6 +138,7 @@
         function setDataSucceeded(data) {
             $scope.selectedprofile = data;
             $scope.friends = data.friends;
+            $scope.filename = $scope.selectedprofile.name;
             logger.success("Data loaded from remote source");
         }
 

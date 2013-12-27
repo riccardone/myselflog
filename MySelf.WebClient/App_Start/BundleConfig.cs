@@ -44,6 +44,7 @@ namespace MySelf.WebClient
 
             bundles.Add(new ScriptBundle("~/bundles/angular")
                             .Include("~/Scripts/angular.min.js")
+                            .Include("~/Scripts/angular-sanitize.min.js")
                             .Include("~/Scripts/angular-resource.min.js")
                             .Include("~/Scripts/ui-bootstrap-0.6.0.min.js")
                             .Include("~/Scripts/ui-bootstrap-tpls-0.6.0.min.js")
@@ -55,6 +56,7 @@ namespace MySelf.WebClient
                 .Include("~/app/js/services/authentication.js")
                 .Include("~/app/js/services/values.service.js")
                 .Include("~/app/js/services/logger.js")
+                .Include("~/app/js/services/ng-csv.min.js")
                 .Include("~/app/js/services/myselflog.resource.js")
                 .Include("~/app/js/services/logprofile.resource.js")
                 .Include("~/app/js/services/securitylink.resource.js")
