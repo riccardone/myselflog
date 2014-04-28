@@ -1,6 +1,4 @@
 using System.Web;
-using System.Web.Security;
-using WebMatrix.WebData;
 
 namespace MySelf.Diab.Data.Migrations
 {
@@ -16,7 +14,7 @@ namespace MySelf.Diab.Data.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DiabDbContext context)
+        protected override void Seed(MySelf.Diab.Data.DiabDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -30,13 +28,13 @@ namespace MySelf.Diab.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            
+
             InitAuthentication();
         }
 
         private static void InitAuthentication()
         {
-            if(HttpContext.Current==null)
+            if (HttpContext.Current == null)
                 return;
             ContextConfig.InitAuthentication();
         }
