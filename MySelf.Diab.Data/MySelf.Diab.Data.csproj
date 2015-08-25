@@ -55,9 +55,9 @@
   <ItemGroup>
     <Compile Include="AuthConstants.cs" />
     <Compile Include="ContextConfig.cs" />
-    <Compile Include="Migrations\201404282016519_Start.cs" />
-    <Compile Include="Migrations\201404282016519_Start.Designer.cs">
-      <DependentUpon>201404282016519_Start.cs</DependentUpon>
+    <Compile Include="Migrations\201405182250340_Start.cs" />
+    <Compile Include="Migrations\201405182250340_Start.Designer.cs">
+      <DependentUpon>201405182250340_Start.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfigurations\TerapyConfiguration.cs" />
@@ -100,8 +100,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201404282016519_Start.resx">
-      <DependentUpon>201404282016519_Start.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201405182250340_Start.resx">
+      <DependentUpon>201405182250340_Start.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
