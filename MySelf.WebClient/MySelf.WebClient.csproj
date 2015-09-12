@@ -484,6 +484,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\toastr.less" />
     <None Include="Properties\PublishProfiles\Copy and paste.pubxml" />
+    <None Include="Properties\PublishProfiles\myselflog - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\myselflog - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\webdeploy.pubxml" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="index.html" />
