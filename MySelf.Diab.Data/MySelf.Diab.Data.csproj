@@ -32,15 +32,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Xml.Linq" />
@@ -53,34 +56,11 @@
   <ItemGroup>
     <Compile Include="AuthConstants.cs" />
     <Compile Include="ContextConfig.cs" />
-    <Compile Include="Migrations\201308221248520_SecurityLinkChanges.cs" />
-    <Compile Include="Migrations\201308221248520_SecurityLinkChanges.Designer.cs">
-      <DependentUpon>201308221248520_SecurityLinkChanges.cs</DependentUpon>
+    <Compile Include="Migrations\201509121159559_Start.cs" />
+    <Compile Include="Migrations\201509121159559_Start.Designer.cs">
+      <DependentUpon>201509121159559_Start.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201308230917356_something.cs" />
-    <Compile Include="Migrations\201308230917356_something.Designer.cs">
-      <DependentUpon>201308230917356_something.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201308230918146_SecurityLinkUniqueIndex.cs" />
-    <Compile Include="Migrations\201308230918146_SecurityLinkUniqueIndex.Designer.cs">
-      <DependentUpon>201308230918146_SecurityLinkUniqueIndex.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201308230922534_SecurityLinkMaxLenght.cs" />
-    <Compile Include="Migrations\201308230922534_SecurityLinkMaxLenght.Designer.cs">
-      <DependentUpon>201308230922534_SecurityLinkMaxLenght.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201308230924045_SecurityLink_Link_Index_Unique.cs" />
-    <Compile Include="Migrations\201308230924045_SecurityLink_Link_Index_Unique.Designer.cs">
-      <DependentUpon>201308230924045_SecurityLink_Link_Index_Unique.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201308230924315_SecurityLinkIndexUnique.cs" />
-    <Compile Include="Migrations\201308230924315_SecurityLinkIndexUnique.Designer.cs">
-      <DependentUpon>201308230924315_SecurityLinkIndexUnique.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201311171417082_AddTerapy.cs" />
-    <Compile Include="Migrations\201311171417082_AddTerapy.Designer.cs">
-      <DependentUpon>201311171417082_AddTerapy.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfigurations\TerapyConfiguration.cs" />
     <Compile Include="ModelConfigurations\SecurityLinkConfiguration.cs" />
     <Compile Include="SecurityLinkCommands.cs" />
@@ -90,15 +70,6 @@
     <Compile Include="DiabDbContext.cs" />
     <Compile Include="LogCommands.cs" />
     <Compile Include="LogManager.cs" />
-    <Compile Include="Migrations\201308200828548_Start.cs" />
-    <Compile Include="Migrations\201308200828548_Start.Designer.cs">
-      <DependentUpon>201308200828548_Start.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201308211312390_AddActiveToFriend.cs" />
-    <Compile Include="Migrations\201308211312390_AddActiveToFriend.Designer.cs">
-      <DependentUpon>201308211312390_AddActiveToFriend.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfigurations\FriendConfiguration.cs" />
     <Compile Include="ModelConfigurations\FriendActivityConfiguration.cs" />
     <Compile Include="ModelConfigurations\LogProfileConfiguration.cs" />
@@ -130,32 +101,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201308200828548_Start.resx">
-      <DependentUpon>201308200828548_Start.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201308211312390_AddActiveToFriend.resx">
-      <DependentUpon>201308211312390_AddActiveToFriend.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201308221248520_SecurityLinkChanges.resx">
-      <DependentUpon>201308221248520_SecurityLinkChanges.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201308230917356_something.resx">
-      <DependentUpon>201308230917356_something.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201308230918146_SecurityLinkUniqueIndex.resx">
-      <DependentUpon>201308230918146_SecurityLinkUniqueIndex.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201308230922534_SecurityLinkMaxLenght.resx">
-      <DependentUpon>201308230922534_SecurityLinkMaxLenght.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201308230924045_SecurityLink_Link_Index_Unique.resx">
-      <DependentUpon>201308230924045_SecurityLink_Link_Index_Unique.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201308230924315_SecurityLinkIndexUnique.resx">
-      <DependentUpon>201308230924315_SecurityLinkIndexUnique.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311171417082_AddTerapy.resx">
-      <DependentUpon>201311171417082_AddTerapy.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201509121159559_Start.resx">
+      <DependentUpon>201509121159559_Start.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
