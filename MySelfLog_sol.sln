@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Diab.EventStore", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting", "CrossCutting\CrossCutting.csproj", "{044421D5-A83A-45E6-BBD3-4A3683FC531F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Diab.Domain", "MySelf.Diab.Domain\MySelf.Diab.Domain.csproj", "{873ACBB1-942D-45CE-AC3A-6D441B8CCB68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{044421D5-A83A-45E6-BBD3-4A3683FC531F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{044421D5-A83A-45E6-BBD3-4A3683FC531F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{044421D5-A83A-45E6-BBD3-4A3683FC531F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{873ACBB1-942D-45CE-AC3A-6D441B8CCB68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{873ACBB1-942D-45CE-AC3A-6D441B8CCB68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{873ACBB1-942D-45CE-AC3A-6D441B8CCB68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{873ACBB1-942D-45CE-AC3A-6D441B8CCB68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
