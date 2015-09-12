@@ -24,6 +24,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Diab.Core.Contracts"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.WebClientTest", "MySelf.WebClientTest\MySelf.WebClientTest.csproj", "{9046B973-CC50-4C9C-AFD5-AE3ACDCE1D81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Diab.EventStore", "MySelf.Diab.EventStore\MySelf.Diab.EventStore.csproj", "{767A39B3-D1EF-4C23-83FE-6F17B6FC9F3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting", "CrossCutting\CrossCutting.csproj", "{044421D5-A83A-45E6-BBD3-4A3683FC531F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +62,14 @@ Global
 		{9046B973-CC50-4C9C-AFD5-AE3ACDCE1D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9046B973-CC50-4C9C-AFD5-AE3ACDCE1D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9046B973-CC50-4C9C-AFD5-AE3ACDCE1D81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{767A39B3-D1EF-4C23-83FE-6F17B6FC9F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{767A39B3-D1EF-4C23-83FE-6F17B6FC9F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{767A39B3-D1EF-4C23-83FE-6F17B6FC9F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{767A39B3-D1EF-4C23-83FE-6F17B6FC9F3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{044421D5-A83A-45E6-BBD3-4A3683FC531F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{044421D5-A83A-45E6-BBD3-4A3683FC531F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{044421D5-A83A-45E6-BBD3-4A3683FC531F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{044421D5-A83A-45E6-BBD3-4A3683FC531F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
