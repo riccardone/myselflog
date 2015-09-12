@@ -40,10 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aggregates\GlucoseLevel.cs" />
+    <Compile Include="Aggregates\ValueObjects\GlucoseLevel.cs" />
     <Compile Include="Aggregates\LogProfile.cs" />
-    <Compile Include="Aggregates\SecurityLink.cs" />
-    <Compile Include="Aggregates\Terapy.cs" />
+    <Compile Include="Aggregates\ValueObjects\SecurityLink.cs" />
+    <Compile Include="Aggregates\ValueObjects\Terapy.cs" />
     <Compile Include="Aggregates\Person.cs" />
     <Compile Include="Events\TerapyAdded.cs" />
     <Compile Include="Events\GlucoseLevelAdded.cs" />

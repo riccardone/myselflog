@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CrossCutting.DomainBase;
+using System;
 
 namespace MySelf.Diab.Domain.Events
 {
-    public class GlucoseLevelAdded
+    public class GlucoseLevelAdded : IDomainEvent
     {
         public string Message { get; private set; }
 

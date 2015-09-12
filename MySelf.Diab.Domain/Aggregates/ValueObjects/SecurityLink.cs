@@ -1,4 +1,4 @@
-﻿namespace MySelf.Diab.Domain.Aggregates
+﻿namespace MySelf.Diab.Domain.Aggregates.ValueObjects
 {
     public class SecurityLink
     {
