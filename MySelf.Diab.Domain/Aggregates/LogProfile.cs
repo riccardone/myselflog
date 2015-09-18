@@ -1,6 +1,7 @@
 ﻿using CrossCutting.DomainBase;
 using MySelf.Diab.Domain.Aggregates.ValueObjects;
 using MySelf.Diab.Domain.Events;
+using System;
 using System.Collections.Generic;
 
 namespace MySelf.Diab.Domain.Aggregates
@@ -56,6 +57,14 @@ namespace MySelf.Diab.Domain.Aggregates
         public static LogProfile CreateLogProfile(string id, string name, string personId)
         {
             return new LogProfile(id, name, personId);
+        }
+
+        public void LogValue(string message, int value, DateTime logDate)
+        {
+            if (value < 1)            
+                throw new Exception("You have to add a positive value");
+            
+            RaiseEvent(new GlucoseLevelAdded(message, value, logDate));
         }
     }
 }

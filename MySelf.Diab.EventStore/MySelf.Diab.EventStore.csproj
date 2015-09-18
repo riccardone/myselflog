@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MySelf.Diab.EventStore</RootNamespace>
     <AssemblyName>MySelf.Diab.EventStore</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands.cs" />
+    <Compile Include="EventStoreLogCommands.cs" />
     <Compile Include="EventStoreLogManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -52,6 +53,14 @@
     <ProjectReference Include="..\MySelf.Diab.Data.Contracts\MySelf.Diab.Data.Contracts.csproj">
       <Project>{58e912a2-a0eb-45ba-85a1-5a715cd090b4}</Project>
       <Name>MySelf.Diab.Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySelf.Diab.Data\MySelf.Diab.Data.csproj">
+      <Project>{a773b716-46c9-4107-b0d6-19a92c80f06f}</Project>
+      <Name>MySelf.Diab.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySelf.Diab.Domain\MySelf.Diab.Domain.csproj">
+      <Project>{873acbb1-942d-45ce-ac3a-6d441b8ccb68}</Project>
+      <Name>MySelf.Diab.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\MySelf.Diab.Model\MySelf.Diab.Model.csproj">
       <Project>{412df505-b374-4814-b014-a6437760f242}</Project>
