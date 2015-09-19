@@ -9,8 +9,6 @@ using MySelf.Diab.Data;
 using MySelf.Diab.Data.Contracts;
 using MySelf.Diab.Security;
 using MySelf.WebClient.Models;
-using MySelf.Diab.EventStore;
-using CrossCutting.Repository;
 
 namespace MySelf.WebClient.App_Start
 {
@@ -35,9 +33,9 @@ namespace MySelf.WebClient.App_Start
             builder.RegisterType<ModelReader>().As<IModelReader>();
             builder.RegisterType<CryptoService>().As<ICryptoService>().InstancePerHttpRequest().InstancePerApiRequest();
             builder.RegisterType<Mapper>().As<IMapper>().InstancePerHttpRequest().InstancePerApiRequest();
-            //builder.RegisterType<LogManager>().As<ILogManager>().InstancePerHttpRequest().InstancePerApiRequest();
-            builder.RegisterType<EventStoreLogManager>().As<ILogManager>().InstancePerHttpRequest().InstancePerApiRequest();
-            builder.RegisterType<EventStoreDomainRepository>().As<IDomainRepository>();
+            builder.RegisterType<LogManager>().As<ILogManager>().InstancePerHttpRequest().InstancePerApiRequest();
+            //builder.RegisterType<EventStoreLogManager>().As<ILogManager>().InstancePerHttpRequest().InstancePerApiRequest();
+            //builder.RegisterType<EventStoreDomainRepository>().As<IDomainRepository>();
 
             builder.RegisterFilterProvider();
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());

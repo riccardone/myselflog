@@ -213,14 +213,17 @@
         function addValue() {
             $scope.loading = true;
             
-            var logDate = moment($scope.item.logDate).toDate();
-            var logTime = moment($scope.item.logTime).toDate();
+            //var logDate = moment($scope.item.logDate).toDate();
+            //var logTime = moment($scope.item.logTime).toDate();
+
+            var logDate = moment().toDate();
+            //var logTime = moment().toDate();
             
             // Aggregate date with time
-            logDate.setHours(logTime.getHours());
-            logDate.setMinutes(logTime.getMinutes());
-            logDate.setSeconds(logTime.getSeconds());
-            logDate.setSeconds(logTime.getMilliseconds());
+            //logDate.setHours(logTime.getHours());
+            //logDate.setMinutes(logTime.getMinutes());
+            //logDate.setSeconds(logTime.getSeconds());
+            //logDate.setSeconds(logTime.getMilliseconds());
             
             // Define a base log
             var log = {

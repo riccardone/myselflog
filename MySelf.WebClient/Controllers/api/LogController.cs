@@ -45,7 +45,7 @@ namespace MySelf.WebClient.Controllers.api
             try
             {
                 var logProfiles =
-                    _mapper.ToLogProfilesDto(_logManager.ModelReader.GetLogProfilesAsOwner(User.Identity.Name));
+                    _mapper.ToLogProfilesDto(_logManager.ModelReader.GetLogProfilesAsOwner(User.Identity.Name), 3);
                 if (logProfiles == null || logProfiles.Count == 0)
                     throw new ArgumentException("Profile not found");
 
