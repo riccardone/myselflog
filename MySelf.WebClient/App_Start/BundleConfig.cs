@@ -24,9 +24,8 @@ namespace MySelf.WebClient
                 .Include("~/Scripts/jplotplugins/jqplot.cursor.min.js")
                 .Include("~/Scripts/jplotplugins/jqplot.dateAxisRenderer.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jquery",
-                "http://codeorigin.jquery.com/jquery-2.0.3.min.js").Include(
-                "~/Scripts/jquery-2.0.3.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/jquery")
+                .Include("~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jslibs")
                             .Include("~/Scripts/toastr.min.js")
@@ -44,9 +43,10 @@ namespace MySelf.WebClient
 
             bundles.Add(new ScriptBundle("~/bundles/angular")
                             .Include("~/Scripts/angular.min.js")
+                            .Include("~/Scripts/angular-route.js")
                             .Include("~/Scripts/angular-resource.min.js")
-                            .Include("~/Scripts/ui-bootstrap-0.6.0.min.js")
-                            .Include("~/Scripts/ui-bootstrap-tpls-0.6.0.min.js")
+                            .Include("~/Scripts/angular-ui/ui-bootstrap.min.js")
+                            .Include("~/Scripts/angular-ui/ui-bootstrap-tpls.min.js")
                             .Include("~/Scripts/ng-table.js")
                             );
 
