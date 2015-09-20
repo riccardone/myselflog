@@ -31,9 +31,9 @@ namespace MySelf.WebClient.App_Start
 
             builder.RegisterType<DatabaseFactory>().As<IDatabaseFactory>();
             builder.RegisterType<ModelReader>().As<IModelReader>();
-            builder.RegisterType<CryptoService>().As<ICryptoService>().InstancePerHttpRequest().InstancePerApiRequest();
-            builder.RegisterType<Mapper>().As<IMapper>().InstancePerHttpRequest().InstancePerApiRequest();
-            builder.RegisterType<LogManager>().As<ILogManager>().InstancePerHttpRequest().InstancePerApiRequest();
+            builder.RegisterType<CryptoService>().As<ICryptoService>().InstancePerRequest();
+            builder.RegisterType<Mapper>().As<IMapper>().InstancePerRequest();
+            builder.RegisterType<LogManager>().As<ILogManager>().InstancePerRequest();
             //builder.RegisterType<EventStoreLogManager>().As<ILogManager>().InstancePerHttpRequest().InstancePerApiRequest();
             //builder.RegisterType<EventStoreDomainRepository>().As<IDomainRepository>();
 

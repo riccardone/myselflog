@@ -12,7 +12,7 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     $scope.graph = Morris.Line({
         element: 'diaryGraph',
         xkey: 'logdate',
-        ykeys: ['value', 'slow', 'fast'],
+        ykeys: ['medicalvalue', 'slow', 'fast'],
         labels: ['Diary', 'Slow terapy', 'Fast terapy']
     });
     $scope.reports = [
@@ -34,7 +34,7 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     function getAverage() {
         var sum = 0;
         for (var i = 0; i < $scope.logs.length; i++) {
-            sum += parseInt($scope.logs[i].value);
+            sum += parseInt($scope.logs[i].medicalvalue);
         }
 
         var avg = sum / $scope.logs.length;
@@ -134,8 +134,8 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
             var logs = valuesService.getLogs($scope.selectedreport.name, $scope.profile.logs, $scope.date);
             var graphData = [];
             angular.forEach(logs, function (item) {
-                if (item.value && item.value > 0) {
-                    graphData.push({ 'logdate': item.logdate, 'value': item.value });
+                if (item.medicalvalue && item.medicalvalue > 0) {
+                    graphData.push({ 'logdate': item.logdate, 'medicalvalue': item.medicalvalue });
                 }
             });
             if ($scope.showTerapies) {

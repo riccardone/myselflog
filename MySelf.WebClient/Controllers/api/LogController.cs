@@ -66,8 +66,8 @@ namespace MySelf.WebClient.Controllers.api
                 var logMessage = new LogMessage
                 {
                     Email = User.Identity.Name,
-                    Value = data.Value,
-                    Message = data.Message,
+                    Value = string.IsNullOrWhiteSpace(data.Message) == false ? int.Parse(data.Message) : 0,
+                    Message = string.Empty,
                     LogDate = data.LogDate,
                     ProfileId = data.ProfileId,
                     IsSlow = data.IsSlow,

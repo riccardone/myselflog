@@ -21,7 +21,7 @@ namespace MySelf.WebClient.Models
                 GlobalId = glucoseLevel.GlobalId,
                 LogDate = glucoseLevel.LogDate,
                 Message = glucoseLevel.Message,
-                Value = glucoseLevel.Value,
+                MedicalValue = glucoseLevel.Value.ToString(),
                 ProfileId = glucoseLevel.LogProfile.GlobalId
             }).ToList();
         }
