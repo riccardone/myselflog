@@ -107,6 +107,10 @@
       <HintPath>..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.WebPages.OAuth, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.3.2.3\lib\net45\Microsoft.Web.WebPages.OAuth.dll</HintPath>
       <Private>True</Private>
@@ -195,10 +199,6 @@
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
@@ -234,7 +234,6 @@
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\BundleMobileConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IocConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -251,7 +250,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\api\LogController.cs" />
     <Compile Include="Controllers\api\UserController.cs" />
-    <Compile Include="Controllers\ViewSwitcherController.cs" />
     <Compile Include="Filters\ValidateModelAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -524,6 +522,8 @@
     <Content Include="Content\jquery.mobile.structure-1.4.5.min.css" />
     <Content Include="Content\jquery.mobile.theme-1.4.5.css" />
     <Content Include="Content\jquery.mobile.theme-1.4.5.min.css" />
+    <Content Include="Content\ng-grid.css" />
+    <Content Include="Content\ng-grid.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -1410,7 +1410,10 @@
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
     <Content Include="Scripts\jquery.jqplot.js" />
+    <Content Include="Scripts\jquery.mobile-1.4.5.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.mobile-1.4.5.js" />
+    <Content Include="Scripts\jquery.mobile-1.4.5.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -1451,20 +1454,11 @@
     <Content Include="Content\images\pic08.jpg" />
     <Content Include="Content\images\sprites.png" />
     <Content Include="Content\images\toggle.svg" />
-    <Content Include="Content\jquery.mobile-1.3.2.css" />
-    <Content Include="Content\jquery.mobile-1.3.2.min.css" />
-    <Content Include="Content\jquery.mobile.structure-1.3.2.css" />
-    <Content Include="Content\jquery.mobile.structure-1.3.2.min.css" />
-    <Content Include="Content\jquery.mobile.theme-1.3.2.css" />
-    <Content Include="Content\jquery.mobile.theme-1.3.2.min.css" />
     <Content Include="Content\morris-0.4.3.min.css" />
     <Content Include="Content\myStyle.css" />
     <Content Include="Content\myStyleold.css" />
-    <Content Include="Content\ng-grid.css" />
-    <Content Include="Content\ng-grid.min.css" />
     <Content Include="Content\ng-table.css" />
     <Content Include="Content\ngi.css" />
-    <Content Include="Content\Site.Mobile.css" />
     <Content Include="Content\skel-noscript.css" />
     <Content Include="Content\style-mobile.css" />
     <Content Include="Content\style-narrow.css" />
@@ -1480,22 +1474,11 @@
     <Content Include="Content\font\fontawesome-webfont.ttf" />
     <Content Include="Content\font\fontawesome-webfont.woff" />
     <Content Include="Content\font\FontAwesome.otf" />
+    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\Copy and paste.pubxml" />
     <None Include="Properties\PublishProfiles\myselflog - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\myselflog - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\webdeploy.pubxml" />
-    <Content Include="Scripts\errors.json" />
-    <Content Include="Scripts\angular.min.js.map" />
-    <Content Include="Scripts\angular-touch.min.js.map" />
-    <Content Include="Scripts\angular-sanitize.min.js.map" />
-    <Content Include="Scripts\angular-route.min.js.map" />
-    <Content Include="Scripts\angular-resource.min.js.map" />
-    <Content Include="Scripts\angular-messages.min.js.map" />
-    <Content Include="Scripts\angular-message-format.min.js.map" />
-    <Content Include="Scripts\angular-loader.min.js.map" />
-    <Content Include="Scripts\angular-cookies.min.js.map" />
-    <Content Include="Scripts\angular-aria.min.js.map" />
-    <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="index.html" />
     <Content Include="js\app.js" />
     <Content Include="js\controllers\EditEventController.js" />
@@ -1525,13 +1508,9 @@
     <Content Include="js\services\logData.js" />
     <Content Include="js\services\userData.js" />
     <Content Include="js\services\userResource.js" />
-    <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Scripts\dateTimePicker.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Scripts\init.js" />
-    <Content Include="Scripts\jquery.mobile-1.3.2.js" />
-    <Content Include="Scripts\jquery.mobile-1.3.2.min.js" />
-    <Content Include="Scripts\jquery.mobile-1.3.2.min.map" />
     <Content Include="Scripts\morris-0.4.3.min.js" />
     <Content Include="Scripts\ng-grid-2.0.7.js" />
     <Content Include="Scripts\ng-grid-2.0.7.min.js" />
@@ -1584,14 +1563,22 @@
     <Content Include="Views\Home\_Register.cshtml" />
     <Content Include="Views\Shared\_UserSettings.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Scripts\errors.json" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-touch.min.js.map" />
+    <Content Include="Scripts\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\angular-resource.min.js.map" />
+    <Content Include="Scripts\angular-messages.min.js.map" />
+    <Content Include="Scripts\angular-message-format.min.js.map" />
+    <Content Include="Scripts\angular-loader.min.js.map" />
+    <Content Include="Scripts\angular-cookies.min.js.map" />
+    <Content Include="Scripts\angular-aria.min.js.map" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_LocalResources\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="packages.config">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CrossCutting\CrossCutting.csproj">
