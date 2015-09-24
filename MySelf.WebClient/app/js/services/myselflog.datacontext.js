@@ -1,6 +1,7 @@
 'use strict';
 
-myselflogApp.factory('datacontext', function (logResource, logProfileResource, securityLinkResource, friendResource, friendWithLinkResource, friendInviteResource, terapyResource) {
+myselflogApp.factory('datacontext', ['logResource', 'logProfileResource', 'securityLinkResource', 'friendResource', 'friendWithLinkResource', 'friendInviteResource', 'terapyResource',
+    function (logResource, logProfileResource, securityLinkResource, friendResource, friendWithLinkResource, friendInviteResource, terapyResource) {
     return {
         getLog: function (logId, callback) {
             return logResource.get({ id: logId }, function (log) {
@@ -79,4 +80,52 @@ myselflogApp.factory('datacontext', function (logResource, logProfileResource, s
             };
         }
     };
-});
+}]);
+
+
+//myselflogApp.factory('datacontext', ['logResource', function (logResource) {
+//    return {
+//        getLog: function (logId, callback) {
+//            return logResource.get({ id: logId }, function (log) {
+//                if (callback)
+//                    callback(log);
+//            });
+//        },
+//        getAllLogs: function (callback) {
+//            return logResource.queryAll(callback);
+//        },
+//        save: function (log, callback) {
+
+//        },
+//        remove: function (log, callback) {
+
+//        },
+//        removeTerapy: function (terapy, callback) {
+
+//        },
+//        createProfile: function (name, callback) {
+
+//        },
+//        addFriend: function (email, logProfileId, callback) {
+
+//        },
+//        deleteFriend: function (email, logProfileId, callback) {
+
+//        },
+//        getFriends: function (logProfileId, callback) {
+
+//        },
+//        getSecureLink: function (logProfileId, callback) {
+
+//        },
+//        addSecurityLink: function (logProfileId, callback) {
+
+//        },
+//        deleteSecurityLink: function (logProfileId, callback) {
+
+//        },
+//        sendInvite: function (logprofileid, email, message, callback) {
+
+//        }
+//    };
+//}]);
