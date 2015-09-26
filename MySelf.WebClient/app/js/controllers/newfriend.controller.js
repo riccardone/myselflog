@@ -1,6 +1,6 @@
 ﻿myselflogApp.controller('NewFriendController',
-    ['$scope', 'friendWithLinkDatacontext', 'logger', '$filter', 'moment', '$routeParams', '$route', 'valuesService',
-function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $route, valuesService) {
+    ['$scope', 'datacontext', '$filter', 'moment', '$routeParams', '$route', 'valuesService',
+function ($scope, datacontext, $filter, moment, $routeParams, $route, valuesService) {
     $scope.loading = false;
     $scope.profile = { 'isLoaded': false, 'logs': [] };
     $scope.setReport = setReport;
@@ -71,24 +71,10 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
         }
     }
 
-    $scope.$watch('showTerapies', function () {
+    function getDataSucceeded(data) {
+        $scope.profile = data.logprofileasfriend;
         refreshGraph();
-    });
-
-    $scope.$watch('date', function () {
-        refreshGraph();
-    });
-
-    $scope.$watch('selectedreport', function () {
-        if (!$scope.profile.isLoaded) {
-            loadData();
-        } else {
-            refreshGraph();
-        }
-    });
-
-    function setReport(report) {
-        $scope.selectedreport = report;
+        $scope.loading = false;
     }
 
     function getData() {
@@ -96,37 +82,15 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
         $scope.error = "";
         if ($scope.link && $scope.link.length > 0) {
             var link = $scope.link;
-            friendDatacontext.getAllLogsAsFriend(link, getDataSucceeded);
+            datacontext.getAllLogsAsFriend(link, getDataSucceeded);
         } else {
             $scope.error = "link not found";
         }
     }
 
-    function getDataSucceeded(data) {
-        $scope.profile = data.logprofileasfriend;
-        refreshGraph();
-        $scope.loading = false;
-    }
-
     function loadData() {
         $scope.link = $routeParams.link;
         getData();
-    }
-
-    function getReportDescription(reportname) {
-        if (reportname == "Year") {
-            return moment($scope.date).format('YYYY');
-        }
-        if (reportname == "Month") {
-            return moment($scope.date).format('MMMM YYYY');
-        }
-        if (reportname == "Week") {
-            return "from " + moment($scope.date).day("Sunday").format('DD MM YYYY') + " to " + moment($scope.date).day("Saturday").format('DD MM YYYY');
-        }
-        if (reportname == "Day") {
-            return moment($scope.date).format('DD MM YYYY');
-        }
-        return null;
     }
 
     function refreshGraph() {
@@ -147,11 +111,47 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
                     graphData.push(item);
                 });
                 $scope.terapies = terapies;
-            } 
+            }
             $scope.graph.setData(graphData);
             $scope.selectedreport.description = getReportDescription($scope.selectedreport.name);
             $scope.logs = logs;
             $scope.selectedreport.average = getAverage();
         }
+    }
+
+    $scope.$watch('showTerapies', function () {
+        refreshGraph();
+    });
+
+    $scope.$watch('date', function () {
+        refreshGraph();
+    });
+
+    $scope.$watch('selectedreport', function () {
+        if (!$scope.profile.isLoaded) {
+            loadData();
+        } else {
+            refreshGraph();
+        }
+    });
+
+    function setReport(report) {
+        $scope.selectedreport = report;
+    }
+
+    function getReportDescription(reportname) {
+        if (reportname == "Year") {
+            return moment($scope.date).format('YYYY');
+        }
+        if (reportname == "Month") {
+            return moment($scope.date).format('MMMM YYYY');
+        }
+        if (reportname == "Week") {
+            return "from " + moment($scope.date).day("Sunday").format('DD MM YYYY') + " to " + moment($scope.date).day("Saturday").format('DD MM YYYY');
+        }
+        if (reportname == "Day") {
+            return moment($scope.date).format('DD MM YYYY');
+        }
+        return null;
     }
 }]);

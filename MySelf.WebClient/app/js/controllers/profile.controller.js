@@ -1,6 +1,6 @@
 ﻿myselflogApp.controller('ProfileController',
-    ['$scope', 'datacontext', '$filter', '$routeParams', '$modal', '$log', 'logger', 
-    function ($scope, datacontext, $filter, $routeParams, $modal, $log, logger) {
+    ['$scope', 'datacontext', '$filter', '$routeParams', '$modal', '$log', 
+    function ($scope, datacontext, $filter, $routeParams, $modal, $log) {
         $scope.loading = false;
         $scope.id = $routeParams.id;
         $scope.addValue = addValue;
@@ -121,7 +121,8 @@
         function setDataSucceeded(data) {
             $scope.selectedprofile = data;
             $scope.friends = data.friends;
-            logger.success("Data loaded from remote source");
+            //logger.success("Data loaded from remote source");
+            console.log("Data loaded from remote source");
         }
 
         function setReport(date, report) {

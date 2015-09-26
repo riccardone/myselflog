@@ -30,8 +30,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Diab.Domain", "MySel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Diab.Tests", "MySelf.Diab.Tests\MySelf.Diab.Tests.csproj", "{51AE4A64-61D3-4081-939F-C5EA01141410}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.WebClient2", "MySelf.WebClient2\MySelf.WebClient2.csproj", "{A9A566BC-D967-4221-878E-F756A9AC0193}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,10 +76,6 @@ Global
 		{51AE4A64-61D3-4081-939F-C5EA01141410}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51AE4A64-61D3-4081-939F-C5EA01141410}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51AE4A64-61D3-4081-939F-C5EA01141410}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A9A566BC-D967-4221-878E-F756A9AC0193}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9A566BC-D967-4221-878E-F756A9AC0193}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9A566BC-D967-4221-878E-F756A9AC0193}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9A566BC-D967-4221-878E-F756A9AC0193}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

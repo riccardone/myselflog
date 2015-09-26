@@ -1,7 +1,7 @@
 'use strict';
 
-myselflogApp.factory('datacontext', ['logResource', 'logProfileResource', 'securityLinkResource', 'friendResource', 'friendWithLinkResource', 'friendInviteResource', 'terapyResource',
-    function (logResource, logProfileResource, securityLinkResource, friendResource, friendWithLinkResource, friendInviteResource, terapyResource) {
+myselflogApp.factory('datacontext', ['$http', 'logResource', 'logProfileResource', 'securityLinkResource', 'friendResource', 'friendWithLinkResource', 'friendInviteResource', 'terapyResource',
+    function ($http, logResource, logProfileResource, securityLinkResource, friendResource, friendWithLinkResource, friendInviteResource, terapyResource) {
     return {
         getLog: function (logId, callback) {
             return logResource.get({ id: logId }, function (log) {
@@ -78,6 +78,12 @@ myselflogApp.factory('datacontext', ['logResource', 'logProfileResource', 'secur
                 if (callback)
                     callback(data);
             };
+        },
+        getAllLogsAsFriend: function (link, callback) {
+            $http({ method: "GET", url: "/api/FriendWithLink/", params: { link: link } }).
+                success(function (data) {
+                    callback(data);
+                });
         }
     };
 }]);
