@@ -30,7 +30,7 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     function getAverage() {
         var sum = 0;
         for (var i = 0; i < $scope.logs.length; i++) {
-            sum += parseInt($scope.logs[i].value);
+            sum += parseInt($scope.logs[i].medicalvalue);
         }
 
         var avg = sum / $scope.logs.length;
@@ -171,7 +171,7 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     function renderGraph(logs) {
         var values = [[]];
         angular.forEach(logs, function (log) {
-            values[0].push([moment(log.logdate).format('DD-MMM-YYYY, h:mm:ss a'), log.value]);
+            values[0].push([moment(log.logdate).format('DD-MMM-YYYY, h:mm:ss a'), log.medicalvalue]);
         });
         //var terapies = [['22-May-2008', 25], ['20-May-2008', 12]];
         $scope.graph = $.jqplot('diaryGraph', values, {

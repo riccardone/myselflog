@@ -1,6 +1,6 @@
 ﻿myselflogApp.controller('NewFriendController',
-    ['$scope', 'friendWithLinkDatacontext', 'logger', '$filter', 'moment', '$routeParams', '$route', 'valuesService',
-function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $route, valuesService) {
+    ['$scope', 'datacontext', '$filter', 'moment', '$routeParams', '$route', 'valuesService',
+function ($scope, datacontext, $filter, moment, $routeParams, $route, valuesService) {
     $scope.loading = false;
     $scope.profile = { 'isLoaded': false, 'logs': [] };
     $scope.setReport = setReport;
@@ -12,7 +12,7 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     $scope.graph = Morris.Line({
         element: 'diaryGraph',
         xkey: 'logdate',
-        ykeys: ['value', 'slow', 'fast'],
+        ykeys: ['medicalvalue', 'slow', 'fast'],
         labels: ['Diary', 'Slow terapy', 'Fast terapy']
     });
     $scope.reports = [
@@ -34,7 +34,7 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     function getAverage() {
         var sum = 0;
         for (var i = 0; i < $scope.logs.length; i++) {
-            sum += parseInt($scope.logs[i].value);
+            sum += parseInt($scope.logs[i].medicalvalue);
         }
 
         var avg = sum / $scope.logs.length;
@@ -71,6 +71,54 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
         }
     }
 
+    function getDataSucceeded(data) {
+        $scope.profile = data.logprofileasfriend;
+        refreshGraph();
+        $scope.loading = false;
+    }
+
+    function getData() {
+        $scope.loading = true;
+        $scope.error = "";
+        if ($scope.link && $scope.link.length > 0) {
+            var link = $scope.link;
+            datacontext.getAllLogsAsFriend(link, getDataSucceeded);
+        } else {
+            $scope.error = "link not found";
+        }
+    }
+
+    function loadData() {
+        $scope.link = $routeParams.link;
+        getData();
+    }
+
+    function refreshGraph() {
+        if ($scope.profile) {
+            var logs = valuesService.getLogs($scope.selectedreport.name, $scope.profile.logs, $scope.date);
+            var graphData = [];
+            angular.forEach(logs, function (item) {
+                if (item.medicalvalue && item.medicalvalue > 0) {
+                    graphData.push({ 'logdate': item.logdate, 'medicalvalue': item.medicalvalue });
+                }
+            });
+            if ($scope.showTerapies) {
+                var terapies = valuesService.getTerapies($scope.selectedreport.name, $scope.profile.terapies, $scope.date);
+                angular.forEach(terapies.slow, function (item) {
+                    graphData.push(item);
+                });
+                angular.forEach(terapies.fast, function (item) {
+                    graphData.push(item);
+                });
+                $scope.terapies = terapies;
+            }
+            $scope.graph.setData(graphData);
+            $scope.selectedreport.description = getReportDescription($scope.selectedreport.name);
+            $scope.logs = logs;
+            $scope.selectedreport.average = getAverage();
+        }
+    }
+
     $scope.$watch('showTerapies', function () {
         refreshGraph();
     });
@@ -91,28 +139,6 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
         $scope.selectedreport = report;
     }
 
-    function getData() {
-        $scope.loading = true;
-        $scope.error = "";
-        if ($scope.link && $scope.link.length > 0) {
-            var link = $scope.link;
-            friendDatacontext.getAllLogsAsFriend(link, getDataSucceeded);
-        } else {
-            $scope.error = "link not found";
-        }
-    }
-
-    function getDataSucceeded(data) {
-        $scope.profile = data.logprofileasfriend;
-        refreshGraph();
-        $scope.loading = false;
-    }
-
-    function loadData() {
-        $scope.link = $routeParams.link;
-        getData();
-    }
-
     function getReportDescription(reportname) {
         if (reportname == "Year") {
             return moment($scope.date).format('YYYY');
@@ -127,31 +153,5 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
             return moment($scope.date).format('DD MM YYYY');
         }
         return null;
-    }
-
-    function refreshGraph() {
-        if ($scope.profile) {
-            var logs = valuesService.getLogs($scope.selectedreport.name, $scope.profile.logs, $scope.date);
-            var graphData = [];
-            angular.forEach(logs, function (item) {
-                if (item.value && item.value > 0) {
-                    graphData.push({ 'logdate': item.logdate, 'value': item.value });
-                }
-            });
-            if ($scope.showTerapies) {
-                var terapies = valuesService.getTerapies($scope.selectedreport.name, $scope.profile.terapies, $scope.date);
-                angular.forEach(terapies.slow, function (item) {
-                    graphData.push(item);
-                });
-                angular.forEach(terapies.fast, function (item) {
-                    graphData.push(item);
-                });
-                $scope.terapies = terapies;
-            } 
-            $scope.graph.setData(graphData);
-            $scope.selectedreport.description = getReportDescription($scope.selectedreport.name);
-            $scope.logs = logs;
-            $scope.selectedreport.average = getAverage();
-        }
     }
 }]);

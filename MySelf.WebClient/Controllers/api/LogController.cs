@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 using MySelf.Diab.Data.Contracts;
 using MySelf.Diab.Model;
@@ -27,10 +28,10 @@ namespace MySelf.WebClient.Controllers.api
             try
             {
                 var results = new RootDto
-                    {
-                        LogProfilesAsOwner = _mapper.ToLogProfilesDto(_logManager.ModelReader.GetLogProfilesAsOwner(User.Identity.Name)),
-                        LogProfilesAsFriend = _mapper.ToLogProfilesDto(_logManager.ModelReader.GetLogProfilesAsFriend(User.Identity.Name))
-                    };
+                {
+                    LogProfilesAsOwner = _mapper.ToLogProfilesDto(_logManager.ModelReader.GetLogProfilesAsOwner(User.Identity.Name)),
+                    LogProfilesAsFriend = _mapper.ToLogProfilesDto(_logManager.ModelReader.GetLogProfilesAsFriend(User.Identity.Name))
+                };
 
                 return Request.CreateResponse(HttpStatusCode.Accepted, results, "application/json");
             }
@@ -45,7 +46,7 @@ namespace MySelf.WebClient.Controllers.api
             try
             {
                 var logProfiles =
-                    _mapper.ToLogProfilesDto(_logManager.ModelReader.GetLogProfilesAsOwner(User.Identity.Name));
+                    _mapper.ToLogProfilesDto(_logManager.ModelReader.GetLogProfilesAsOwner(User.Identity.Name), 3);
                 if (logProfiles == null || logProfiles.Count == 0)
                     throw new ArgumentException("Profile not found");
 
@@ -63,16 +64,16 @@ namespace MySelf.WebClient.Controllers.api
             try
             {
                 var logMessage = new LogMessage
-                    {
-                        Email = User.Identity.Name,
-                        Value = data.Value,
-                        Message = data.Message,
-                        LogDate = data.LogDate,
-                        ProfileId = data.ProfileId,
-                        IsSlow = data.IsSlow,
-                        TerapyValue = data.TerapyValue
-                    };
-                
+                {
+                    Email = User.Identity.Name,
+                    Value = string.IsNullOrWhiteSpace(data.Message) == false ? int.Parse(data.Message) : 0,
+                    Message = string.Empty,
+                    LogDate = data.LogDate,
+                    ProfileId = data.ProfileId,
+                    IsSlow = data.IsSlow,
+                    TerapyValue = data.TerapyValue
+                };
+
                 _logManager.LogCommands.AddLogMessage(logMessage);
                 _logManager.Save();
                 data.GlobalId = logMessage.GlobalId;

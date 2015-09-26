@@ -9,7 +9,7 @@
         $scope.graph = Morris.Line({
             element: 'diaryGraph',
             xkey: 'logdate',
-            ykeys: ['value'],
+            ykeys: ['medicalvalue'],
             labels: ['Diary']
         });
         $scope.setReport = setReport;
