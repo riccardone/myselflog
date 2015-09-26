@@ -1,6 +1,6 @@
 ﻿myselflogApp.controller('ProfileController',
-    ['$scope', 'datacontext', '$filter', '$routeParams', '$modal', '$log', 'logger', 
-    function ($scope, datacontext, $filter, $routeParams, $modal, $log, logger) {
+    ['$scope', 'datacontext', '$filter', '$routeParams', '$modal', '$log', 
+    function ($scope, datacontext, $filter, $routeParams, $modal, $log) {
         $scope.loading = false;
         $scope.id = $routeParams.id;
         $scope.addValue = addValue;
@@ -121,7 +121,8 @@
         function setDataSucceeded(data) {
             $scope.selectedprofile = data;
             $scope.friends = data.friends;
-            logger.success("Data loaded from remote source");
+            //logger.success("Data loaded from remote source");
+            console.log("Data loaded from remote source");
         }
 
         function setReport(date, report) {
@@ -212,47 +213,54 @@
 
         function addValue() {
             $scope.loading = true;
-            
-            var logDate = moment($scope.item.logDate).toDate();
-            var logTime = moment($scope.item.logTime).toDate();
-            
-            // Aggregate date with time
-            logDate.setHours(logTime.getHours());
-            logDate.setMinutes(logTime.getMinutes());
-            logDate.setSeconds(logTime.getSeconds());
-            logDate.setSeconds(logTime.getMilliseconds());
-            
+
             // Define a base log
-            var log = {
-                'Value': 0,
-                'LogDate': logDate,
-                'Message': $scope.item.message,
-                'ProfileId': $scope.selectedprofile.globalid,
-                'isslow': false,
-                'terapyvalue': 0
-            };
+            //var log = {
+            //    medicalvalue: 0,
+            //    logDate: moment().toDate(),
+            //    message: $scope.item.medicalvalue, //$scope.item.message,
+            //    profileId: $scope.selectedprofile.globalid,
+            //    isslow: false,
+            //    terapyvalue: 0
+            //};
             
             // Log blood sugar level
-            if ($scope.item.value > 0) {
-                log.value = $scope.item.value;
-                datacontext.save(log, addSucceeded);
-                log.value = 0;
+            if ($scope.item.medicalvalue > 0) {
+                datacontext.save({
+                    medicalvalue: 0,
+                    logDate: moment().toDate(),
+                    message: $scope.item.medicalvalue,
+                    profileId: $scope.selectedprofile.globalid,
+                    isslow: false,
+                    terapyvalue: 0
+                }, addSucceeded);
             }
             // Log slow terapy
             if ($scope.item.slowvalue > 0) {
-                log.isslow = true;
-                log.terapyvalue = $scope.item.slowvalue;
-                datacontext.save(log, addSucceeded);
+                datacontext.save({
+                    medicalvalue: 0,
+                    logDate: moment().toDate(),
+                    message: '', 
+                    profileId: $scope.selectedprofile.globalid,
+                    isslow: true,
+                    terapyvalue: $scope.item.slowvalue
+                }, addSucceeded);
             }
             // Log fast terapy
             if ($scope.item.fastvalue > 0) {
-                log.isslow = false;
-                log.terapyvalue = $scope.item.fastvalue;
-                datacontext.save(log, addSucceeded);
+                datacontext.save({
+                    medicalvalue: 0,
+                    logDate: moment().toDate(),
+                    message: '',
+                    profileId: $scope.selectedprofile.globalid,
+                    isslow: false,
+                    terapyvalue: $scope.item.fastvalue
+                }, addSucceeded);
             }
             
             function addSucceeded(value) {
                 if (value.globalid) {
+                    value.medicalvalue = value.message;
                     $scope.selectedprofile.logs.push(value);
                     //refreshGraph();
                 }

@@ -30,15 +30,13 @@ namespace MySelf.Diab.Data
 
         public List<LogProfile> GetLogProfilesAsOwner(string email)
         {
-            var res = 
-                _db.LogProfiles
-                   .Include(g => g.GlucoseLevels)
-                   .Include(t => t.Terapies)
-                   .Include(o => o.Person).Include(s => s.SecurityLink)
-                   .Include(f => f.Friends)
-                   .Include("Friends.FriendActivities")
-                   .Where(g => g.Person.Email == email).ToList();
-            return res;
+            return _db.LogProfiles
+               .Include(g => g.GlucoseLevels)
+               .Include(t => t.Terapies)
+               .Include(o => o.Person).Include(s => s.SecurityLink)
+               .Include(f => f.Friends)
+               .Include("Friends.FriendActivities")
+               .Where(g => g.Person.Email == email).ToList();
         }
 
         public List<LogProfile> GetLogProfilesAsFriend(string email)

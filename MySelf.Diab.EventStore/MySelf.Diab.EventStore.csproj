@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{767A39B3-D1EF-4C23-83FE-6F17B6FC9F3C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MySelf.Diab.EventStore</RootNamespace>
+    <AssemblyName>MySelf.Diab.EventStore</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EventStoreLogCommands.cs" />
+    <Compile Include="EventStoreLogManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CrossCutting\CrossCutting.csproj">
+      <Project>{044421d5-a83a-45e6-bbd3-4a3683fc531f}</Project>
+      <Name>CrossCutting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySelf.Diab.Data.Contracts\MySelf.Diab.Data.Contracts.csproj">
+      <Project>{58e912a2-a0eb-45ba-85a1-5a715cd090b4}</Project>
+      <Name>MySelf.Diab.Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySelf.Diab.Data\MySelf.Diab.Data.csproj">
+      <Project>{a773b716-46c9-4107-b0d6-19a92c80f06f}</Project>
+      <Name>MySelf.Diab.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySelf.Diab.Domain\MySelf.Diab.Domain.csproj">
+      <Project>{873acbb1-942d-45ce-ac3a-6d441b8ccb68}</Project>
+      <Name>MySelf.Diab.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySelf.Diab.Model\MySelf.Diab.Model.csproj">
+      <Project>{412df505-b374-4814-b014-a6437760f242}</Project>
+      <Name>MySelf.Diab.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

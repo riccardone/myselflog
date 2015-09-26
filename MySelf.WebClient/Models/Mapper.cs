@@ -7,7 +7,7 @@ namespace MySelf.WebClient.Models
     public interface IMapper
     {
         List<LogDto> ToLogsDto(IEnumerable<GlucoseLevel> glucoseLevels);
-        List<LogProfileDto> ToLogProfilesDto(IEnumerable<LogProfile> logProfiles);
+        List<LogProfileDto> ToLogProfilesDto(IEnumerable<LogProfile> logProfiles, int limit = 0);
         List<TerapyDto> ToTerapiesDto(IEnumerable<Terapy> terapies);
         List<FriendDto> ToFriendsDto(IEnumerable<Friend> items);
     }
@@ -21,7 +21,7 @@ namespace MySelf.WebClient.Models
                 GlobalId = glucoseLevel.GlobalId,
                 LogDate = glucoseLevel.LogDate,
                 Message = glucoseLevel.Message,
-                Value = glucoseLevel.Value,
+                MedicalValue = glucoseLevel.Value.ToString(),
                 ProfileId = glucoseLevel.LogProfile.GlobalId
             }).ToList();
         }
@@ -35,15 +35,27 @@ namespace MySelf.WebClient.Models
             }).ToList();
         }
 
-        public List<LogProfileDto> ToLogProfilesDto(IEnumerable<LogProfile> logProfiles)
+        public List<LogProfileDto> ToLogProfilesDto(IEnumerable<LogProfile> logProfiles, int limit = 0)
         {
+            if (limit == 0)
+            {
+                return logProfiles.Select(logProfile => new LogProfileDto
+                {
+                    GlobalId = logProfile.GlobalId,
+                    Name = logProfile.Name,
+                    Logs = ToLogsDto(logProfile.GlucoseLevels),
+                    Friends = ToFriendsDto(logProfile.Friends),
+                    Terapies = ToTerapiesDto(logProfile.Terapies),
+                    SecurityLink = logProfile.SecurityLink != null ? BuildSecurityLink(logProfile.SecurityLink.Link) : string.Empty
+                }).ToList();
+            }
             return logProfiles.Select(logProfile => new LogProfileDto
             {
                 GlobalId = logProfile.GlobalId,
                 Name = logProfile.Name,
-                Logs = ToLogsDto(logProfile.GlucoseLevels),
+                Logs = ToLogsDto(logProfile.GlucoseLevels).OrderByDescending(a => a.LogDate).Take(limit).ToList(),
                 Friends = ToFriendsDto(logProfile.Friends),
-                Terapies = ToTerapiesDto(logProfile.Terapies),
+                Terapies = ToTerapiesDto(logProfile.Terapies).OrderByDescending(a => a.LogDate).Take(limit).ToList(),
                 SecurityLink = logProfile.SecurityLink != null ? BuildSecurityLink(logProfile.SecurityLink.Link) : string.Empty
             }).ToList();
         }

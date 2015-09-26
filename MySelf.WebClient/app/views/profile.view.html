@@ -21,7 +21,7 @@
                 <div ng-include="tab.template"></div>
             </tab>
         </tabset>-->
-        <input type="number" min="1" max="800" name="value" data-ng-model="item.value" placeholder="Type a numeric value" style="height: 30px" />
+        <input type="number" min="1" max="800" name="medicalvalue" data-ng-model="item.medicalvalue" placeholder="Type a numeric value" style="height: 30px" />
         <textarea style="display: none" data-ng-model="item.message" placeholder="Type a message (optional)"></textarea>
         <!--<input type="text" ng-model="item.logDate" placeholder="Select a date and time" />-->
         <div id="logDate">
@@ -72,7 +72,7 @@
             </accordion-heading>
             <div class="valueinnerlist" ng-repeat="log in selectedprofile.logs | orderBy:LogDate:reverse">
                 <button ng-click="remove(log)" class="btn btn-warning">X</button>
-                <a href ng-click="setReport(log.logdate, 'day')">{{log.value}} - {{log.logdate}}</a>
+                <a href ng-click="setReport(log.logdate, 'day')">{{log.medicalvalue}} - {{log.logdate}}</a>
             </div>
             <p ng-show="selectedprofile.logs == 0">There are not any logged values</p>
         </accordion-group>

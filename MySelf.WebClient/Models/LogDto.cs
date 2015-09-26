@@ -7,8 +7,8 @@ namespace MySelf.WebClient.Models
     [DataContract(Name = "log")]
     public class LogDto
     {
-        [DataMember(Name = "value")]
-        public int Value { get; set; }
+        [DataMember(Name = "medicalvalue")]
+        public string MedicalValue { get; set; }
         
         [DataMember(Name = "message")]
         public string Message { get; set; }
