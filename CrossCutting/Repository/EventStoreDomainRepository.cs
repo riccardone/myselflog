@@ -61,8 +61,6 @@ namespace CrossCutting.Repository
             return BuildAggregate<TResult>(deserializedEvents);
         }
 
-       
-
         public EventData CreateEventData(object @event)
         {
             var eventHeaders = new Dictionary<string, string>()

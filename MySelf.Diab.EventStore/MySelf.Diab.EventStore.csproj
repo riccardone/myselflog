@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="EventStoreLogCommands.cs" />
     <Compile Include="EventStoreLogManager.cs" />
+    <Compile Include="EventStorePersonCommands.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

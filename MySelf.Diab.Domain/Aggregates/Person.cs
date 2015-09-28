@@ -1,16 +1,12 @@
 ﻿using CrossCutting.DomainBase;
 using MySelf.Diab.Domain.Events;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MySelf.Diab.Domain.Aggregates
 {
     public class Person : AggregateBase
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public string Email { get; private set; }
@@ -22,8 +18,14 @@ namespace MySelf.Diab.Domain.Aggregates
         {
             get
             {
-                return Id;
+                return Id.ToString();
             }
+        }
+
+        public Person(Guid id, string firstName, string lastName, string email, string country, string postalCode, DateTime? dateOfBirth)
+        {
+            // TODO validate
+            RaiseEvent(new PersonCreated(id, firstName, lastName, email, country, postalCode, dateOfBirth));
         }
 
         public Person()
@@ -33,7 +35,18 @@ namespace MySelf.Diab.Domain.Aggregates
 
         private void Apply(PersonCreated obj)
         {
-            throw new NotImplementedException();
+            Id = obj.Id;
+            FirstName = obj.FirstName;
+            LastName = obj.LastName;
+            Email = obj.Email;
+            Country = obj.Country;
+            PostalCode = obj.PostalCode;
+            DateOfBirth = obj.DateOfBirth;
+        }
+
+        public static Person CreatePerson(Guid id, string firstName, string lastName, string email, string country, string postalCode, DateTime? dateOfBirth)
+        {
+            return new Person(id, firstName, lastName, email, country, postalCode, dateOfBirth);
         }
     }
 }

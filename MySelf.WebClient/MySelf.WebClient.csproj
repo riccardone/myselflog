@@ -269,6 +269,7 @@
     <Compile Include="Code\ConfigSettings.cs" />
     <Compile Include="Code\IConfigSettings.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\api\LogProfileController.cs" />
     <Compile Include="Controllers\api\TerapyController.cs" />
     <Compile Include="Controllers\api\FriendInviteController.cs" />
     <Compile Include="Controllers\api\FriendWithLinkController.cs" />
@@ -1624,6 +1625,10 @@
     <ProjectReference Include="..\MySelf.Diab.Data\MySelf.Diab.Data.csproj">
       <Project>{A773B716-46C9-4107-B0D6-19A92C80F06F}</Project>
       <Name>MySelf.Diab.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySelf.Diab.EventStore\MySelf.Diab.EventStore.csproj">
+      <Project>{767a39b3-d1ef-4c23-83fe-6f17b6fc9f3c}</Project>
+      <Name>MySelf.Diab.EventStore</Name>
     </ProjectReference>
     <ProjectReference Include="..\MySelf.Diab.Model\MySelf.Diab.Model.csproj">
       <Project>{412df505-b374-4814-b014-a6437760f242}</Project>

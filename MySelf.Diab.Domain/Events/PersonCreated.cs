@@ -9,7 +9,7 @@ namespace MySelf.Diab.Domain.Events
 {
     public class PersonCreated : IDomainEvent
     {
-        public string Id { get; private set; }
+        public Guid Id { get; private set; }
 
         public string FirstName { get; private set; }
 
@@ -23,7 +23,7 @@ namespace MySelf.Diab.Domain.Events
 
         public DateTime? DateOfBirth { get; private set; }
 
-        public PersonCreated(string id, string firstName, string lastName, string email, string country, string postalCode, DateTime? dateOfBirth)
+        public PersonCreated(Guid id, string firstName, string lastName, string email, string country, string postalCode, DateTime? dateOfBirth)
         {
             Id = id;
             FirstName = firstName;
