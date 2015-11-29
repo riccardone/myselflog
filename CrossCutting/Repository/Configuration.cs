@@ -46,7 +46,7 @@ namespace CrossCutting.Repository
                 var esPort = ConfigurationManager.AppSettings["EventStorePort"];
                 if (string.IsNullOrEmpty(esPort))
                 {
-                    return 2113;
+                    return 1113;
                 }
                 return int.Parse(esPort);
             }

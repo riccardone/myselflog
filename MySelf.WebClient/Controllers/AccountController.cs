@@ -64,7 +64,7 @@ namespace MySelf.WebClient.Controllers
         // POST: /Account/JsonRegister
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult JsonRegister(RegisterModel model, string returnUrl)
         {
             if (ModelState.IsValid)

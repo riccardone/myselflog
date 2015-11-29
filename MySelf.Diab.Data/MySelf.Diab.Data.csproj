@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201509121159559_Start.Designer.cs">
       <DependentUpon>201509121159559_Start.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511291531443_addeduniqueid.cs" />
+    <Compile Include="Migrations\201511291531443_addeduniqueid.Designer.cs">
+      <DependentUpon>201511291531443_addeduniqueid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfigurations\TerapyConfiguration.cs" />
     <Compile Include="ModelConfigurations\SecurityLinkConfiguration.cs" />
@@ -110,6 +114,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201509121159559_Start.resx">
       <DependentUpon>201509121159559_Start.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511291531443_addeduniqueid.resx">
+      <DependentUpon>201511291531443_addeduniqueid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

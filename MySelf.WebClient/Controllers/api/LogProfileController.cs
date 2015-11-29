@@ -25,6 +25,9 @@ namespace MySelf.WebClient.Controllers.api
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(name))
+                    name = LogProfile.DefaultName;
+                
                 var profile = new LogProfile() { Name = name };
 
                 _logManager.LogCommands.AddLogProfile(profile);

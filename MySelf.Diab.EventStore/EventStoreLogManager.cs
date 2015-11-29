@@ -20,7 +20,8 @@ namespace MySelf.Diab.EventStore
         public EventStoreLogManager(IModelReader modelReader, IDomainRepository repository)
         {
             _logCommands = new EventStoreLogCommands(repository);
-            _modelReader = modelReader;       
+            _personCommands = new EventStorePersonCommands(repository);
+            _modelReader = modelReader;
         }
 
         public IFriendCommands FriendCommands
@@ -65,7 +66,7 @@ namespace MySelf.Diab.EventStore
 
         public int Save()
         {
-            throw new NotImplementedException();
+            return int.MinValue;
         }
     }
 }

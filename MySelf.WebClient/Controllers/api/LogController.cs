@@ -4,10 +4,12 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using Microsoft.Web.WebPages.OAuth;
 using MySelf.Diab.Data.Contracts;
 using MySelf.Diab.Model;
 using MySelf.WebClient.Filters;
 using MySelf.WebClient.Models;
+using WebMatrix.WebData;
 
 namespace MySelf.WebClient.Controllers.api
 {
@@ -32,7 +34,12 @@ namespace MySelf.WebClient.Controllers.api
                     LogProfilesAsOwner = _mapper.ToLogProfilesDto(_logManager.ModelReader.GetLogProfilesAsOwner(User.Identity.Name)),
                     LogProfilesAsFriend = _mapper.ToLogProfilesDto(_logManager.ModelReader.GetLogProfilesAsFriend(User.Identity.Name))
                 };
-
+                if (results.LogProfilesAsFriend.Count == 0 && results.LogProfilesAsOwner.Count == 0)
+                {
+                    WebSecurity.Logout();
+                    throw new Exception("for some reasons you don't have any profiles");
+                }
+                    
                 return Request.CreateResponse(HttpStatusCode.Accepted, results, "application/json");
             }
             catch (Exception ex)

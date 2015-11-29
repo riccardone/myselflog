@@ -23,6 +23,7 @@ namespace MySelf.Diab.Domain.Aggregates
         }
 
         public Person(Guid id, string firstName, string lastName, string email, string country, string postalCode, DateTime? dateOfBirth)
+            : this()
         {
             // TODO validate
             RaiseEvent(new PersonCreated(id, firstName, lastName, email, country, postalCode, dateOfBirth));
@@ -47,6 +48,15 @@ namespace MySelf.Diab.Domain.Aggregates
         public static Person CreatePerson(Guid id, string firstName, string lastName, string email, string country, string postalCode, DateTime? dateOfBirth)
         {
             return new Person(id, firstName, lastName, email, country, postalCode, dateOfBirth);
+        }
+
+        public void UpdatePerson(string firstName, string lastName, string email, string country, string postalCode)
+        {
+            if (!FirstName.Equals(firstName) || !LastName.Equals(lastName) || !Email.Equals(email) ||
+                !Country.Equals(country) || !PostalCode.Equals(postalCode))
+            {
+                RaiseEvent(new PersonUpdated(firstName, lastName, email, country, postalCode));
+            }
         }
     }
 }

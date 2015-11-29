@@ -40,7 +40,7 @@ namespace CrossCutting.Repository
 
             var eventData = events.Select(CreateEventData);
             var streamName = AggregateToStreamName(aggregate.GetType(), aggregate.AggregateId);
-            connection.AppendToStreamAsync(streamName, expectedVersion, eventData);
+            var ciccio = connection.AppendToStreamAsync(streamName, expectedVersion, eventData);
             return events;
         }
 

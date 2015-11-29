@@ -23,17 +23,9 @@ namespace MySelf.Diab.EventStore
 
         public void Update(Person item)
         {
-            throw new NotImplementedException();
-            //var currentUser = _db.People.Include(e => e.LogProfiles).FirstOrDefault(p => p.Email == item.Email);
-
-            //if (currentUser != null)
-            //{
-            //    currentUser.Country = item.Country;
-            //    currentUser.DateOfBirth = item.DateOfBirth;
-            //    currentUser.FirstName = item.FirstName;
-            //    currentUser.LastName = item.LastName;
-            //    currentUser.PostalCode = item.PostalCode;
-            //}
+            var currentUser = _repository.GetById<Domain.Aggregates.Person>(item.UniqueId);
+            currentUser.UpdatePerson(item.FirstName, item.LastName, item.Email, item.Country, item.PostalCode);
+            _repository.Save(currentUser);
         }
     }
 }

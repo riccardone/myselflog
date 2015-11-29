@@ -46,6 +46,7 @@
     <Compile Include="Aggregates\ValueObjects\SecurityLink.cs" />
     <Compile Include="Aggregates\ValueObjects\Terapy.cs" />
     <Compile Include="Aggregates\Person.cs" />
+    <Compile Include="Events\PersonUpdated.cs" />
     <Compile Include="Events\TerapyAdded.cs" />
     <Compile Include="Events\GlucoseLevelAdded.cs" />
     <Compile Include="Events\LogProfileCreated.cs" />
