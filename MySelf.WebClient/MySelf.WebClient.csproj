@@ -911,10 +911,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CrossCutting\CrossCutting.csproj">
-      <Project>{044421d5-a83a-45e6-bbd3-4a3683fc531f}</Project>
-      <Name>CrossCutting</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MySelf.Diab.Core.Contracts\MySelf.Diab.Core.Contracts.csproj">
       <Project>{0F81E1BC-1CD4-4B27-BC47-C053BEEBE42C}</Project>
       <Name>MySelf.Diab.Core.Contracts</Name>
@@ -926,10 +922,6 @@
     <ProjectReference Include="..\MySelf.Diab.Data\MySelf.Diab.Data.csproj">
       <Project>{A773B716-46C9-4107-B0D6-19A92C80F06F}</Project>
       <Name>MySelf.Diab.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MySelf.Diab.EventStore\MySelf.Diab.EventStore.csproj">
-      <Project>{767a39b3-d1ef-4c23-83fe-6f17b6fc9f3c}</Project>
-      <Name>MySelf.Diab.EventStore</Name>
     </ProjectReference>
     <ProjectReference Include="..\MySelf.Diab.Model\MySelf.Diab.Model.csproj">
       <Project>{412df505-b374-4814-b014-a6437760f242}</Project>
