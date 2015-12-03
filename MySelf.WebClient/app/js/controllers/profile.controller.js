@@ -9,6 +9,7 @@
         $scope.logs = [];
         $scope.friends = [];
         $scope.isTerapyCollapsed = true;
+        $scope.isFoodCollapsed = true;
         $scope.oneAtATime = true;
         $scope.hstep = 1;
         $scope.mstep = 1;
