@@ -71,6 +71,10 @@
     <Compile Include="Migrations\201512030915302_AddedFoodAndFoodTypes.Designer.cs">
       <DependentUpon>201512030915302_AddedFoodAndFoodTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512040929150_RemovedFoodType.cs" />
+    <Compile Include="Migrations\201512040929150_RemovedFoodType.Designer.cs">
+      <DependentUpon>201512040929150_RemovedFoodType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfigurations\FoodConfiguration.cs" />
     <Compile Include="ModelConfigurations\TerapyConfiguration.cs" />
@@ -118,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512030915302_AddedFoodAndFoodTypes.resx">
       <DependentUpon>201512030915302_AddedFoodAndFoodTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512040929150_RemovedFoodType.resx">
+      <DependentUpon>201512040929150_RemovedFoodType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

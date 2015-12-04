@@ -1,9 +1,9 @@
 ﻿<script type="text/ng-template" id="mySendInviteModalContent.html">
     <div class="modal-header">
-    <h3>Send an invite to a friend</h3>
+        <h3>Send an invite to a friend</h3>
     </div>
     <div class="modal-body">
-        <p>Press "send" button to send an invite to share with your friend your logged values. No other informations then values will be shared.</p>         
+        <p>Press "send" button to send an invite to share with your friend your logged values. No other informations then values will be shared.</p>
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" ng-click="ok()">Send</button>
@@ -30,18 +30,25 @@
         <div id="logTime" ng-model="item.logTime" ng-change="changed()" class="well well-small" style="display: inline-block;">
             <timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
         </div>
+        <br />
         <button class="btn btn-link" ng-click="isTerapyCollapsed = !isTerapyCollapsed">Log terapy</button>
         <div id="terapyPanel" collapse="isTerapyCollapsed">
             <!--<input type="checkbox" ng-model="item.isslow"/>-->
-            <input type="number" min="0" max="200" name="slowvalue" data-ng-model="item.slowvalue" placeholder="SLOW terapy number" style="height: 30px"/>
-            <input type="number" min="0" max="200" name="fastvalue" data-ng-model="item.fastvalue" placeholder="FAST terapy number" style="height: 30px"/>
+            <input type="number" min="0" max="200" name="slowvalue" data-ng-model="item.slowvalue" placeholder="SLOW terapy number" style="height: 30px" />
+            <input type="number" min="0" max="200" name="fastvalue" data-ng-model="item.fastvalue" placeholder="FAST terapy number" style="height: 30px" />
         </div>
         <button class="btn btn-link" ng-click="isFoodCollapsed = !isFoodCollapsed">Log food</button>
         <div id="foodPanel" collapse="isFoodCollapsed">
-            <!--<input type="checkbox" ng-model="item.isslow" />-->
-            <!--<input type="number" min="0" max="200" name="slowvalue" data-ng-model="item.slowvalue" placeholder="SLOW terapy number" style="height: 30px" />
-            <input type="number" min="0" max="200" name="fastvalue" data-ng-model="item.fastvalue" placeholder="FAST terapy number" style="height: 30px" />-->
+            <span ng-repeat="foodType in foodTypes">
+                <label class="checkbox" for="{{foodType}}">
+                    <input type="checkbox" ng-model="item.foodType" name="group" id="{{foodType}}" />
+                    <img ng-src="../FoodTypes/{{foodType}}.png" alt="{{foodType}}" />
+                </label>
+            </span>
+            <input type="number" min="0" max="1000" name="calories" data-ng-model="item.calories" placeholder="Amount of calories" style="height: 30px"/>
+            <!--<textarea name="caloriesMessage" data-ng-model="item.caloriesMessage" placeholder="Leave an optional message"></textarea>-->
         </div>
+        <br />
         <input type="hidden" data-ng-model="item.selectedProfileId" value="selectedprofile.globalid" />
         <div id="logFormBotton">
             <button id="btnSubmit" name="btnSubmit" ng-click="addValue()" ng-disabled="loading" class="btn btn-primary">Submit</button>
@@ -94,6 +101,5 @@
         </accordion-group>
     </accordion>
 
-    <footer>
-    </footer>
+    <footer></footer>
 </div>

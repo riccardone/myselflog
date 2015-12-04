@@ -290,6 +290,8 @@
     <Content Include="Content\jquery.jqplot.min.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="FoodTypes\Fruit.png" />
+    <Content Include="FoodTypes\Snack.png" />
     <Content Include="Scripts\jplotplugins\jqplot.barRenderer.js" />
     <Content Include="Scripts\jplotplugins\jqplot.barRenderer.min.js" />
     <Content Include="Scripts\jplotplugins\jqplot.BezierCurveRenderer.js" />

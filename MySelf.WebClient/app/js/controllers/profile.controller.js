@@ -19,10 +19,10 @@
             console.log('Time changed to: ' + $scope.item.logTime);
         };
         $scope.resetItem = resetItem;
+        $scope.foodTypes = ["Snack", "Fruit"]; //, "Lunch", "Dinner", "Chocholate", "Fruit", "Nuts", "Cake"];
 
         /* modal */
         $scope.openInvite = function (email) {
-
             var modalInstance = $modal.open({
                 templateUrl: 'mySendInviteModalContent.html',
                 controller: 'ModalFriendInviteController',
