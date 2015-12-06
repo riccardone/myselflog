@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MySelf.Diab.Model
 {
@@ -13,5 +14,7 @@ namespace MySelf.Diab.Model
         public int TerapyValue { get; set; }
         public bool IsSlow { get; set; }
         public Guid? TerapyGlobalId { get; set; }
+        public int Calories { get; set; }
+        public string FoodTypes { get; set; }
     }
 }

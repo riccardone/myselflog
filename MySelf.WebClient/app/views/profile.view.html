@@ -39,12 +39,16 @@
         </div>
         <button class="btn btn-link" ng-click="isFoodCollapsed = !isFoodCollapsed">Log food</button>
         <div id="foodPanel" collapse="isFoodCollapsed">
-            <span ng-repeat="foodType in foodTypes">
+            <label ng-repeat="foodType in foodTypes">
+                <input type="checkbox" ng-model="item.foodTypes[foodType]"> 
+                <img ng-src="../FoodTypes/{{foodType}}.png" alt="{{foodType}}" />
+            </label>
+            <!--<span ng-repeat="foodType in foodTypes">
                 <label class="checkbox" for="{{foodType}}">
                     <input type="checkbox" ng-model="item.foodType" name="group" id="{{foodType}}" />
                     <img ng-src="../FoodTypes/{{foodType}}.png" alt="{{foodType}}" />
                 </label>
-            </span>
+            </span>-->
             <input type="number" min="0" max="1000" name="calories" data-ng-model="item.calories" placeholder="Amount of calories" style="height: 30px"/>
             <!--<textarea name="caloriesMessage" data-ng-model="item.caloriesMessage" placeholder="Leave an optional message"></textarea>-->
         </div>

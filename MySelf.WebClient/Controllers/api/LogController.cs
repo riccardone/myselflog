@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
 using MySelf.Diab.Data.Contracts;
 using MySelf.Diab.Model;
@@ -62,6 +63,14 @@ namespace MySelf.WebClient.Controllers.api
         {
             try
             {
+                var foodTypes = new StringBuilder(string.Empty);
+                if (data.FoodTypes != null && data.FoodTypes.Any())
+                {
+                    foreach (var foodType in data.FoodTypes)
+                    {
+                        foodTypes.AppendFormat("{0},",foodType);
+                    }
+                }
                 var logMessage = new LogMessage
                     {
                         Email = User.Identity.Name,
@@ -70,7 +79,9 @@ namespace MySelf.WebClient.Controllers.api
                         LogDate = data.LogDate,
                         ProfileId = data.ProfileId,
                         IsSlow = data.IsSlow,
-                        TerapyValue = data.TerapyValue
+                        TerapyValue = data.TerapyValue,
+                        Calories = data.Calories,
+                        FoodTypes = foodTypes.ToString().Remove(foodTypes.ToString().LastIndexOf(','))
                     };
                 
                 _logManager.LogCommands.AddLogMessage(logMessage);

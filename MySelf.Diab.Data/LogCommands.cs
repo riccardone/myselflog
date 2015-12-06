@@ -27,6 +27,23 @@ namespace MySelf.Diab.Data
 
             AddGlocoseLevel(logMessage, logProfile);
             AddTerapy(logMessage, logProfile);
+            AddFood(logMessage, logProfile);
+        }
+
+        private void AddFood(LogMessage logMessage, LogProfile logProfile)
+        {
+            if (logMessage.Calories <= 0) return;
+            var newFoodId = Guid.NewGuid();
+            var item = new Food
+            {
+                GlobalId = newFoodId,
+                LogDate = logMessage.LogDate,
+                LogProfile = logProfile,
+                Message = logMessage.Message,
+                Calories = logMessage.Calories,
+                FoodTypes = logMessage.FoodTypes
+            };
+            _dbContext.Foods.Add(item);
         }
 
         private void AddTerapy(LogMessage logMessage, LogProfile logProfile)

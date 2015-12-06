@@ -20,6 +20,24 @@
         };
         $scope.resetItem = resetItem;
         $scope.foodTypes = ["Snack", "Fruit"]; //, "Lunch", "Dinner", "Chocholate", "Fruit", "Nuts", "Cake"];
+        $scope.getFoodTypes = function () {
+            return $scope.foodTypes;
+        };
+        $scope.checkFood = function (value, checked) {
+            var idx = -1;
+            if ($scope.item.foodTypes) {
+                idx = $scope.item.foodTypes.indexOf(value);
+                if (idx >= 0 && !checked) {
+                    $scope.item.foodTypes.splice(idx, 1);
+                } else {
+                    $scope.item.foodTypes = [];
+                }
+            }
+            
+            if (idx < 0 && checked) {
+                $scope.item.foodTypes.push(value);
+            }
+        };
 
         /* modal */
         $scope.openInvite = function (email) {
@@ -89,14 +107,14 @@
         };
         /* end date picker */
 
-        $scope.item = {};
+        $scope.item = { foodTypes: [] };
         $scope.report = "year";
         $scope.date = getJustToday();
         $scope.setReport = setReport;
         $scope.myOptions = { data: 'logs' };
 
         function resetItem() {
-            $scope.item = {}; //{ "value": null, "logDate": getJustToday(), "logTime": getNow(), "message": null };
+            $scope.item = { foodTypes: [] }; //{ "value": null, "logDate": getJustToday(), "logTime": getNow(), "message": null };
             $scope.item.logDate = getJustToday();
             $scope.item.logTime = getNow();
         }
@@ -230,7 +248,9 @@
                 'Message': $scope.item.message,
                 'ProfileId': $scope.selectedprofile.globalid,
                 'isslow': false,
-                'terapyvalue': 0
+                'terapyvalue': 0,
+                'calories': 0,
+                'foodTypes': []
             };
             
             // Log blood sugar level
@@ -249,6 +269,17 @@
             if ($scope.item.fastvalue > 0) {
                 log.isslow = false;
                 log.terapyvalue = $scope.item.fastvalue;
+                datacontext.save(log, addSucceeded);
+            }
+
+            if ($scope.item.calories > 0) {
+                log.foodTypes = [];
+                for (var i = 0; i < $scope.foodTypes.length; i++) {
+                    if ($scope.item.foodTypes[$scope.foodTypes[i]]) {
+                        log.foodTypes.push($scope.foodTypes[i]);
+                    }
+                }
+                log.calories = $scope.item.calories;
                 datacontext.save(log, addSucceeded);
             }
             
