@@ -288,6 +288,7 @@
     <Content Include="App_Data\howtorecreatesqllocaldb.txt" />
     <Content Include="Content\images\spinner.gif" />
     <Content Include="Content\jquery.jqplot.min.css" />
+    <Content Include="Content\morris.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="FoodTypes\Fruit.png" />
@@ -353,6 +354,7 @@
     <Content Include="Scripts\jplotplugins\jqplot.trendline.js" />
     <Content Include="Scripts\jplotplugins\jqplot.trendline.min.js" />
     <Content Include="Scripts\jquery.jqplot.js" />
+    <Content Include="Scripts\morris.min.js" />
     <Content Include="Scripts\spin.js" />
     <Content Include="Scripts\spin.min.js" />
     <Content Include="Scripts\toastr.js" />

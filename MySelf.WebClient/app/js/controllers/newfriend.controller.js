@@ -12,8 +12,8 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     $scope.graph = Morris.Line({
         element: 'diaryGraph',
         xkey: 'logdate',
-        ykeys: ['value', 'slow', 'fast'],
-        labels: ['Diary', 'Slow terapy', 'Fast terapy']
+        ykeys: ['value', 'slow', 'fast', 'calories'],
+        labels: ['Diary', 'Slow terapy', 'Fast terapy', 'Calories']
     });
     $scope.reports = [
         { name: "Day", description: "" },
@@ -147,7 +147,15 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
                     graphData.push(item);
                 });
                 $scope.terapies = terapies;
-            } 
+            }
+            // TODO continua da qui
+            if ($scope.showCalories) {
+                var calories = valuesService.getCalories($scope.selectedreport.name, $scope.profile.calories, $scope.date);
+                angular.forEach(calories, function (item) {
+                    graphData.push(item);
+                });
+                $scope.calories = calories;
+            }
             $scope.graph.setData(graphData);
             $scope.selectedreport.description = getReportDescription($scope.selectedreport.name);
             $scope.logs = logs;

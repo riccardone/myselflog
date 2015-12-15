@@ -15,8 +15,10 @@ namespace MySelf.WebClient
                 "~/Scripts/raphael-min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/morris",
-                "http://cdn.oesmith.co.uk/morris-0.4.3.min.js").Include(
-                "~/Scripts/morris-0.4.3.min.js"));
+                "http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js")
+                .Include("~/Scripts/morris.min.js"));
+                //"http://cdn.oesmith.co.uk/morris-0.4.3.min.js").Include(
+                //"~/Scripts/morris-0.4.3.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqplot")
                 .Include("~/Scripts/jquery.jqplot.min.js")
@@ -94,8 +96,9 @@ namespace MySelf.WebClient
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/morriscss", "http://cdn.oesmith.co.uk/morris-0.4.3.min.css")
-                .Include("~/Content/morris-0.4.3.min.css"));
+            bundles.Add(new StyleBundle("~/Content/morriscss",
+                "http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css").Include("~/Content/morris.css"));
+            //"http://cdn.oesmith.co.uk/morris-0.4.3.min.css").Include("~/Content/morris-0.4.3.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/jqplotcss")
                 .Include("~/Content/jquery.jqplot.css"));
