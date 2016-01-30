@@ -247,6 +247,7 @@
     <Compile Include="Models\LogProfileDto.cs" />
     <Compile Include="Models\Mapper.cs" />
     <Compile Include="Models\RootDto.cs" />
+    <Compile Include="Models\FoodDto.cs" />
     <Compile Include="Models\TerapyDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

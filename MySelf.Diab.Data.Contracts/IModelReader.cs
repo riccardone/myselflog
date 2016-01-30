@@ -12,5 +12,6 @@ namespace MySelf.Diab.Data.Contracts
         bool IsFriend(string email);
         LogProfile GetLogProfile(Guid globalId);
         LogProfile GetLogProfile(string securityLink);
+        Person GetPerson(string username);
     }
 }

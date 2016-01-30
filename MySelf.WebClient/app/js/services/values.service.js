@@ -135,6 +135,57 @@ myselflogApp.factory('valuesService', function () {
         return { 'fastvalues': fastvalues, 'slowvalues': slowvalues };
     }
 
+    function getFoodsByDay(foods, date) {
+        var items = [];
+        angular.forEach(foods, function (item) {
+            var a1 = moment(item.logdate).startOf('day').toDate();
+            var a2 = moment(date).startOf('day').toDate();
+            if (+a1 === +a2) {
+                items.push(item);
+            }
+        });
+        return items;
+    }
+
+    function getFoodsByWeeks(foods, date) {
+        var items = [];
+        var weekdates = getWeekDays(date);
+        angular.forEach(foods, function (item) {
+            angular.forEach(weekdates, function (weekDay) {
+                var a1 = moment(item.logdate).startOf('day').toDate();
+                var a2 = weekDay.startOf('day').toDate();
+                if (+a1 === +a2) {
+                    items.push(item);
+                }
+            });
+        });
+        return items;
+    }
+
+    function getFoodsByMonth(foods, date) {
+        var items = [];
+        var d2 = new Date(date);
+        angular.forEach(foods, function (item) {
+            var d = new Date(item.logdate);
+            if ((d.getYear() == d2.getYear()) && (d.getMonth() == d2.getMonth())) {
+                items.push(item);
+            }
+        });
+        return items;
+    }
+
+    function getFoodsByYear(foods, date) {
+        var items = [];
+        var d2 = new Date(date);
+        angular.forEach(foods, function (item) {
+            var d = new Date(item.logdate);
+            if (d.getYear() == d2.getYear()) {
+                items.push(item);
+            }
+        });
+        return items;
+    }
+
     return {
         getLogs: function(reportname, logs, date) {
             if (reportname == "Year") {
@@ -173,22 +224,25 @@ myselflogApp.factory('valuesService', function () {
             // Fill slow values
             angular.forEach(terapyObject.slowvalues, function(item) {
                 terapies.slow.push({ 'logdate': item.logdate, 'slow': item.terapyvalue });
-                //insertOrUpdateSlowValue(terapies, item);
             });
-            //function insertOrUpdateSlowValue(terapyList, item) {
-            //    var found = false;
-            //    angular.forEach(terapyList, function (terapy) {
-            //        if (terapy.logdate == item.logdate) {
-            //            terapy.slowvalues = item.terapyvalue;
-            //            found = true;
-            //        }
-            //    });
-            //    if (found == false) {
-            //        terapies.push({ 'logdate': item.logdate, 'fast': 0, 'slow': item.terapyvalue });
-            //    }
-            //}
 
             return terapies;
+        },
+        getCalories: function (reportname, foods, date) {
+            var foodObject = {};
+            if (reportname === "Year") {
+                foodObject = getFoodsByYear(foods, date);
+            }
+            if (reportname === "Month") {
+                foodObject = getFoodsByMonth(foods, date);
+            }
+            if (reportname === "Week") {
+                foodObject = getFoodsByWeeks(foods, date);
+            }
+            if (reportname === "Day") {
+                foodObject = getFoodsByDay(foods, date);
+            }
+            return foodObject;
         }
     };
 })

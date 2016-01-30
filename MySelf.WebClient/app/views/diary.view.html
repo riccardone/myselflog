@@ -21,6 +21,12 @@
         </button>
     </div>
     <div id="diaryGraph"></div>
+    <div id="foodandcalories">
+        <label ng-repeat="foodType in foodTypes">
+            <!-- TODO continue and display calories -->
+            <img ng-src="../FoodTypes/{{foodType}}.png" alt="{{foodType}}"/>
+        </label>
+    </div>
     <footer>
         <p>average {{getAverage()}}</p>
         <input type="button" ng-click="reload()" value="Reload" class="btn btn-warning" id="btnReload" name="btnReload" />

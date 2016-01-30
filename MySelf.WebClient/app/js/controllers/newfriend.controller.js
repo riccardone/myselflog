@@ -8,6 +8,7 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     $scope.link = "";
     $scope.graph = {};
     $scope.showTerapies = false;
+    $scope.showCalories = true;
     $scope.graph = {};
     $scope.graph = Morris.Line({
         element: 'diaryGraph',
@@ -26,6 +27,7 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     $scope.next = next;
     $scope.logs = [];
     $scope.getAverage = getAverage;
+    $scope.foodTypes = ["Snack", "Fruit"];
     $scope.reload = function () {
         $route.reload();
     };
@@ -149,8 +151,8 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
                 $scope.terapies = terapies;
             }
             // TODO continua da qui
-            if ($scope.showCalories) {
-                var calories = valuesService.getCalories($scope.selectedreport.name, $scope.profile.calories, $scope.date);
+            if ($scope.showCalories && $scope.profile && $scope.profile.foods) {
+                var calories = valuesService.getCalories($scope.selectedreport.name, $scope.profile.foods, $scope.date);
                 angular.forEach(calories, function (item) {
                     graphData.push(item);
                 });

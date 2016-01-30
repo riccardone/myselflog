@@ -64,12 +64,14 @@ namespace MySelf.WebClient.Controllers.api
             try
             {
                 var foodTypes = new StringBuilder(string.Empty);
+                string foodTypesAsString = null;
                 if (data.FoodTypes != null && data.FoodTypes.Any())
                 {
                     foreach (var foodType in data.FoodTypes)
                     {
                         foodTypes.AppendFormat("{0},",foodType);
                     }
+                    foodTypesAsString = foodTypes.ToString().Remove(foodTypes.ToString().LastIndexOf(','));
                 }
                 var logMessage = new LogMessage
                     {
@@ -81,8 +83,8 @@ namespace MySelf.WebClient.Controllers.api
                         IsSlow = data.IsSlow,
                         TerapyValue = data.TerapyValue,
                         Calories = data.Calories,
-                        FoodTypes = foodTypes.ToString().Remove(foodTypes.ToString().LastIndexOf(','))
-                    };
+                        FoodTypes = foodTypesAsString
+                };
                 
                 _logManager.LogCommands.AddLogMessage(logMessage);
                 _logManager.Save();
