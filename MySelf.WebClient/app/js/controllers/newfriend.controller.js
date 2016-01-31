@@ -8,7 +8,7 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     $scope.link = "";
     $scope.graph = {};
     $scope.showTerapies = false;
-    $scope.showCalories = true;
+    $scope.showCalories = false;
     $scope.graph = {};
     $scope.graph = Morris.Line({
         element: 'diaryGraph',
@@ -34,6 +34,9 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     $scope.isTerapiesGraphCollapsed = true;
 
     function getAverage() {
+        if ($scope.logs.length < 1) {
+            return "...";
+        }
         var sum = 0;
         for (var i = 0; i < $scope.logs.length; i++) {
             sum += parseInt($scope.logs[i].value);
@@ -74,6 +77,10 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     }
 
     $scope.$watch('showTerapies', function () {
+        refreshGraph();
+    });
+
+    $scope.$watch('showCalories', function () {
         refreshGraph();
     });
 

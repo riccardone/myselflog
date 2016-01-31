@@ -44,3 +44,25 @@
     height: 50px;
     border: 1px solid black;
 }
+
+.diaryactions>li+li {
+    margin-left: 12px;
+}
+
+.diaryactions>li {
+    margin-left: 8px;
+}
+
+.diaryactions .checkbox, .radio {
+    margin-top: 0;
+}
+
+.average {
+    border: 1px solid #CCC;
+    margin: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+    font-weight: bold;
+    background-color: #EEE;
+}
