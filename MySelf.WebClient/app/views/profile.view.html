@@ -16,19 +16,32 @@
         <h2 class="alt">{{selectedprofile.name}}</h2>
     </header>
     <form name="logForm" class="css-form">
-        <!--<tabset>
-            <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
-                <div ng-include="tab.template"></div>
-            </tab>
-        </tabset>-->
         <input type="number" min="1" max="800" name="value" data-ng-model="item.value" placeholder="Type a numeric value" style="height: 30px" />
         <textarea style="display: none" data-ng-model="item.message" placeholder="Type a message (optional)"></textarea>
-        <!--<input type="text" ng-model="item.logDate" placeholder="Select a date and time" />-->
-        <div id="logDate">
-            <input type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="item.logDate" show-weeks="false" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" />
+        <!--<div id="logDate">
+            <input type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="item.logDate" show-weeks="false" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true"/>
         </div>
         <div id="logTime" ng-model="item.logTime" ng-change="changed()" class="well well-small" style="display: inline-block;">
             <timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+        </div>-->
+        <div class="container">
+            <div class="row">
+                <div class='col-sm-6'>
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+                </script>
+            </div>
         </div>
         <br />
         <button class="btn btn-link" ng-click="isTerapyCollapsed = !isTerapyCollapsed">Log terapy</button>

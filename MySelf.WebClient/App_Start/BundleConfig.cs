@@ -14,12 +14,6 @@ namespace MySelf.WebClient
                 "//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js").Include(
                 "~/Scripts/raphael-min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/morris",
-                "http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js")
-                .Include("~/Scripts/morris.min.js"));
-                //"http://cdn.oesmith.co.uk/morris-0.4.3.min.js").Include(
-                //"~/Scripts/morris-0.4.3.min.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/jqplot")
                 .Include("~/Scripts/jquery.jqplot.min.js")
                 .Include("~/Scripts/jplotplugins/jqplot.highlighter.min.js")

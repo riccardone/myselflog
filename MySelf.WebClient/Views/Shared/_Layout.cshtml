@@ -29,8 +29,9 @@
             window.location.hash = '';
         }
     </script>
-    @*<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">*@
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     @Styles.Render("~/Content/myCss")
 </head>
     <body data-ng-app="myselflogApp">
@@ -77,7 +78,6 @@
         </div>
         <!-- Footer -->
         <div id="footer">
-
             <!-- Copyright -->
             <div class="copyright">
                 @*<p>&copy; 2013 Jane Doe. All rights reserved.</p>
@@ -91,11 +91,10 @@
         @RenderSection("scripts", false)
         @Scripts.Render("~/bundles/jqueryui")
         @Scripts.Render("~/bundles/raphael")
-        @Scripts.Render("~/bundles/morris")
-        @*   @Scripts.Render("~/bundles/jqplot")*@
+        <script src="~/Scripts/morris.min.js"></script>
         @Scripts.Render("~/bundles/ajaxlogin")
-        @Scripts.Render("~/bundles/bootstrap")
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>
-        @*<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>*@
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+        <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
     </body>
 </html>
