@@ -39,11 +39,14 @@ namespace MySelf.WebClient
                 "~/app/js/ajaxlogin.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular")
-                            .Include("~/Scripts/angular.min.js")
-                            .Include("~/Scripts/angular-resource.min.js")
-                            .Include("~/Scripts/ui-bootstrap-0.6.0.min.js")
-                            .Include("~/Scripts/ui-bootstrap-tpls-0.6.0.min.js")
-                            .Include("~/Scripts/ng-table.js")
+                            .Include("~/Scripts/angular.js")
+                            .Include("~/Scripts/angular-resource.js")
+                            .Include("~/Scripts/angular-route.js")
+                            .Include("~/Scripts/angular-animate.js")
+                            .Include("~/Scripts/angular-ui/ui-bootstrap.js")
+                            //.Include("~/Scripts/ui-bootstrap-0.6.0.min.js")
+                            //.Include("~/Scripts/ui-bootstrap-tpls-0.6.0.min.js")
+                            //.Include("~/Scripts/ng-table.js")
                             );
 
             bundles.Add(new ScriptBundle("~/bundles/myselflog")
@@ -78,7 +81,7 @@ namespace MySelf.WebClient
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui")
                 .Include("~/Scripts/jquery-ui-{version}.js")
-                .Include("~/Scripts/dateTimePicker.js")
+                //.Include("~/Scripts/dateTimePicker.js")
                 );
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

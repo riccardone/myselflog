@@ -16,7 +16,7 @@
         <h2 class="alt">{{selectedprofile.name}}</h2>
     </header>
     <form name="logForm" class="css-form">
-        <input type="number" min="1" max="800" name="value" data-ng-model="item.value" placeholder="Type a numeric value" style="height: 30px" />
+
         <textarea style="display: none" data-ng-model="item.message" placeholder="Type a message (optional)"></textarea>
         <!--<div id="logDate">
             <input type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="item.logDate" show-weeks="false" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true"/>
@@ -24,46 +24,45 @@
         <div id="logTime" ng-model="item.logTime" ng-change="changed()" class="well well-small" style="display: inline-block;">
             <timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
         </div>-->
-        <div class="container">
-            <div class="row">
-                <div class='col-sm-6'>
-                    <div class="form-group">
-                        <div class='input-group date' id='datetimepicker1'>
-                            <input type='text' class="form-control" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
+        <!--<div class="container">-->
+        <div class="row">
+            <div class='col-sm-6'>
+                <input type="number" min="1" max="800" name="value" data-ng-model="item.value" placeholder="Type a numeric value" style="height: 30px" />
+            </div>
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <div class='input-group date' id='logDateTime' ng-model="item.logDateTime">
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
                     </div>
                 </div>
-                <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-                </script>
             </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#logDateTime').datetimepicker();
+                });
+            </script>
         </div>
-        <br />
-        <button class="btn btn-link" ng-click="isTerapyCollapsed = !isTerapyCollapsed">Log terapy</button>
-        <div id="terapyPanel" collapse="isTerapyCollapsed">
-            <!--<input type="checkbox" ng-model="item.isslow"/>-->
-            <input type="number" min="0" max="200" name="slowvalue" data-ng-model="item.slowvalue" placeholder="SLOW terapy number" style="height: 30px" />
-            <input type="number" min="0" max="200" name="fastvalue" data-ng-model="item.fastvalue" placeholder="FAST terapy number" style="height: 30px" />
-        </div>
-        <button class="btn btn-link" ng-click="isFoodCollapsed = !isFoodCollapsed">Log food</button>
-        <div id="foodPanel" collapse="isFoodCollapsed">
-            <label ng-repeat="foodType in foodTypes">
-                <input type="checkbox" ng-model="item.foodTypes[foodType]"> 
-                <img ng-src="../FoodTypes/{{foodType}}.png" alt="{{foodType}}" />
-            </label>
-            <!--<span ng-repeat="foodType in foodTypes">
-                <label class="checkbox" for="{{foodType}}">
-                    <input type="checkbox" ng-model="item.foodType" name="group" id="{{foodType}}" />
-                    <img ng-src="../FoodTypes/{{foodType}}.png" alt="{{foodType}}" />
-                </label>
-            </span>-->
-            <input type="number" min="0" max="1000" name="calories" data-ng-model="item.calories" placeholder="Amount of calories" style="height: 30px"/>
-            <!--<textarea name="caloriesMessage" data-ng-model="item.caloriesMessage" placeholder="Leave an optional message"></textarea>-->
+        <div class="row">
+            <div class='col-sm-6'>
+                <button class="btn btn-link" ng-click="isTerapyCollapsed = !isTerapyCollapsed">Log terapy</button>
+                <div id="terapyPanel" collapse="isTerapyCollapsed">
+                    <input type="number" min="0" max="200" name="slowvalue" data-ng-model="item.slowvalue" placeholder="SLOW terapy number" style="height: 30px" />
+                    <input type="number" min="0" max="200" name="fastvalue" data-ng-model="item.fastvalue" placeholder="FAST terapy number" style="height: 30px" />
+                </div>
+            </div>
+            <div class='col-sm-6'>
+                <button class="btn btn-link" ng-click="isFoodCollapsed = !isFoodCollapsed">Log food</button>
+                <div id="foodPanel" collapse="isFoodCollapsed">
+                    <label ng-repeat="foodType in foodTypes">
+                        <input type="checkbox" ng-model="item.foodTypes[foodType]">
+                        <img ng-src="../FoodTypes/{{foodType}}.png" alt="{{foodType}}" />
+                    </label>
+                </div>
+                <input type="number" min="0" max="1000" name="calories" data-ng-model="item.calories" placeholder="Amount of calories" style="height: 30px" />
+            </div>
         </div>
         <br />
         <input type="hidden" data-ng-model="item.selectedProfileId" value="selectedprofile.globalid" />
@@ -73,7 +72,48 @@
         </div>
     </form>
     {{active()}}
-    <p><a ng-href="../{{selectedprofile.securitylink}}" target="blank">{{selectedprofile.securitylink}}</a></p>
+    <p><a ng-href="../{{selectedprofile.securitylink}}" target="blank">{{selectedprofile.securitylink}}</a>
+    </p>
+
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1. What is HTML?</a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <p>HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages. <a href="http://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. What is Bootstrap?</a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>Bootstrap is a powerful front-end framework for faster and easier web development. It is a collection of CSS and HTML conventions. <a href="http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" target="_blank">Learn more.</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. What is CSS?</a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>CSS stands for Cascading Style Sheet. CSS allows you to specify various style properties for a given HTML element such as colors, backgrounds, fonts etc. <a href="http://www.tutorialrepublic.com/css-tutorial/" target="_blank">Learn more.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <accordion close-others="oneAtATime">
         <accordion-group heading="Static Header">
             <accordion-heading>

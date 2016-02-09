@@ -302,9 +302,18 @@
     <Content Include="Content\morris.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="FoodTypes\Fruit.png" />
     <Content Include="FoodTypes\Snack.png" />
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
@@ -652,6 +661,9 @@
     <None Include="Properties\PublishProfiles\myselflog - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\myselflog - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\webdeploy.pubxml" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="index.html" />
     <Content Include="js\app.js" />
@@ -1016,10 +1028,6 @@
     <Content Include="Scripts\raphael-min.js" />
     <Content Include="Scripts\skel-panels.min.js" />
     <Content Include="Scripts\skel.min.js" />
-    <Content Include="Scripts\ui-bootstrap-0.6.0.js" />
-    <Content Include="Scripts\ui-bootstrap-0.6.0.min.js" />
-    <Content Include="Scripts\ui-bootstrap-tpls-0.6.0.js" />
-    <Content Include="Scripts\ui-bootstrap-tpls-0.6.0.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
