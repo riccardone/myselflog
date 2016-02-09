@@ -20,9 +20,8 @@ namespace MySelf.WebClient
                 .Include("~/Scripts/jplotplugins/jqplot.cursor.min.js")
                 .Include("~/Scripts/jplotplugins/jqplot.dateAxisRenderer.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jquery",
-                "http://codeorigin.jquery.com/jquery-2.0.3.min.js").Include(
-                "~/Scripts/jquery-2.0.3.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/jquery")
+                .Include("~/Scripts/jquery-2.0.3.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jslibs")
                             .Include("~/Scripts/toastr.min.js")

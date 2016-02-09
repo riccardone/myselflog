@@ -1,6 +1,6 @@
 ﻿myselflogApp.controller('ProfileController',
-    ['$scope', 'datacontext', '$filter', '$routeParams', '$modal', '$log', 'logger', 
-    function ($scope, datacontext, $filter, $routeParams, $modal, $log, logger) {
+    ['$scope', 'datacontext', '$filter', '$routeParams', '$log', 'logger', 
+    function ($scope, datacontext, $filter, $routeParams, $log, logger) {
         $scope.loading = false;
         $scope.id = $routeParams.id;
         $scope.addValue = addValue;
@@ -40,23 +40,23 @@
         };
 
         /* modal */
-        $scope.openInvite = function (email) {
-            var modalInstance = $modal.open({
-                templateUrl: 'mySendInviteModalContent.html',
-                controller: 'ModalFriendInviteController',
-                resolve: {
-                    items: function () {
-                        return {}; 
-                    }
-                }
-            });
+        //$scope.openInvite = function (email) {
+        //    var modalInstance = $modal.open({
+        //        templateUrl: 'mySendInviteModalContent.html',
+        //        controller: 'ModalFriendInviteController',
+        //        resolve: {
+        //            items: function () {
+        //                return {}; 
+        //            }
+        //        }
+        //    });
 
-            modalInstance.result.then(function (message) {
-                datacontext.sendInvite($scope.selectedprofile.globalid, email, "");
-            }, function () {
-                $log.info('Modal dismissed at: ' + new Date());
-            });
-        };
+        //    modalInstance.result.then(function (message) {
+        //        datacontext.sendInvite($scope.selectedprofile.globalid, email, "");
+        //    }, function () {
+        //        $log.info('Modal dismissed at: ' + new Date());
+        //    });
+        //};
         /* end modal */
         
         //function toggleSpinner(on) { $scope.isBusy = on; }
