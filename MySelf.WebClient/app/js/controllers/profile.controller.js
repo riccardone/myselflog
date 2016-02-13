@@ -243,7 +243,7 @@
             
             // Define a base log
             var log = {
-                'Value': 0,
+                'value': 0,
                 'LogDate': logDate,
                 'Message': $scope.item.message,
                 'ProfileId': $scope.selectedprofile.globalid,
@@ -256,6 +256,7 @@
             // Log blood sugar level
             if ($scope.item.value > 0) {
                 log.value = $scope.item.value;
+                log.Value = $scope.item.value;
                 datacontext.save(log, addSucceeded);
                 log.value = 0;
             }
