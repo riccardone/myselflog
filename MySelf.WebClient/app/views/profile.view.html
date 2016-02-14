@@ -17,8 +17,11 @@
     </header>
     <form name="logForm">
         <div class="row">
-            <div class="col-md-12">
-                <input type="number" min="1" max="800" name="value" data-ng-model="item.value" placeholder="Type a numeric value" style="height: 30px; width: 250px" />
+            <div class="col-md-6">
+                <input type="number" min="1" max="800" name="value" data-ng-model="item.value" placeholder="value" style="height: 30px; width: 150px"/>
+            </div>
+            <div class="col-md-6">
+                <input id="valuemmol" type="number" min="1" max="800" name="valuemmol" data-ng-model="valuemmol" ng-change="convertFromMmol()" placeholder="mmol value" style="height: 30px; width: 150px" />
             </div>
         </div>
         <div class="row">

@@ -117,6 +117,7 @@
             $scope.item = { foodTypes: [] }; //{ "value": null, "logDate": getJustToday(), "logTime": getNow(), "message": null };
             $scope.item.logDate = getJustToday();
             $scope.item.logTime = getNow();
+            $scope.valuemmol = null;
         }
 
         function getNow() {
@@ -229,22 +230,28 @@
             $scope.selectedprofile.securitylink = data.link;
         }
 
+        $scope.convertFromMmol = function () {
+            if ($scope.valuemmol) {
+                $scope.item.value = Math.round($scope.valuemmol * 18.0182);
+            }
+        }
+
         function addValue() {
             $scope.loading = true;
             
-            var logDate = moment($scope.item.logDate).toDate();
-            var logTime = moment($scope.item.logTime).toDate();
+            //var logDate = moment($scope.item.logDate).toDate();
+            //var logTime = moment($scope.item.logTime).toDate();
             
-            // Aggregate date with time
-            logDate.setHours(logTime.getHours());
-            logDate.setMinutes(logTime.getMinutes());
-            logDate.setSeconds(logTime.getSeconds());
-            logDate.setSeconds(logTime.getMilliseconds());
+            //// Aggregate date with time
+            //logDate.setHours(logTime.getHours());
+            //logDate.setMinutes(logTime.getMinutes());
+            //logDate.setSeconds(logTime.getSeconds());
+            //logDate.setSeconds(logTime.getMilliseconds());
             
             // Define a base log
             var log = {
                 'value': 0,
-                'LogDate': logDate,
+                'LogDate': moment().toDate(),
                 'Message': $scope.item.message,
                 'ProfileId': $scope.selectedprofile.globalid,
                 'isslow': false,
