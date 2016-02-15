@@ -60,7 +60,7 @@ namespace MySelf.WebClient
                 .Include("~/app/js/services/friendInvite.resource.js")
                 .Include("~/app/js/services/terapy.resource.js")
                 .Include("~/app/js/services/friend.resource.js")
-                //.Include("~/app/js/services/myselflog.datacontext.js")
+                .Include("~/app/js/services/myselflog.datacontext.js")
                 .Include("~/app/js/services/user.resource.js")
                 .Include("~/app/js/services/user.datacontext.js")
                 .Include("~/app/js/services/friendwithlink.datacontext.js")

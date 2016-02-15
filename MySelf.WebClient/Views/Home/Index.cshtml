@@ -16,14 +16,14 @@
 @section scripts {
     @if (@User.Identity.IsAuthenticated)
     {
-        @Scripts.Render("~/bundles/angular")
+        @*@Scripts.Render("~/bundles/angular")*@
         @Scripts.Render("~/bundles/myselflog")
     }
 }
 
 @if (@User.Identity.IsAuthenticated)
 {
-    <div data-ng-view></div> <!-- The SPA Views go here -->   
+    <div data-ng-view></div>   
 }
 else
 {
