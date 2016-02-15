@@ -274,7 +274,9 @@
     <Content Include="app\js\services\logger.js" />
     <Content Include="app\js\services\securitylink.resource.js" />
     <Content Include="app\js\services\logprofile.resource.js" />
-    <Content Include="app\js\services\myselflog.datacontext.js" />
+    <Content Include="app\js\services\myselflog.datacontext.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="app\js\services\myselflog.resource.js" />
     <Content Include="app\js\services\user.datacontext.js" />
     <Content Include="app\js\services\user.resource.js" />
@@ -710,7 +712,9 @@
     <Content Include="Scripts\angular-sanitize.js" />
     <Content Include="Scripts\angular-sanitize.min.js" />
     <Content Include="Scripts\angular-scenario.js" />
-    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\angular.min.js" />
     <None Include="Scripts\toastr.min.js.map" />
     <Content Include="Scripts\bootstrap.js" />

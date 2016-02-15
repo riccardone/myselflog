@@ -20,19 +20,19 @@ namespace MySelf.WebClient
                 .Include("~/Scripts/jplotplugins/jqplot.cursor.min.js")
                 .Include("~/Scripts/jplotplugins/jqplot.dateAxisRenderer.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jquery")
-                .Include("~/Scripts/jquery-2.0.3.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/jquery")
+            //    .Include("~/Scripts/jquery-2.0.3.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jslibs")
                             .Include("~/Scripts/toastr.min.js")
                             .Include("~/Scripts/moment.min.js")
                 );
 
-            bundles.Add(new ScriptBundle("~/bundles/prologue")
-                            .Include("~/Scripts/skel.min.js")
-                            .Include("~/Scripts/skel-panels.min.js")
-                            .Include("~/Scripts/init.js")
-                );
+            //bundles.Add(new ScriptBundle("~/bundles/prologue")
+            //                .Include("~/Scripts/skel.min.js")
+            //                .Include("~/Scripts/skel-panels.min.js")
+            //                .Include("~/Scripts/init.js")
+            //    );
 
             bundles.Add(new ScriptBundle("~/bundles/ajaxlogin").Include(
                 "~/app/js/ajaxlogin.js"));
@@ -60,7 +60,7 @@ namespace MySelf.WebClient
                 .Include("~/app/js/services/friendInvite.resource.js")
                 .Include("~/app/js/services/terapy.resource.js")
                 .Include("~/app/js/services/friend.resource.js")
-                .Include("~/app/js/services/myselflog.datacontext.js")
+                //.Include("~/app/js/services/myselflog.datacontext.js")
                 .Include("~/app/js/services/user.resource.js")
                 .Include("~/app/js/services/user.datacontext.js")
                 .Include("~/app/js/services/friendwithlink.datacontext.js")

@@ -1,5 +1,5 @@
 'use strict';
-
+ 
 myselflogApp.factory('datacontext', function (logResource, logProfileResource, securityLinkResource, friendResource, friendWithLinkResource, friendInviteResource, terapyResource) {
     return {
         getLog: function (logId, callback) {
