@@ -21,6 +21,8 @@ namespace MySelf.WebClient.Models
 
         [DataMember(Name = "terapies")]
         public List<TerapyDto> Terapies { get; set; }
+        [DataMember(Name = "foods")]
+        public List<FoodDto> Foods { get; set; }
 
         [DataMember(Name = "securitylink")]
         public string SecurityLink { get; set; }

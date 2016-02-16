@@ -41,16 +41,30 @@ namespace MySelf.WebClient.Models
             {
                 GlobalId = logProfile.GlobalId,
                 Name = logProfile.Name,
-                Logs = ToLogsDto(logProfile.GlucoseLevels),
+                Logs = ToLogsDto(logProfile.GlucoseLevels ?? new List<GlucoseLevel>()),
                 Friends = ToFriendsDto(logProfile.Friends),
-                Terapies = ToTerapiesDto(logProfile.Terapies),
+                Terapies = ToTerapiesDto(logProfile.Terapies ?? new List<Terapy>()),
+                Foods = ToFoodsDto(logProfile.Foods ?? new List<Food>()),
                 SecurityLink = logProfile.SecurityLink != null ? BuildSecurityLink(logProfile.SecurityLink.Link) : string.Empty
             }).ToList();
         }
 
         private static string BuildSecurityLink(string value)
         {
-            return string.Format("diary/{0}", value);
+            return $"diary/{value}";
+        }
+
+        public List<FoodDto> ToFoodsDto(IEnumerable<Food> items)
+        {
+            return items.Select(i => new FoodDto
+            {
+                GlobalId = i.GlobalId,
+                LogDate = i.LogDate,
+                Message = i.Message,
+                Calories = i.Calories,
+                ProfileId = i.LogProfile.GlobalId,
+                FoodTypes = i.FoodTypes
+            }).ToList();
         }
 
         public List<TerapyDto> ToTerapiesDto(IEnumerable<Terapy> terapies)

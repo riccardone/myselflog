@@ -51,8 +51,8 @@ namespace MySelf.WebClient.Controllers
         //
         // POST: /Account/LogOff
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             WebSecurity.Logout();
@@ -72,11 +72,12 @@ namespace MySelf.WebClient.Controllers
                 // Attempt to register the user
                 try
                 {
-                    CreateOrUpdatePerson(model.UserName);
+
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-
+                    //CreateOrUpdatePerson(model.UserName);
                     FormsAuthentication.SetAuthCookie(model.UserName, createPersistentCookie: false);
+                    CreateLogProfile(model.UserName);
                     return Json(new { success = true, redirect = returnUrl });
                 }
                 catch (MembershipCreateUserException e)
@@ -107,6 +108,18 @@ namespace MySelf.WebClient.Controllers
                 });
                 _logManager.Save();
             }
+        }
+
+        private void CreateLogProfile(string username)
+        {
+            var p = _logManager.ModelReader.GetPerson(username);
+            _logManager.LogCommands.AddLogProfile(new LogProfile
+            {
+                Name = LogProfile.DefaultName,
+                Person = p,
+                GlobalId = Guid.NewGuid()
+            });
+            _logManager.Save();
         }
 
         //

@@ -1,5 +1,5 @@
     'use strict';
-
+ 
     myselflogApp.factory('userData', ['userResource', function (userResource) {
 //    debugger;
     return {

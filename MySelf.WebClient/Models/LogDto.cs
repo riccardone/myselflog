@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using Newtonsoft.Json.Linq;
 
 namespace MySelf.WebClient.Models
 {
@@ -31,5 +33,9 @@ namespace MySelf.WebClient.Models
 
         [DataMember(Name = "terapyglobalid")]
         public Guid? TerapyGlobalId { get; set; }
+        [DataMember(Name = "calories")]
+        public int Calories { get; set; }
+        [DataMember(Name = "foodTypes")]
+        public IEnumerable<string> FoodTypes { get; set; }
     }
 }

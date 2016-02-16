@@ -8,96 +8,40 @@ namespace MySelf.WebClient
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.UseCdn = true;   //enable CDN support
+            bundles.UseCdn = false;   //enable CDN support
 
-            bundles.Add(new ScriptBundle("~/bundles/raphael",
-                "//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js").Include(
-                "~/Scripts/raphael-min.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/morris",
-                "http://cdn.oesmith.co.uk/morris-0.4.3.min.js").Include(
-                "~/Scripts/morris-0.4.3.min.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqplot")
-                .Include("~/Scripts/jquery.jqplot.min.js")
-                .Include("~/Scripts/jplotplugins/jqplot.highlighter.min.js")
-                .Include("~/Scripts/jplotplugins/jqplot.cursor.min.js")
-                .Include("~/Scripts/jplotplugins/jqplot.dateAxisRenderer.min.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jquery",
-                "http://codeorigin.jquery.com/jquery-2.0.3.min.js").Include(
-                "~/Scripts/jquery-2.0.3.min.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jslibs")
-                            .Include("~/Scripts/toastr.min.js")
-                            .Include("~/Scripts/moment.min.js")
-                );
-
-            bundles.Add(new ScriptBundle("~/bundles/prologue")
-                            .Include("~/Scripts/skel.min.js")
-                            .Include("~/Scripts/skel-panels.min.js")
-                            .Include("~/Scripts/init.js")
-                );
-
-            bundles.Add(new ScriptBundle("~/bundles/ajaxlogin").Include(
-                "~/app/js/ajaxlogin.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/angular")
+            bundles.Add(new ScriptBundle("~/bundles/superciccio")
+                            .Include("~/Scripts/toastr.js")
+                            .Include("~/Scripts/moment.js")
+                            .Include("~/Scripts/jquery-ui-{version}.js")
+                            .Include("~/Scripts/raphael-min.js")
+                            .Include("~/Scripts/morris.min.js")
+                            .Include("~/Scripts/ajaxlogin.js")
+                            .Include("~/Scripts/bootstrap.min.js")
+                            .Include("~/Scripts/bootstrap-datepicker.min.js")
+                            .Include("~/Scripts/bootstrap-datetimepicker.min.js")
                             .Include("~/Scripts/angular.min.js")
-                            .Include("~/Scripts/angular-sanitize.min.js")
-                            .Include("~/Scripts/angular-resource.min.js")
-                            .Include("~/Scripts/ui-bootstrap-0.6.0.min.js")
-                            .Include("~/Scripts/ui-bootstrap-tpls-0.6.0.min.js")
-                            .Include("~/Scripts/ng-table.js")
+                            .Include("~/Scripts/angular-resource.js")
+                            .Include("~/Scripts/angular-route.js")
+                            .Include("~/Scripts/angular-animate.js")
+                            .Include("~/Scripts/angular-ui/ui-bootstrap.js")
                             );
 
             bundles.Add(new ScriptBundle("~/bundles/myselflog")
-                .Include("~/app/js/myselflog.main.js")
-                .Include("~/app/js/services/authentication.js")
-                .Include("~/app/js/services/values.service.js")
-                .Include("~/app/js/services/logger.js")
+                .Include("~/app/js/*.js")
+                .Include("~/app/js/services/*.js")
+                .Include("~/app/js/controllers/*.js")
                 .Include("~/app/js/services/ng-csv.min.js")
-                .Include("~/app/js/services/myselflog.resource.js")
-                .Include("~/app/js/services/logprofile.resource.js")
-                .Include("~/app/js/services/securitylink.resource.js")
-                .Include("~/app/js/services/friendwithlink.resource.js")
-                .Include("~/app/js/services/friendInvite.resource.js")
-                .Include("~/app/js/services/terapy.resource.js")
-                .Include("~/app/js/services/friend.resource.js")
-                .Include("~/app/js/services/myselflog.datacontext.js")
-                .Include("~/app/js/services/user.resource.js")
-                .Include("~/app/js/services/user.datacontext.js")
-                .Include("~/app/js/services/friendwithlink.datacontext.js")
-                .Include("~/app/js/services/friend.datacontext.js")
-                .Include("~/app/js/controllers/modalFriendInviteInstance.controller.js")
-                .Include("~/app/js/controllers/login.controller.js")
-                .Include("~/app/js/controllers/graph.controller.js")
-                .Include("~/app/js/controllers/profile.controller.js")
-                .Include("~/app/js/controllers/loader.controller.js")
-                .Include("~/app/js/controllers/profiles.controller.js")
-                .Include("~/app/js/controllers/newfriend.controller.js")
-                .Include("~/app/js/controllers/newgraph.controller.js")
                 );
-
-            bundles.Add(new ScriptBundle("~/bundles/jquerymobile")
-                .Include("~/Scripts/jquery.mobile*"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryui")
-                .Include("~/Scripts/jquery-ui-{version}.js")
-                .Include("~/Scripts/dateTimePicker.js")
-                );
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.unobtrusive*",
-                        "~/Scripts/jquery.validate*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/morriscss", "http://cdn.oesmith.co.uk/morris-0.4.3.min.css")
-                .Include("~/Content/morris-0.4.3.min.css"));
+            bundles.Add(new StyleBundle("~/Content/morriscss",
+                "http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css").Include("~/Content/morris.css"));
+            //"http://cdn.oesmith.co.uk/morris-0.4.3.min.css").Include("~/Content/morris-0.4.3.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/jqplotcss")
                 .Include("~/Content/jquery.jqplot.css"));

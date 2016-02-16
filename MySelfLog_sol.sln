@@ -1,8 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7463CBB9-BA35-4610-9472-F350EC59422E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Diab.Data", "MySelf.Diab.Data\MySelf.Diab.Data.csproj", "{A773B716-46C9-4107-B0D6-19A92C80F06F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Diab.Model", "MySelf.Diab.Model\MySelf.Diab.Model.csproj", "{412DF505-B374-4814-B014-A6437760F242}"
@@ -14,19 +21,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Diab.Security", "MySelf.Diab.Security\MySelf.Diab.Security.csproj", "{5939D74E-21DA-4203-94AB-2EF1296C9090}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Diab.Core.Contracts", "MySelf.Diab.Core.Contracts\MySelf.Diab.Core.Contracts.csproj", "{0F81E1BC-1CD4-4B27-BC47-C053BEEBE42C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7463CBB9-BA35-4610-9472-F350EC59422E}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.WebClientTest", "MySelf.WebClientTest\MySelf.WebClientTest.csproj", "{9046B973-CC50-4C9C-AFD5-AE3ACDCE1D81}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Exporter", "MySelf.Exporter\MySelf.Exporter.csproj", "{7ADDC67C-015E-4CCD-AA29-336ED7849A38}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf.Web", "MySelf.Web\MySelf.Web.csproj", "{010F2688-1DEE-4BB4-88D1-B42FE76067DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,18 +52,6 @@ Global
 		{0F81E1BC-1CD4-4B27-BC47-C053BEEBE42C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F81E1BC-1CD4-4B27-BC47-C053BEEBE42C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F81E1BC-1CD4-4B27-BC47-C053BEEBE42C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9046B973-CC50-4C9C-AFD5-AE3ACDCE1D81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9046B973-CC50-4C9C-AFD5-AE3ACDCE1D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9046B973-CC50-4C9C-AFD5-AE3ACDCE1D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9046B973-CC50-4C9C-AFD5-AE3ACDCE1D81}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7ADDC67C-015E-4CCD-AA29-336ED7849A38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7ADDC67C-015E-4CCD-AA29-336ED7849A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7ADDC67C-015E-4CCD-AA29-336ED7849A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7ADDC67C-015E-4CCD-AA29-336ED7849A38}.Release|Any CPU.Build.0 = Release|Any CPU
-		{010F2688-1DEE-4BB4-88D1-B42FE76067DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{010F2688-1DEE-4BB4-88D1-B42FE76067DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{010F2688-1DEE-4BB4-88D1-B42FE76067DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{010F2688-1DEE-4BB4-88D1-B42FE76067DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

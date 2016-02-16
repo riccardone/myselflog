@@ -1,9 +1,9 @@
 ﻿<script type="text/ng-template" id="mySendInviteModalContent.html">
     <div class="modal-header">
-    <h3>Send an invite to a friend</h3>
+        <h3>Send an invite to a friend</h3>
     </div>
     <div class="modal-body">
-        <p>Press "send" button to send an invite to share with your friend your logged values. No other informations then values will be shared.</p>         
+        <p>Press "send" button to send an invite to share with your friend your logged values. No other informations then values will be shared.</p>
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" ng-click="ok()">Send</button>
@@ -15,80 +15,64 @@
     <header>
         <h2 class="alt">{{selectedprofile.name}}</h2>
     </header>
-    <form name="logForm" class="css-form">
-        <!--<tabset>
-            <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
-                <div ng-include="tab.template"></div>
-            </tab>
-        </tabset>-->
-        <input type="number" min="1" max="800" name="value" data-ng-model="item.value" placeholder="Type a numeric value" style="height: 30px" />
-        <textarea style="display: none" data-ng-model="item.message" placeholder="Type a message (optional)"></textarea>
-        <!--<input type="text" ng-model="item.logDate" placeholder="Select a date and time" />-->
-        <div id="logDate">
-            <input type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="item.logDate" show-weeks="false" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" />
+    <form name="logForm">
+        <div class="row">
+            <div class="col-md-6">
+                <input type="number" min="1" max="800" name="value" data-ng-model="item.value" placeholder="value" style="height: 30px; width: 150px"/>
+            </div>
+            <div class="col-md-6">
+                <input id="valuemmol" type="number" min="1" max="800" name="valuemmol" data-ng-model="valuemmol" ng-change="convertFromMmol()" placeholder="mmol value" style="height: 30px; width: 150px" />
+            </div>
         </div>
-        <div id="logTime" ng-model="item.logTime" ng-change="changed()" class="well well-small" style="display: inline-block;">
-            <timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+        <div class="row">
+            <div class="col-md-6">
+                <input type="number" min="0" max="200" name="slowvalue" data-ng-model="item.slowvalue" placeholder="SLOW terapy number" style="height: 30px; width: 150px" />
+            </div>
+            <div class="col-md-6">
+                <input type="number" min="0" max="200" name="fastvalue" data-ng-model="item.fastvalue" placeholder="FAST terapy number" style="height: 30px; width: 150px" />
+            </div>
         </div>
-        <button class="btn btn-link" ng-click="isTerapyCollapsed = !isTerapyCollapsed">Log terapy</button>
-        <div id="terapyPanel" collapse="isTerapyCollapsed">
-            <!--<input type="checkbox" ng-model="item.isslow" />-->
-            <input type="number" min="0" max="200" name="slowvalue" data-ng-model="item.slowvalue" placeholder="SLOW terapy number" style="height: 30px" />
-            <input type="number" min="0" max="200" name="fastvalue" data-ng-model="item.fastvalue" placeholder="FAST terapy number" style="height: 30px" />
+        <div class="row">
+            <!--<div class="col-md-6">
+                <label class="fooditems" ng-repeat="foodType in foodTypes">
+                    <input type="checkbox" ng-model="item.foodTypes[foodType]">
+                    <img ng-src="../FoodTypes/{{foodType}}.png" alt="{{foodType}}" />
+                </label>
+            </div>-->
+            <div class="col-md-12">
+                <input type="number" min="0" max="1000" name="calories" data-ng-model="item.calories" placeholder="Calories" style="height: 30px; width: 150px" />
+            </div>
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button id="btnSubmit" name="btnSubmit" ng-click="addValue()" ng-disabled="loading" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="col-md-6">
+                <button id="btnReset" name="btnReset" ng-click="resetItem()" ng-disabled="loading" class="btn btn-warning">Reset</button>
+            </div>
+            </div>
         <input type="hidden" data-ng-model="item.selectedProfileId" value="selectedprofile.globalid" />
-        <div id="logFormBotton">
-            <button id="btnSubmit" name="btnSubmit" ng-click="addValue()" ng-disabled="loading" class="btn btn-primary">Submit</button>
-            <button id="btnReset" name="btnReset" ng-click="resetItem()" ng-disabled="loading" class="btn btn-warning">Reset</button>
-        </div>
     </form>
     {{active()}}
     <p><a ng-href="../{{selectedprofile.securitylink}}" target="blank">{{selectedprofile.securitylink}}</a></p>
-    <accordion close-others="oneAtATime">
-        <accordion-group heading="Static Header">
-            <accordion-heading>
-                Share profile options <!--<i class="icon-share"></i>-->
-            </accordion-heading>
-            <div id="profileOptions">
-                <button class="btn btn-default" ng-click="addSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securitylink.length == 0">Share with a link</button>
-                <button class="btn btn-default" ng-click="addSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securitylink.length > 0">Create new share link</button>
-                <button class="btn btn-default" ng-click="deleteSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securitylink.length > 0">Delete share link</button>
-                <button class="btn btn-default" ng-csv="getLogsForExport()" csv-header="getHeader()" filename="{{filename}}.csv">Export</button>
-                <form name="friendForm">
-                    <label for="txtFriendEmail">Allow a friend to see your diary</label>
-                    <input type="email" ng-model="friendEmail" name="txtFriendEmail" id="txtFriendEmail" placeholder="Type your friend email here" />
-                    <span class="error" ng-show="friendForm.input.$error.email">Not valid email!</span>
-                    <button class="btn btn-default" ng-click="addFriend(friendEmail, selectedprofile.globalid)">Add friend</button>
-                    <div class="valueinnerlist" ng-repeat="friend in selectedprofile.friends | orderBy:email">
-                        <button ng-click="removeFriend(friend.email)" class="btn btn-warning">X</button>
-                        {{friend.email}}
-                        <button ng-click="openInvite(friend.email)" class="btn btn-primary">Invite</button>
-                    </div>
-                </form>
-            </div>
-        </accordion-group>
-        <accordion-group>
-            <accordion-heading>
-                Show values <!--<i class="icon-th-list"></i>-->
-            </accordion-heading>
-            <div class="valueinnerlist" ng-repeat="log in selectedprofile.logs | orderBy:LogDate:reverse">
-                <button ng-click="remove(log)" class="btn btn-warning">X</button>
-                <a href ng-click="setReport(log.logdate, 'day')">{{log.value}} - {{log.logdate}}</a>
-            </div>
-            <p ng-show="selectedprofile.logs == 0">There are not any logged values</p>
-        </accordion-group>
-        <accordion-group>
-            <accordion-heading>
-                Show terapies <!--<i class="icon-th-list"></i>-->
-            </accordion-heading>
-            <div class="valueinnerlist" ng-repeat="terapy in selectedprofile.terapies | orderBy:LogDate:reverse">
-                <button ng-click="removeTerapy(terapy)" class="btn btn-warning">X</button>
-                <span>IsSlow: {{terapy.isslow}} - {{terapy.terapyvalue}} - {{terapy.logdate}}</span>
-            </div>
-            <p ng-show="selectedprofile.terapies == 0">There are not any logged values</p>
-        </accordion-group>
-    </accordion>
-
     <footer>
+        Share profile options
+        <div id="profileOptions">
+            <button class="btn btn-default" ng-click="addSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securitylink.length == 0">Share with a link</button>
+            <button class="btn btn-default" ng-click="addSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securitylink.length > 0">Create new share link</button>
+            <button class="btn btn-default" ng-click="deleteSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securitylink.length > 0">Delete share link</button>
+                <button class="btn btn-default" ng-csv="getLogsForExport()" csv-header="getHeader()" filename="{{filename}}.csv">Export</button>
+            <form name="friendForm">
+                <label for="txtFriendEmail">Allow a friend to see your diary</label>
+                <input type="email" ng-model="friendEmail" name="txtFriendEmail" id="txtFriendEmail" placeholder="Type your friend email here" />
+                <span class="error" ng-show="friendForm.input.$error.email">Not valid email!</span>
+                <button class="btn btn-default" ng-click="addFriend(friendEmail, selectedprofile.globalid)">Add friend</button>
+                <div class="valueinnerlist" ng-repeat="friend in selectedprofile.friends | orderBy:email">
+                    <button ng-click="removeFriend(friend.email)" class="btn btn-warning">X</button>
+                    {{friend.email}}
+                    <button ng-click="openInvite(friend.email)" class="btn btn-primary">Invite</button>
+                </div>
+            </form>
+        </div>
     </footer>
 </div>

@@ -1,25 +1,28 @@
-﻿window.myselflogApp = angular.module('myselflogApp', ['ui.bootstrap', 'ngResource', 'ngTable', 'ngCsv']);
+﻿window.myselflogApp = angular.module('myselflogApp', ['ngResource', 'ngRoute', 'ui.bootstrap']);
 
 myselflogApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
         when('/diary/:link', { templateUrl: '/app/views/diary.view.html', controller: 'NewFriendController' }).
-        //when('/diary/:link', { templateUrl: '/app/views/diary2.view.html', controller: 'NewGraphController' }).
         when('/profile/:id', { templateUrl: '/app/views/profile.view.html', controller: 'ProfileController' }).
         when('/', { templateUrl: 'app/views/profiles.view.html', controller: 'ProfilesController' }).
         otherwise({ redirectTo: '/' });
-    $locationProvider.html5Mode(true);
+
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
 }]);
 
-myselflogApp.directive('dateTimepicker', function () {
-    var linker = function (scope, element, attrs) {
-        element.datetimepicker();
-    };
+//myselflogApp.directive('dateTimepicker', function () {
+//    var linker = function (scope, element, attrs) {
+//        element.datetimepicker();
+//    };
 
-    return {
-        restrict: 'A',
-        link: linker
-    };
-});
+//    return {
+//        restrict: 'A',
+//        link: linker
+//    };
+//});
 
 myselflogApp.directive('ccSpinner', ['$window', function ($window) {
     // Description:

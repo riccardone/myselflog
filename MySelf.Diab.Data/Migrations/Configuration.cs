@@ -1,11 +1,10 @@
-using System.Web;
-
 namespace MySelf.Diab.Data.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Web;
 
     internal sealed class Configuration : DbMigrationsConfiguration<MySelf.Diab.Data.DiabDbContext>
     {
