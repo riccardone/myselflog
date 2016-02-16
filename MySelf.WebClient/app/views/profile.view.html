@@ -55,5 +55,23 @@
     </form>
     {{active()}}
     <p><a ng-href="../{{selectedprofile.securitylink}}" target="blank">{{selectedprofile.securitylink}}</a></p>
-    <footer></footer>
+    <footer>
+        Share profile options
+        <div id="profileOptions">
+            <button class="btn btn-default" ng-click="addSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securitylink.length == 0">Share with a link</button>
+            <button class="btn btn-default" ng-click="addSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securitylink.length > 0">Create new share link</button>
+            <button class="btn btn-default" ng-click="deleteSecurityLink(selectedprofile.globalid)" ng-show="selectedprofile.securitylink.length > 0">Delete share link</button>
+            <form name="friendForm">
+                <label for="txtFriendEmail">Allow a friend to see your diary</label>
+                <input type="email" ng-model="friendEmail" name="txtFriendEmail" id="txtFriendEmail" placeholder="Type your friend email here" />
+                <span class="error" ng-show="friendForm.input.$error.email">Not valid email!</span>
+                <button class="btn btn-default" ng-click="addFriend(friendEmail, selectedprofile.globalid)">Add friend</button>
+                <div class="valueinnerlist" ng-repeat="friend in selectedprofile.friends | orderBy:email">
+                    <button ng-click="removeFriend(friend.email)" class="btn btn-warning">X</button>
+                    {{friend.email}}
+                    <button ng-click="openInvite(friend.email)" class="btn btn-primary">Invite</button>
+                </div>
+            </form>
+        </div>
+    </footer>
 </div>

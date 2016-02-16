@@ -41,10 +41,10 @@ namespace MySelf.WebClient.Models
             {
                 GlobalId = logProfile.GlobalId,
                 Name = logProfile.Name,
-                Logs = ToLogsDto(logProfile.GlucoseLevels),
+                Logs = ToLogsDto(logProfile.GlucoseLevels ?? new List<GlucoseLevel>()),
                 Friends = ToFriendsDto(logProfile.Friends),
-                Terapies = ToTerapiesDto(logProfile.Terapies),
-                Foods = ToFoodsDto(logProfile.Foods),
+                Terapies = ToTerapiesDto(logProfile.Terapies ?? new List<Terapy>()),
+                Foods = ToFoodsDto(logProfile.Foods ?? new List<Food>()),
                 SecurityLink = logProfile.SecurityLink != null ? BuildSecurityLink(logProfile.SecurityLink.Link) : string.Empty
             }).ToList();
         }

@@ -8,6 +8,7 @@ namespace MySelf.Diab.Data.Contracts
     {
         bool UserExist(string email);
         List<LogProfile> GetLogProfilesAsOwner(string email);
+        List<LogProfile> GetLogProfilesAsOwnerWithoutRelatedEntities(string email);
         List<LogProfile> GetLogProfilesAsFriend(string email);
         bool IsFriend(string email);
         LogProfile GetLogProfile(Guid globalId);

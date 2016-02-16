@@ -88,5 +88,15 @@ namespace MySelf.Diab.Data
         {
             return _db.People.FirstOrDefault(a => a.Email.Equals(username));
         }
+
+        public List<LogProfile> GetLogProfilesAsOwnerWithoutRelatedEntities(string email)
+        {
+            var res =
+                _db.LogProfiles
+                   .Include(o => o.Person).Include(s => s.SecurityLink)
+                   .Include(f => f.Friends)
+                   .Where(g => g.Person.Email == email).ToList();
+            return res;
+        }
     }
 }

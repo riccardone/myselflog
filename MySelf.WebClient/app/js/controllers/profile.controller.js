@@ -239,62 +239,74 @@
         function addValue() {
             $scope.loading = true;
             
-            //var logDate = moment($scope.item.logDate).toDate();
-            //var logTime = moment($scope.item.logTime).toDate();
-            
-            //// Aggregate date with time
-            //logDate.setHours(logTime.getHours());
-            //logDate.setMinutes(logTime.getMinutes());
-            //logDate.setSeconds(logTime.getSeconds());
-            //logDate.setSeconds(logTime.getMilliseconds());
-            
-            // Define a base log
-            var log = {
-                'value': 0,
-                'LogDate': moment().toDate(),
-                'Message': $scope.item.message,
-                'ProfileId': $scope.selectedprofile.globalid,
-                'isslow': false,
-                'terapyvalue': 0,
-                'calories': 0,
-                'foodTypes': []
-            };
-            
             // Log blood sugar level
             if ($scope.item.value > 0) {
-                log.value = $scope.item.value;
+                var log = {
+                    'value': $scope.item.value,
+                    'LogDate': moment().toDate(),
+                    'Message': '',
+                    'ProfileId': $scope.selectedprofile.globalid,
+                    'isslow': true,
+                    'terapyvalue': $scope.item.slowvalue,
+                    'calories': 0,
+                    'foodTypes': []
+                };
                 log.Value = $scope.item.value;
                 datacontext.save(log, addSucceeded);
                 log.value = 0;
             }
             // Log slow terapy
             if ($scope.item.slowvalue > 0) {
-                log.isslow = true;
-                log.terapyvalue = $scope.item.slowvalue;
-                datacontext.save(log, addSucceeded);
+                var logSlow = {
+                    'value': 0,
+                    'LogDate': moment().toDate(),
+                    'Message': '',
+                    'ProfileId': $scope.selectedprofile.globalid,
+                    'isslow': true,
+                    'terapyvalue': $scope.item.slowvalue,
+                    'calories': 0,
+                    'foodTypes': []
+                };
+                datacontext.save(logSlow, addSucceeded);
             }
             // Log fast terapy
             if ($scope.item.fastvalue > 0) {
-                log.isslow = false;
-                log.terapyvalue = $scope.item.fastvalue;
-                datacontext.save(log, addSucceeded);
+                var logFast = {
+                    'value': 0,
+                    'LogDate': moment().toDate(),
+                    'Message': '',
+                    'ProfileId': $scope.selectedprofile.globalid,
+                    'isslow': false,
+                    'terapyvalue': $scope.item.fastvalue,
+                    'calories': 0,
+                    'foodTypes': []
+                };
+                datacontext.save(logFast, addSucceeded);
             }
 
             if ($scope.item.calories > 0) {
-                log.foodTypes = [];
+                var logFood = {
+                    'value': 0,
+                    'LogDate': moment().toDate(),
+                    'Message': '',
+                    'ProfileId': $scope.selectedprofile.globalid,
+                    'isslow': false,
+                    'terapyvalue': 0,
+                    'calories': 0,
+                    'foodTypes': []
+                };
                 for (var i = 0; i < $scope.foodTypes.length; i++) {
                     if ($scope.item.foodTypes[$scope.foodTypes[i]]) {
-                        log.foodTypes.push($scope.foodTypes[i]);
+                        logFood.foodTypes.push($scope.foodTypes[i]);
                     }
                 }
-                log.calories = $scope.item.calories;
-                datacontext.save(log, addSucceeded);
+                logFood.calories = $scope.item.calories;
+                datacontext.save(logFood, addSucceeded);
             }
             
             function addSucceeded(value) {
                 if (value.globalid) {
                     $scope.selectedprofile.logs.push(value);
-                    //refreshGraph();
                 }
                 if (value.terapyglobalid) {
                     $scope.selectedprofile.terapies.push(value);
