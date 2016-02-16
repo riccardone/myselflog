@@ -37,6 +37,22 @@ namespace MySelf.WebClient
             bundles.Add(new ScriptBundle("~/bundles/ajaxlogin").Include(
                 "~/app/js/ajaxlogin.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/superciccio")
+                            .Include("~/Scripts/toastr.js")
+                            .Include("~/Scripts/moment.js")
+                            .Include("~/Scripts/jquery-ui-1.10.3.min.js")
+                            .Include("~/Scripts/morris.min.js")
+                            .Include("~/Scripts/ajaxlogin.js")
+                            .Include("~/Scripts/bootstrap.min.js")
+                            .Include("~/Scripts/bootstrap-datepicker.min.js")
+                            .Include("~/Scripts/bootstrap-datetimepicker.min.js")
+                            .Include("~/Scripts/angular.min.js")
+                            .Include("~/Scripts/angular-resource.js")
+                            .Include("~/Scripts/angular-route.js")
+                            .Include("~/Scripts/angular-animate.js")
+                            .Include("~/Scripts/angular-ui/ui-bootstrap.js")
+                            );
+
             bundles.Add(new ScriptBundle("~/bundles/angular")
                             .Include("~/Scripts/angular.js")
                             .Include("~/Scripts/angular-resource.js")
@@ -49,30 +65,9 @@ namespace MySelf.WebClient
                             );
 
             bundles.Add(new ScriptBundle("~/bundles/myselflog")
-                .Include("~/app/js/myselflog.main.js")
-                .Include("~/app/js/services/authentication.js")
-                .Include("~/app/js/services/values.service.js")
-                .Include("~/app/js/services/logger.js")
-                .Include("~/app/js/services/myselflog.resource.js")
-                .Include("~/app/js/services/logprofile.resource.js")
-                .Include("~/app/js/services/securitylink.resource.js")
-                .Include("~/app/js/services/friendwithlink.resource.js")
-                .Include("~/app/js/services/friendInvite.resource.js")
-                .Include("~/app/js/services/terapy.resource.js")
-                .Include("~/app/js/services/friend.resource.js")
-                .Include("~/app/js/services/myselflog.datacontext.js")
-                .Include("~/app/js/services/user.resource.js")
-                .Include("~/app/js/services/user.datacontext.js")
-                .Include("~/app/js/services/friendwithlink.datacontext.js")
-                .Include("~/app/js/services/friend.datacontext.js")
-                .Include("~/app/js/controllers/modalFriendInviteInstance.controller.js")
-                .Include("~/app/js/controllers/login.controller.js")
-                .Include("~/app/js/controllers/graph.controller.js")
-                .Include("~/app/js/controllers/profile.controller.js")
-                .Include("~/app/js/controllers/loader.controller.js")
-                .Include("~/app/js/controllers/profiles.controller.js")
-                .Include("~/app/js/controllers/newfriend.controller.js")
-                .Include("~/app/js/controllers/newgraph.controller.js")
+                .Include("~/app/js/*.js")
+                .Include("~/app/js/services/*.js")
+                .Include("~/app/js/controllers/*.js")
                 );
 
             bundles.Add(new ScriptBundle("~/bundles/jquerymobile")

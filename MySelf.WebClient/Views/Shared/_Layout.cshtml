@@ -12,7 +12,7 @@
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600" rel="stylesheet" type="text/css" />
     <!--[if lte IE 8]><script src="../../Scripts/html5shiv.js"></script><![endif]-->
     @*@Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/prologue")*@
+        @Scripts.Render("~/bundles/prologue")*@
     <script src="~/Scripts/jquery-2.0.3.js"></script>
     <script src="~/Scripts/skel.min.js"></script>
     <script src="~/Scripts/skel-panels.min.js"></script>
@@ -91,26 +91,8 @@
                 </ul>*@
     </div>
 </div>
-    @*@Scripts.Render("~/bundles/jslibs")*@
-    <script src="~/Scripts/toastr.js"></script>
-    <script src="~/Scripts/moment.js"></script>
-    <script src="~/Scripts/jquery-ui-1.10.3.min.js"></script>
-    @*@Scripts.Render("~/bundles/jqueryui")*@
-    @*@Scripts.Render("~/bundles/raphael")*@
-    <script src="~/Scripts/morris.min.js"></script>
-    @*@Scripts.Render("~/bundles/ajaxlogin")*@
-    <script src="~/app/js/ajaxlogin.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
-    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
-    @*<script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>*@
-    <script src="~/Scripts/angular.js"></script>
-    <script src="~/Scripts/angular-resource.js"></script>
-    <script src="~/Scripts/angular-route.js"></script>
-<script src="~/Scripts/angular-animate.js"></script>
-    <script src="~/Scripts/angular-ui/ui-bootstrap.js"></script>
+    @Scripts.Render("~/bundles/raphael")
+    @Scripts.Render("~/bundles/superciccio")
     @RenderSection("scripts", false)
-    @*<script src="~/Scripts/angular-animate.js"></script>
-        <script src="~/Scripts/angular-ui/ui-bootstrap.js"></script>*@
 </body>
 </html>
