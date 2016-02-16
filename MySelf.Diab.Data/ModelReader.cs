@@ -3,6 +3,7 @@ using System.Linq;
 using MySelf.Diab.Data.Contracts;
 using MySelf.Diab.Model;
 using System.Data.Entity;
+using System;
 
 namespace MySelf.Diab.Data
 {
@@ -36,6 +37,8 @@ namespace MySelf.Diab.Data
                    .Include(t => t.Terapies)
                    .Include(o => o.Person).Include(s => s.SecurityLink)
                    .Include(f => f.Friends)
+                   .Include(t => t.Terapies)
+                   .Include(t => t.Foods)
                    .Include("Friends.FriendActivities")
                    .Where(g => g.Person.Email == email).ToList();
             return res;
@@ -60,6 +63,7 @@ namespace MySelf.Diab.Data
                 .Include(s => s.SecurityLink)
                 .Include(g => g.GlucoseLevels)
                 .Include(t => t.Terapies)
+                .Include(t => t.Foods)
                 .FirstOrDefault(l => l.GlobalId == globalId);
         }
 
@@ -72,11 +76,27 @@ namespace MySelf.Diab.Data
                 .Include(s => s.SecurityLink)
                 .Include(g => g.GlucoseLevels)
                 .Include(t => t.Terapies)
+                .Include(t => t.Foods)
                 .FirstOrDefault(l => l.SecurityLink.Link == securityLink);
 
             if (profile != null)
                 profile.GlucoseLevels = profile.GlucoseLevels.OrderBy(g => g.LogDate).ToList();
             return profile;
+        }
+
+        public Person GetPerson(string username)
+        {
+            return _db.People.FirstOrDefault(a => a.Email.Equals(username));
+        }
+
+        public List<LogProfile> GetLogProfilesAsOwnerWithoutRelatedEntities(string email)
+        {
+            var res =
+                _db.LogProfiles
+                   .Include(o => o.Person).Include(s => s.SecurityLink)
+                   .Include(f => f.Friends)
+                   .Where(g => g.Person.Email == email).ToList();
+            return res;
         }
     }
 }

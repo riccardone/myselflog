@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MySelf.Diab.Model
 {
@@ -17,7 +14,7 @@ namespace MySelf.Diab.Model
         public List<Friend> Friends { get; set; }
         public List<GlucoseLevel> GlucoseLevels { get; set; }
         public List<Terapy> Terapies { get; set; }
-
+        public List<Food> Foods { get; set; }
         public const string DefaultName = "Default";
     }
 }

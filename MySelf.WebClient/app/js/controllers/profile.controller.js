@@ -1,6 +1,6 @@
 ﻿myselflogApp.controller('ProfileController',
-    ['$scope', 'datacontext', '$filter', '$routeParams', '$modal', '$log', 'logger', 
-    function ($scope, datacontext, $filter, $routeParams, $modal, $log, logger) {
+    ['$scope', 'datacontext', '$filter', '$routeParams', '$log', 'logger', 
+    function ($scope, datacontext, $filter, $routeParams, $log, logger) {
         $scope.loading = false;
         $scope.id = $routeParams.id;
         $scope.addValue = addValue;
@@ -9,6 +9,7 @@
         $scope.logs = [];
         $scope.friends = [];
         $scope.isTerapyCollapsed = true;
+        $scope.isFoodCollapsed = true;
         $scope.oneAtATime = true;
         $scope.hstep = 1;
         $scope.mstep = 1;
@@ -18,26 +19,44 @@
             console.log('Time changed to: ' + $scope.item.logTime);
         };
         $scope.resetItem = resetItem;
+        $scope.foodTypes = ["Snack", "Fruit"]; //, "Lunch", "Dinner", "Chocholate", "Fruit", "Nuts", "Cake"];
+        $scope.getFoodTypes = function () {
+            return $scope.foodTypes;
+        };
+        $scope.checkFood = function (value, checked) {
+            var idx = -1;
+            if ($scope.item.foodTypes) {
+                idx = $scope.item.foodTypes.indexOf(value);
+                if (idx >= 0 && !checked) {
+                    $scope.item.foodTypes.splice(idx, 1);
+                } else {
+                    $scope.item.foodTypes = [];
+                }
+            }
+            
+            if (idx < 0 && checked) {
+                $scope.item.foodTypes.push(value);
+            }
+        };
 
         /* modal */
-        $scope.openInvite = function (email) {
+        //$scope.openInvite = function (email) {
+        //    var modalInstance = $modal.open({
+        //        templateUrl: 'mySendInviteModalContent.html',
+        //        controller: 'ModalFriendInviteController',
+        //        resolve: {
+        //            items: function () {
+        //                return {}; 
+        //            }
+        //        }
+        //    });
 
-            var modalInstance = $modal.open({
-                templateUrl: 'mySendInviteModalContent.html',
-                controller: 'ModalFriendInviteController',
-                resolve: {
-                    items: function () {
-                        return {}; 
-                    }
-                }
-            });
-
-            modalInstance.result.then(function (message) {
-                datacontext.sendInvite($scope.selectedprofile.globalid, email, "");
-            }, function () {
-                $log.info('Modal dismissed at: ' + new Date());
-            });
-        };
+        //    modalInstance.result.then(function (message) {
+        //        datacontext.sendInvite($scope.selectedprofile.globalid, email, "");
+        //    }, function () {
+        //        $log.info('Modal dismissed at: ' + new Date());
+        //    });
+        //};
         /* end modal */
         
         //function toggleSpinner(on) { $scope.isBusy = on; }
@@ -88,16 +107,17 @@
         };
         /* end date picker */
 
-        $scope.item = {};
+        $scope.item = { foodTypes: [] };
         $scope.report = "year";
         $scope.date = getJustToday();
         $scope.setReport = setReport;
         $scope.myOptions = { data: 'logs' };
 
         function resetItem() {
-            $scope.item = {}; //{ "value": null, "logDate": getJustToday(), "logTime": getNow(), "message": null };
+            $scope.item = { foodTypes: [] }; //{ "value": null, "logDate": getJustToday(), "logTime": getNow(), "message": null };
             $scope.item.logDate = getJustToday();
             $scope.item.logTime = getNow();
+            $scope.valuemmol = null;
         }
 
         function getNow() {
@@ -210,51 +230,83 @@
             $scope.selectedprofile.securitylink = data.link;
         }
 
+        $scope.convertFromMmol = function () {
+            if ($scope.valuemmol) {
+                $scope.item.value = Math.round($scope.valuemmol * 18.0182);
+            }
+        }
+
         function addValue() {
             $scope.loading = true;
             
-            var logDate = moment($scope.item.logDate).toDate();
-            var logTime = moment($scope.item.logTime).toDate();
-            
-            // Aggregate date with time
-            logDate.setHours(logTime.getHours());
-            logDate.setMinutes(logTime.getMinutes());
-            logDate.setSeconds(logTime.getSeconds());
-            logDate.setSeconds(logTime.getMilliseconds());
-            
-            // Define a base log
-            var log = {
-                'Value': 0,
-                'LogDate': logDate,
-                'Message': $scope.item.message,
-                'ProfileId': $scope.selectedprofile.globalid,
-                'isslow': false,
-                'terapyvalue': 0
-            };
-            
             // Log blood sugar level
             if ($scope.item.value > 0) {
-                log.value = $scope.item.value;
+                var log = {
+                    'value': $scope.item.value,
+                    'LogDate': moment().toDate(),
+                    'Message': '',
+                    'ProfileId': $scope.selectedprofile.globalid,
+                    'isslow': true,
+                    'terapyvalue': $scope.item.slowvalue,
+                    'calories': 0,
+                    'foodTypes': []
+                };
+                log.Value = $scope.item.value;
                 datacontext.save(log, addSucceeded);
                 log.value = 0;
             }
             // Log slow terapy
             if ($scope.item.slowvalue > 0) {
-                log.isslow = true;
-                log.terapyvalue = $scope.item.slowvalue;
-                datacontext.save(log, addSucceeded);
+                var logSlow = {
+                    'value': 0,
+                    'LogDate': moment().toDate(),
+                    'Message': '',
+                    'ProfileId': $scope.selectedprofile.globalid,
+                    'isslow': true,
+                    'terapyvalue': $scope.item.slowvalue,
+                    'calories': 0,
+                    'foodTypes': []
+                };
+                datacontext.save(logSlow, addSucceeded);
             }
             // Log fast terapy
             if ($scope.item.fastvalue > 0) {
-                log.isslow = false;
-                log.terapyvalue = $scope.item.fastvalue;
-                datacontext.save(log, addSucceeded);
+                var logFast = {
+                    'value': 0,
+                    'LogDate': moment().toDate(),
+                    'Message': '',
+                    'ProfileId': $scope.selectedprofile.globalid,
+                    'isslow': false,
+                    'terapyvalue': $scope.item.fastvalue,
+                    'calories': 0,
+                    'foodTypes': []
+                };
+                datacontext.save(logFast, addSucceeded);
+            }
+
+            if ($scope.item.calories > 0) {
+                var logFood = {
+                    'value': 0,
+                    'LogDate': moment().toDate(),
+                    'Message': '',
+                    'ProfileId': $scope.selectedprofile.globalid,
+                    'isslow': false,
+                    'terapyvalue': 0,
+                    'calories': 0,
+                    'foodTypes': []
+                };
+                for (var i = 0; i < $scope.foodTypes.length; i++) {
+                    if ($scope.item.foodTypes[$scope.foodTypes[i]]) {
+                        logFood.foodTypes.push($scope.foodTypes[i]);
+                    }
+                }
+                logFood.calories = $scope.item.calories;
+                datacontext.save(logFood, addSucceeded);
             }
             
             function addSucceeded(value) {
                 if (value.globalid) {
                     $scope.selectedprofile.logs.push(value);
-                    //refreshGraph();
                 }
                 if (value.terapyglobalid) {
                     $scope.selectedprofile.terapies.push(value);

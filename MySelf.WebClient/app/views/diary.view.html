@@ -2,27 +2,53 @@
     <header>
         <h2 class="alt">{{profile.name}}</h2>
     </header>
-    <div style="float: left">
-        <ul class="nav nav-pills">
-            <li data-ng-repeat="report in reports" data-ng-class="(report.name == selectedreport.name && 'active')">
-                <a href data-ng-click="setReport(report)">{{ report.name }}</a>
-            </li>
-        </ul>
-        Show terapies <input type="checkbox" ng-model="showTerapies">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-pills diaryactions">
+                <li>
+                    <button type="button" class="btn btn-default btn-sm" ng-click="previous()">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    </button>
+                </li>
+                <li><strong>{{selectedreport.description}}</strong></li>
+                <li>
+                    <button type="button" class="btn btn-default btn-sm" ng-click="next()">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    </button>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div>
-        <h3>{{selectedreport.description}}
-        </h3>
-        <button type="button" class="btn btn-default" data-ng-click="previous()">
-            <i class="icon-arrow-left"></i>
-        </button>
-        <button type="button" class="btn btn-default" data-ng-click="next()">
-            <i class="icon-arrow-right"></i>
-        </button>
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-pills">
+                <li data-ng-repeat="report in reports" data-ng-class="(report.name == selectedreport.name && 'active')">
+                    <a href data-ng-click="setReport(report)">{{ report.name }}</a>
+                </li>
+            </ul>
+        </div>
     </div>
     <div id="diaryGraph"></div>
     <footer>
-        <p>average {{getAverage()}}</p>
-        <input type="button" ng-click="reload()" value="Reload" class="btn btn-warning" id="btnReload" name="btnReload" />
+        <div>
+            <ul class="nav nav-pills diaryactions">
+                <li>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="showTerapies" />Terapies</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="showCalories"/>Calories</label>
+                    </div>
+                </li>
+                <li class="average">
+                    <p>Average {{getAverage()}}</p>
+                </li>
+                <li>
+                    <input type="button" ng-click="reload()" value="Reload" class="btn btn-warning" id="btnReload" name="btnReload" />
+                </li>
+            </ul>
+        </div>
     </footer>
 </div>

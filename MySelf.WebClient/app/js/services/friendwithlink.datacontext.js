@@ -1,6 +1,8 @@
 'use strict';
 
-myselflogApp.factory('friendWithLinkDatacontext', function ($http) {
+myselflogApp.factory('friendWithLinkDatacontext',
+    ['$http', 
+    function ($http) {
     return {
         getAllLogsAsFriend: function (link, callback) {
             $http({ method: "GET", url: "/api/FriendWithLink/", params: { link: link } }).
@@ -9,4 +11,4 @@ myselflogApp.factory('friendWithLinkDatacontext', function ($http) {
                 });
         }
     };
-});
+}]);

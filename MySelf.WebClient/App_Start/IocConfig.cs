@@ -30,20 +30,13 @@ namespace MySelf.WebClient.App_Start
             });
 
             builder.RegisterType<DatabaseFactory>().As<IDatabaseFactory>();
+            builder.RegisterType<ModelReader>().As<IModelReader>();
             builder.RegisterType<CryptoService>().As<ICryptoService>().InstancePerHttpRequest().InstancePerApiRequest();
             builder.RegisterType<Mapper>().As<IMapper>().InstancePerHttpRequest().InstancePerApiRequest();
             builder.RegisterType<LogManager>().As<ILogManager>().InstancePerHttpRequest().InstancePerApiRequest();
 
-            // Autofac will automatically register your components by scanning assembly 
-            //builder.RegisterAssemblyTypes(typeof(LogCommands).Assembly)
-            //    .Where(t => t.Name.EndsWith("Commands"))
-            //    .AsImplementedInterfaces().InstancePerHttpRequest();
-
             builder.RegisterFilterProvider();
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-
-            // Services
-            //builder.RegisterAssemblyTypes(typeof(LogManager).Assembly).Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerHttpRequest().InstancePerApiRequest();
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

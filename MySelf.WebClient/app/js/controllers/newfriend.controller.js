@@ -8,12 +8,13 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     $scope.link = "";
     $scope.graph = {};
     $scope.showTerapies = false;
+    $scope.showCalories = false;
     $scope.graph = {};
     $scope.graph = Morris.Line({
         element: 'diaryGraph',
         xkey: 'logdate',
-        ykeys: ['value', 'slow', 'fast'],
-        labels: ['Diary', 'Slow terapy', 'Fast terapy']
+        ykeys: ['value', 'slow', 'fast', 'calories'],
+        labels: ['Diary', 'Slow terapy', 'Fast terapy', 'Calories']
     });
     $scope.reports = [
         { name: "Day", description: "" },
@@ -26,12 +27,16 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     $scope.next = next;
     $scope.logs = [];
     $scope.getAverage = getAverage;
+    $scope.foodTypes = ["Snack", "Fruit"];
     $scope.reload = function () {
         $route.reload();
     };
     $scope.isTerapiesGraphCollapsed = true;
 
     function getAverage() {
+        if ($scope.logs.length < 1) {
+            return "...";
+        }
         var sum = 0;
         for (var i = 0; i < $scope.logs.length; i++) {
             sum += parseInt($scope.logs[i].value);
@@ -72,6 +77,10 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     }
 
     $scope.$watch('showTerapies', function () {
+        refreshGraph();
+    });
+
+    $scope.$watch('showCalories', function () {
         refreshGraph();
     });
 
@@ -147,7 +156,15 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
                     graphData.push(item);
                 });
                 $scope.terapies = terapies;
-            } 
+            }
+            // TODO continua da qui
+            if ($scope.showCalories && $scope.profile && $scope.profile.foods) {
+                var calories = valuesService.getCalories($scope.selectedreport.name, $scope.profile.foods, $scope.date);
+                angular.forEach(calories, function (item) {
+                    graphData.push(item);
+                });
+                $scope.calories = calories;
+            }
             $scope.graph.setData(graphData);
             $scope.selectedreport.description = getReportDescription($scope.selectedreport.name);
             $scope.logs = logs;
