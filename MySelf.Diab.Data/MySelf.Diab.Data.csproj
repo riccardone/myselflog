@@ -63,26 +63,6 @@
   <ItemGroup>
     <Compile Include="AuthConstants.cs" />
     <Compile Include="ContextConfig.cs" />
-    <Compile Include="Migrations\201509121159559_Start.cs" />
-    <Compile Include="Migrations\201509121159559_Start.Designer.cs">
-      <DependentUpon>201509121159559_Start.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512030915302_AddedFoodAndFoodTypes.cs" />
-    <Compile Include="Migrations\201512030915302_AddedFoodAndFoodTypes.Designer.cs">
-      <DependentUpon>201512030915302_AddedFoodAndFoodTypes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512040929150_RemovedFoodType.cs" />
-    <Compile Include="Migrations\201512040929150_RemovedFoodType.Designer.cs">
-      <DependentUpon>201512040929150_RemovedFoodType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512061807213_RefactoredFoodTypesAsList.cs" />
-    <Compile Include="Migrations\201512061807213_RefactoredFoodTypesAsList.Designer.cs">
-      <DependentUpon>201512061807213_RefactoredFoodTypesAsList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512061815239_RefactoredFoodTypesAsString.cs" />
-    <Compile Include="Migrations\201512061815239_RefactoredFoodTypesAsString.Designer.cs">
-      <DependentUpon>201512061815239_RefactoredFoodTypesAsString.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfigurations\FoodConfiguration.cs" />
     <Compile Include="ModelConfigurations\TerapyConfiguration.cs" />
@@ -123,23 +103,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201509121159559_Start.resx">
-      <DependentUpon>201509121159559_Start.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512030915302_AddedFoodAndFoodTypes.resx">
-      <DependentUpon>201512030915302_AddedFoodAndFoodTypes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512040929150_RemovedFoodType.resx">
-      <DependentUpon>201512040929150_RemovedFoodType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512061807213_RefactoredFoodTypesAsList.resx">
-      <DependentUpon>201512061807213_RefactoredFoodTypesAsList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512061815239_RefactoredFoodTypesAsString.resx">
-      <DependentUpon>201512061815239_RefactoredFoodTypesAsString.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
