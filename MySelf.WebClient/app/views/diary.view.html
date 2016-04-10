@@ -23,7 +23,7 @@
         <div class="col-md-12">
             <ul class="nav nav-pills">
                 <li data-ng-repeat="report in reports" data-ng-class="(report.name == selectedreport.name && 'active')">
-                    <a href data-ng-click="setReport(report)">{{ report.name }}</a>
+                    <a data-ng-click="setReport(report)">{{ report.name }}</a>
                 </li>
             </ul>
         </div>
@@ -44,6 +44,9 @@
                 </li>
                 <li class="average">
                     <p>Average {{getAverage()}}</p>
+                </li>
+                <li class="average" ng-show="selectedreport.name === 'Day' && calories && calories.length > 0">
+                    <p>Calories {{getCalories()}}</p>
                 </li>
                 <li>
                     <input type="button" ng-click="reload()" value="Reload" class="btn btn-warning" id="btnReload" name="btnReload" />

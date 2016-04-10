@@ -27,6 +27,7 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
     $scope.next = next;
     $scope.logs = [];
     $scope.getAverage = getAverage;
+    $scope.getCalories = getCalories;
     $scope.foodTypes = ["Snack", "Fruit"];
     $scope.reload = function () {
         $route.reload();
@@ -43,6 +44,21 @@ function ($scope, friendDatacontext, logger, $filter, moment, $routeParams, $rou
         }
 
         var avg = sum / $scope.logs.length;
+        return parseInt(Math.round(avg * 100) / 100);
+    }
+
+    function getCalories() {
+        if (!$scope.calories || $scope.calories.length < 1) {
+            return "...";
+        }
+        var sum = 0;
+        for (var i = 0; i < $scope.calories.length; i++) {
+            sum += parseInt($scope.calories[i].calories);
+        }
+        if ($scope.selectedreport.name == "Day") {
+            return sum;
+        }
+        var avg = sum / $scope.calories.length;
         return parseInt(Math.round(avg * 100) / 100);
     }
 
