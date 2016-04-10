@@ -63,6 +63,10 @@
   <ItemGroup>
     <Compile Include="AuthConstants.cs" />
     <Compile Include="ContextConfig.cs" />
+    <Compile Include="Migrations\201604101014501_undefined.cs" />
+    <Compile Include="Migrations\201604101014501_undefined.Designer.cs">
+      <DependentUpon>201604101014501_undefined.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfigurations\FoodConfiguration.cs" />
     <Compile Include="ModelConfigurations\TerapyConfiguration.cs" />
@@ -103,6 +107,11 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201604101014501_undefined.resx">
+      <DependentUpon>201604101014501_undefined.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
