@@ -256,7 +256,7 @@
     <Content Include="app\js\common\common.js" />
     <Content Include="app\js\common\logger.js" />
     <Content Include="app\js\common\spinner.js" />
-    <Content Include="app\js\ajaxlogin.js" />
+    <Content Include="Scripts\ajaxlogin.js" />
     <Content Include="app\js\controllers\loader.controller.js" />
     <Content Include="app\js\controllers\profile.controller.js" />
     <Content Include="app\js\controllers\profiles.controller.js" />
